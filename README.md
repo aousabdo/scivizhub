@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+# SciVizHub - Scientific Visualization Hub
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SciVizHub is an interactive educational platform featuring visualizations that make complex scientific concepts intuitive and accessible.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Interactive visualizations across multiple scientific fields
+- Detailed explanations of scientific concepts
+- Responsive design that works on desktop and mobile
+- Clear categorization by subject area
+- User-friendly interface with intuitive navigation
 
-### `npm start`
+## Live Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Visit SciVizHub](https://scivizhub.org) (coming soon)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Table of Contents
 
-### `npm test`
+- [SciVizHub - Scientific Visualization Hub](#scivizhub---scientific-visualization-hub)
+  - [Features](#features)
+  - [Live Demo](#live-demo)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Running the App](#running-the-app)
+  - [Project Structure](#project-structure)
+  - [Available Visualizations](#available-visualizations)
+  - [Adding New Visualizations](#adding-new-visualizations)
+  - [Contributing](#contributing)
+  - [License](#license)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Before running SciVizHub, make sure you have the following installed:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Node.js](https://nodejs.org/) (v14 or later)
+- [npm](https://www.npmjs.com/) (v6 or later)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/aousabdo/scivizhub.git
+   cd scivizhub
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Running the App
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To run the app in development mode:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm start
+```
 
-## Learn More
+This will start the app at [http://localhost:3000](http://localhost:3000).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To build the app for production:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm run build
+```
 
-### Code Splitting
+This will create optimized production files in the `build` folder.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Project Structure
 
-### Analyzing the Bundle Size
+```
+scivizhub/
+├── public/              # Static files
+│   ├── images/          # Visualization thumbnails & assets
+│   └── favicon.ico      
+├── src/
+│   ├── components/      # Reusable components
+│   │   ├── Layout/      # Header, Footer, Container components
+│   │   ├── UI/          # UI components like cards, buttons
+│   │   └── Visualizations/  # Visualization components
+│   ├── pages/           # Page components
+│   │   ├── Home/        # Homepage
+│   │   ├── About/       # About page
+│   │   ├── Category/    # Category pages
+│   │   └── Visualization/  # Visualization pages
+│   ├── data/            # Data files including visualization registry
+│   ├── hooks/           # Custom React hooks
+│   ├── utils/           # Utility functions
+│   ├── App.js           # Main app component
+│   └── index.js         # App entry point
+└── package.json         # Dependencies and scripts
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Available Visualizations
 
-### Making a Progressive Web App
+Currently, SciVizHub features the following visualizations:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. **Bayes' Theorem** - Interactive visualization demonstrating conditional probability through multiple perspectives
 
-### Advanced Configuration
+## Adding New Visualizations
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+To add a new visualization:
 
-### Deployment
+1. Create a new visualization component in `src/components/Visualizations/`
+2. Create a wrapper page in `src/pages/Visualization/`
+3. Add the visualization metadata to `src/data/visualizations.js`
+4. Add a route in `src/App.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+See the existing Bayes' Theorem visualization for reference.
 
-### `npm run build` fails to minify
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+We welcome contributions to SciVizHub! Please check out our [contribution guidelines](CONTRIBUTING.md) for details on how to get started.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

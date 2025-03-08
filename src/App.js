@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/Home';
+import BayesTheoremPage from './pages/Visualization/BayesTheorem';
+import AboutPage from './pages/About';
+import CategoryPage from './pages/Category';
+import AllCategoriesPage from './pages/Category/AllCategories';
+import Layout from './components/Layout/Layout';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/visualization/bayes-theorem" element={<BayesTheoremPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/categories" element={<AllCategoriesPage />} />
+          <Route path="/category/:categoryId" element={<CategoryPage />} />
+          {/* Add more routes as you develop more pages */}
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
