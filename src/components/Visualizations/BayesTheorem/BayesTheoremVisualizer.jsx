@@ -146,380 +146,309 @@ const BayesTheoremVisualizer = () => {
     const trueNegatives = healthyCount - falsePositives;
     const totalPositives = truePositives + falsePositives;
     
-    // Calculated circle dimensions based on actual proportions
-    const diagramWidth = 600;
-    const diagramHeight = 500;
-    const centerY = 220;
-    const centerX = diagramWidth / 2;
+    // Simple, clean implementation with basic dimensions
+    const width = 600;
+    const height = 400;
+    const centerY = 180;
     
-    // Disease circle (blue)
-    const diseaseProportion = diseaseCount / populationSize;
-    const diseaseRadius = Math.sqrt(diseaseProportion) * 140;
-    const diseaseCenterX = centerX - 60;
+    // Basic circle dimensions
+    const radius = 100;
+    // Adjust separation to make overlap visually representative
+    const separation = radius * 0.8;
     
-    // Test positive circle (red)
-    const positiveProportion = totalPositives / populationSize;
-    const positiveRadius = Math.sqrt(positiveProportion) * 140;
-    const positiveCenterX = centerX + 60;
-    
-    // Color scheme
-    const colors = {
-      disease: {
-        fill: '#adf',
-        border: '#68c',
-        dark: '#37c',
-        light: '#e5f5ff'
-      },
-      positive: {
-        fill: '#faa',
-        border: '#d88',
-        dark: '#c44',
-        light: '#ffebeb'
-      },
-      truePositive: {
-        fill: '#afa',
-        border: '#4a4',
-        dark: '#383',
-        light: '#efffef'
-      },
-      falseNegative: {
-        fill: 'none',
-        border: '#900',
-        dark: '#700',
-        light: '#ffeeee'
-      },
-      falsePositive: {
-        fill: 'none',
-        border: '#900',
-        dark: '#700',
-        light: '#ffeeee'
-      },
-      trueNegative: {
-        fill: 'none',
-        border: '#080',
-        dark: '#070',
-        light: '#efffef'
-      },
-      labels: {
-        bg: 'rgba(255, 255, 255, 0.9)',
-        border: '#aaa',
-        text: '#333'
-      },
-      result: {
-        fill: '#fff7e0',
-        border: '#e0c070',
-        text: '#805000'
-      }
-    };
-    
-    // Helper function to create pointer lines from labels to diagram parts
-    const createPointer = (fromX, fromY, toX, toY, color, dashed = false) => {
-      const distance = Math.sqrt(Math.pow(toX - fromX, 2) + Math.pow(toY - fromY, 2));
-      const midX = (fromX + toX) / 2;
-      const midY = (fromY + toY) / 2;
-      const controlX = midX + (toY - fromY) * 0.2;
-      const controlY = midY - (toX - fromX) * 0.2;
-      
-      return (
-        <path 
-          d={`M ${fromX} ${fromY} Q ${controlX} ${controlY} ${toX} ${toY}`}
-          fill="none"
-          stroke={color}
-          strokeWidth={1.5}
-          strokeDasharray={dashed ? "4,3" : "none"}
-          markerEnd="url(#arrowhead)"
-        />
-      );
-    };
+    // Calculate centers
+    const diseaseCenterX = width / 2 - separation;
+    const positiveCenterX = width / 2 + separation;
     
     return (
       <div className="p-4 border rounded-lg bg-white shadow-sm">
-        <div className="flex flex-col">
-          {/* Diagram Section */}
-          <div className="flex justify-center mb-10 relative">
-            <svg width={diagramWidth} height={diagramHeight} viewBox={`0 0 ${diagramWidth} ${diagramHeight}`}>
-              {/* Title */}
-              <text x={centerX} y="30" textAnchor="middle" fontSize="20" fontWeight="bold">
-                Venn Diagram of Disease and Test Results
-              </text>
-              
-              {/* Population indicator */}
-              <text x="50" y="80" fontSize="16" fontWeight="bold">
-                Population: {populationSize} people
-              </text>
-              
-              {/* Define arrow markers for pointers */}
-              <defs>
-                <marker 
-                  id="arrowhead" 
-                  markerWidth="10" 
-                  markerHeight="7" 
-                  refX="9" 
-                  refY="3.5" 
-                  orient="auto"
+        <div className="text-center mb-4">
+          <h3 className="text-2xl font-bold">Venn Diagram of Disease and Test Results</h3>
+          <p className="text-md mt-1">Population: {populationSize.toLocaleString()} people</p>
+        </div>
+        
+        <div className="flex flex-col md:flex-row gap-6">
+          {/* Main Diagram Area */}
+          <div className="flex-1">
+            <div className="bg-gray-50 rounded-lg p-4 relative overflow-hidden">
+              <svg 
+                width="100%" 
+                height="360" 
+                viewBox={`0 0 ${width} 360`} 
+                className="overflow-visible"
+                style={{ maxWidth: '100%' }}
+              >
+                {/* Background annotation for True Negatives */}
+                <text 
+                  x="100" 
+                  y="320" 
+                  fontSize="14" 
+                  fill="#666"
+                  fontWeight="bold"
                 >
-                  <polygon points="0 0, 10 3.5, 0 7" fill="#777" />
-                </marker>
-              </defs>
-              
-              {/* Main circles container for proper centering */}
-              <g transform={`translate(0, 50)`}>
-                {/* Disease Circle */}
+                  True Negatives: {trueNegatives} ({(trueNegatives/populationSize*100).toFixed(1)}%)
+                </text>
+                
+                {/* Disease Circle (Blue) */}
                 <circle 
                   cx={diseaseCenterX} 
                   cy={centerY} 
-                  r={diseaseRadius} 
-                  fill={colors.disease.fill} 
-                  fillOpacity="0.8" 
-                  stroke={colors.disease.border} 
+                  r={radius} 
+                  fill="rgba(179, 211, 255, 0.85)" 
+                  stroke="#4a86e8" 
                   strokeWidth="2"
                 />
                 
-                {/* Positive Test Circle */}
+                {/* Positive Test Circle (Red) */}
                 <circle 
                   cx={positiveCenterX} 
                   cy={centerY} 
-                  r={positiveRadius} 
-                  fill={colors.positive.fill} 
-                  fillOpacity="0.8" 
-                  stroke={colors.positive.border} 
+                  r={radius} 
+                  fill="rgba(255, 179, 179, 0.85)" 
+                  stroke="#e06666" 
                   strokeWidth="2"
                 />
                 
-                {/* Disease Label - Outside with pointer */}
-                <rect 
-                  x={40} 
-                  y={120} 
-                  width={120} 
-                  height={50} 
-                  fill="white" 
-                  stroke={colors.disease.border}
-                  strokeWidth="1"
-                  rx="4"
-                />
-                <text x={100} y={140} textAnchor="middle" fontSize="14" fontWeight="bold" fill={colors.disease.dark}>
+                {/* Disease Label */}
+                <text 
+                  x={diseaseCenterX - 50} 
+                  y={centerY - 30} 
+                  fontSize="16" 
+                  fontWeight="bold"
+                  fill="#333"
+                >
                   Disease
                 </text>
-                <text x={100} y={160} textAnchor="middle" fontSize="12">
-                  {diseaseCount} people ({(prevalence * 100).toFixed(1)}%)
+                <text 
+                  x={diseaseCenterX - 50} 
+                  y={centerY - 10} 
+                  fontSize="14"
+                  fill="#333"
+                >
+                  {diseaseCount} people
                 </text>
-                {createPointer(120, 145, diseaseCenterX - 25, centerY, colors.disease.dark)}
+                <text 
+                  x={diseaseCenterX - 50} 
+                  y={centerY + 10} 
+                  fontSize="14"
+                  fill="#333"
+                >
+                  ({(diseaseCount/populationSize*100).toFixed(1)}%)
+                </text>
                 
-                {/* Test Positive Label - Outside with pointer */}
-                <rect 
-                  x={diagramWidth - 160} 
-                  y={120} 
-                  width={120} 
-                  height={50} 
-                  fill="white" 
-                  stroke={colors.positive.border}
-                  strokeWidth="1"
-                  rx="4"
-                />
-                <text x={diagramWidth - 100} y={140} textAnchor="middle" fontSize="14" fontWeight="bold" fill={colors.positive.dark}>
+                {/* Positive Test Label */}
+                <text 
+                  x={positiveCenterX + 20} 
+                  y={centerY - 30} 
+                  fontSize="16" 
+                  fontWeight="bold"
+                  fill="#333"
+                >
                   Positive Test
                 </text>
-                <text x={diagramWidth - 100} y={160} textAnchor="middle" fontSize="12">
-                  {totalPositives} people ({(totalPositives/populationSize*100).toFixed(1)}%)
+                <text 
+                  x={positiveCenterX + 20} 
+                  y={centerY - 10} 
+                  fontSize="14"
+                  fill="#333"
+                >
+                  {totalPositives} people
                 </text>
-                {createPointer(diagramWidth - 120, 145, positiveCenterX + 25, centerY, colors.positive.dark)}
+                <text 
+                  x={positiveCenterX + 20} 
+                  y={centerY + 10} 
+                  fontSize="14"
+                  fill="#333"
+                >
+                  ({(totalPositives/populationSize*100).toFixed(1)}%)
+                </text>
                 
-                {/* True Positives Label - Outside with pointer */}
-                <rect 
-                  x={centerX - 65} 
-                  y={140} 
-                  width={130} 
-                  height={50} 
-                  fill="white" 
-                  stroke={colors.truePositive.border}
-                  strokeWidth="1.5"
-                  rx="4"
-                />
-                <text x={centerX} y={160} textAnchor="middle" fontSize="14" fontWeight="bold" fill={colors.truePositive.dark}>
-                  True Positives
+                {/* True Positives Label (Centered between circles) */}
+                <text 
+                  x={width/2} 
+                  y={centerY - 5} 
+                  textAnchor="middle" 
+                  fontSize="15" 
+                  fontWeight="bold"
+                  fill="#008800"
+                >
+                  True Positives: {truePositives}
                 </text>
-                <text x={centerX} y={180} textAnchor="middle" fontSize="12">
-                  {truePositives} ({(truePositives/populationSize*100).toFixed(1)}%)
+                <text 
+                  x={width/2} 
+                  y={centerY + 15} 
+                  textAnchor="middle" 
+                  fontSize="13"
+                  fill="#008800"
+                >
+                  ({(truePositives/populationSize*100).toFixed(1)}%)
                 </text>
-                {createPointer(centerX, 190, centerX, centerY - 20, colors.truePositive.dark)}
                 
                 {/* False Negatives Label */}
-                <rect 
-                  x={60} 
-                  y={centerY + 60} 
-                  width={140} 
-                  height={50} 
-                  fill="white" 
-                  stroke={colors.falseNegative.border}
-                  strokeWidth="1"
-                  strokeDasharray="4,2"
-                  rx="4"
-                />
-                <text x={130} y={centerY + 80} textAnchor="middle" fontSize="14" fontWeight="bold" fill={colors.falseNegative.dark}>
-                  False Negatives
+                <text 
+                  x={diseaseCenterX - 40} 
+                  y={centerY + 70} 
+                  fontSize="14" 
+                  fontWeight="bold"
+                  fill="#cc0000"
+                >
+                  False Negatives: {falseNegatives}
                 </text>
-                <text x={130} y={centerY + 100} textAnchor="middle" fontSize="12">
-                  {falseNegatives} ({(falseNegatives/populationSize*100).toFixed(1)}%)
+                <text 
+                  x={diseaseCenterX - 40} 
+                  y={centerY + 90} 
+                  fontSize="12"
+                  fill="#cc0000"
+                >
+                  ({(falseNegatives/populationSize*100).toFixed(1)}%)
                 </text>
-                {createPointer(130, centerY + 60, diseaseCenterX - 10, centerY + 30, colors.falseNegative.dark, true)}
                 
                 {/* False Positives Label */}
-                <rect 
-                  x={diagramWidth - 200} 
-                  y={centerY + 60} 
-                  width={140} 
-                  height={50} 
-                  fill="white" 
-                  stroke={colors.falsePositive.border}
-                  strokeWidth="1"
-                  strokeDasharray="4,2"
-                  rx="4"
-                />
-                <text x={diagramWidth - 130} y={centerY + 80} textAnchor="middle" fontSize="14" fontWeight="bold" fill={colors.falsePositive.dark}>
-                  False Positives
+                <text 
+                  x={positiveCenterX + 10} 
+                  y={centerY + 70} 
+                  fontSize="14" 
+                  fontWeight="bold"
+                  fill="#cc0000"
+                >
+                  False Positives: {falsePositives}
                 </text>
-                <text x={diagramWidth - 130} y={centerY + 100} textAnchor="middle" fontSize="12">
-                  {falsePositives} ({(falsePositives/populationSize*100).toFixed(1)}%)
+                <text 
+                  x={positiveCenterX + 10} 
+                  y={centerY + 90} 
+                  fontSize="12"
+                  fill="#cc0000"
+                >
+                  ({(falsePositives/populationSize*100).toFixed(1)}%)
                 </text>
-                {createPointer(diagramWidth - 130, centerY + 60, positiveCenterX + 10, centerY + 30, colors.falsePositive.dark, true)}
-                
-                {/* True Negatives Label */}
-                <rect 
-                  x={centerX - 70} 
-                  y={centerY + 100} 
-                  width={140} 
-                  height={50} 
-                  fill="white" 
-                  stroke={colors.trueNegative.border}
-                  strokeWidth="1"
-                  strokeDasharray="4,2"
-                  rx="4"
-                />
-                <text x={centerX} y={centerY + 120} textAnchor="middle" fontSize="14" fontWeight="bold" fill={colors.trueNegative.dark}>
-                  True Negatives
-                </text>
-                <text x={centerX} y={centerY + 140} textAnchor="middle" fontSize="12">
-                  {trueNegatives} ({(trueNegatives/populationSize*100).toFixed(1)}%)
-                </text>
-                {createPointer(centerX, centerY + 100, centerX, centerY + 60, colors.trueNegative.dark, true)}
-              </g>
-              
-              {/* Bayes' Theorem Result Box */}
-              <rect 
-                x={centerX - 120} 
-                y={centerY + 180} 
-                width={240} 
-                height={120} 
-                rx="8" 
-                fill={colors.result.fill} 
-                stroke={colors.result.border} 
-                strokeWidth="2"
-              />
-              <text x={centerX} y={centerY + 210} textAnchor="middle" fontSize="18" fontWeight="bold" fill={colors.result.text}>
-                Bayes' Theorem:
-              </text>
-              <text x={centerX} y={centerY + 235} textAnchor="middle" fontSize="14">
-                P(Disease|Positive) = 
-              </text>
-              
-              <line x1={centerX - 60} y1={centerY + 255} x2={centerX + 60} y2={centerY + 255} stroke="#444" strokeWidth="1.5" />
-              
-              <text x={centerX} y={centerY + 253} textAnchor="middle" fontSize="14">
-                {truePositives} (true positives)
-              </text>
-              <text x={centerX} y={centerY + 273} textAnchor="middle" fontSize="14">
-                {totalPositives} (all positives)
-              </text>
-              
-              <text x={centerX} y={centerY + 295} textAnchor="middle" fontSize="20" fontWeight="bold" fill={colors.result.text}>
-                = {(posteriorProbability * 100).toFixed(1)}%
-              </text>
-            </svg>
+              </svg>
+            </div>
+            
+            {/* Bayes' Theorem Box */}
+            <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg text-center">
+              <h4 className="text-xl font-bold mb-3 text-amber-800">Bayes' Theorem</h4>
+              <div className="inline-block mx-auto text-center">
+                <div className="mb-2 font-mono text-lg">P(Disease|Positive) =</div>
+                <div className="flex flex-col items-center">
+                  <div className="px-4 font-mono">{truePositives} (true positives)</div>
+                  <div className="border-t border-gray-500 w-full my-1"></div>
+                  <div className="px-4 font-mono">{totalPositives} (all positives)</div>
+                </div>
+                <div className="text-2xl font-bold mt-3">
+                  = {(posteriorProbability * 100).toFixed(1)}%
+                </div>
+              </div>
+            </div>
           </div>
           
-          {/* Information Section - Below Diagram */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Left Column - Key Terminology */}
-            <div className="p-4 bg-gray-50 rounded-lg border">
-              <h3 className="text-lg font-semibold mb-3">Key Terminology</h3>
-              <div className="grid grid-cols-1 gap-3">
+          {/* Legend and Information */}
+          <div className="md:w-80 flex-shrink-0">
+            <div className="bg-gray-50 rounded-lg p-4 border mb-4">
+              <h4 className="text-lg font-bold border-b pb-2 mb-3">Diagram Legend</h4>
+              <div className="space-y-3">
                 <div className="flex items-start">
-                  <div className="w-4 h-4 bg-blue-200 border border-blue-600 mr-2 mt-1"></div>
+                  <div className="w-5 h-5 bg-blue-200 border border-blue-600 mr-2 mt-1 rounded"></div>
                   <div>
-                    <span className="font-medium block">Disease Prevalence:</span> 
-                    <span className="block">{(prevalence * 100).toFixed(1)}% of population ({diseaseCount} of {populationSize} people)</span>
+                    <div className="font-medium">Disease</div>
+                    <div className="text-sm">{diseaseCount} people ({(diseaseCount/populationSize*100).toFixed(1)}%)</div>
                   </div>
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-4 h-4 bg-red-200 border border-red-600 mr-2 mt-1"></div>
+                  <div className="w-5 h-5 bg-red-200 border border-red-600 mr-2 mt-1 rounded"></div>
                   <div>
-                    <span className="font-medium block">Test Results:</span> 
-                    <span className="block">{totalPositives} positive tests ({(totalPositives/populationSize*100).toFixed(1)}% of population)</span>
+                    <div className="font-medium">Positive Test</div>
+                    <div className="text-sm">{totalPositives} people ({(totalPositives/populationSize*100).toFixed(1)}%)</div>
                   </div>
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-4 h-4 bg-green-200 border border-green-600 mr-2 mt-1"></div>
+                  <div className="w-5 h-5 bg-green-200 border border-green-600 mr-2 mt-1 rounded"></div>
                   <div>
-                    <span className="font-medium block">True Positives:</span> 
-                    <span className="block">People with disease who test positive ({truePositives} people)</span>
+                    <div className="font-medium">True Positives</div>
+                    <div className="text-sm">People with disease who test positive</div>
+                    <div className="text-sm font-medium">{truePositives} ({(truePositives/populationSize*100).toFixed(1)}%)</div>
                   </div>
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-4 h-4 bg-red-200 border-dashed border-red-600 mr-2 mt-1"></div>
+                  <div className="w-5 h-5 bg-blue-100 border-dashed border border-red-600 mr-2 mt-1 rounded"></div>
                   <div>
-                    <span className="font-medium block">False Positives:</span> 
-                    <span className="block">People without disease who test positive ({falsePositives} people)</span>
+                    <div className="font-medium">False Negatives</div>
+                    <div className="text-sm">People with disease who test negative</div>
+                    <div className="text-sm font-medium">{falseNegatives} ({(falseNegatives/populationSize*100).toFixed(1)}%)</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="w-5 h-5 bg-red-100 border-dashed border border-red-600 mr-2 mt-1 rounded"></div>
+                  <div>
+                    <div className="font-medium">False Positives</div>
+                    <div className="text-sm">People without disease who test positive</div>
+                    <div className="text-sm font-medium">{falsePositives} ({(falsePositives/populationSize*100).toFixed(1)}%)</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="w-5 h-5 bg-gray-100 border border-gray-400 mr-2 mt-1 rounded"></div>
+                  <div>
+                    <div className="font-medium">True Negatives</div>
+                    <div className="text-sm">People without disease who test negative</div>
+                    <div className="text-sm font-medium">{trueNegatives} ({(trueNegatives/populationSize*100).toFixed(1)}%)</div>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* Right Column - Probability Breakdown */}
-            <div className="p-4 bg-gray-50 rounded-lg border">
-              <h3 className="text-lg font-semibold mb-3">Probability Breakdown</h3>
-              <div className="space-y-2">
-                <div>
-                  <span className="font-mono">P(Disease)</span> = <strong>{prevalence.toFixed(4)}</strong> 
-                  <span className="text-sm text-gray-500 ml-1">(prior probability)</span>
-                </div>
-                
-                <div>
-                  <span className="font-mono">P(Positive|Disease)</span> = <strong>{sensitivity.toFixed(2)}</strong> 
-                  <span className="text-sm text-gray-500 ml-1">(sensitivity)</span>
-                </div>
-                
-                <div>
-                  <span className="font-mono">P(Negative|No Disease)</span> = <strong>{specificity.toFixed(2)}</strong> 
-                  <span className="text-sm text-gray-500 ml-1">(specificity)</span>
-                </div>
-                
-                <div>
-                  <span className="font-mono">P(Positive)</span> = <strong>{(totalPositives/populationSize).toFixed(4)}</strong> 
-                  <span className="text-sm text-gray-500 ml-1">(total positive rate)</span>
-                </div>
-                
-                <div className="pt-2 font-semibold border-t mt-2">
-                  <span className="font-mono">P(Disease|Positive)</span> = <strong>{posteriorProbability.toFixed(4)}</strong>
-                  <span className="text-sm text-gray-500 ml-1">(posterior)</span>
-                  <div className="font-bold text-lg text-center mt-1 p-1 bg-yellow-50 rounded-md">
-                    = {(posteriorProbability * 100).toFixed(1)}%
-                  </div>
-                </div>
-              </div>
-              
-              <div className="mt-4 pt-3 border-t">
-                <h4 className="font-medium mb-2">Base Rate Fallacy</h4>
-                <p className="text-sm">
-                  Many people expect a positive test to mean the probability of disease is close to the test's 
-                  accuracy (<strong>{(sensitivity * 100).toFixed(0)}%</strong>). However, with rare diseases, 
-                  the actual probability can be surprisingly different 
-                  (<strong>{(posteriorProbability * 100).toFixed(1)}%</strong>).
-                </p>
-              </div>
+            <div className="bg-gray-50 rounded-lg p-4 border">
+              <h4 className="text-lg font-bold border-b pb-2 mb-3">Base Rate Fallacy</h4>
+              <p className="text-sm mb-2">
+                Many people expect a positive test to indicate a high probability of disease 
+                (close to the test's sensitivity of <strong>{(sensitivity * 100).toFixed(0)}%</strong>).
+              </p>
+              <p className="text-sm">
+                However, when disease prevalence is low ({(prevalence * 100).toFixed(1)}%), the 
+                actual probability is only <strong>{(posteriorProbability * 100).toFixed(1)}%</strong>.
+              </p>
             </div>
+          </div>
+        </div>
+        
+        {/* Probability Breakdown - Bottom Card */}
+        <div className="mt-6 p-4 bg-gray-50 rounded-lg border">
+          <h3 className="text-lg font-bold border-b pb-2 mb-4">Probability Breakdown</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="p-2 bg-white rounded border">
+              <div className="font-mono text-sm mb-1">P(Disease)</div>
+              <div className="text-xl font-bold">{prevalence.toFixed(4)}</div>
+              <div className="text-xs text-gray-500">Prior probability</div>
+            </div>
+            
+            <div className="p-2 bg-white rounded border">
+              <div className="font-mono text-sm mb-1">P(Positive|Disease)</div>
+              <div className="text-xl font-bold">{sensitivity.toFixed(2)}</div>
+              <div className="text-xs text-gray-500">Sensitivity</div>
+            </div>
+            
+            <div className="p-2 bg-white rounded border">
+              <div className="font-mono text-sm mb-1">P(Negative|No Disease)</div>
+              <div className="text-xl font-bold">{specificity.toFixed(2)}</div>
+              <div className="text-xs text-gray-500">Specificity</div>
+            </div>
+            
+            <div className="p-2 bg-white rounded border">
+              <div className="font-mono text-sm mb-1">P(Positive)</div>
+              <div className="text-xl font-bold">{(totalPositives/populationSize).toFixed(4)}</div>
+              <div className="text-xs text-gray-500">Total positive rate</div>
+            </div>
+          </div>
+          
+          <div className="mt-4 pt-4 border-t text-center">
+            <div className="font-mono text-lg mb-2">P(Disease|Positive)</div>
+            <div className="inline-block px-8 py-2 bg-yellow-100 rounded-lg border border-yellow-300">
+              <span className="text-3xl font-bold">{(posteriorProbability * 100).toFixed(1)}%</span>
+            </div>
+            <div className="text-sm text-gray-500 mt-1">Posterior probability</div>
           </div>
         </div>
       </div>

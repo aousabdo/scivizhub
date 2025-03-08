@@ -62,7 +62,7 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="https://github.com/your-username/scivizhub" 
+                  href="https://github.com/aousabdo/scivizhub" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-white"

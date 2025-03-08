@@ -98,7 +98,7 @@ const AboutPage = () => {
             Ready to contribute? Check out our GitHub repository and contribution guidelines!
           </p>
           <a 
-            href="https://github.com/your-username/scivizhub" 
+            href="https://github.com/aousabdo/scivizhub" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-block px-6 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors"
