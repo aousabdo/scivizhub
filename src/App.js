@@ -16,7 +16,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/scivizhub">
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
