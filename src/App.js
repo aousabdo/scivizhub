@@ -8,6 +8,7 @@ import Layout from './components/Layout/Layout';
 import SortingAlgorithmsPage from './pages/Visualization/SortingAlgorithms';
 import CentralLimitTheoremPage from './pages/Visualization/CentralLimitTheorem';
 import PathfindingAlgorithmsPage from './pages/Visualization/PathfindingAlgorithms';
+import PendulumWavePage from './pages/Visualization/PendulumWave';
 
 
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/visualization/sorting-algorithms" element={<SortingAlgorithmsPage />} />
           <Route path="/visualization/central-limit-theorem" element={<CentralLimitTheoremPage />} />
           <Route path="/visualization/pathfinding-algorithms" element={<PathfindingAlgorithmsPage />} />
+          <Route path="/visualization/pendulum-wave" element={<PendulumWavePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/categories" element={<AllCategoriesPage />} />
           <Route path="/category/:categoryId" element={<CategoryPage />} />

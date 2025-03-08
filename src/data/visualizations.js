@@ -111,6 +111,30 @@ const visualizations = [
     prerequisites: ['Basic graph theory concepts'],
     concepts: ['Graph Traversal', 'Heuristics', 'Algorithm Complexity', 'Shortest Path Problems'],
   },
+
+  {
+    id: 'pendulum-wave',
+    title: 'Pendulum Wave Dynamics',
+    shortDescription: 'Explore mesmerizing wave patterns created by pendulums of different lengths moving in and out of phase.',
+    fullDescription: `This visualization demonstrates the fascinating pendulum wave effect, where a series of pendulums with
+    precisely calculated lengths create beautiful wave patterns as they move in and out of phase with each other.
+    Watch as the pendulums start in alignment, then create traveling waves, standing waves, and complex patterns before
+    returning to their original formation. Adjust parameters like pendulum count, length, and cycle time to explore
+    how these factors affect the patterns that emerge.`,
+    route: '/visualization/pendulum-wave',
+    thumbnail: '/images/pendulum-wave-thumbnail.jpg', // You'll need to create this image
+    category: CATEGORIES.PHYSICS,
+    tags: ['physics', 'waves', 'oscillation', 'harmonic motion', 'phase', 'resonance', 'interference'],
+    difficulty: DIFFICULTY.BEGINNER,
+    estimatedTime: '10-15 minutes',
+    author: 'SciVizHub Team',
+    dateAdded: '2023-03-18',
+    featured: true,
+    relatedVisualizations: [], // Connect related visualizations when available
+    prerequisites: ['Basic understanding of waves and oscillation'],
+    concepts: ['Simple Harmonic Motion', 'Phase Relationships', 'Wave Interference', 'Resonance'],
+  },
+
   // Template for adding new visualizations
   /* 
   {
