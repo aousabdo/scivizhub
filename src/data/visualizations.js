@@ -48,6 +48,27 @@ const visualizations = [
     prerequisites: [], // Concepts to understand before this visualization
     concepts: ['Conditional Probability', 'Probability Theory', 'Statistical Inference'],
   },
+
+  {
+    id: 'sorting-algorithms',
+    title: 'Sorting Algorithms',
+    shortDescription: 'Visualize and compare different sorting algorithms to understand their efficiency and mechanisms.',
+    fullDescription: `This interactive visualization demonstrates how various sorting algorithms work by animating the
+    process of arranging elements. Compare algorithms like Bubble Sort, Selection Sort, Insertion Sort, Merge Sort,
+    and Quick Sort to see their performance characteristics and understand algorithmic complexity in an intuitive way.`,
+    route: '/visualization/sorting-algorithms',
+    thumbnail: '/images/sorting-thumbnail.jpg', // You'll need to create this image
+    category: CATEGORIES.COMPUTER_SCIENCE,
+    tags: ['algorithms', 'sorting', 'computer science', 'data structures', 'visualization'],
+    difficulty: DIFFICULTY.BEGINNER,
+    estimatedTime: '15-20 minutes',
+    author: 'SciVizHub Team',
+    dateAdded: '2023-03-10',
+    featured: true,
+    relatedVisualizations: ['bayes-theorem'], // Connect related visualizations
+    prerequisites: ['Basic programming concepts'],
+    concepts: ['Algorithm Complexity', 'Comparison Sorting', 'Time Complexity', 'Space Complexity'],
+  },
   // Template for adding new visualizations
   /* 
   {

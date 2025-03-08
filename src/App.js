@@ -5,6 +5,7 @@ import AboutPage from './pages/About';
 import CategoryPage from './pages/Category';
 import AllCategoriesPage from './pages/Category/AllCategories';
 import Layout from './components/Layout/Layout';
+import SortingAlgorithmsPage from './pages/Visualization/SortingAlgorithms';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/visualization/bayes-theorem" element={<BayesTheoremPage />} />
+          <Route path="/visualization/sorting-algorithms" element={<SortingAlgorithmsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/categories" element={<AllCategoriesPage />} />
           <Route path="/category/:categoryId" element={<CategoryPage />} />
