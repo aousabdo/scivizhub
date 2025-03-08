@@ -455,6 +455,38 @@ const BayesTheoremVisualizer = () => {
     );
   };
 
+  // Visual Proof tab
+  const VisualProof = () => (
+    <div className="p-4 border rounded-lg bg-white shadow-sm">
+      <div className="text-center mb-6">
+        <h3 className="text-2xl font-bold">Visual Proof of Bayes' Theorem</h3>
+        <p className="text-md mt-2 max-w-3xl mx-auto">
+          This visual explanation helps understand how Bayes' Theorem works by showing the relationship
+          between prior probability, likelihood, and posterior probability.
+        </p>
+      </div>
+      
+      <div className="flex justify-center">
+        <img
+          src="/bayes_theorem_visual_proof.jpeg"
+          alt="Visual proof of Bayes' Theorem"
+          className="max-w-full rounded-lg shadow-md"
+          style={{ maxHeight: '70vh' }}
+        />
+      </div>
+      
+      <div className="mt-6 mx-auto max-w-3xl">
+        <h4 className="text-xl font-bold mb-3">Key Insights</h4>
+        <ul className="space-y-2 list-disc pl-6">
+          <li>Bayes' Theorem allows us to update our beliefs based on new evidence</li>
+          <li>The prior probability (initial belief) is transformed into the posterior probability after considering evidence</li>
+          <li>The visual representation shows how conditional probability relates to the joint probability of events</li>
+          <li>By visualizing the process, we can better understand why the formula works the way it does</li>
+        </ul>
+      </div>
+    </div>
+  );
+
   return (
     <div className="p-4 max-w-4xl mx-auto">
       <div className="mb-6">
@@ -532,7 +564,7 @@ const BayesTheoremVisualizer = () => {
       
       <div className="mb-2">
         <div className="border-b border-gray-200">
-          <nav className="flex">
+          <nav className="flex flex-wrap">
             <button
               className={`px-4 py-2 font-medium ${activeTab === 'interactive' ? 'text-blue-600 border-b-2 border-blue-500' : 'text-gray-500 hover:text-gray-700'}`}
               onClick={() => setActiveTab('interactive')}
@@ -551,6 +583,12 @@ const BayesTheoremVisualizer = () => {
             >
               Venn Diagram
             </button>
+            <button
+              className={`px-4 py-2 font-medium ${activeTab === 'visual-proof' ? 'text-blue-600 border-b-2 border-blue-500' : 'text-gray-500 hover:text-gray-700'}`}
+              onClick={() => setActiveTab('visual-proof')}
+            >
+              Visual Proof
+            </button>
           </nav>
         </div>
       </div>
@@ -559,6 +597,7 @@ const BayesTheoremVisualizer = () => {
         {activeTab === 'interactive' && <TableView />}
         {activeTab === 'tree' && <TreeDiagram />}
         {activeTab === 'venn' && <VennDiagram />}
+        {activeTab === 'visual-proof' && <VisualProof />}
       </div>
       
       <div className="mt-6 p-4 bg-gray-50 rounded-lg border">
