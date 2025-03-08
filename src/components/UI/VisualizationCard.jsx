@@ -53,7 +53,7 @@ const VisualizationCard = ({ visualization, detailed = false }) => {
           className="w-full h-48 object-cover" 
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = '/images/placeholder.jpg';
+            e.target.src = '/images/placeholder.svg';
           }}
         />
         
