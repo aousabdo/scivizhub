@@ -21,11 +21,20 @@ jobs:
           node-version: '18'
           cache: 'npm'
 
+      - name: Debug - List directory content
+        run: ls -la
+      
+      - name: Debug - Show package.json
+        run: cat package.json
+
       - name: Install dependencies
-        run: npm ci
+        run: npm install
         
       - name: Build
         run: npm run build
+
+      - name: Debug - List build directory
+        run: ls -la build || echo "Build directory not found"
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
