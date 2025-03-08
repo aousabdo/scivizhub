@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/scivizhub/static/css/main.354e0efb.css",
+    "main.js": "/scivizhub/static/js/main.92d1633e.js",
+    "static/js/453.5e145c16.chunk.js": "/scivizhub/static/js/453.5e145c16.chunk.js",
+    "index.html": "/scivizhub/index.html",
+    "main.354e0efb.css.map": "/scivizhub/static/css/main.354e0efb.css.map",
+    "main.92d1633e.js.map": "/scivizhub/static/js/main.92d1633e.js.map",
+    "453.5e145c16.chunk.js.map": "/scivizhub/static/js/453.5e145c16.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.354e0efb.css",
+    "static/js/main.92d1633e.js"
+  ]
+}
