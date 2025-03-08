@@ -7,6 +7,9 @@ import AllCategoriesPage from './pages/Category/AllCategories';
 import Layout from './components/Layout/Layout';
 import SortingAlgorithmsPage from './pages/Visualization/SortingAlgorithms';
 import CentralLimitTheoremPage from './pages/Visualization/CentralLimitTheorem';
+import PathfindingAlgorithmsPage from './pages/Visualization/PathfindingAlgorithms';
+
+
 
 import './App.css';
 
@@ -19,6 +22,7 @@ function App() {
           <Route path="/visualization/bayes-theorem" element={<BayesTheoremPage />} />
           <Route path="/visualization/sorting-algorithms" element={<SortingAlgorithmsPage />} />
           <Route path="/visualization/central-limit-theorem" element={<CentralLimitTheoremPage />} />
+          <Route path="/visualization/pathfinding-algorithms" element={<PathfindingAlgorithmsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/categories" element={<AllCategoriesPage />} />
           <Route path="/category/:categoryId" element={<CategoryPage />} />

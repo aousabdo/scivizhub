@@ -89,6 +89,28 @@ const visualizations = [
     prerequisites: ['Basic statistics concepts'],
     concepts: ['Sampling Distribution', 'Normal Distribution', 'Statistical Inference', 'Standard Error'],
   },
+
+  {
+    id: 'pathfinding-algorithms',
+    title: 'Pathfinding Algorithms',
+    shortDescription: 'Visualize how algorithms like A* and Dijkstras find optimal paths through mazes and obstacles.',
+    fullDescription: `This interactive visualization demonstrates how different pathfinding algorithms work by animating
+    their search process through a customizable grid. Compare algorithms like Dijkstra's, A*, Breadth-First Search, 
+    Depth-First Search, and Greedy Best-First Search to understand their efficiency, completeness, and optimality properties.
+    Create walls, move start and end points, and watch in real-time as the algorithms navigate the terrain.`,
+    route: '/visualization/pathfinding-algorithms',
+    thumbnail: '/images/pathfinding-thumbnail.jpg', // You'll need to create this image
+    category: CATEGORIES.COMPUTER_SCIENCE,
+    tags: ['algorithms', 'pathfinding', 'computer science', 'graph theory', 'artificial intelligence', 'maze solving'],
+    difficulty: DIFFICULTY.INTERMEDIATE,
+    estimatedTime: '15-25 minutes',
+    author: 'SciVizHub Team',
+    dateAdded: '2023-03-15',
+    featured: true,
+    relatedVisualizations: ['sorting-algorithms'], // Connect related visualizations
+    prerequisites: ['Basic graph theory concepts'],
+    concepts: ['Graph Traversal', 'Heuristics', 'Algorithm Complexity', 'Shortest Path Problems'],
+  },
   // Template for adding new visualizations
   /* 
   {
