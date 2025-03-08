@@ -69,6 +69,26 @@ const visualizations = [
     prerequisites: ['Basic programming concepts'],
     concepts: ['Algorithm Complexity', 'Comparison Sorting', 'Time Complexity', 'Space Complexity'],
   },
+
+  {
+    id: 'central-limit-theorem',
+    title: 'Central Limit Theorem',
+    shortDescription: 'Explore how sample means converge to a normal distribution regardless of the original population distribution.',
+    fullDescription: `The Central Limit Theorem is a fundamental concept in statistics that explains why normal distributions are so common in nature. This interactive visualization lets you select different population distributions (uniform, exponential, bimodal, etc.) and observe how the distribution of sample means approaches a normal distribution as sample size increases.`,
+    route: '/visualization/central-limit-theorem',
+    thumbnail: '/images/clt-thumbnail.jpg', // You'll need to create this image
+    // category: CATEGORIES.STATISTICS,
+    category: CATEGORIES.PROBABILITY,
+    tags: ['statistics', 'probability', 'normal distribution', 'sampling', 'inferential statistics'],
+    difficulty: DIFFICULTY.INTERMEDIATE,
+    estimatedTime: '15-20 minutes',
+    author: 'SciVizHub Team',
+    dateAdded: '2023-03-12',
+    featured: true,
+    relatedVisualizations: ['bayes-theorem'], // Connect related visualizations
+    prerequisites: ['Basic statistics concepts'],
+    concepts: ['Sampling Distribution', 'Normal Distribution', 'Statistical Inference', 'Standard Error'],
+  },
   // Template for adding new visualizations
   /* 
   {
