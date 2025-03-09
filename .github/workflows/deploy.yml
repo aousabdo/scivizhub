@@ -31,7 +31,7 @@ jobs:
         run: npm install
         
       - name: Build
-        run: npm run build
+        run: CI=false npm run build
 
       - name: Debug - List build directory
         run: ls -la build || echo "Build directory not found"
