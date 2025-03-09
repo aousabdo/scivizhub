@@ -10,6 +10,8 @@ import CentralLimitTheoremPage from './pages/Visualization/CentralLimitTheorem';
 import PathfindingAlgorithmsPage from './pages/Visualization/PathfindingAlgorithms';
 import PendulumWavePage from './pages/Visualization/PendulumWave';
 import CompressionAlgorithmsPage from './pages/Visualization/CompressionAlgorithms';
+import FourierTransformPage from './pages/Visualization/FourierTransform';
+
 
 
 
@@ -27,6 +29,7 @@ function App() {
           <Route path="/visualization/pathfinding-algorithms" element={<PathfindingAlgorithmsPage />} />
           <Route path="/visualization/pendulum-wave" element={<PendulumWavePage />} />
           <Route path="/visualization/compression-algorithms" element={<CompressionAlgorithmsPage />} />
+          <Route path="/visualization/fourier-transform" element={<FourierTransformPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/categories" element={<AllCategoriesPage />} />
           <Route path="/category/:categoryId" element={<CategoryPage />} />

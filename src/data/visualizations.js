@@ -157,6 +157,27 @@ const visualizations = [
   },
 
 
+  {
+    id: 'fourier-transform',
+    title: 'Fourier Transform',
+    shortDescription: 'Explore how complex signals can be decomposed into simple sine waves of different frequencies.',
+    fullDescription: `The Fourier Transform is a powerful mathematical technique that decomposes complex signals into a sum of simple
+    sine waves. This interactive visualization lets you see how different signals (square waves, sawtooth, etc.) can be built
+    from sine waves of various frequencies, amplitudes, and phases. Draw your own custom signals and watch in real-time as 
+    they're synthesized and decomposed, gaining intuition for this fundamental concept in signal processing.`,
+    route: '/visualization/fourier-transform',
+    thumbnail: process.env.PUBLIC_URL + '/images/fourier-thumbnail.jpg', // You'll need to create this image
+    category: CATEGORIES.ENGINEERING,
+    tags: ['signal processing', 'wave theory', 'fourier analysis', 'frequency domain', 'harmonics', 'mathematics'],
+    difficulty: DIFFICULTY.INTERMEDIATE,
+    estimatedTime: '15-20 minutes',
+    author: 'SciVizHub Team',
+    dateAdded: '2023-04-15',
+    featured: true,
+    relatedVisualizations: ['pendulum-wave'], // Connect to related visualizations
+    prerequisites: ['Basic trigonometry'],
+    concepts: ['Signal Decomposition', 'Frequency Domain', 'Harmonic Analysis', 'Signal Synthesis', 'Spectrum Analysis'],
+  },
 
   // Template for adding new visualizations
   /* 
