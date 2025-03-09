@@ -507,14 +507,14 @@ const BayesTheoremVisualizer = () => {
         <p className="mb-2">
           Bayes' theorem helps us update our beliefs when new evidence comes in. The formula is:
         </p>
-        <div className="p-3 bg-gray-100 font-mono rounded mb-4 text-center">
-          P(A|B) = P(B|A) × P(A) / P(B)
+        <div className="p-3 bg-gray-100 rounded mb-4 text-center">
+          <BlockMath math="P(A|B) = \frac{P(B|A) \times P(A)}{P(B)}" />
         </div>
         <p className="mb-4">
           In medical testing, this translates to:
         </p>
-        <div className="p-3 bg-gray-100 font-mono rounded mb-4 text-center">
-          P(Disease|Positive) = P(Positive|Disease) × P(Disease) / P(Positive)
+        <div className="p-3 bg-gray-100 rounded mb-4 text-center">
+          <BlockMath math="P(\text{Disease}|\text{Positive}) = \frac{P(\text{Positive}|\text{Disease}) \times P(\text{Disease})}{P(\text{Positive})}" />
         </div>
       </div>
       
