@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/scivizhub/static/css/main.cb31ceae.css",
-    "main.js": "/scivizhub/static/js/main.c2264082.js",
+    "main.css": "/scivizhub/static/css/main.cc3f9c91.css",
+    "main.js": "/scivizhub/static/js/main.707042a8.js",
     "static/js/453.5e145c16.chunk.js": "/scivizhub/static/js/453.5e145c16.chunk.js",
     "static/media/KaTeX_AMS-Regular.ttf": "/scivizhub/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf",
     "static/media/KaTeX_Main-Regular.ttf": "/scivizhub/static/media/KaTeX_Main-Regular.9eba1d77abcf2aa6e94e.ttf",
@@ -64,12 +64,12 @@
     "static/media/KaTeX_Size3-Regular.woff": "/scivizhub/static/media/KaTeX_Size3-Regular.7947224e8a9914fa332b.woff",
     "static/media/KaTeX_Size3-Regular.woff2": "/scivizhub/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
     "index.html": "/scivizhub/index.html",
-    "main.cb31ceae.css.map": "/scivizhub/static/css/main.cb31ceae.css.map",
-    "main.c2264082.js.map": "/scivizhub/static/js/main.c2264082.js.map",
+    "main.cc3f9c91.css.map": "/scivizhub/static/css/main.cc3f9c91.css.map",
+    "main.707042a8.js.map": "/scivizhub/static/js/main.707042a8.js.map",
     "453.5e145c16.chunk.js.map": "/scivizhub/static/js/453.5e145c16.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cb31ceae.css",
-    "static/js/main.c2264082.js"
+    "static/css/main.cc3f9c91.css",
+    "static/js/main.707042a8.js"
   ]
 }
