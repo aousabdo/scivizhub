@@ -35,8 +35,13 @@ const categoryInfo = [
     color: 'bg-red-100 hover:bg-red-200',
     textColor: 'text-red-800',
     icon: (
-      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        {/* Atom icon with orbits - perfect for physics */}
+        <circle cx="12" cy="12" r="2" fill="currentColor" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.66 0 1.3-.07 1.91-.2" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M7 12c0-2.76 2.24-5 5-5s5 2.24 5 5-2.24 5-5 5" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" transform="rotate(60 12 12)" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" transform="rotate(-60 12 12)" />
       </svg>
     ),
   },
