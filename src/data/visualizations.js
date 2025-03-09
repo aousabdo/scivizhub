@@ -36,7 +36,7 @@ const visualizations = [
     a contingency table, a tree diagram, and a Venn diagram. Use the interactive controls to see how different
     variables affect the probabilities.`,
     route: '/visualization/bayes-theorem',
-    thumbnail: '/scivizhub/images/bayes-thumbnail.jpg',
+    thumbnail: process.env.PUBLIC_URL + '/images/bayes-thumbnail.jpg',
     category: CATEGORIES.PROBABILITY,
     tags: ['probability', 'statistics', 'conditional probability', 'bayes theorem'],
     difficulty: DIFFICULTY.INTERMEDIATE,
@@ -57,7 +57,7 @@ const visualizations = [
     process of arranging elements. Compare algorithms like Bubble Sort, Selection Sort, Insertion Sort, Merge Sort,
     and Quick Sort to see their performance characteristics and understand algorithmic complexity in an intuitive way.`,
     route: '/visualization/sorting-algorithms',
-    thumbnail: '/scivizhub/images/sorting-thumbnail.jpg', // You'll need to create this image
+    thumbnail: process.env.PUBLIC_URL + '/images/sorting-thumbnail.jpg', // You'll need to create this image
     category: CATEGORIES.COMPUTER_SCIENCE,
     tags: ['algorithms', 'sorting', 'computer science', 'data structures', 'visualization'],
     difficulty: DIFFICULTY.BEGINNER,
@@ -76,7 +76,7 @@ const visualizations = [
     shortDescription: 'Explore how sample means converge to a normal distribution regardless of the original population distribution.',
     fullDescription: `The Central Limit Theorem is a fundamental concept in statistics that explains why normal distributions are so common in nature. This interactive visualization lets you select different population distributions (uniform, exponential, bimodal, etc.) and observe how the distribution of sample means approaches a normal distribution as sample size increases.`,
     route: '/visualization/central-limit-theorem',
-    thumbnail: '/scivizhub/images/clt-thumbnail.jpg', // You'll need to create this image
+    thumbnail: process.env.PUBLIC_URL + '/images/clt-thumbnail.jpg', // You'll need to create this image
     // category: CATEGORIES.STATISTICS,
     category: CATEGORIES.PROBABILITY,
     tags: ['statistics', 'probability', 'normal distribution', 'sampling', 'inferential statistics'],
@@ -99,7 +99,7 @@ const visualizations = [
     Depth-First Search, and Greedy Best-First Search to understand their efficiency, completeness, and optimality properties.
     Create walls, move start and end points, and watch in real-time as the algorithms navigate the terrain.`,
     route: '/visualization/pathfinding-algorithms',
-    thumbnail: '/scivizhub/images/pathfinding-thumbnail.jpg', // You'll need to create this image
+    thumbnail: process.env.PUBLIC_URL + '/images/pathfinding-thumbnail.jpg', // You'll need to create this image
     category: CATEGORIES.COMPUTER_SCIENCE,
     tags: ['algorithms', 'pathfinding', 'computer science', 'graph theory', 'artificial intelligence', 'maze solving'],
     difficulty: DIFFICULTY.INTERMEDIATE,
@@ -122,7 +122,7 @@ const visualizations = [
     returning to their original formation. Adjust parameters like pendulum count, length, and cycle time to explore
     how these factors affect the patterns that emerge.`,
     route: '/visualization/pendulum-wave',
-    thumbnail: '/scivizhub/images/pendulum-wave-thumbnail.jpg', // You'll need to create this image
+    thumbnail: process.env.PUBLIC_URL + '/images/pendulum-wave-thumbnail.jpg', // You'll need to create this image
     category: CATEGORIES.PHYSICS,
     tags: ['physics', 'waves', 'oscillation', 'harmonic motion', 'phase', 'resonance', 'interference'],
     difficulty: DIFFICULTY.BEGINNER,
@@ -143,7 +143,7 @@ const visualizations = [
     shortDescription: 'Brief description (1-2 sentences) for cards and lists',
     fullDescription: 'Longer description with more details about the visualization',
     route: '/visualization/route-path',
-    thumbnail: '/scivizhub/images/thumbnail-image.jpg',
+    thumbnail: process.env.PUBLIC_URL + '/images/thumbnail-image.jpg',
     category: CATEGORIES.CATEGORY_NAME,
     tags: ['tag1', 'tag2', 'tag3'],
     difficulty: DIFFICULTY.LEVEL,

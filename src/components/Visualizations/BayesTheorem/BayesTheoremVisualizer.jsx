@@ -468,7 +468,7 @@ const BayesTheoremVisualizer = () => {
       
       <div className="flex justify-center">
         <img
-          src="/bayes_theorem_visual_proof.jpeg"
+          src={process.env.PUBLIC_URL + "/bayes_theorem_visual_proof.jpeg"}
           alt="Visual proof of Bayes' Theorem"
           className="max-w-full rounded-lg shadow-md"
           style={{ maxHeight: '70vh' }}
