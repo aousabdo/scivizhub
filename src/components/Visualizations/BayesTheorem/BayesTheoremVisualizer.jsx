@@ -7,7 +7,7 @@ const BayesTheoremVisualizer = () => {
   const [prevalence, setPrevalence] = useState(0.01); // 1% of population has the disease
   const [sensitivity, setSensitivity] = useState(0.95); // 95% true positive rate
   const [specificity, setSpecificity] = useState(0.90); // 90% true negative rate
-  const [activeTab, setActiveTab] = useState('visual-proof');
+  const [activeTab, setActiveTab] = useState('interactive');
   
   // Calculated values
   const populationSize = 1000;
