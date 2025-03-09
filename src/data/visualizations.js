@@ -135,6 +135,29 @@ const visualizations = [
     concepts: ['Simple Harmonic Motion', 'Phase Relationships', 'Wave Interference', 'Resonance'],
   },
 
+  {
+    id: 'compression-algorithms',
+    title: 'Data Compression Algorithms',
+    shortDescription: 'Visualize how compression algorithms like Huffman, RLE, and LZW reduce data size through smart encoding.',
+    fullDescription: `This interactive visualization demonstrates how different compression algorithms work to reduce data size 
+    by identifying and encoding patterns more efficiently. Explore Run-Length Encoding, Huffman Coding, and LZW compression 
+    through step-by-step animations that reveal the inner workings of these fundamental data processing techniques.`,
+    route: '/visualization/compression-algorithms',
+    thumbnail: process.env.PUBLIC_URL + '/images/compression-thumbnail.jpg', // You'll need to create this image
+    category: CATEGORIES.COMPUTER_SCIENCE,
+    tags: ['compression', 'algorithms', 'data structures', 'information theory', 'huffman coding', 'run-length encoding', 'lzw'],
+    difficulty: DIFFICULTY.INTERMEDIATE,
+    estimatedTime: '15-20 minutes',
+    author: 'SciVizHub Team',
+    dateAdded: '2023-04-05',
+    featured: true,
+    relatedVisualizations: ['sorting-algorithms', 'pathfinding-algorithms'], // Connect to related visualizations
+    prerequisites: ['Basic understanding of data representation'],
+    concepts: ['Data Compression', 'Information Theory', 'Lossless Compression', 'Entropy', 'Variable-Length Coding'],
+  },
+
+
+
   // Template for adding new visualizations
   /* 
   {
