@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import 'katex/dist/katex.min.css';
+import { InlineMath, BlockMath } from 'react-katex';
 
 const BayesTheoremVisualizer = () => {
   // Default values for medical test example
   const [prevalence, setPrevalence] = useState(0.01); // 1% of population has the disease
   const [sensitivity, setSensitivity] = useState(0.95); // 95% true positive rate
   const [specificity, setSpecificity] = useState(0.90); // 90% true negative rate
-  const [activeTab, setActiveTab] = useState('interactive');
+  const [activeTab, setActiveTab] = useState('visual-proof');
   
   // Calculated values
   const populationSize = 1000;
@@ -458,9 +460,20 @@ const BayesTheoremVisualizer = () => {
   // Visual Proof tab
   const VisualProof = () => (
     <div className="p-4 border rounded-lg bg-white shadow-sm">
-      <div className="text-center mb-6">
-        <h3 className="text-2xl font-bold">Visual Proof of Bayes' Theorem</h3>
-        <p className="text-md mt-2 max-w-3xl mx-auto">
+      <div className="text-center my-6">
+        <h3 className="text-2xl font-bold mb-4">Bayes' Theorem</h3>
+        
+        <div className="mb-6">
+          <p className="mb-2 text-lg">The general formula:</p>
+          <BlockMath math="P(A|B) = \frac{P(B|A) \times P(A)}{P(B)}" />
+        </div>
+        
+        <div className="mb-8">
+          <p className="mb-2 text-lg">In medical testing contexts:</p>
+          <BlockMath math="P(\text{Disease}|\text{Positive}) = \frac{P(\text{Positive}|\text{Disease}) \times P(\text{Disease})}{P(\text{Positive})}" />
+        </div>
+        
+        <p className="text-md mt-4 max-w-3xl mx-auto">
           This visual explanation helps understand how Bayes' Theorem works by showing the relationship
           between prior probability, likelihood, and posterior probability.
         </p>
