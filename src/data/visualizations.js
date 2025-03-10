@@ -248,7 +248,7 @@ const visualizations = [
     in both 2D and 3D modes, observe how they affect the coordinate grid and unit shapes, and create animation 
     sequences to understand transformation composition.`,
     route: '/visualization/matrix-transformation',
-    thumbnail: process.env.PUBLIC_URL + '/images/matrix-transformation-thumbnail.jpg', // You'll need to create this image
+    thumbnail: process.env.PUBLIC_URL + '/images/matrix-transformation-thumbnail.jpg', 
     category: CATEGORIES.LINEAR_ALGEBRA,
     tags: ['linear algebra', 'matrices', 'transformations', 'computer graphics', 'mathematics', 'vectors'],
     difficulty: DIFFICULTY.INTERMEDIATE,
