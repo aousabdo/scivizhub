@@ -220,6 +220,25 @@ const visualizations = [
     concepts: ['NP-Hard Problems', 'Heuristic Algorithms', 'Optimization', 'Graph Theory', 'Genetic Algorithms'],
   },
 
+  {
+    id: 'maze-generation',
+    title: 'Maze Generation Algorithms',
+    shortDescription: 'Visualize different techniques for generating mazes including recursive backtracking, Kruskal\'s algorithm, Prim\'s algorithm, and recursive division.',
+    fullDescription: `Maze generation algorithms transform a simple grid into complex labyrinths through systematic processes of adding or removing walls. This visualization demonstrates several approaches to maze generation, showing how each algorithm creates mazes with distinct characteristics and visual patterns. Watch the step-by-step maze creation process and compare the resulting structures.`,
+    route: '/visualization/maze-generation',
+    thumbnail: process.env.PUBLIC_URL + '/images/maze-generation-thumbnail.jpg', // Will need to create this image
+    category: CATEGORIES.COMPUTER_SCIENCE,
+    tags: ['algorithms', 'maze generation', 'graph theory', 'computer science', 'procedural generation', 'spanning trees', 'recursive algorithms'],
+    difficulty: DIFFICULTY.INTERMEDIATE,
+    estimatedTime: '15-20 minutes',
+    author: 'SciVizHub Team',
+    dateAdded: '2023-05-15',
+    featured: true,
+    relatedVisualizations: ['pathfinding-algorithms', 'traveling-salesman'], // Connect to related visualizations
+    prerequisites: ['Basic understanding of algorithms and data structures'],
+    concepts: ['Graph Theory', 'Spanning Trees', 'Recursive Algorithms', 'Procedural Generation', 'Minimum Spanning Trees'],
+  },
+  
   // Template for adding new visualizations
   /* 
   {

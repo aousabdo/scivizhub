@@ -13,6 +13,8 @@ import CompressionAlgorithmsPage from './pages/Visualization/CompressionAlgorith
 import FourierTransformPage from './pages/Visualization/FourierTransform';
 import NeuralNetworkTrainingPage from './pages/Visualization/NeuralNetworkTraining';
 import TravelingSalesmanPage from './pages/Visualization/TravelingSalesman';
+import MazeGenerationPage from './pages/Visualization/MazeGeneration';
+
 
 
 
@@ -36,6 +38,7 @@ function App() {
           <Route path="/visualization/fourier-transform" element={<FourierTransformPage />} />
           <Route path="/visualization/neural-network-training" element={<NeuralNetworkTrainingPage />} />
           <Route path="/visualization/traveling-salesman" element={<TravelingSalesmanPage />} />
+          <Route path="/visualization/maze-generation" element={<MazeGenerationPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/categories" element={<AllCategoriesPage />} />
           <Route path="/category/:categoryId" element={<CategoryPage />} />
