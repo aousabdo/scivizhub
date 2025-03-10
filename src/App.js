@@ -14,12 +14,7 @@ import FourierTransformPage from './pages/Visualization/FourierTransform';
 import NeuralNetworkTrainingPage from './pages/Visualization/NeuralNetworkTraining';
 import TravelingSalesmanPage from './pages/Visualization/TravelingSalesman';
 import MazeGenerationPage from './pages/Visualization/MazeGeneration';
-
-
-
-
-
-
+import MatrixTransformationPage from './pages/Visualization/MatrixTransformation';
 
 import './App.css';
 
@@ -39,6 +34,7 @@ function App() {
           <Route path="/visualization/neural-network-training" element={<NeuralNetworkTrainingPage />} />
           <Route path="/visualization/traveling-salesman" element={<TravelingSalesmanPage />} />
           <Route path="/visualization/maze-generation" element={<MazeGenerationPage />} />
+          <Route path="/visualization/matrix-transformation" element={<MatrixTransformationPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/categories" element={<AllCategoriesPage />} />
           <Route path="/category/:categoryId" element={<CategoryPage />} />

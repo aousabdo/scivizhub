@@ -238,7 +238,29 @@ const visualizations = [
     prerequisites: ['Basic understanding of algorithms and data structures'],
     concepts: ['Graph Theory', 'Spanning Trees', 'Recursive Algorithms', 'Procedural Generation', 'Minimum Spanning Trees'],
   },
-  
+
+  {
+    id: 'matrix-transformation',
+    title: 'Matrix Transformation Visualizer',
+    shortDescription: 'Explore how matrices transform space by visualizing various linear transformations in 2D and 3D.',
+    fullDescription: `This interactive visualization demonstrates how matrices transform space, allowing you to visualize 
+    linear transformations such as scaling, rotation, reflection, and shearing. Experiment with different matrices 
+    in both 2D and 3D modes, observe how they affect the coordinate grid and unit shapes, and create animation 
+    sequences to understand transformation composition.`,
+    route: '/visualization/matrix-transformation',
+    thumbnail: process.env.PUBLIC_URL + '/images/matrix-transformation-thumbnail.jpg', // You'll need to create this image
+    category: CATEGORIES.LINEAR_ALGEBRA,
+    tags: ['linear algebra', 'matrices', 'transformations', 'computer graphics', 'mathematics', 'vectors'],
+    difficulty: DIFFICULTY.INTERMEDIATE,
+    estimatedTime: '15-20 minutes',
+    author: 'SciVizHub Team',
+    dateAdded: '2023-06-01',
+    featured: true,
+    relatedVisualizations: ['fourier-transform'], // Connect to related visualizations
+    prerequisites: ['Basic understanding of matrices and vectors'],
+    concepts: ['Linear Transformations', 'Matrix Operations', 'Vector Spaces', 'Basis Vectors', 'Coordinate Systems'],
+  }
+
   // Template for adding new visualizations
   /* 
   {
