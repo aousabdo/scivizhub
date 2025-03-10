@@ -11,6 +11,10 @@ import PathfindingAlgorithmsPage from './pages/Visualization/PathfindingAlgorith
 import PendulumWavePage from './pages/Visualization/PendulumWave';
 import CompressionAlgorithmsPage from './pages/Visualization/CompressionAlgorithms';
 import FourierTransformPage from './pages/Visualization/FourierTransform';
+import NeuralNetworkTrainingPage from './pages/Visualization/NeuralNetworkTraining';
+import TravelingSalesmanPage from './pages/Visualization/TravelingSalesman';
+
+
 
 
 
@@ -30,6 +34,8 @@ function App() {
           <Route path="/visualization/pendulum-wave" element={<PendulumWavePage />} />
           <Route path="/visualization/compression-algorithms" element={<CompressionAlgorithmsPage />} />
           <Route path="/visualization/fourier-transform" element={<FourierTransformPage />} />
+          <Route path="/visualization/neural-network-training" element={<NeuralNetworkTrainingPage />} />
+          <Route path="/visualization/traveling-salesman" element={<TravelingSalesmanPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/categories" element={<AllCategoriesPage />} />
           <Route path="/category/:categoryId" element={<CategoryPage />} />

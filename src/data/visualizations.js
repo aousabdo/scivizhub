@@ -179,6 +179,47 @@ const visualizations = [
     concepts: ['Signal Decomposition', 'Frequency Domain', 'Harmonic Analysis', 'Signal Synthesis', 'Spectrum Analysis'],
   },
 
+  {
+    id: 'neural-network-training',
+    title: 'Neural Network Training',
+    shortDescription: 'Watch a simple neural network learn to classify data in real-time, visualizing how decision boundaries evolve during training.',
+    fullDescription: `This interactive visualization demonstrates how neural networks learn patterns from data through training.
+    Observe as a neural network adapts its decision boundary to classify different datasets, from simple geometric 
+    patterns to complex non-linear distributions. Adjust the network architecture, learning parameters, and dataset
+    properties to gain an intuitive understanding of how these powerful algorithms work.`,
+    route: '/visualization/neural-network-training',
+    thumbnail: process.env.PUBLIC_URL + '/images/neural-network-thumbnail.jpg',
+    category: CATEGORIES.COMPUTER_SCIENCE,
+    tags: ['machine learning', 'neural networks', 'artificial intelligence', 'classification', 'deep learning'],
+    difficulty: DIFFICULTY.INTERMEDIATE,
+    estimatedTime: '15-20 minutes',
+    author: 'SciVizHub Team',
+    dateAdded: '2023-05-01',
+    featured: true,
+    relatedVisualizations: ['pathfinding-algorithms', 'sorting-algorithms'],
+    prerequisites: ['Basic understanding of machine learning concepts'],
+    concepts: ['Neural Networks', 'Supervised Learning', 'Gradient Descent', 'Classification', 'Decision Boundaries'],
+  },
+
+  {
+    id: 'traveling-salesman',
+    title: 'Traveling Salesman Problem',
+    shortDescription: 'Explore different heuristic approaches (nearest neighbor, 2-opt, genetic algorithms) to solving this classic NP-hard optimization problem.',
+    fullDescription: `The Traveling Salesman Problem (TSP) asks: "Given a list of cities and the distances between them, what is the shortest possible route that visits each city exactly once and returns to the origin?" This interactive visualization demonstrates several heuristic approaches to this computationally challenging problem, comparing their effectiveness and tradeoffs.`,
+    route: '/visualization/traveling-salesman',
+    thumbnail: process.env.PUBLIC_URL + '/images/tsp-thumbnail.jpg', // Will need to create this image
+    category: CATEGORIES.COMPUTER_SCIENCE,
+    tags: ['algorithms', 'optimization', 'np-hard', 'graph theory', 'computer science', 'heuristics', 'operations research'],
+    difficulty: DIFFICULTY.INTERMEDIATE,
+    estimatedTime: '15-20 minutes',
+    author: 'SciVizHub Team',
+    dateAdded: '2023-05-01',
+    featured: true,
+    relatedVisualizations: ['pathfinding-algorithms', 'sorting-algorithms'], // Connect to related visualizations
+    prerequisites: ['Basic understanding of algorithms and optimization'],
+    concepts: ['NP-Hard Problems', 'Heuristic Algorithms', 'Optimization', 'Graph Theory', 'Genetic Algorithms'],
+  },
+
   // Template for adding new visualizations
   /* 
   {
