@@ -298,9 +298,17 @@ export const getAllVisualizations = () => visualizations;
  * @returns {Array} Featured visualizations
  */
 export const getFeaturedVisualizations = (limit = 3) => {
-  return visualizations
-    .filter(viz => viz.featured)
-    .slice(0, limit);
+  // Get all visualizations
+  const allVisualizations = [...visualizations];
+  
+  // Shuffle the array using Fisher-Yates algorithm
+  for (let i = allVisualizations.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [allVisualizations[i], allVisualizations[j]] = [allVisualizations[j], allVisualizations[i]];
+  }
+  
+  // Return the first 'limit' visualizations
+  return allVisualizations.slice(0, limit);
 };
 
 /**

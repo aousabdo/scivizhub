@@ -1,11 +1,21 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import VisualizationCard from '../../components/UI/VisualizationCard';
 import { getFeaturedVisualizations, CATEGORIES } from '../../data/visualizations';
 
 const HomePage = () => {
-  // Get featured visualizations from the registry
-  const featuredVisualizations = getFeaturedVisualizations(3);
+  const [featuredVisualizations, setFeaturedVisualizations] = useState([]);
+  const location = useLocation();
+  
+  // Get featured visualizations when the component mounts or location changes
+  useEffect(() => {
+    // Get random featured visualizations
+    const randomVisualizations = getFeaturedVisualizations(3);
+    setFeaturedVisualizations(randomVisualizations);
+    
+    // Scroll to top when visiting the home page
+    window.scrollTo(0, 0);
+  }, [location.pathname]); // Re-run when the URL path changes
   
   return (
     <div className="container mx-auto px-4 py-8">
