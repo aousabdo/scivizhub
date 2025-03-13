@@ -1,0 +1,103 @@
+/* DerivativeExplorer.css */
+
+.visualization-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .visualization-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .visualization-header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    color: #2c3e50;
+  }
+  
+  .visualization-header h2 {
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: #6c757d;
+    margin-top: 0;
+  }
+  
+  .visualization-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .visualization-note {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: #666;
+    font-style: italic;
+  }
+  
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .info-card {
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .full-width {
+    grid-column: 1 / -1;
+  }
+  
+  .math-formula {
+    margin: 1.5rem 0;
+    padding: 0.75rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    overflow-x: auto;
+  }
+  
+  .formula-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .insight-item {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+  }
+  
+  .insight-item h4 {
+    margin-top: 0;
+    color: #2c3e50;
+  }
+  
+  .divider {
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid #eee;
+  }
+  
+  @media (max-width: 768px) {
+    .info-grid,
+    .formula-grid {
+      grid-template-columns: 1fr;
+    }
+  }

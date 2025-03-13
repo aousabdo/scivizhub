@@ -259,7 +259,30 @@ const visualizations = [
     relatedVisualizations: ['fourier-transform'], // Connect to related visualizations
     prerequisites: ['Basic understanding of matrices and vectors'],
     concepts: ['Linear Transformations', 'Matrix Operations', 'Vector Spaces', 'Basis Vectors', 'Coordinate Systems'],
-  }
+  },
+
+  {
+    id: 'derivative-explorer',
+    title: 'Derivative Explorer',
+    shortDescription: 'Explore the geometric meaning of derivatives as the slope of tangent lines with interactive visualizations.',
+    fullDescription: `This interactive visualization demonstrates the fundamental concept of derivatives in calculus through a 
+    geometric perspective. Explore how the derivative represents the slope of the tangent line at any point on a curve. 
+    Drag points along various functions to see tangent lines update in real-time, toggle between different function types 
+    (polynomial, trigonometric, exponential), visualize the limit definition with secant lines approaching the tangent, 
+    and use the zooming feature to observe how functions appear increasingly linear at smaller scales.`,
+    route: '/visualization/derivative-explorer',
+    thumbnail: process.env.PUBLIC_URL + '/images/derivative-explorer-thumbnail.png',
+    category: CATEGORIES.LINEAR_ALGEBRA,
+    tags: ['calculus', 'derivatives', 'tangent lines', 'slopes', 'limits'],
+    difficulty: DIFFICULTY.INTERMEDIATE,
+    estimatedTime: '15-20 minutes',
+    author: 'SciVizHub Team',
+    dateAdded: '2025-03-12',
+    featured: true,
+    relatedVisualizations: ['fourier-transform'], 
+    prerequisites: ['Basic understanding of functions and graphs'],
+    concepts: ['Derivatives', 'Tangent Lines', 'Limit Definition', 'Local Linearity'],
+  },
 
   // Template for adding new visualizations
   /* 
