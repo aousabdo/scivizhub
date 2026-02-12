@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/Home';
 import BayesTheoremPage from './pages/Visualization/BayesTheorem';
 import AboutPage from './pages/About';
+import ContributePage from './pages/Contribute';
 import CategoryPage from './pages/Category';
 import AllCategoriesPage from './pages/Category/AllCategories';
 import Layout from './components/Layout/Layout';
@@ -39,6 +40,7 @@ function App() {
           <Route path="/visualization/matrix-transformation" element={<MatrixTransformationPage />} />
           <Route path="/visualization/derivative-explorer" element={<DerivativeExplorer />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/contribute" element={<ContributePage />} />
           <Route path="/categories" element={<AllCategoriesPage />} />
           <Route path="/category/:categoryId" element={<CategoryPage />} />
           {/* Add more routes as you develop more pages */}
