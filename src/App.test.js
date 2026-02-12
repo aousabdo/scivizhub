@@ -1,8 +1,15 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+jest.mock('./pages/Visualization/DerivativeExplorer', () => () => <div>Derivative Explorer</div>);
+
+beforeAll(() => {
+  window.scrollTo = jest.fn();
+});
+
+test('renders SciVizHub homepage title', () => {
+  window.history.pushState({}, 'Test page', '/scivizhub/');
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const titleElement = screen.getByRole('heading', { name: 'SciVizHub', level: 1 });
+  expect(titleElement).toBeInTheDocument();
 });

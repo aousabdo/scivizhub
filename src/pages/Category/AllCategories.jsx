@@ -81,6 +81,44 @@ const categoryInfo = [
       </svg>
     ),
   },
+  {
+    id: CATEGORIES.STATISTICS,
+    name: 'Statistics',
+    description: 'Build intuition for inference, estimation, and uncertainty through data-driven interactive experiments.',
+    color: 'bg-cyan-100 hover:bg-cyan-200',
+    textColor: 'text-cyan-800',
+    icon: (
+      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M3 3a1 1 0 011 1v12h12a1 1 0 110 2H3a1 1 0 01-1-1V4a1 1 0 011-1z" />
+        <path d="M6 13a1 1 0 011-1h1a1 1 0 011 1v3H6v-3zM10 10a1 1 0 011-1h1a1 1 0 011 1v6h-3v-6zM14 7a1 1 0 011-1h1a1 1 0 011 1v9h-3V7z" />
+      </svg>
+    ),
+  },
+  {
+    id: CATEGORIES.CHEMISTRY,
+    name: 'Chemistry',
+    description: 'Visualize molecules, reactions, and equilibrium behavior to connect symbolic chemistry to physical intuition.',
+    color: 'bg-orange-100 hover:bg-orange-200',
+    textColor: 'text-orange-800',
+    icon: (
+      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+        <path fillRule="evenodd" d="M8 2a1 1 0 000 2v3.586l-4.707 6.293A2 2 0 004.893 17h10.214a2 2 0 001.6-3.121L12 7.586V4a1 1 0 100-2H8zm2 7.25L6.2 14.5h7.6L10 9.25z" clipRule="evenodd" />
+      </svg>
+    ),
+  },
+  {
+    id: CATEGORIES.BIOLOGY,
+    name: 'Biology',
+    description: 'Explore living systems with interactive models of populations, cells, and ecological dynamics.',
+    color: 'bg-emerald-100 hover:bg-emerald-200',
+    textColor: 'text-emerald-800',
+    icon: (
+      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M5 3a7 7 0 017 7v7a1 1 0 11-2 0v-2.2A5.5 5.5 0 014.2 9H2a1 1 0 110-2h2.2A7 7 0 015 3z" />
+        <path d="M15 3a1 1 0 011 1c0 3.314-2.686 6-6 6a1 1 0 110-2c2.21 0 4-1.79 4-4a1 1 0 011-1z" />
+      </svg>
+    ),
+  },
 ];
 
 const AllCategoriesPage = () => {

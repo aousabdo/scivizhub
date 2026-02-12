@@ -60,22 +60,22 @@ const AboutPage = () => {
           <h3 className="text-lg font-semibold mb-2 text-blue-800">Categories</h3>
           <p className="mb-3">Our visualizations span multiple disciplines:</p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-            <Link to="/category/probability" className="py-2 px-3 bg-blue-100 hover:bg-blue-200 rounded-md text-center transition-colors" target="_blank" rel="noopener noreferrer">
+            <Link to="/category/probability" className="py-2 px-3 bg-blue-100 hover:bg-blue-200 rounded-md text-center transition-colors">
               Probability & Statistics
             </Link>
-            <Link to="/category/computer-science" className="py-2 px-3 bg-purple-100 hover:bg-purple-200 rounded-md text-center transition-colors" target="_blank" rel="noopener noreferrer">
+            <Link to="/category/computer-science" className="py-2 px-3 bg-purple-100 hover:bg-purple-200 rounded-md text-center transition-colors">
               Computer Science
             </Link>
-            <Link to="/category/physics" className="py-2 px-3 bg-red-100 hover:bg-red-200 rounded-md text-center transition-colors" target="_blank" rel="noopener noreferrer">
+            <Link to="/category/physics" className="py-2 px-3 bg-red-100 hover:bg-red-200 rounded-md text-center transition-colors">
               Physics
             </Link>
-            <Link to="/category/calculus" className="py-2 px-3 bg-green-100 hover:bg-green-200 rounded-md text-center transition-colors" target="_blank" rel="noopener noreferrer">
+            <Link to="/category/calculus" className="py-2 px-3 bg-green-100 hover:bg-green-200 rounded-md text-center transition-colors">
               Calculus
             </Link>
-            <Link to="/category/engineering" className="py-2 px-3 bg-yellow-100 hover:bg-yellow-200 rounded-md text-center transition-colors" target="_blank" rel="noopener noreferrer">
+            <Link to="/category/engineering" className="py-2 px-3 bg-yellow-100 hover:bg-yellow-200 rounded-md text-center transition-colors">
               Engineering
             </Link>
-            <Link to="/category/linear-algebra" className="py-2 px-3 bg-indigo-100 hover:bg-indigo-200 rounded-md text-center transition-colors" target="_blank" rel="noopener noreferrer">
+            <Link to="/category/linear-algebra" className="py-2 px-3 bg-indigo-100 hover:bg-indigo-200 rounded-md text-center transition-colors">
               Linear Algebra
             </Link>
           </div>
@@ -176,13 +176,13 @@ const AboutPage = () => {
         <p className="mb-6">Dive into our interactive visualizations and enhance your understanding of complex concepts.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link 
-            to="/categories" target="_blank" rel="noopener noreferrer" 
+            to="/categories" 
             className="inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
           >
             Browse Categories
           </Link>
           <Link 
-            to="/" target="_blank" rel="noopener noreferrer"
+            to="/"
             className="inline-block px-6 py-3 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors "
           >
             Featured Visualizations
