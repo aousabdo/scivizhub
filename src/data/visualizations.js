@@ -174,6 +174,25 @@ const visualizations = [
   },
 
   {
+    id: 'projectile-motion-lab',
+    title: 'Projectile Motion Lab',
+    shortDescription: 'Explore how angle, speed, gravity, drag, and wind shape projectile trajectories.',
+    fullDescription: `This interactive physics lab visualizes projectile trajectories under different launch conditions and environments. Adjust launch angle, speed, gravity, wind, and drag to observe how these parameters influence range, flight time, and peak height. Compare numerical simulation output with a no-drag analytic baseline to build intuition about model assumptions and real-world effects.`,
+    route: '/visualization/projectile-motion-lab',
+    thumbnail: process.env.PUBLIC_URL + '/images/projectile-motion-thumbnail.svg',
+    category: CATEGORIES.PHYSICS,
+    tags: ['physics', 'kinematics', 'projectile motion', 'drag', 'gravity', 'simulation'],
+    difficulty: DIFFICULTY.BEGINNER,
+    estimatedTime: '12-18 minutes',
+    author: 'SciVizHub Team',
+    dateAdded: '2026-02-12',
+    featured: true,
+    relatedVisualizations: ['pendulum-wave'],
+    prerequisites: ['Basic algebra and coordinate graphs'],
+    concepts: ['Kinematics', 'Forces', 'Air Resistance', 'Trajectory Analysis'],
+  },
+
+  {
     id: 'compression-algorithms',
     title: 'Data Compression Algorithms',
     shortDescription: 'Visualize how compression algorithms like Huffman, RLE, and LZW reduce data size through smart encoding.',
