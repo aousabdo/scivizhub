@@ -69,6 +69,25 @@ const visualizations = [
   },
 
   {
+    id: 'integral-accumulation',
+    title: 'Integral Accumulation Visualizer',
+    shortDescription: 'Approximate definite integrals with Riemann sums and compare to exact values.',
+    fullDescription: `This interactive calculus visualization demonstrates how definite integrals can be approximated by partitioning an interval into subintervals and summing geometric contributions. Compare left, right, midpoint, and trapezoidal methods while tracking approximation error against exact integral values from antiderivatives.`,
+    route: '/visualization/integral-accumulation',
+    thumbnail: process.env.PUBLIC_URL + '/images/integral-accumulation-thumbnail.svg',
+    category: CATEGORIES.CALCULUS,
+    tags: ['calculus', 'integrals', 'riemann sums', 'numerical methods', 'area under curve'],
+    difficulty: DIFFICULTY.INTERMEDIATE,
+    estimatedTime: '12-18 minutes',
+    author: 'SciVizHub Team',
+    dateAdded: '2026-02-12',
+    featured: true,
+    relatedVisualizations: ['derivative-explorer'],
+    prerequisites: ['Basic functions and graph interpretation'],
+    concepts: ['Definite Integral', 'Riemann Sum', 'Trapezoidal Rule', 'Approximation Error'],
+  },
+
+  {
     id: 'sorting-algorithms',
     title: 'Sorting Algorithms',
     shortDescription: 'Visualize and compare different sorting algorithms to understand their efficiency and mechanisms.',

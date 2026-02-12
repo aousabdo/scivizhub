@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/Home';
 import BayesTheoremPage from './pages/Visualization/BayesTheorem';
 import MontyHallPage from './pages/Visualization/MontyHall';
+import IntegralAccumulationPage from './pages/Visualization/IntegralAccumulation';
 import AboutPage from './pages/About';
 import ContributePage from './pages/Contribute';
 import CategoryPage from './pages/Category';
@@ -30,6 +31,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/visualization/bayes-theorem" element={<BayesTheoremPage />} />
           <Route path="/visualization/monty-hall" element={<MontyHallPage />} />
+          <Route path="/visualization/integral-accumulation" element={<IntegralAccumulationPage />} />
           <Route path="/visualization/sorting-algorithms" element={<SortingAlgorithmsPage />} />
           <Route path="/visualization/central-limit-theorem" element={<CentralLimitTheoremPage />} />
           <Route path="/visualization/pathfinding-algorithms" element={<PathfindingAlgorithmsPage />} />
