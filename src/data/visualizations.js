@@ -50,6 +50,25 @@ const visualizations = [
   },
 
   {
+    id: 'monty-hall',
+    title: 'Monty Hall Simulator',
+    shortDescription: 'Test stay vs switch strategies and see conditional probability emerge from repeated trials.',
+    fullDescription: `The Monty Hall problem is a classic conditional probability puzzle. This interactive simulator lets you play rounds manually and run large randomized experiments to compare outcomes for staying with your first choice versus switching after the host reveals a goat. Track empirical win rates and build intuition for why switching wins about two-thirds of the time.`,
+    route: '/visualization/monty-hall',
+    thumbnail: process.env.PUBLIC_URL + '/images/monty-hall-thumbnail.svg',
+    category: CATEGORIES.PROBABILITY,
+    tags: ['probability', 'conditional probability', 'simulation', 'decision making', 'statistics'],
+    difficulty: DIFFICULTY.BEGINNER,
+    estimatedTime: '10-15 minutes',
+    author: 'SciVizHub Team',
+    dateAdded: '2026-02-12',
+    featured: true,
+    relatedVisualizations: ['bayes-theorem', 'central-limit-theorem'],
+    prerequisites: ['Basic probability concepts'],
+    concepts: ['Conditional Probability', 'Information Update', 'Simulation', 'Long-Run Frequency'],
+  },
+
+  {
     id: 'sorting-algorithms',
     title: 'Sorting Algorithms',
     shortDescription: 'Visualize and compare different sorting algorithms to understand their efficiency and mechanisms.',
