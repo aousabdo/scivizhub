@@ -40,6 +40,7 @@ const CategoryPage = () => {
     const categoryVisualizations = getVisualizationsByCategory(categoryId);
     setVisualizations(categoryVisualizations);
     setLoading(false);
+    window.scrollTo(0, 0);
   }, [categoryId]);
   
   const categoryName = getCategoryName(categoryId);

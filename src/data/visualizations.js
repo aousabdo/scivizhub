@@ -272,7 +272,7 @@ const visualizations = [
     and use the zooming feature to observe how functions appear increasingly linear at smaller scales.`,
     route: '/visualization/derivative-explorer',
     thumbnail: process.env.PUBLIC_URL + '/images/derivative-explorer-thumbnail.png',
-    category: CATEGORIES.LINEAR_ALGEBRA,
+    category: CATEGORIES.CALCULUS,
     tags: ['calculus', 'derivatives', 'tangent lines', 'slopes', 'limits'],
     difficulty: DIFFICULTY.INTERMEDIATE,
     estimatedTime: '15-20 minutes',
