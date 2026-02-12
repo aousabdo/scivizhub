@@ -19,6 +19,7 @@ import NeuralNetworkTrainingPage from './pages/Visualization/NeuralNetworkTraini
 import TravelingSalesmanPage from './pages/Visualization/TravelingSalesman';
 import MazeGenerationPage from './pages/Visualization/MazeGeneration';
 import MatrixTransformationPage from './pages/Visualization/MatrixTransformation';
+import EigenGeometryExplorerPage from './pages/Visualization/EigenGeometryExplorer';
 import DerivativeExplorer from './pages/Visualization/DerivativeExplorer';
 
 
@@ -44,6 +45,7 @@ function App() {
           <Route path="/visualization/traveling-salesman" element={<TravelingSalesmanPage />} />
           <Route path="/visualization/maze-generation" element={<MazeGenerationPage />} />
           <Route path="/visualization/matrix-transformation" element={<MatrixTransformationPage />} />
+          <Route path="/visualization/eigen-geometry-explorer" element={<EigenGeometryExplorerPage />} />
           <Route path="/visualization/derivative-explorer" element={<DerivativeExplorer />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contribute" element={<ContributePage />} />

@@ -319,6 +319,25 @@ const visualizations = [
   },
 
   {
+    id: 'eigen-geometry-explorer',
+    title: 'Eigenvector and Eigenvalue Geometry Explorer',
+    shortDescription: 'Visualize invariant directions, scaling factors, and geometric effects of 2x2 matrices.',
+    fullDescription: `This linear algebra visualization connects matrix algebra to geometry by showing how transformations act on vectors, grids, and the unit circle. Explore determinant, trace, and eigen-structure in real time. Identify eigenvector directions when they exist, inspect repeated or defective cases, and compare behavior under complex eigenvalues where no real invariant directions appear.`,
+    route: '/visualization/eigen-geometry-explorer',
+    thumbnail: process.env.PUBLIC_URL + '/images/eigen-geometry-thumbnail.svg',
+    category: CATEGORIES.LINEAR_ALGEBRA,
+    tags: ['linear algebra', 'eigenvalues', 'eigenvectors', 'matrix transformations', 'geometry'],
+    difficulty: DIFFICULTY.INTERMEDIATE,
+    estimatedTime: '15-20 minutes',
+    author: 'SciVizHub Team',
+    dateAdded: '2026-02-12',
+    featured: true,
+    relatedVisualizations: ['matrix-transformation'],
+    prerequisites: ['Basic matrix multiplication and vectors'],
+    concepts: ['Eigenvalues', 'Eigenvectors', 'Determinant', 'Trace', 'Invariant Directions'],
+  },
+
+  {
     id: 'derivative-explorer',
     title: 'Derivative Explorer',
     shortDescription: 'Explore the geometric meaning of derivatives as the slope of tangent lines with interactive visualizations.',
