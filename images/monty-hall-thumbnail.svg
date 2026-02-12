@@ -1,0 +1,50 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Monty Hall Simulator Thumbnail</title>
+  <desc id="desc">Three doors with probability labels showing stay and switch outcomes.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+    <linearGradient id="doorA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bfdbfe" />
+      <stop offset="100%" stop-color="#93c5fd" />
+    </linearGradient>
+    <linearGradient id="doorB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fca5a5" />
+      <stop offset="100%" stop-color="#f87171" />
+    </linearGradient>
+    <linearGradient id="doorC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#86efac" />
+      <stop offset="100%" stop-color="#4ade80" />
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="675" fill="url(#bg)" />
+
+  <text x="600" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="60" font-weight="700" fill="#0f172a">
+    Monty Hall
+  </text>
+  <text x="600" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#334155">
+    Stay: 1/3   Switch: 2/3
+  </text>
+
+  <rect x="190" y="220" width="230" height="320" rx="24" fill="url(#doorA)" stroke="#1d4ed8" stroke-width="5" />
+  <rect x="485" y="220" width="230" height="320" rx="24" fill="url(#doorB)" stroke="#b91c1c" stroke-width="5" />
+  <rect x="780" y="220" width="230" height="320" rx="24" fill="url(#doorC)" stroke="#15803d" stroke-width="5" />
+
+  <circle cx="390" cy="390" r="11" fill="#1e293b" />
+  <circle cx="685" cy="390" r="11" fill="#1e293b" />
+  <circle cx="980" cy="390" r="11" fill="#1e293b" />
+
+  <text x="305" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#1e3a8a">
+    Your Pick
+  </text>
+  <text x="600" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#b91c1c">
+    Host Reveals Goat
+  </text>
+  <text x="895" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#166534">
+    Switch Here
+  </text>
+</svg>
