@@ -107,6 +107,18 @@ const categoryInfo = [
     ),
   },
   {
+    id: CATEGORIES.MATHEMATICS,
+    name: 'Mathematics',
+    description: 'Discover the beauty of pure mathematics through interactive explorations of fractals, number theory, and geometric patterns.',
+    color: 'bg-pink-100 hover:bg-pink-200',
+    textColor: 'text-pink-800',
+    icon: (
+      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M10 2a1 1 0 011 1v6h6a1 1 0 110 2h-6v6a1 1 0 11-2 0v-6H3a1 1 0 110-2h6V3a1 1 0 011-1z" />
+      </svg>
+    ),
+  },
+  {
     id: CATEGORIES.BIOLOGY,
     name: 'Biology',
     description: 'Explore living systems with interactive models of populations, cells, and ecological dynamics.',

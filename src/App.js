@@ -21,6 +21,11 @@ import MazeGenerationPage from './pages/Visualization/MazeGeneration';
 import MatrixTransformationPage from './pages/Visualization/MatrixTransformation';
 import EigenGeometryExplorerPage from './pages/Visualization/EigenGeometryExplorer';
 import DerivativeExplorer from './pages/Visualization/DerivativeExplorer';
+import WaveInterferencePage from './pages/Visualization/WaveInterference';
+import DoublePendulumPage from './pages/Visualization/DoublePendulum';
+import EpidemicSIRPage from './pages/Visualization/EpidemicSIR';
+import ReactionKineticsPage from './pages/Visualization/ReactionKinetics';
+import FractalExplorerPage from './pages/Visualization/FractalExplorer';
 
 
 import './App.css';
@@ -47,6 +52,11 @@ function App() {
           <Route path="/visualization/matrix-transformation" element={<MatrixTransformationPage />} />
           <Route path="/visualization/eigen-geometry-explorer" element={<EigenGeometryExplorerPage />} />
           <Route path="/visualization/derivative-explorer" element={<DerivativeExplorer />} />
+          <Route path="/visualization/wave-interference" element={<WaveInterferencePage />} />
+          <Route path="/visualization/double-pendulum" element={<DoublePendulumPage />} />
+          <Route path="/visualization/epidemic-sir" element={<EpidemicSIRPage />} />
+          <Route path="/visualization/reaction-kinetics" element={<ReactionKineticsPage />} />
+          <Route path="/visualization/fractal-explorer" element={<FractalExplorerPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contribute" element={<ContributePage />} />
           <Route path="/categories" element={<AllCategoriesPage />} />
