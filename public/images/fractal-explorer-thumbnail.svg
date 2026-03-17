@@ -1,0 +1,74 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Fractal Explorer Thumbnail</title>
+  <desc id="desc">Mandelbrot set visualization with colorful escape-time bands.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c0a1a" />
+      <stop offset="100%" stop-color="#1a0a2e" />
+    </linearGradient>
+    <radialGradient id="glow" cx="42%" cy="50%" r="35%">
+      <stop offset="0%" stop-color="#000000" />
+      <stop offset="60%" stop-color="#0a0020" />
+      <stop offset="100%" stop-color="transparent" />
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="675" fill="url(#bg)" />
+
+  <!-- Mandelbrot-inspired shape using ellipses and cardioid approximation -->
+  <!-- Outer escape bands -->
+  <ellipse cx="480" cy="338" rx="380" ry="280" fill="none" stroke="#06b6d4" stroke-width="3" opacity="0.3" />
+  <ellipse cx="480" cy="338" rx="340" ry="250" fill="none" stroke="#0ea5e9" stroke-width="3" opacity="0.4" />
+  <ellipse cx="480" cy="338" rx="300" ry="220" fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.5" />
+  <ellipse cx="480" cy="338" rx="260" ry="195" fill="none" stroke="#6366f1" stroke-width="4" opacity="0.6" />
+  <ellipse cx="480" cy="338" rx="225" ry="170" fill="none" stroke="#8b5cf6" stroke-width="4" opacity="0.7" />
+  <ellipse cx="480" cy="338" rx="190" ry="145" fill="none" stroke="#a855f7" stroke-width="4" opacity="0.8" />
+
+  <!-- Main cardioid body -->
+  <ellipse cx="480" cy="338" rx="150" ry="120" fill="#1e1b4b" stroke="#7c3aed" stroke-width="3" />
+
+  <!-- Period-2 bulb -->
+  <ellipse cx="290" cy="338" rx="60" ry="55" fill="#0f172a" stroke="#7c3aed" stroke-width="2" />
+
+  <!-- Small decorative bulbs -->
+  <circle cx="220" cy="338" r="18" fill="#0c0a1a" stroke="#6366f1" stroke-width="2" />
+  <circle cx="480" cy="200" r="15" fill="#0c0a1a" stroke="#6366f1" stroke-width="2" />
+  <circle cx="480" cy="476" r="15" fill="#0c0a1a" stroke="#6366f1" stroke-width="2" />
+  <circle cx="350" cy="235" r="12" fill="#0c0a1a" stroke="#818cf8" stroke-width="1.5" />
+  <circle cx="350" cy="441" r="12" fill="#0c0a1a" stroke="#818cf8" stroke-width="1.5" />
+
+  <!-- Colorful filaments -->
+  <g opacity="0.6">
+    <circle cx="196" cy="318" r="6" fill="#f97316" />
+    <circle cx="196" cy="358" r="6" fill="#f97316" />
+    <circle cx="184" cy="338" r="4" fill="#eab308" />
+    <circle cx="648" cy="280" r="5" fill="#ec4899" />
+    <circle cx="648" cy="396" r="5" fill="#ec4899" />
+    <circle cx="660" cy="338" r="4" fill="#f43f5e" />
+    <circle cx="540" cy="195" r="4" fill="#22d3ee" />
+    <circle cx="540" cy="481" r="4" fill="#22d3ee" />
+  </g>
+
+  <!-- Zoom crosshair -->
+  <rect x="780" y="220" width="300" height="230" rx="8" fill="none" stroke="#f97316" stroke-width="3" stroke-dasharray="10 6" />
+  <line x1="930" y1="220" x2="930" y2="450" stroke="#f97316" stroke-width="1" opacity="0.5" />
+  <line x1="780" y1="335" x2="1080" y2="335" stroke="#f97316" stroke-width="1" opacity="0.5" />
+
+  <!-- Zoomed detail (mini Mandelbrot) -->
+  <ellipse cx="930" cy="335" rx="50" ry="40" fill="#1e1b4b" stroke="#c084fc" stroke-width="2" />
+  <ellipse cx="895" cy="335" rx="18" ry="16" fill="#0f172a" stroke="#c084fc" stroke-width="1.5" />
+  <circle cx="872" cy="335" r="6" fill="#0c0a1a" stroke="#a78bfa" stroke-width="1" />
+  <text x="930" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#f97316">Click to zoom</text>
+
+  <text x="600" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#e0e7ff">
+    Fractal Explorer
+  </text>
+  <text x="600" y="96" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#a5b4fc">
+    Mandelbrot &middot; Julia &middot; Burning Ship
+  </text>
+
+  <text x="600" y="640" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#6366f1">
+    z&#8345;&#8330;&#8321; = z&#8345;&#178; + c
+  </text>
+</svg>
