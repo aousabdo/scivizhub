@@ -1,0 +1,115 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Markov Chain Simulator Thumbnail</title>
+  <desc id="desc">A state diagram with four colored circles connected by curved arrows with probability labels.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="stateA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+    <linearGradient id="stateB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f472b6" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+    <linearGradient id="stateC" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <linearGradient id="stateD" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" fill="#94a3b8">
+      <polygon points="0 0, 10 4, 0 8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1200" height="675" fill="url(#bg)" />
+
+  <!-- Subtle grid -->
+  <g stroke="rgba(148,163,184,0.05)" stroke-width="1">
+    <line x1="0" y1="170" x2="1200" y2="170" />
+    <line x1="0" y1="340" x2="1200" y2="340" />
+    <line x1="0" y1="510" x2="1200" y2="510" />
+    <line x1="300" y1="0" x2="300" y2="675" />
+    <line x1="600" y1="0" x2="600" y2="675" />
+    <line x1="900" y1="0" x2="900" y2="675" />
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#f1f5f9">
+    Markov Chain
+  </text>
+  <text x="600" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#94a3b8">
+    Stochastic State Transitions
+  </text>
+
+  <!-- Transition arrows (curved paths) -->
+  <!-- A -> B -->
+  <path d="M 370,300 Q 500,210 630,300" fill="none" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#arrowhead)" opacity="0.7" />
+  <rect x="470" y="228" width="56" height="22" rx="4" fill="rgba(15,23,42,0.85)" />
+  <text x="498" y="244" text-anchor="middle" font-family="monospace" font-size="16" fill="#cbd5e1">0.40</text>
+
+  <!-- B -> A -->
+  <path d="M 630,340 Q 500,430 370,340" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5" />
+  <rect x="470" y="388" width="56" height="22" rx="4" fill="rgba(15,23,42,0.85)" />
+  <text x="498" y="404" text-anchor="middle" font-family="monospace" font-size="16" fill="#cbd5e1">0.30</text>
+
+  <!-- B -> C -->
+  <path d="M 720,310 Q 800,250 870,310" fill="none" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#arrowhead)" opacity="0.7" />
+  <rect x="770" y="252" width="56" height="22" rx="4" fill="rgba(15,23,42,0.85)" />
+  <text x="798" y="268" text-anchor="middle" font-family="monospace" font-size="16" fill="#cbd5e1">0.50</text>
+
+  <!-- C -> D -->
+  <path d="M 940,380 Q 900,460 810,500" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.6" />
+  <rect x="862" y="438" width="56" height="22" rx="4" fill="rgba(15,23,42,0.85)" />
+  <text x="890" y="454" text-anchor="middle" font-family="monospace" font-size="16" fill="#cbd5e1">0.60</text>
+
+  <!-- D -> A -->
+  <path d="M 720,520 Q 500,580 350,380" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.6" />
+  <rect x="490" y="508" width="56" height="22" rx="4" fill="rgba(15,23,42,0.85)" />
+  <text x="518" y="524" text-anchor="middle" font-family="monospace" font-size="16" fill="#cbd5e1">1.00</text>
+
+  <!-- A self-loop -->
+  <circle cx="310" cy="250" r="28" fill="none" stroke="#94a3b8" stroke-width="2" opacity="0.5" />
+  <rect x="282" y="210" width="56" height="22" rx="4" fill="rgba(15,23,42,0.85)" />
+  <text x="310" y="226" text-anchor="middle" font-family="monospace" font-size="16" fill="#cbd5e1">0.30</text>
+
+  <!-- Active glow on state A -->
+  <circle cx="310" cy="320" r="75" fill="url(#glow)" />
+
+  <!-- State A (active) -->
+  <circle cx="310" cy="320" r="56" fill="url(#stateA)" stroke="#fbbf24" stroke-width="4" />
+  <text x="310" y="328" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="white">A</text>
+
+  <!-- State B -->
+  <circle cx="680" cy="320" r="56" fill="url(#stateB)" stroke="rgba(226,232,240,0.4)" stroke-width="2" />
+  <text x="680" y="328" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="white">B</text>
+
+  <!-- State C -->
+  <circle cx="940" cy="320" r="56" fill="url(#stateC)" stroke="rgba(226,232,240,0.4)" stroke-width="2" />
+  <text x="940" y="328" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="white">C</text>
+
+  <!-- State D -->
+  <circle cx="770" cy="510" r="56" fill="url(#stateD)" stroke="rgba(226,232,240,0.4)" stroke-width="2" />
+  <text x="770" y="518" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="white">D</text>
+
+  <!-- Animated particle indicator on A->B arrow -->
+  <circle cx="480" cy="248" r="7" fill="#fbbf24" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;0.4;0.9" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Subtitle -->
+  <text x="600" y="635" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#64748b">
+    Transition probabilities and steady-state convergence
+  </text>
+</svg>
