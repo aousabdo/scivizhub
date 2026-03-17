@@ -384,10 +384,10 @@ const EpidemicSIRVisualizer = () => {
                     <YAxis label={{ value: 'Count', angle: -90, position: 'insideLeft', fontSize: 12 }} tick={{ fontSize: 11 }} />
                     <Tooltip />
                     <Legend />
-                    <Line type="monotone" dataKey="Susceptible" stroke="#22c55e" strokeWidth={2} dot={false} />
-                    <Line type="monotone" dataKey="Infected" stroke="#ef4444" strokeWidth={2} dot={false} />
-                    <Line type="monotone" dataKey="Recovered" stroke="#3b82f6" strokeWidth={2} dot={false} />
-                    <Line type="monotone" dataKey="Deceased" stroke="#9ca3af" strokeWidth={2} dot={false} />
+                    <Line type="monotone" dataKey="Susceptible" stroke="#22c55e" strokeWidth={2} dot={false} isAnimationActive={false} />
+                    <Line type="monotone" dataKey="Infected" stroke="#ef4444" strokeWidth={2} dot={false} isAnimationActive={false} />
+                    <Line type="monotone" dataKey="Recovered" stroke="#3b82f6" strokeWidth={2} dot={false} isAnimationActive={false} />
+                    <Line type="monotone" dataKey="Deceased" stroke="#9ca3af" strokeWidth={2} dot={false} isAnimationActive={false} />
                   </LineChart>
                 </ResponsiveContainer>
               </div>

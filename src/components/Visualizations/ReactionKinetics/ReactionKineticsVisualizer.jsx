@@ -636,11 +636,11 @@ const ReactionKineticsVisualizer = () => {
                 />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="A" stroke={COLORS.A} dot={false} strokeWidth={2} name="[A]" />
-                <Line type="monotone" dataKey="B" stroke={COLORS.B} dot={false} strokeWidth={2} name="[B]" />
-                <Line type="monotone" dataKey="C" stroke={COLORS.C} dot={false} strokeWidth={2} name="[C]" />
+                <Line type="monotone" dataKey="A" stroke={COLORS.A} dot={false} strokeWidth={2} name="[A]" isAnimationActive={false} />
+                <Line type="monotone" dataKey="B" stroke={COLORS.B} dot={false} strokeWidth={2} name="[B]" isAnimationActive={false} />
+                <Line type="monotone" dataKey="C" stroke={COLORS.C} dot={false} strokeWidth={2} name="[C]" isAnimationActive={false} />
                 {reactionType === 'reversible' && (
-                  <Line type="monotone" dataKey="D" stroke={COLORS.D} dot={false} strokeWidth={2} name="[D]" />
+                  <Line type="monotone" dataKey="D" stroke={COLORS.D} dot={false} strokeWidth={2} name="[D]" isAnimationActive={false} />
                 )}
               </LineChart>
             </ResponsiveContainer>
