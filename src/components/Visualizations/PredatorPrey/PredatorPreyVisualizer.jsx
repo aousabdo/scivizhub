@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 const CANVAS_WIDTH = 600;
 const CANVAS_HEIGHT = 450;
 const GRAPH_WIDTH = 600;
-const GRAPH_HEIGHT = 300;
+const GRAPH_HEIGHT = 450;
 const PHASE_WIDTH = 350;
 const PHASE_HEIGHT = 300;
 
