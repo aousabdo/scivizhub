@@ -10,7 +10,7 @@
     <radialGradient id="glow" cx="42%" cy="50%" r="35%">
       <stop offset="0%" stop-color="#000000" />
       <stop offset="60%" stop-color="#0a0020" />
-      <stop offset="100%" stop-color="transparent" />
+      <stop offset="100%" stop-color="#0a0020" stop-opacity="0" />
     </radialGradient>
   </defs>
 
@@ -65,10 +65,10 @@
     Fractal Explorer
   </text>
   <text x="600" y="96" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#a5b4fc">
-    Mandelbrot &middot; Julia &middot; Burning Ship
+    Mandelbrot &#xB7; Julia &#xB7; Burning Ship
   </text>
 
   <text x="600" y="640" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#6366f1">
-    z&#8345;&#8330;&#8321; = z&#8345;&#178; + c
+    z(n+1) = z(n)&#xB2; + c
   </text>
 </svg>

@@ -26,6 +26,11 @@ import DoublePendulumPage from './pages/Visualization/DoublePendulum';
 import EpidemicSIRPage from './pages/Visualization/EpidemicSIR';
 import ReactionKineticsPage from './pages/Visualization/ReactionKinetics';
 import FractalExplorerPage from './pages/Visualization/FractalExplorer';
+import GravitySimulatorPage from './pages/Visualization/GravitySimulator';
+import BinarySearchTreePage from './pages/Visualization/BinarySearchTree';
+import GameOfLifePage from './pages/Visualization/GameOfLife';
+import HypothesisTestingPage from './pages/Visualization/HypothesisTesting';
+import ElectromagneticFieldsPage from './pages/Visualization/ElectromagneticFields';
 
 
 import './App.css';
@@ -57,6 +62,11 @@ function App() {
           <Route path="/visualization/epidemic-sir" element={<EpidemicSIRPage />} />
           <Route path="/visualization/reaction-kinetics" element={<ReactionKineticsPage />} />
           <Route path="/visualization/fractal-explorer" element={<FractalExplorerPage />} />
+          <Route path="/visualization/gravity-simulator" element={<GravitySimulatorPage />} />
+          <Route path="/visualization/binary-search-tree" element={<BinarySearchTreePage />} />
+          <Route path="/visualization/game-of-life" element={<GameOfLifePage />} />
+          <Route path="/visualization/hypothesis-testing" element={<HypothesisTestingPage />} />
+          <Route path="/visualization/electromagnetic-fields" element={<ElectromagneticFieldsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contribute" element={<ContributePage />} />
           <Route path="/categories" element={<AllCategoriesPage />} />
