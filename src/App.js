@@ -31,6 +31,11 @@ import BinarySearchTreePage from './pages/Visualization/BinarySearchTree';
 import GameOfLifePage from './pages/Visualization/GameOfLife';
 import HypothesisTestingPage from './pages/Visualization/HypothesisTesting';
 import ElectromagneticFieldsPage from './pages/Visualization/ElectromagneticFields';
+import PredatorPreyPage from './pages/Visualization/PredatorPrey';
+import MarkovChainPage from './pages/Visualization/MarkovChain';
+import LorenzAttractorPage from './pages/Visualization/LorenzAttractor';
+import VoronoiDiagramPage from './pages/Visualization/VoronoiDiagram';
+import SpringMassSystemPage from './pages/Visualization/SpringMassSystem';
 
 
 import './App.css';
@@ -67,6 +72,11 @@ function App() {
           <Route path="/visualization/game-of-life" element={<GameOfLifePage />} />
           <Route path="/visualization/hypothesis-testing" element={<HypothesisTestingPage />} />
           <Route path="/visualization/electromagnetic-fields" element={<ElectromagneticFieldsPage />} />
+          <Route path="/visualization/predator-prey" element={<PredatorPreyPage />} />
+          <Route path="/visualization/markov-chain" element={<MarkovChainPage />} />
+          <Route path="/visualization/lorenz-attractor" element={<LorenzAttractorPage />} />
+          <Route path="/visualization/voronoi-diagram" element={<VoronoiDiagramPage />} />
+          <Route path="/visualization/spring-mass-system" element={<SpringMassSystemPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contribute" element={<ContributePage />} />
           <Route path="/categories" element={<AllCategoriesPage />} />
