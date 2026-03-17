@@ -1,0 +1,80 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Wave Interference Simulator Thumbnail</title>
+  <desc id="desc">Concentric ripple patterns from two sources showing interference fringes.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c1445" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <radialGradient id="ripple1" cx="35%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="rgba(99,202,255,0.9)" />
+      <stop offset="20%" stop-color="rgba(30,58,138,0.6)" />
+      <stop offset="35%" stop-color="rgba(99,202,255,0.7)" />
+      <stop offset="50%" stop-color="rgba(30,58,138,0.4)" />
+      <stop offset="65%" stop-color="rgba(99,202,255,0.5)" />
+      <stop offset="80%" stop-color="rgba(30,58,138,0.2)" />
+      <stop offset="100%" stop-color="rgba(99,202,255,0.1)" />
+    </radialGradient>
+    <radialGradient id="ripple2" cx="65%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="rgba(99,202,255,0.9)" />
+      <stop offset="20%" stop-color="rgba(30,58,138,0.6)" />
+      <stop offset="35%" stop-color="rgba(99,202,255,0.7)" />
+      <stop offset="50%" stop-color="rgba(30,58,138,0.4)" />
+      <stop offset="65%" stop-color="rgba(99,202,255,0.5)" />
+      <stop offset="80%" stop-color="rgba(30,58,138,0.2)" />
+      <stop offset="100%" stop-color="rgba(99,202,255,0.1)" />
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="675" fill="url(#bg)" />
+
+  <!-- Ripple circles from source 1 -->
+  <g fill="none" stroke="rgba(99,202,255,0.4)" stroke-width="2">
+    <circle cx="400" cy="340" r="50" />
+    <circle cx="400" cy="340" r="100" />
+    <circle cx="400" cy="340" r="150" />
+    <circle cx="400" cy="340" r="200" />
+    <circle cx="400" cy="340" r="250" />
+    <circle cx="400" cy="340" r="300" />
+    <circle cx="400" cy="340" r="350" />
+    <circle cx="400" cy="340" r="400" />
+    <circle cx="400" cy="340" r="450" />
+  </g>
+
+  <!-- Ripple circles from source 2 -->
+  <g fill="none" stroke="rgba(147,197,253,0.35)" stroke-width="2">
+    <circle cx="800" cy="340" r="50" />
+    <circle cx="800" cy="340" r="100" />
+    <circle cx="800" cy="340" r="150" />
+    <circle cx="800" cy="340" r="200" />
+    <circle cx="800" cy="340" r="250" />
+    <circle cx="800" cy="340" r="300" />
+    <circle cx="800" cy="340" r="350" />
+    <circle cx="800" cy="340" r="400" />
+    <circle cx="800" cy="340" r="450" />
+  </g>
+
+  <!-- Bright source dots -->
+  <circle cx="400" cy="340" r="10" fill="#63caff" />
+  <circle cx="800" cy="340" r="10" fill="#63caff" />
+
+  <!-- Interference highlights along midline -->
+  <g fill="rgba(255,255,255,0.25)">
+    <circle cx="600" cy="140" r="14" />
+    <circle cx="600" cy="240" r="16" />
+    <circle cx="600" cy="340" r="18" />
+    <circle cx="600" cy="440" r="16" />
+    <circle cx="600" cy="540" r="14" />
+  </g>
+
+  <text x="600" y="76" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#e0f2fe">
+    Wave Interference
+  </text>
+  <text x="600" y="116" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#93c5fd">
+    Constructive &amp; Destructive Patterns
+  </text>
+
+  <text x="400" y="630" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#93c5fd">Source 1</text>
+  <text x="800" y="630" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#93c5fd">Source 2</text>
+</svg>
