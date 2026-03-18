@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import TaylorSeriesVisualizer from '../../components/Visualizations/TaylorSeries/TaylorSeriesVisualizer';
 
 const TaylorSeriesPage = () => {
@@ -15,7 +16,7 @@ const TaylorSeriesPage = () => {
         </p>
         <p>
           This visualization lets you explore how Taylor polynomials converge to four
-          fundamental functions: sin(x), cos(x), e<sup>x</sup>, and ln(1+x). Watch the
+          fundamental functions: <InlineMath>{'\\sin(x)'}</InlineMath>, <InlineMath>{'\\cos(x)'}</InlineMath>, <InlineMath>{'e^x'}</InlineMath>, and <InlineMath>{'\\ln(1+x)'}</InlineMath>. Watch the
           approximation improve term by term, observe the radius of convergence in action,
           and develop an intuitive understanding of one of the most powerful tools in
           mathematical analysis.
@@ -36,16 +37,11 @@ const TaylorSeriesPage = () => {
             </p>
 
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono text-sm">
-                f(x) = f(a) + f'(a)(x-a) + f''(a)(x-a)<sup>2</sup>/2!
-                + f'''(a)(x-a)<sup>3</sup>/3! + ...
-              </p>
-              <p className="text-center font-mono text-sm mt-2">
-                = &Sigma;<sub>n=0</sub><sup>&infin;</sup> f<sup>(n)</sup>(a) (x-a)<sup>n</sup> / n!
-              </p>
+              <BlockMath>{"f(x) = f(a) + f'(a)(x-a) + \\frac{f''(a)}{2!}(x-a)^2 + \\frac{f'''(a)}{3!}(x-a)^3 + \\cdots"}</BlockMath>
+              <BlockMath>{"= \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!}(x-a)^n"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
-                When a = 0, this is called a Maclaurin series. The n-th partial sum gives the
-                n-th degree Taylor polynomial T<sub>n</sub>(x).
+                When <InlineMath>{'a = 0'}</InlineMath>, this is called a Maclaurin series. The <InlineMath>{'n'}</InlineMath>-th partial sum gives the
+                <InlineMath>{'n'}</InlineMath>-th degree Taylor polynomial <InlineMath>{'T_n(x)'}</InlineMath>.
               </p>
             </div>
 
@@ -68,28 +64,28 @@ const TaylorSeriesPage = () => {
               <li>
                 <strong>Radius of Convergence (R):</strong> For each Taylor series there exists
                 a non-negative number R (possibly infinite) such that the series converges
-                absolutely for |x - a| &lt; R and diverges for |x - a| &gt; R. This is
+                absolutely for <InlineMath>{'|x - a| < R'}</InlineMath> and diverges for <InlineMath>{'|x - a| > R'}</InlineMath>. This is
                 determined by the ratio test or root test applied to the coefficients. For
-                sin(x), cos(x), and e<sup>x</sup>, the radius is infinite -- they converge
-                everywhere. For ln(1+x) expanded at 0, R = 1.
+                <InlineMath>{'\\sin(x)'}</InlineMath>, <InlineMath>{'\\cos(x)'}</InlineMath>, and <InlineMath>{'e^x'}</InlineMath>, the radius is infinite -- they converge
+                everywhere. For <InlineMath>{'\\ln(1+x)'}</InlineMath> expanded at 0, <InlineMath>{'R = 1'}</InlineMath>.
               </li>
               <li>
                 <strong>Rate of Convergence:</strong> Near the expansion point, convergence is
-                rapid because (x-a)<sup>n</sup> shrinks quickly. Further away but still within
+                rapid because <InlineMath>{'(x-a)^n'}</InlineMath> shrinks quickly. Further away but still within
                 the radius of convergence, many more terms are needed for the same accuracy.
                 This is why you can see the Taylor polynomial matching the function well near
                 x = 0 but diverging at the edges of the view.
               </li>
               <li>
                 <strong>Taylor's Remainder Theorem:</strong> The error of the n-th Taylor
-                polynomial is bounded by |R<sub>n</sub>(x)| &le; M|x-a|<sup>n+1</sup>/(n+1)!,
-                where M bounds the (n+1)-th derivative on the interval. This gives a rigorous
+                polynomial is bounded by <InlineMath>{'|R_n(x)| \\leq \\frac{M|x-a|^{n+1}}{(n+1)!}'}</InlineMath>,
+                where <InlineMath>{'M'}</InlineMath> bounds the <InlineMath>{'(n+1)'}</InlineMath>-th derivative on the interval. This gives a rigorous
                 guarantee of approximation quality.
               </li>
               <li>
                 <strong>Analytic vs. Smooth:</strong> A function can be infinitely differentiable
                 yet not equal to its Taylor series. The classic example is
-                f(x) = e<sup>-1/x<sup>2</sup></sup> (for x &ne; 0, f(0)=0), whose Taylor
+                <InlineMath>{'f(x) = e^{-1/x^2}'}</InlineMath> (for <InlineMath>{'x \\neq 0'}</InlineMath>, <InlineMath>{'f(0)=0'}</InlineMath>), whose Taylor
                 series at 0 is identically zero even though the function is not. Functions that
                 do equal their Taylor series are called <em>analytic</em>.
               </li>
@@ -104,7 +100,7 @@ const TaylorSeriesPage = () => {
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li>
                 <strong>Physics -- Linearization:</strong> Nearly all of physics relies on
-                Taylor expansion. Small-angle approximations (sin &theta; &asymp; &theta;)
+                Taylor expansion. Small-angle approximations (<InlineMath>{'\\sin\\theta \\approx \\theta'}</InlineMath>)
                 make pendulum equations solvable. Perturbation theory in quantum mechanics
                 and general relativity builds solutions order by order using Taylor-like
                 expansions.

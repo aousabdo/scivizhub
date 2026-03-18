@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import OrbitalMechanicsVisualizer from '../../components/Visualizations/OrbitalMechanics/OrbitalMechanicsVisualizer';
 
 const OrbitalMechanicsPage = () => {
@@ -54,7 +55,7 @@ const OrbitalMechanicsPage = () => {
               </li>
               <li>
                 <strong>Third Law (Harmonic Law):</strong> The square of a planet&apos;s orbital
-                period is proportional to the cube of its semi-major axis: T&sup2; &prop; a&sup3;.
+                period is proportional to the cube of its semi-major axis: <InlineMath>{'T^2 \\propto a^3'}</InlineMath>.
                 In the Solar System preset, notice how outer planets take much longer to complete
                 their orbits. The period estimates displayed in the body list let you verify this
                 relationship quantitatively.
@@ -72,12 +73,10 @@ const OrbitalMechanicsPage = () => {
             </p>
 
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono text-sm">
-                F = G &middot; m<sub>1</sub> &middot; m<sub>2</sub> / r&sup2;
-              </p>
+              <BlockMath>{"F = G \\cdot \\frac{m_1 \\cdot m_2}{r^2}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
-                G = 6.674 &times; 10<sup>-11</sup> N m&sup2; kg<sup>-2</sup> is the gravitational
-                constant, m<sub>1</sub> and m<sub>2</sub> are the masses, and r is the distance
+                <InlineMath>{'G = 6.674 \\times 10^{-11}'}</InlineMath> N·m²·kg⁻² is the gravitational
+                constant, <InlineMath>{'m_1'}</InlineMath> and <InlineMath>{'m_2'}</InlineMath> are the masses, and <InlineMath>{'r'}</InlineMath> is the distance
                 between their centers of mass.
               </p>
             </div>
@@ -113,7 +112,7 @@ const OrbitalMechanicsPage = () => {
               </li>
               <li>
                 <strong>Conservation of Angular Momentum:</strong> The total angular momentum
-                L = &Sigma; m(x &middot; v<sub>y</sub> &minus; y &middot; v<sub>x</sub>) about the
+                <InlineMath>{'L = \\sum m(x \\cdot v_y - y \\cdot v_x)'}</InlineMath> about the
                 origin is conserved. This is a consequence of the central nature of gravity -- the
                 force between two bodies lies along the line connecting them, producing no torque.
                 Angular momentum conservation is why orbits remain planar and why spinning systems
@@ -219,12 +218,8 @@ const OrbitalMechanicsPage = () => {
             </p>
 
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono text-sm">
-                x(t + &Delta;t) = x(t) + v(t)&middot;&Delta;t + &frac12;a(t)&middot;&Delta;t&sup2;
-              </p>
-              <p className="text-center font-mono text-sm mt-1">
-                v(t + &Delta;t) = v(t) + &frac12;[a(t) + a(t + &Delta;t)]&middot;&Delta;t
-              </p>
+              <BlockMath>{"x(t + \\Delta t) = x(t) + v(t) \\cdot \\Delta t + \\tfrac{1}{2} a(t) \\cdot \\Delta t^2"}</BlockMath>
+              <BlockMath>{"v(t + \\Delta t) = v(t) + \\tfrac{1}{2}\\bigl[a(t) + a(t + \\Delta t)\\bigr] \\cdot \\Delta t"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 Positions are updated first using current accelerations, then forces are recomputed
                 at the new positions, and velocities are updated using the average of old and new
@@ -234,9 +229,9 @@ const OrbitalMechanicsPage = () => {
 
             <p>
               The simulation runs multiple sub-steps per animation frame for stability. For N
-              bodies, computing all pairwise forces requires O(N&sup2;) operations. Large-scale
-              astrophysical simulations use tree-based methods (Barnes-Hut, O(N log N)) or fast
-              multipole methods (O(N)) for efficiency, but the direct approach works well for the
+              bodies, computing all pairwise forces requires <InlineMath>{'O(N^2)'}</InlineMath> operations. Large-scale
+              astrophysical simulations use tree-based methods (Barnes-Hut, <InlineMath>{'O(N \\log N)'}</InlineMath>) or fast
+              multipole methods (<InlineMath>{'O(N)'}</InlineMath>) for efficiency, but the direct approach works well for the
               handful of bodies shown here.
             </p>
           </div>

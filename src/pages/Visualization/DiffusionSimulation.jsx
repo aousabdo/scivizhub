@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import DiffusionSimulationVisualizer from '../../components/Visualizations/DiffusionSimulation/DiffusionSimulationVisualizer';
 
 const DiffusionSimulationPage = () => {
@@ -53,8 +54,8 @@ const DiffusionSimulationPage = () => {
               <strong>Fick's First Law</strong> states that the diffusive flux is proportional to the negative
               concentration gradient. In one dimension:
             </p>
-            <div className="bg-white rounded p-4 font-mono text-sm mt-3">
-              <p>J = -D (dC/dx)</p>
+            <div className="bg-white rounded p-4 mt-3">
+              <BlockMath>{"J = -D \\frac{dC}{dx}"}</BlockMath>
             </div>
             <p className="mt-3">
               where <strong>J</strong> is the flux (amount of substance per unit area per unit time),
@@ -64,8 +65,8 @@ const DiffusionSimulationPage = () => {
             <p className="mt-3">
               <strong>Fick's Second Law</strong> describes how the concentration field evolves over time:
             </p>
-            <div className="bg-white rounded p-4 font-mono text-sm mt-3">
-              <p>dC/dt = D (d2C/dx2)</p>
+            <div className="bg-white rounded p-4 mt-3">
+              <BlockMath>{"\\frac{\\partial C}{\\partial t} = D \\frac{\\partial^2 C}{\\partial x^2}"}</BlockMath>
             </div>
             <p className="mt-3">
               This partial differential equation is the <em>diffusion equation</em> (also called the heat equation).
@@ -80,8 +81,8 @@ const DiffusionSimulationPage = () => {
               Einstein's key insight was connecting the macroscopic diffusion coefficient <strong>D</strong> to
               microscopic properties of the particle and the surrounding fluid:
             </p>
-            <div className="bg-white rounded p-4 font-mono text-sm mt-3">
-              <p>D = kT / (6 pi eta r)</p>
+            <div className="bg-white rounded p-4 mt-3">
+              <BlockMath>{"D = \\frac{k_B T}{6 \\pi \\eta r}"}</BlockMath>
             </div>
             <p className="mt-3">
               Here, <strong>k</strong> is Boltzmann's constant (1.38 x 10^-23 J/K), <strong>T</strong> is the
@@ -97,8 +98,8 @@ const DiffusionSimulationPage = () => {
             <p className="mt-3">
               In two dimensions, the mean squared displacement is related to the diffusion coefficient by:
             </p>
-            <div className="bg-white rounded p-4 font-mono text-sm mt-3">
-              <p>{'<r^2> = 4Dt'}</p>
+            <div className="bg-white rounded p-4 mt-3">
+              <BlockMath>{"\\langle r^2 \\rangle = 4Dt"}</BlockMath>
             </div>
             <p className="mt-3">
               This linear growth of MSD with time is the signature of <em>normal</em> diffusion. Watch the MSD chart
@@ -121,7 +122,7 @@ const DiffusionSimulationPage = () => {
             <p className="mt-2">
               In biological systems, osmosis is critical for maintaining cell volume, nutrient absorption in the
               intestines, and water reabsorption in the kidneys. The osmotic pressure across a membrane is described
-              by van't Hoff's equation: <span className="font-mono">Pi = iMRT</span>, where <strong>i</strong> is the
+              by van't Hoff's equation: <InlineMath>{'\\Pi = iMRT'}</InlineMath>, where <strong>i</strong> is the
               van't Hoff factor, <strong>M</strong> is molar concentration, <strong>R</strong> is the gas constant,
               and <strong>T</strong> is temperature.
             </p>

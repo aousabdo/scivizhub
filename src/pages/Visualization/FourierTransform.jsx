@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import FourierTransformVisualizer from '../../components/Visualizations/FourierTransform/FourierTransformVisualizer';
 
 const FourierTransformPage = () => {
@@ -32,12 +33,10 @@ const FourierTransformPage = () => {
               of sine and cosine functions with different frequencies:
             </p>
             
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200 text-center">
-              <p className="font-mono">
-                f(t) = a₀/2 + Σ [aₙcos(nωt) + bₙsin(nωt)]
-              </p>
-              <p className="mt-2 text-sm text-gray-600">
-                Where aₙ and bₙ are the amplitudes of the cosine and sine components for each frequency n
+            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+              <BlockMath>{"f(t) = \\frac{a_0}{2} + \\sum_{n=1}^{\\infty} \\left[ a_n \\cos(n\\omega t) + b_n \\sin(n\\omega t) \\right]"}</BlockMath>
+              <p className="mt-2 text-sm text-center text-gray-600">
+                Where <InlineMath>{'a_n'}</InlineMath> and <InlineMath>{'b_n'}</InlineMath> are the amplitudes of the cosine and sine components for each frequency <InlineMath>{'n'}</InlineMath>
               </p>
             </div>
             

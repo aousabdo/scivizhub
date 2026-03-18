@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
+import { InlineMath } from 'react-katex';
+import {
   ComposedChart, 
   Line, 
   Bar, 
@@ -289,11 +290,11 @@ const FourierTransformVisualizer = () => {
       case 'sine':
         return "A pure sine wave contains only one frequency component.";
       case 'square':
-        return "A square wave contains only odd harmonics (1, 3, 5, ...) with amplitudes decreasing as 1/n.";
+        return <>A square wave contains only odd harmonics (1, 3, 5, ...) with amplitudes decreasing as <InlineMath>{'1/n'}</InlineMath>.</>;
       case 'sawtooth':
-        return "A sawtooth wave contains all harmonics with amplitudes decreasing as 1/n.";
+        return <>A sawtooth wave contains all harmonics with amplitudes decreasing as <InlineMath>{'1/n'}</InlineMath>.</>;
       case 'triangle':
-        return "A triangle wave contains only odd harmonics with amplitudes decreasing as 1/n².";
+        return <>A triangle wave contains only odd harmonics with amplitudes decreasing as <InlineMath>{'1/n^2'}</InlineMath>.</>;
       case 'custom':
         return "Your custom drawn signal decomposed into frequency components.";
       default:
@@ -673,8 +674,8 @@ const FourierTransformVisualizer = () => {
           <ul className="list-disc list-inside text-gray-700">
             <li>A pure sine wave has a single frequency component</li>
             <li>Square waves contain only odd harmonics (1, 3, 5, ...)</li>
-            <li>Sawtooth waves contain all harmonics with amplitudes decreasing as 1/n</li>
-            <li>Triangle waves contain only odd harmonics with amplitudes decreasing rapidly (1/n²)</li>
+            <li>Sawtooth waves contain all harmonics with amplitudes decreasing as <InlineMath>{'1/n'}</InlineMath></li>
+            <li>Triangle waves contain only odd harmonics with amplitudes decreasing rapidly (<InlineMath>{'1/n^2'}</InlineMath>)</li>
             <li>More complex signals require more harmonics for accurate reconstruction</li>
             <li>The Gibbs phenomenon causes "ringing" near sharp transitions when using finite harmonics</li>
           </ul>
