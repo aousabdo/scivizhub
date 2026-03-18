@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { InlineMath } from 'react-katex';
 import {
   APPROXIMATION_METHODS,
   FUNCTION_PRESETS,
@@ -340,13 +341,13 @@ const IntegralAccumulationVisualizer = () => {
 
         <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-5">
           <h3 className="text-lg font-semibold text-emerald-900 mb-2">Exact Integral</h3>
-          <p className="text-sm text-emerald-800">F(b) - F(a)</p>
+          <p className="text-sm text-emerald-800"><InlineMath>{'F(b) - F(a)'}</InlineMath></p>
           <p className="text-2xl font-bold text-emerald-900 mt-2">{toDisplay(exactIntegral)}</p>
         </div>
 
         <div className="bg-amber-50 border border-amber-200 rounded-lg p-5">
           <h3 className="text-lg font-semibold text-amber-900 mb-2">Absolute Error</h3>
-          <p className="text-sm text-amber-800">|Approximation - Exact|</p>
+          <p className="text-sm text-amber-800"><InlineMath>{'|\\text{Approximation} - \\text{Exact}|'}</InlineMath></p>
           <p className="text-2xl font-bold text-amber-900 mt-2">{toDisplay(absoluteError)}</p>
         </div>
       </div>
