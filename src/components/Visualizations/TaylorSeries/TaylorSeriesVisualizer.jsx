@@ -1,5 +1,25 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 
+// Polyfill for roundRect (not available in all browsers)
+if (typeof CanvasRenderingContext2D !== 'undefined' && !CanvasRenderingContext2D.prototype.roundRect) {
+  CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+    if (typeof r === 'number') r = { tl: r, tr: r, br: r, bl: r };
+    const radius = typeof r === 'object' ? r : { tl: r, tr: r, br: r, bl: r };
+    const tl = radius.tl || 0, tr = radius.tr || 0, br = radius.br || 0, bl = radius.bl || 0;
+    this.moveTo(x + tl, y);
+    this.lineTo(x + w - tr, y);
+    this.quadraticCurveTo(x + w, y, x + w, y + tr);
+    this.lineTo(x + w, y + h - br);
+    this.quadraticCurveTo(x + w, y + h, x + w - br, y + h);
+    this.lineTo(x + bl, y + h);
+    this.quadraticCurveTo(x, y + h, x, y + h - bl);
+    this.lineTo(x, y + tl);
+    this.quadraticCurveTo(x, y, x + tl, y);
+    this.closePath();
+    return this;
+  };
+}
+
 const FUNCTIONS = {
   sin: {
     label: 'sin(x)',
