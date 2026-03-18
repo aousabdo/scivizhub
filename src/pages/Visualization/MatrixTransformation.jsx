@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath } from 'react-katex';
 import MatrixTransformationVisualizer from '../../components/Visualizations/MatrixTransformation/MatrixTransformationVisualizer';
 
 const MatrixTransformationPage = () => {
@@ -56,42 +57,27 @@ const MatrixTransformationPage = () => {
                 <tbody>
                   <tr>
                     <td className="p-2 border font-medium">Identity</td>
-                    <td className="p-2 border font-mono">
-                      [1 0]<br />
-                      [0 1]
-                    </td>
+                    <td className="p-2 border"><InlineMath>{"\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}"}</InlineMath></td>
                     <td className="p-2 border">No change (baseline)</td>
                   </tr>
                   <tr>
                     <td className="p-2 border font-medium">Scale</td>
-                    <td className="p-2 border font-mono">
-                      [sx 0]<br />
-                      [0 sy]
-                    </td>
+                    <td className="p-2 border"><InlineMath>{"\\begin{pmatrix} s_x & 0 \\\\ 0 & s_y \\end{pmatrix}"}</InlineMath></td>
                     <td className="p-2 border">Stretches or shrinks in x and y directions</td>
                   </tr>
                   <tr>
                     <td className="p-2 border font-medium">Rotation</td>
-                    <td className="p-2 border font-mono">
-                      [cos(θ) -sin(θ)]<br />
-                      [sin(θ) cos(θ)]
-                    </td>
-                    <td className="p-2 border">Rotates by angle θ</td>
+                    <td className="p-2 border"><InlineMath>{"\\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix}"}</InlineMath></td>
+                    <td className="p-2 border">Rotates by angle <InlineMath>{'\\theta'}</InlineMath></td>
                   </tr>
                   <tr>
                     <td className="p-2 border font-medium">Reflection</td>
-                    <td className="p-2 border font-mono">
-                      [1 0]<br />
-                      [0 -1]
-                    </td>
+                    <td className="p-2 border"><InlineMath>{"\\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}"}</InlineMath></td>
                     <td className="p-2 border">Reflects across the x-axis (example)</td>
                   </tr>
                   <tr>
                     <td className="p-2 border font-medium">Shear</td>
-                    <td className="p-2 border font-mono">
-                      [1 k]<br />
-                      [0 1]
-                    </td>
+                    <td className="p-2 border"><InlineMath>{"\\begin{pmatrix} 1 & k \\\\ 0 & 1 \\end{pmatrix}"}</InlineMath></td>
                     <td className="p-2 border">Horizontal shear (example)</td>
                   </tr>
                 </tbody>

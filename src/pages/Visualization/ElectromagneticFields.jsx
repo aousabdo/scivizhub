@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import ElectromagneticFieldsVisualizer from '../../components/Visualizations/ElectromagneticFields/ElectromagneticFieldsVisualizer';
 
 const ElectromagneticFieldsPage = () => {
@@ -35,11 +36,9 @@ const ElectromagneticFieldsPage = () => {
               square of the distance between them. Like charges repel; opposite charges attract.
             </p>
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono">
-                F = k * q1 * q2 / r²
-              </p>
+              <BlockMath>{"F = k \\frac{q_1 q_2}{r^2}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
-                Where k = 8.99 x 10⁹ N·m²/C² is Coulomb's constant, q1 and q2 are charges, and r is the separation distance.
+                Where <InlineMath>{'k = 8.99 \\times 10^9'}</InlineMath> N·m²/C² is Coulomb's constant, <InlineMath>{'q_1'}</InlineMath> and <InlineMath>{'q_2'}</InlineMath> are charges, and <InlineMath>{'r'}</InlineMath> is the separation distance.
               </p>
             </div>
           </div>
@@ -52,9 +51,7 @@ const ElectromagneticFieldsPage = () => {
               from positive charges and toward negative charges.
             </p>
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono">
-                E = F / q = k * Q / r²
-              </p>
+              <BlockMath>{"E = \\frac{F}{q} = \\frac{kQ}{r^2}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 The electric field has units of N/C or equivalently V/m (volts per meter).
               </p>
@@ -73,11 +70,9 @@ const ElectromagneticFieldsPage = () => {
               to calculate the field from any arrangement of charges by adding contributions one at a time.
             </p>
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono">
-                E_total = E₁ + E₂ + E₃ + ... + Eₙ
-              </p>
+              <BlockMath>{"\\vec{E}_{\\text{total}} = \\vec{E}_1 + \\vec{E}_2 + \\vec{E}_3 + \\cdots + \\vec{E}_n"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
-                Each Eᵢ is a vector — both magnitude and direction matter when summing fields.
+                Each <InlineMath>{'\\vec{E}_i'}</InlineMath> is a vector — both magnitude and direction matter when summing fields.
               </p>
             </div>
           </div>
@@ -101,9 +96,7 @@ const ElectromagneticFieldsPage = () => {
               and are always perpendicular to electric field lines.
             </p>
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono">
-                V = k * Q / r
-              </p>
+              <BlockMath>{"V = \\frac{kQ}{r}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 Potential is a scalar quantity — superposition involves simple addition, not vector addition.
               </p>
@@ -115,8 +108,8 @@ const ElectromagneticFieldsPage = () => {
             <p>
               An electric dipole consists of two equal and opposite charges separated by a small distance.
               Dipoles are fundamental in nature — water molecules, radio antennas, and many biological
-              structures are dipolar. The dipole field falls off as 1/r³ at large distances, faster than
-              the 1/r² field of a single charge.
+              structures are dipolar. The dipole field falls off as <InlineMath>{'1/r^3'}</InlineMath> at large distances, faster than
+              the <InlineMath>{'1/r^2'}</InlineMath> field of a single charge.
             </p>
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li><strong>Dipole Moment:</strong> p = q × d, where d is the separation between charges</li>

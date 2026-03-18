@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath } from 'react-katex';
 import ReactionKineticsVisualizer from '../../components/Visualizations/ReactionKinetics/ReactionKineticsVisualizer';
 
 const ReactionKineticsPage = () => {
@@ -28,8 +29,8 @@ const ReactionKineticsPage = () => {
           <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
             <h3 className="text-xl font-bold text-blue-800 mb-3">Arrhenius Equation and Temperature Dependence</h3>
             <p>
-              The Arrhenius equation, <em>k = A e<sup>-Ea/RT</sup></em>, describes how the rate constant <em>k</em>
-              depends on temperature <em>T</em>, activation energy <em>Ea</em>, and the pre-exponential factor <em>A</em>.
+              The Arrhenius equation, <InlineMath>{'k = A e^{-E_a/RT}'}</InlineMath>, describes how the rate constant <InlineMath>{'k'}</InlineMath> depends
+              on temperature <InlineMath>{'T'}</InlineMath>, activation energy <InlineMath>{'E_a'}</InlineMath>, and the pre-exponential factor <InlineMath>{'A'}</InlineMath>.
               As temperature increases, a larger fraction of molecular collisions possess enough energy to overcome the
               activation barrier, dramatically increasing the reaction rate. A common rule of thumb is that a 10 K rise
               in temperature roughly doubles the rate for many reactions.
@@ -41,7 +42,7 @@ const ReactionKineticsPage = () => {
             <p>
               In reversible reactions, the system eventually reaches a dynamic equilibrium where the forward and reverse
               reaction rates are equal, and the concentrations of reactants and products remain constant. The equilibrium
-              constant <em>K = [C][D] / [A][B]</em> quantifies the ratio at equilibrium.
+              constant <InlineMath>{'K = \\frac{[C][D]}{[A][B]}'}</InlineMath> quantifies the ratio at equilibrium.
             </p>
             <p className="mt-2">
               Le Chatelier&apos;s principle states that if an external stress is applied to a system at equilibrium --

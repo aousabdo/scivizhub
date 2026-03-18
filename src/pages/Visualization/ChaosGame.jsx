@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import ChaosGameVisualizer from '../../components/Visualizations/ChaosGame/ChaosGameVisualizer';
 
 const ChaosGamePage = () => {
@@ -70,16 +71,14 @@ const ChaosGamePage = () => {
             </p>
             <p className="mt-3">
               In the Chaos Game, each vertex defines one contraction mapping: "move a fraction <em>r</em>
-              toward vertex <em>V<sub>i</sub></em>." Mathematically, if the current point
-              is <em>P</em> and the chosen vertex is <em>V<sub>i</sub></em>, the next point is:
+              toward vertex <InlineMath>{'V_i'}</InlineMath>." Mathematically, if the current point
+              is <InlineMath>{'P'}</InlineMath> and the chosen vertex is <InlineMath>{'V_i'}</InlineMath>, the next point is:
             </p>
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono text-sm">
-                P&prime; = P + r &middot; (V<sub>i</sub> &minus; P) = (1 &minus; r) &middot; P + r &middot; V<sub>i</sub>
-              </p>
+              <BlockMath>{"P' = P + r \\cdot (V_i - P) = (1 - r) \\cdot P + r \\cdot V_i"}</BlockMath>
             </div>
             <p>
-              Each such mapping is an <strong>affine contraction</strong> with contraction factor (1 &minus; r).
+              Each such mapping is an <strong>affine contraction</strong> with contraction factor <InlineMath>{'(1 - r)'}</InlineMath>.
               The Banach Fixed Point Theorem guarantees that the repeated application of these contractions
               converges to a unique compact set &mdash; the fractal attractor &mdash; independent of the
               starting point. The random selection of which mapping to apply at each step is known as the
@@ -99,7 +98,7 @@ const ChaosGamePage = () => {
               The <strong>Sierpinski Triangle</strong>, produced by the 3-vertex, ratio-1/2 game, is a
               canonical example. It can be constructed in multiple equivalent ways: by repeatedly removing
               the central triangle from each remaining triangle, by Pascal&apos;s Triangle modulo 2, or by
-              the Chaos Game. Its fractal (Hausdorff) dimension is log(3)/log(2) &asymp; 1.585 &mdash;
+              the Chaos Game. Its fractal (Hausdorff) dimension is <InlineMath>{'\\log(3)/\\log(2) \\approx 1.585'}</InlineMath> &mdash;
               more than a line but less than a surface.
             </p>
             <p className="mt-3">

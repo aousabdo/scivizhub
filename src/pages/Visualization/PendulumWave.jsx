@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import PendulumWaveVisualizer from '../../components/Visualizations/PendulumWave/PendulumWaveVisualizer';
 
 const PendulumWavePage = () => {
@@ -33,11 +34,9 @@ const PendulumWavePage = () => {
             </p>
             
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono">
-                Period of a pendulum: T = 2π√(L/g)
-              </p>
+              <BlockMath>{"T = 2\\pi\\sqrt{\\frac{L}{g}}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
-                Where T is the period (seconds), L is the length (meters), and g is gravitational acceleration (9.8 m/s²)
+                Where <InlineMath>{'T'}</InlineMath> is the period (seconds), <InlineMath>{'L'}</InlineMath> is the length (meters), and <InlineMath>{'g'}</InlineMath> is gravitational acceleration (9.8 m/s²)
               </p>
             </div>
             

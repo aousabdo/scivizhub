@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { 
+import { InlineMath, BlockMath } from 'react-katex';
+import {
   ResponsiveContainer, 
   ComposedChart, 
   Bar, 
@@ -529,8 +530,8 @@ const CentralLimitTheoremVisualizer = () => {
         <div className="mt-4">
           <h4 className="font-semibold">The Central Limit Theorem states:</h4>
           <p className="ml-4 mt-2 text-gray-700">
-            Given a population with mean μ and standard deviation σ, the sampling distribution of the mean 
-            approaches a normal distribution with mean μ and standard deviation σ/√n as the sample size (n) increases.
+            Given a population with mean <InlineMath>{'\mu'}</InlineMath> and standard deviation <InlineMath>{'\\sigma'}</InlineMath>, the sampling distribution of the mean
+            approaches a normal distribution with mean <InlineMath>{'\mu'}</InlineMath> and standard deviation <InlineMath>{'\\sigma/\\sqrt{n}'}</InlineMath> as the sample size (<InlineMath>{'n'}</InlineMath>) increases.
           </p>
         </div>
         
@@ -550,7 +551,7 @@ const CentralLimitTheoremVisualizer = () => {
           <ul className="list-disc list-inside text-gray-700 mt-2">
             <li>Try different population distributions to see that the CLT works regardless of the original shape</li>
             <li>Increase the sample size to see the distribution of means become more normal</li>
-            <li>Note how the standard deviation of sample means decreases as sample size increases (by a factor of 1/√n)</li>
+            <li>Note how the standard deviation of sample means decreases as sample size increases (by a factor of <InlineMath>{'1/\\sqrt{n}'}</InlineMath>)</li>
             <li>Compare the actual distribution of sample means with the theoretical normal curve</li>
           </ul>
         </div>
