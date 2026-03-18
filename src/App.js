@@ -36,6 +36,11 @@ import MarkovChainPage from './pages/Visualization/MarkovChain';
 import LorenzAttractorPage from './pages/Visualization/LorenzAttractor';
 import VoronoiDiagramPage from './pages/Visualization/VoronoiDiagram';
 import SpringMassSystemPage from './pages/Visualization/SpringMassSystem';
+import TaylorSeriesPage from './pages/Visualization/TaylorSeries';
+import GeneticAlgorithmPage from './pages/Visualization/GeneticAlgorithm';
+import OrbitalMechanicsPage from './pages/Visualization/OrbitalMechanics';
+import DiffusionSimulationPage from './pages/Visualization/DiffusionSimulation';
+import ChaosGamePage from './pages/Visualization/ChaosGame';
 
 
 import './App.css';
@@ -77,6 +82,11 @@ function App() {
           <Route path="/visualization/lorenz-attractor" element={<LorenzAttractorPage />} />
           <Route path="/visualization/voronoi-diagram" element={<VoronoiDiagramPage />} />
           <Route path="/visualization/spring-mass-system" element={<SpringMassSystemPage />} />
+          <Route path="/visualization/taylor-series" element={<TaylorSeriesPage />} />
+          <Route path="/visualization/genetic-algorithm" element={<GeneticAlgorithmPage />} />
+          <Route path="/visualization/orbital-mechanics" element={<OrbitalMechanicsPage />} />
+          <Route path="/visualization/diffusion-simulation" element={<DiffusionSimulationPage />} />
+          <Route path="/visualization/chaos-game" element={<ChaosGamePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contribute" element={<ContributePage />} />
           <Route path="/categories" element={<AllCategoriesPage />} />
