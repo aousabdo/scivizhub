@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import { streamChat, setApiKey, hasApiKey, clearApiKey, isChatAvailable, isUsingProxy } from '../../services/groqService';
 import { getVisualizationContext, getSuggestedQuestions } from '../../services/visualizationContexts';
 
-const ChatDrawer = ({ isOpen, onClose, visualizationId, visualizationTitle }) => {
+const ChatDrawer = ({ isOpen, onClose, onMinimize, visualizationId, visualizationTitle }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isStreaming, setIsStreaming] = useState(false);
@@ -163,6 +164,124 @@ const ChatDrawer = ({ isOpen, onClose, visualizationId, visualizationTitle }) =>
     setShowSuggestions(true);
   };
 
+  // Render a single line of text with inline formatting (bold, inline math, code)
+  const renderInlineContent = (text, keyPrefix) => {
+    // Split on **bold**, $math$, and `code` patterns
+    const parts = text.split(/(\*\*.*?\*\*|\$[^$]+\$|`[^`]+`)/g);
+    return parts.map((part, j) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <strong key={`${keyPrefix}-${j}`}>{part.slice(2, -2)}</strong>;
+      }
+      if (part.startsWith('$') && part.endsWith('$') && part.length > 2) {
+        try {
+          return <InlineMath key={`${keyPrefix}-${j}`}>{part.slice(1, -1)}</InlineMath>;
+        } catch {
+          return <code key={`${keyPrefix}-${j}`} className="text-xs bg-gray-200 px-1 rounded">{part.slice(1, -1)}</code>;
+        }
+      }
+      if (part.startsWith('`') && part.endsWith('`')) {
+        return <code key={`${keyPrefix}-${j}`} className="text-xs bg-gray-200 text-gray-800 px-1 py-0.5 rounded">{part.slice(1, -1)}</code>;
+      }
+      return part;
+    });
+  };
+
+  // Render a full message with block-level formatting (block math, lists, headers)
+  const renderMessage = (content) => {
+    const lines = content.split('\n');
+    const elements = [];
+    let i = 0;
+
+    while (i < lines.length) {
+      const line = lines[i];
+
+      // Block math: $$ ... $$
+      if (line.trim().startsWith('$$')) {
+        let mathContent = line.trim().slice(2);
+        // Collect multi-line block math
+        while (i < lines.length && !mathContent.includes('$$')) {
+          i++;
+          if (i < lines.length) mathContent += '\n' + lines[i];
+        }
+        const closingIdx = mathContent.lastIndexOf('$$');
+        const latex = closingIdx > 0 ? mathContent.slice(0, closingIdx).trim() : mathContent.trim();
+        if (latex) {
+          try {
+            elements.push(<div key={i} className="my-2 overflow-x-auto"><BlockMath>{latex}</BlockMath></div>);
+          } catch {
+            elements.push(<pre key={i} className="text-xs bg-gray-200 p-2 rounded my-1 overflow-x-auto">{latex}</pre>);
+          }
+        }
+        i++;
+        continue;
+      }
+
+      // Headers: ### or ##
+      if (line.startsWith('### ')) {
+        elements.push(<p key={i} className="font-bold mt-2 mb-1">{renderInlineContent(line.slice(4), i)}</p>);
+        i++;
+        continue;
+      }
+      if (line.startsWith('## ')) {
+        elements.push(<p key={i} className="font-bold mt-2 mb-1">{renderInlineContent(line.slice(3), i)}</p>);
+        i++;
+        continue;
+      }
+
+      // Bullet lists: - or *
+      if (/^[\-\*]\s/.test(line.trim())) {
+        const listItems = [];
+        while (i < lines.length && /^[\-\*]\s/.test(lines[i].trim())) {
+          listItems.push(lines[i].trim().slice(2));
+          i++;
+        }
+        elements.push(
+          <ul key={`ul-${i}`} className="list-disc list-inside my-1 space-y-0.5">
+            {listItems.map((item, li) => (
+              <li key={li}>{renderInlineContent(item, `${i}-${li}`)}</li>
+            ))}
+          </ul>
+        );
+        continue;
+      }
+
+      // Numbered lists: 1. 2. etc.
+      if (/^\d+\.\s/.test(line.trim())) {
+        const listItems = [];
+        while (i < lines.length && /^\d+\.\s/.test(lines[i].trim())) {
+          listItems.push(lines[i].trim().replace(/^\d+\.\s/, ''));
+          i++;
+        }
+        elements.push(
+          <ol key={`ol-${i}`} className="list-decimal list-inside my-1 space-y-0.5">
+            {listItems.map((item, li) => (
+              <li key={li}>{renderInlineContent(item, `${i}-${li}`)}</li>
+            ))}
+          </ol>
+        );
+        continue;
+      }
+
+      // Empty lines → spacing
+      if (line.trim() === '') {
+        elements.push(<br key={i} />);
+        i++;
+        continue;
+      }
+
+      // Regular text line
+      elements.push(
+        <span key={i}>
+          {renderInlineContent(line, i)}
+          {i < lines.length - 1 && lines[i + 1]?.trim() !== '' && <br />}
+        </span>
+      );
+      i++;
+    }
+
+    return elements;
+  };
+
   if (!isOpen) return null;
 
   const suggestedQuestions = getSuggestedQuestions(visualizationId);
@@ -206,6 +325,15 @@ const ChatDrawer = ({ isOpen, onClose, visualizationId, visualizationTitle }) =>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </button>
+            <button
+              onClick={onMinimize}
+              className="p-1.5 hover:bg-white hover:bg-opacity-20 rounded transition-colors"
+              title="Minimize"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 15l-6-6-6 6" />
               </svg>
             </button>
             <button
@@ -317,17 +445,7 @@ const ChatDrawer = ({ isOpen, onClose, visualizationId, visualizationTitle }) =>
                         : 'bg-gray-100 text-gray-800 rounded-bl-md'
                     }`}
                   >
-                    {msg.content.split('\n').map((line, i) => (
-                      <span key={i}>
-                        {line.split(/(\*\*.*?\*\*)/).map((part, j) => {
-                          if (part.startsWith('**') && part.endsWith('**')) {
-                            return <strong key={j}>{part.slice(2, -2)}</strong>;
-                          }
-                          return part;
-                        })}
-                        {i < msg.content.split('\n').length - 1 && <br />}
-                      </span>
-                    ))}
+                    {renderMessage(msg.content)}
                     {isStreaming && idx === messages.length - 1 && msg.role === 'assistant' && (
                       <span className="inline-block w-1.5 h-4 bg-gray-400 ml-0.5 animate-pulse" />
                     )}

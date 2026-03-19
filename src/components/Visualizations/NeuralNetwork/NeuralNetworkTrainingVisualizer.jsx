@@ -83,15 +83,12 @@ const NeuralNetworkTrainingVisualizer = () => {
   
   // Generate new dataset based on settings
   const generateNewData = () => {
-    console.log("Generating new data, type:", datasetType, "count:", dataPointCount);
     
     try {
       // Generate data points
       const { data, labels } = generateData(datasetType, dataPointCount, noise);
-      console.log("Generated data points:", data.length);
       
       if (!data || data.length === 0) {
-        console.error("No data generated");
         return;
       }
       
@@ -116,7 +113,6 @@ const NeuralNetworkTrainingVisualizer = () => {
         }
       }
       
-      console.log("Training data:", trainData.length, "Test data:", testData.length);
       
       // Update state
       setTrainingData(trainData);
@@ -131,7 +127,6 @@ const NeuralNetworkTrainingVisualizer = () => {
       initializeNetwork();
       
     } catch (error) {
-      console.error("Error generating data:", error);
     }
   };
   
@@ -149,7 +144,6 @@ const NeuralNetworkTrainingVisualizer = () => {
       networkConfig.outputActivation || 'sigmoid' // Ensure we have an output activation
     );
     
-    console.log("Created new neural network:", newNetwork);
     
     setNetwork(newNetwork);
     setEpoch(0);
@@ -175,23 +169,19 @@ const NeuralNetworkTrainingVisualizer = () => {
   
   // Train the network for one epoch
   const trainNetwork = () => {
-    console.log("Training network, epoch:", epoch, "max:", maxEpochs);
     
     if (!network) {
-      console.error("No network available for training");
       setIsTraining(false);
       return;
     }
     
     if (!isTraining || epoch >= maxEpochs) {
-      console.log("Training stopped - isTraining:", isTraining, "epoch:", epoch);
       setIsTraining(false);
       return;
     }
     
     try {
       // Use a simple function to perform one epoch of training
-      console.log("Training one epoch...");
       const doTrainingStep = async () => {
         // Train for one epoch
         const result = await trainNeuralNetwork(
@@ -201,7 +191,6 @@ const NeuralNetworkTrainingVisualizer = () => {
           networkConfig.learningRate
         );
         
-        console.log("Training result:", result);
         
         // Update state with the new network
         setNetwork(result.updatedNetwork);
@@ -235,7 +224,6 @@ const NeuralNetworkTrainingVisualizer = () => {
       doTrainingStep();
       
     } catch (error) {
-      console.error("Error during neural network training:", error);
       setIsTraining(false);
     }
   };
@@ -261,14 +249,12 @@ const NeuralNetworkTrainingVisualizer = () => {
   const drawVisualization = () => {
     const canvas = canvasRef.current;
     if (!canvas) {
-      console.error("Canvas ref is null");
       return;
     }
     
     try {
       const ctx = canvas.getContext('2d');
       if (!ctx) {
-        console.error("Could not get canvas context");
         return;
       }
       
@@ -283,16 +269,13 @@ const NeuralNetworkTrainingVisualizer = () => {
       
       // Draw decision boundary if network exists and option enabled
       if (network && showBoundary) {
-        console.log("Drawing decision boundary...");
         drawDecisionBoundary(ctx, network, width, height, boundaryResolution);
       }
       
       // Draw data points
       if (trainingData && trainingData.length > 0) {
-        console.log("Drawing data points...");
         drawDataPoints(ctx, trainingData, width, height);
       } else {
-        console.warn("No training data to draw");
       }
       
       // Highlight selected point if any
@@ -308,9 +291,7 @@ const NeuralNetworkTrainingVisualizer = () => {
         ctx.stroke();
       }
       
-      console.log("Visualization drawn successfully");
     } catch (error) {
-      console.error("Error drawing visualization:", error);
     }
   };
   

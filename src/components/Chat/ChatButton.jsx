@@ -5,6 +5,7 @@ const SEEN_KEY = 'scivizhub_chat_seen';
 
 const ChatButton = ({ visualizationId, visualizationTitle }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
   const [showHint, setShowHint] = useState(false);
 
   useEffect(() => {
@@ -32,8 +33,23 @@ const ChatButton = ({ visualizationId, visualizationTitle }) => {
   }, [showHint]);
 
   const handleOpen = () => {
-    setIsOpen(true);
+    if (isMinimized) {
+      setIsMinimized(false);
+      setIsOpen(true);
+    } else {
+      setIsOpen(true);
+    }
     setShowHint(false);
+  };
+
+  const handleMinimize = () => {
+    setIsOpen(false);
+    setIsMinimized(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+    setIsMinimized(false);
   };
 
   return (
@@ -58,34 +74,53 @@ const ChatButton = ({ visualizationId, visualizationTitle }) => {
         </div>
       )}
 
-      {/* Floating button */}
-      <button
-        onClick={handleOpen}
-        className="fixed bottom-6 right-6 z-30 w-14 h-14 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center group"
-        title="Ask AI about this visualization"
-        aria-label="Open AI chat"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-          />
-        </svg>
+      {/* Minimized bar */}
+      {isMinimized && !isOpen && (
+        <button
+          onClick={handleOpen}
+          className="fixed bottom-6 right-6 z-30 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center space-x-2 pl-4 pr-3 py-2.5 group"
+          title="Restore chat"
+          aria-label="Restore AI chat"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+          </svg>
+          <span className="text-sm font-medium">SciViz AI</span>
+          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+        </button>
+      )}
 
-        {/* Tooltip (shown on hover when hint is not visible) */}
-        {!showHint && (
-          <span className="absolute right-full mr-3 px-3 py-1.5 bg-gray-900 text-white text-xs rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-            Ask AI about this topic
-          </span>
-        )}
-      </button>
+      {/* Floating button (only when not minimized) */}
+      {!isMinimized && (
+        <button
+          onClick={handleOpen}
+          className="fixed bottom-6 right-6 z-30 w-14 h-14 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center group"
+          title="Ask AI about this visualization"
+          aria-label="Open AI chat"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+            />
+          </svg>
+
+          {/* Tooltip (shown on hover when hint is not visible) */}
+          {!showHint && (
+            <span className="absolute right-full mr-3 px-3 py-1.5 bg-gray-900 text-white text-xs rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              Ask AI about this topic
+            </span>
+          )}
+        </button>
+      )}
 
       {/* Chat drawer */}
       <ChatDrawer
         isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
+        onClose={handleClose}
+        onMinimize={handleMinimize}
         visualizationId={visualizationId}
         visualizationTitle={visualizationTitle}
       />

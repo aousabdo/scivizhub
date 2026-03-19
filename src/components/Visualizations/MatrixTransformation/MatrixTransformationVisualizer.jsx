@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  applyTransformation, 
-  generateGrid, 
-  generateUnitCircle, 
-  generateUnitCube, 
+import { InlineMath } from 'react-katex';
+import {
+  applyTransformation,
+  generateGrid,
+  generateUnitCircle,
+  generateUnitCube,
   interpolateMatrices,
   presetTransformations
 } from './matrixTransformationUtils';
@@ -74,7 +75,6 @@ const setupVisualization = () => {
       
       // Safety check for generated grid
       if (!newGrid || !Array.isArray(newGrid) || newGrid.length === 0) {
-        console.error("Generated grid is invalid:", newGrid);
         setGrid([]);
         return;
       }
@@ -108,7 +108,7 @@ const setupVisualization = () => {
         updateVisualization();
       }, 0);
     } catch (error) {
-      console.error("Error in setupVisualization:", error);
+      // Setup error — grid may be invalid
     }
   };
   
@@ -116,13 +116,11 @@ const setupVisualization = () => {
   const updateVisualization = () => {
     const canvas = canvasRef.current;
     if (!canvas) {
-      console.warn("Canvas ref is null");
       return;
     }
     
     const ctx = canvas.getContext('2d');
     if (!ctx) {
-      console.error("Could not get canvas context");
       return;
     }
     
@@ -145,26 +143,49 @@ const setupVisualization = () => {
     const scaleFactor = Math.min(width, height) / 5;
     ctx.scale(scaleFactor, scaleFactor);
     
-    // Draw coordinate grid if enabled and grid is valid
+    const currentMatrix = mode === '2d' ? matrix2D : matrix3D;
+
+    // Draw the ORIGINAL (untransformed) grid in very light gray
     if (showGrid && grid && Array.isArray(grid) && grid.length > 0) {
-      drawGrid(ctx, grid);
+      drawGrid(ctx, grid, 'rgba(220, 220, 220, 0.3)');
     }
-    
-    // Rest of the function remains the same...
-    
+
+    // Draw TRANSFORMED grid
+    if (showGrid && grid && Array.isArray(grid) && grid.length > 0) {
+      const transformedGrid = grid.map(pt => applyTransformation(pt, currentMatrix, mode));
+      drawGrid(ctx, transformedGrid, 'rgba(100, 140, 220, 0.35)');
+    }
+
+    // Draw axes if enabled
+    if (showAxes) {
+      drawAxes(ctx);
+    }
+
+    // Draw unit shape if enabled
+    if (showUnitShape && unitShape && unitShape.length > 0) {
+      // Draw original shape faintly
+      drawShape(ctx, unitShape, 'rgba(200, 200, 200, 0.15)', 'rgba(180, 180, 180, 0.4)');
+      // Draw transformed shape
+      const transformedShape = unitShape.map(pt => applyTransformation(pt, currentMatrix, mode));
+      drawShape(ctx, transformedShape, 'rgba(75, 192, 192, 0.2)', 'rgba(75, 192, 192, 0.8)');
+    }
+
+    // Draw basis vectors if enabled
+    if (showVectors) {
+      drawBasisVectors(ctx);
+    }
+
     ctx.restore();
   };
   
   // Draw the coordinate grid
 // Updated drawGrid function with more robust error handling
-const drawGrid = (ctx, gridPoints) => {
-    // Guard against undefined or empty grid
+const drawGrid = (ctx, gridPoints, color) => {
     if (!ctx || !gridPoints || !Array.isArray(gridPoints) || gridPoints.length === 0) {
-      console.warn("Invalid grid or context for drawing");
       return;
     }
-  
-    ctx.strokeStyle = 'rgba(200, 200, 200, 0.3)';
+
+    ctx.strokeStyle = color || 'rgba(200, 200, 200, 0.3)';
     ctx.lineWidth = 0.02;
     
     if (mode === '2d') {
@@ -195,7 +216,7 @@ const drawGrid = (ctx, gridPoints) => {
           Array.isArray(point) && point.length >= 3
         ).sort((a, b) => a[2] - b[2]);
       } catch (error) {
-        console.error("Error sorting grid points:", error);
+        // Error sorting grid points
         return;
       }
       
@@ -687,6 +708,42 @@ const drawGrid = (ctx, gridPoints) => {
                 </div>
               )}
               
+              {/* Determinant display */}
+              <div className="mt-3 p-2 bg-white rounded border text-center text-sm">
+                {mode === '2d' ? (
+                  <>
+                    <span className="text-gray-600">det = </span>
+                    <span className={`font-bold ${
+                      Math.abs(matrix2D[0][0] * matrix2D[1][1] - matrix2D[0][1] * matrix2D[1][0]) < 0.001
+                        ? 'text-red-600' : 'text-gray-900'
+                    }`}>
+                      {(matrix2D[0][0] * matrix2D[1][1] - matrix2D[0][1] * matrix2D[1][0]).toFixed(3)}
+                    </span>
+                    {Math.abs(matrix2D[0][0] * matrix2D[1][1] - matrix2D[0][1] * matrix2D[1][0]) < 0.001 && (
+                      <span className="text-red-500 text-xs block">Singular — collapses dimension!</span>
+                    )}
+                  </>
+                ) : (
+                  (() => {
+                    const m = matrix3D;
+                    const det = m[0][0]*(m[1][1]*m[2][2]-m[1][2]*m[2][1])
+                              - m[0][1]*(m[1][0]*m[2][2]-m[1][2]*m[2][0])
+                              + m[0][2]*(m[1][0]*m[2][1]-m[1][1]*m[2][0]);
+                    return (
+                      <>
+                        <span className="text-gray-600">det = </span>
+                        <span className={`font-bold ${Math.abs(det) < 0.001 ? 'text-red-600' : 'text-gray-900'}`}>
+                          {det.toFixed(3)}
+                        </span>
+                        {Math.abs(det) < 0.001 && (
+                          <span className="text-red-500 text-xs block">Singular — collapses dimension!</span>
+                        )}
+                      </>
+                    );
+                  })()
+                )}
+              </div>
+
               <h3 className="text-lg font-semibold mt-6 mb-3">Preset Transformations</h3>
               <div className="grid grid-cols-2 gap-2">
                 {mode === '2d' ? (
