@@ -22,7 +22,16 @@ module.exports = {
           700: '#0369a1',
         },
         // Add more color schemes for different subject areas
-      }
+      },
+      animation: {
+        'bounce-subtle': 'bounce-subtle 2s ease-in-out 3',
+      },
+      keyframes: {
+        'bounce-subtle': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-6px)' },
+        },
+      },
     },
   },
   plugins: [],

@@ -1,14 +1,15 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { streamChat, setApiKey, hasApiKey, clearApiKey } from '../../services/groqService';
-import { getVisualizationContext } from '../../services/visualizationContexts';
+import { streamChat, setApiKey, hasApiKey, clearApiKey, isChatAvailable, isUsingProxy } from '../../services/groqService';
+import { getVisualizationContext, getSuggestedQuestions } from '../../services/visualizationContexts';
 
 const ChatDrawer = ({ isOpen, onClose, visualizationId, visualizationTitle }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isStreaming, setIsStreaming] = useState(false);
-  const [showKeyInput, setShowKeyInput] = useState(!hasApiKey());
+  const [showKeyInput, setShowKeyInput] = useState(!isChatAvailable());
   const [keyInput, setKeyInput] = useState('');
   const [error, setError] = useState('');
+  const [showSuggestions, setShowSuggestions] = useState(true);
 
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
@@ -28,15 +29,19 @@ const ChatDrawer = ({ isOpen, onClose, visualizationId, visualizationTitle }) =>
     }
   }, [isOpen, showKeyInput]);
 
-  // Add welcome message when opening for the first time with a key
+  // Add welcome message when opening for the first time with chat available
   useEffect(() => {
-    if (isOpen && messages.length === 0 && hasApiKey()) {
+    if (isOpen && messages.length === 0 && isChatAvailable()) {
+      const proxyNote = isUsingProxy()
+        ? '\n\nYou\'re using the free tier (20 msgs/hr). Add your own Groq API key in settings for unlimited access.'
+        : '';
       setMessages([
         {
           role: 'assistant',
-          content: `Hi! I'm SciViz AI. I can help you understand the **${visualizationTitle || 'visualization'}** you're viewing. Ask me anything — how it works, the math behind it, or real-world applications!`,
+          content: `Hi! I'm SciViz AI. I can help you understand the **${visualizationTitle || 'visualization'}** you're viewing. Ask me anything — how it works, the math behind it, or real-world applications!${proxyNote}`,
         },
       ]);
+      setShowSuggestions(true);
     }
   }, [isOpen, visualizationTitle]);
 
@@ -56,20 +61,23 @@ const ChatDrawer = ({ isOpen, onClose, visualizationId, visualizationTitle }) =>
         content: `Hi! I'm SciViz AI. I can help you understand the **${visualizationTitle || 'visualization'}** you're viewing. Ask me anything!`,
       },
     ]);
+    setShowSuggestions(true);
   };
 
   const handleRemoveKey = () => {
     clearApiKey();
-    setShowKeyInput(true);
+    if (!isChatAvailable()) {
+      setShowKeyInput(true);
+    }
     setMessages([]);
   };
 
-  const handleSend = async () => {
-    const text = input.trim();
+  const sendMessage = async (text) => {
     if (!text || isStreaming) return;
 
     setInput('');
     setError('');
+    setShowSuggestions(false);
 
     const userMessage = { role: 'user', content: text };
     const updatedMessages = [...messages, userMessage];
@@ -124,6 +132,15 @@ const ChatDrawer = ({ isOpen, onClose, visualizationId, visualizationTitle }) =>
     }
   };
 
+  const handleSend = async () => {
+    const text = input.trim();
+    await sendMessage(text);
+  };
+
+  const handleSuggestionClick = (question) => {
+    sendMessage(question);
+  };
+
   const handleStop = () => {
     abortRef.current?.abort();
     setIsStreaming(false);
@@ -143,9 +160,12 @@ const ChatDrawer = ({ isOpen, onClose, visualizationId, visualizationTitle }) =>
         content: `Chat cleared! Ask me anything about the **${visualizationTitle || 'visualization'}**.`,
       },
     ]);
+    setShowSuggestions(true);
   };
 
   if (!isOpen) return null;
+
+  const suggestedQuestions = getSuggestedQuestions(visualizationId);
 
   return (
     <>
@@ -164,6 +184,9 @@ const ChatDrawer = ({ isOpen, onClose, visualizationId, visualizationTitle }) =>
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
             </svg>
             <span className="font-semibold text-sm">SciViz AI</span>
+            {isUsingProxy() && (
+              <span className="text-xs bg-white bg-opacity-20 px-1.5 py-0.5 rounded">Free</span>
+            )}
           </div>
           <div className="flex items-center space-x-1">
             <button
@@ -207,9 +230,13 @@ const ChatDrawer = ({ isOpen, onClose, visualizationId, visualizationTitle }) =>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900">Set Up AI Chat</h3>
+                <h3 className="text-lg font-bold text-gray-900">
+                  {isChatAvailable() ? 'Use Your Own API Key' : 'Set Up AI Chat'}
+                </h3>
                 <p className="text-sm text-gray-600 mt-2">
-                  To chat with SciViz AI, you need a free Groq API key.
+                  {isChatAvailable()
+                    ? 'Add your own Groq API key for unlimited access (no rate limits).'
+                    : 'To chat with SciViz AI, you need a free Groq API key.'}
                 </p>
               </div>
 
@@ -239,12 +266,12 @@ const ChatDrawer = ({ isOpen, onClose, visualizationId, visualizationTitle }) =>
                   Save & Start Chatting
                 </button>
 
-                {hasApiKey() && (
+                {isChatAvailable() && (
                   <button
                     onClick={() => { setShowKeyInput(false); setError(''); }}
                     className="w-full py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors font-medium text-sm"
                   >
-                    Cancel
+                    {hasApiKey() ? 'Cancel' : 'Continue with free tier'}
                   </button>
                 )}
 
@@ -307,6 +334,22 @@ const ChatDrawer = ({ isOpen, onClose, visualizationId, visualizationTitle }) =>
                   </div>
                 </div>
               ))}
+
+              {/* Suggested questions */}
+              {showSuggestions && messages.length <= 1 && !isStreaming && (
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {suggestedQuestions.map((q, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => handleSuggestionClick(q)}
+                      className="text-xs bg-white border border-blue-200 text-blue-700 rounded-full px-3 py-1.5 hover:bg-blue-50 hover:border-blue-300 transition-colors text-left"
+                    >
+                      {q}
+                    </button>
+                  ))}
+                </div>
+              )}
+
               <div ref={messagesEndRef} />
             </div>
 
