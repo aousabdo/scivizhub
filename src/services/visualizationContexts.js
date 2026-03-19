@@ -1,5 +1,5 @@
 /**
- * AI system prompts for each visualization.
+ * AI system prompts and suggested questions for each visualization.
  * These provide context so the AI can answer questions about the specific topic.
  */
 
@@ -16,147 +16,397 @@ Guidelines:
 const contexts = {
   'bayes-theorem': `${BASE_PROMPT}
 
-The user is viewing the Bayes' Theorem visualization. This shows how prior beliefs update with new evidence. Key concepts: prior probability P(A), likelihood P(B|A), evidence P(B), posterior P(A|B). The medical testing example shows why even accurate tests can have surprising false positive rates when disease prevalence is low.`,
+The user is viewing the Bayes' Theorem visualization. This shows how prior beliefs update with new evidence. Key concepts: prior probability P(A), likelihood P(B|A), evidence P(B), posterior P(A|B). The medical testing example shows why even accurate tests can have surprising false positive rates when disease prevalence is low.
+
+Interactive controls: "Disease Prevalence" slider (0.001-0.5), "Test Sensitivity" slider (0.5-1), "Test Specificity" slider (0.5-1), and four view tabs (2x2 Table, Tree Diagram, Venn Diagram, Visual Proof).`,
 
   'monty-hall': `${BASE_PROMPT}
 
-The user is viewing the Monty Hall Problem simulator. This classic probability puzzle involves 3 doors, one hiding a prize. After the player picks a door, the host reveals a goat behind another door. The key insight: switching wins 2/3 of the time. The simulator lets users run thousands of trials to see this empirically.`,
+The user is viewing the Monty Hall Problem simulator. This classic probability puzzle involves 3 doors, one hiding a prize. After the player picks a door, the host reveals a goat behind another door. The key insight: switching wins 2/3 of the time. The simulator lets users run thousands of trials to see this empirically.
+
+Interactive controls: Door 1/2/3 buttons for picking, Stay/Switch buttons after reveal, New Round button, "Trials per batch" slider (10-5000), Run 1 Batch, Run 10 Batches, and Reset Simulation buttons.`,
 
   'integral-accumulation': `${BASE_PROMPT}
 
-The user is viewing the Integral Accumulation Explorer. This shows how definite integrals are approximated using Riemann sums. Methods shown: Left, Right, Midpoint, and Trapezoidal rules. Key concepts: as the number of subintervals increases, the approximation converges to the exact integral F(b) - F(a). The error decreases with more subintervals.`,
+The user is viewing the Integral Accumulation Explorer. This shows how definite integrals are approximated using Riemann sums. Methods shown: Left, Right, Midpoint, and Trapezoidal rules. Key concepts: as the number of subintervals increases, the approximation converges to the exact integral F(b) - F(a).
+
+Interactive controls: Function dropdown, Approximation Method dropdown (Left/Right/Midpoint/Trapezoidal), Subintervals slider (2-120), Lower/Upper Bound sliders, and Reset Controls button.`,
 
   'sorting-algorithms': `${BASE_PROMPT}
 
-The user is viewing the Sorting Algorithms visualization. This compares different sorting methods (Bubble, Selection, Insertion, Merge, Quick, Heap sort). Key concepts: time complexity (O(n^2) vs O(n log n)), space complexity, stability, and when each algorithm is best suited. The visualization shows step-by-step comparisons and swaps.`,
+The user is viewing the Sorting Algorithms visualization. This compares Bubble, Selection, Insertion, Merge, and Quick Sort. Key concepts: time complexity (O(n^2) vs O(n log n)), space complexity, stability.
+
+Interactive controls: Algorithm dropdown, Animation Speed slider (5-200ms), New Array button, and Sort/Stop button.`,
 
   'central-limit-theorem': `${BASE_PROMPT}
 
-The user is viewing the Central Limit Theorem (CLT) visualization. This demonstrates that the distribution of sample means approaches a normal distribution regardless of the original population distribution. Key formula: standard error = sigma/sqrt(n). The visualization lets users change the population distribution, sample size, and number of samples.`,
+The user is viewing the Central Limit Theorem (CLT) visualization. This demonstrates that the distribution of sample means approaches a normal distribution regardless of the original population distribution. Key formula: standard error = sigma/sqrt(n).
+
+Interactive controls: Population Distribution dropdown (Uniform/Normal/Exponential/Bimodal/Skewed), Sample Size slider (2-100), Number of Samples slider (10-5000), Histogram Bins slider (5-50), "Show theoretical normal curve" checkbox, and Regenerate Data button.`,
 
   'pathfinding-algorithms': `${BASE_PROMPT}
 
-The user is viewing the Pathfinding Algorithms visualization. This shows how algorithms like BFS, DFS, Dijkstra's, and A* find paths in a grid. Key concepts: weighted vs unweighted graphs, heuristics, optimality guarantees. A* uses a heuristic to guide search toward the goal, making it faster than Dijkstra's in many cases.`,
+The user is viewing the Pathfinding Algorithms visualization. This shows how Dijkstra's, A*, BFS, DFS, and Greedy Best-First Search find paths in a grid. Key concepts: weighted vs unweighted graphs, heuristics, optimality guarantees.
+
+Interactive controls: Algorithm dropdown, Animation Speed slider (10-100ms), Clear Board/Clear Path buttons, Visualize/Stop button, Random Walls button, Generate Maze button, "Show Algorithm Details" checkbox, and interactive grid (click/drag for walls, drag start/end nodes).`,
 
   'pendulum-wave': `${BASE_PROMPT}
 
-The user is viewing the Pendulum Wave visualization. This shows how pendulums with carefully chosen lengths create wave patterns. The period formula is T = 2*pi*sqrt(L/g). By tuning lengths so frequencies are integer multiples of a base frequency, all pendulums realign after one cycle. Patterns include traveling waves, standing waves, and complex interference.`,
+The user is viewing the Pendulum Wave visualization. Pendulums with carefully chosen lengths create wave patterns. Period formula: T = 2*pi*sqrt(L/g). All pendulums realign after one cycle time.
+
+Interactive controls: Start/Pause, Reset, Number of Pendulums (5-30), Pendulum Length (100-300px), Cycle Time (10-60s), Gravity (1-20 m/s^2), Damping Factor (0.99-0.999), Show Trails checkbox, Trail Length slider, Show Phase Info checkbox, Show Sine Wave checkbox.`,
 
   'fourier-transform': `${BASE_PROMPT}
 
-The user is viewing the Fourier Series visualization. This shows how any periodic signal can be decomposed into sine and cosine components. Key concepts: time domain vs frequency domain, harmonics, Fourier coefficients. Square waves have only odd harmonics (1/n), sawtooth waves have all harmonics (1/n), triangle waves have odd harmonics (1/n^2). The Gibbs phenomenon causes ringing near discontinuities.`,
+The user is viewing the Fourier Transform visualization. This shows how periodic signals decompose into sine/cosine components. Key concepts: time vs frequency domain, harmonics, Gibbs phenomenon.
+
+Interactive controls: Signal Type dropdown (Sine/Square/Sawtooth/Triangle/Custom Drawn), preset buttons, Frequency slider (0.1-5Hz), Amplitude slider (0.1-2), Phase slider, drawing canvas for custom signals, Number of Harmonics (1-20), Animation Speed slider, Show Harmonic Components / Show Reconstructed Signal checkboxes, Animate Synthesis button, Update Signal button.`,
 
   'neural-network-training': `${BASE_PROMPT}
 
-The user is viewing the Neural Network Training visualization. This shows how neural networks learn through forward propagation and backpropagation. Key concepts: weights, biases, activation functions, loss functions, gradient descent, learning rate. The visualization shows how the decision boundary evolves during training.`,
+The user is viewing the Neural Network Training visualization. This shows how neural networks learn through forward/back propagation. Key concepts: weights, biases, activation functions, gradient descent.
+
+Interactive controls: Dataset Type dropdown (Circles/Moons/Spiral/XOR/Clusters), Number of Points (50-500), Noise Level (0-0.3), hidden layer neuron inputs (1-50 per layer), Add/Remove Layer buttons, Activation Function dropdown (Sigmoid/Tanh/ReLU), Learning Rate (0.001-0.1), Max Epochs (10-500), Batch Size (1-64), Animation Speed slider, Show Decision Boundary checkbox, Start/Stop Training, Reset button, click canvas for prediction.`,
 
   'traveling-salesman': `${BASE_PROMPT}
 
-The user is viewing the Traveling Salesman Problem (TSP) visualization. This NP-hard problem asks for the shortest route visiting all cities. The visualization compares approaches: brute force, nearest neighbor, 2-opt improvement, simulated annealing, and genetic algorithms. Key insight: exact solutions become impractical as city count grows, so heuristics are essential.`,
+The user is viewing the Traveling Salesman Problem (TSP) visualization. This NP-hard problem asks for the shortest route visiting all cities. Compares nearest neighbor, 2-opt, and genetic algorithm approaches.
+
+Interactive controls: Number of Cities slider (5-50), Animation Speed slider (10-200ms), Generate New Cities button, Nearest Neighbor / 2-Opt / Genetic Algorithm run buttons.`,
 
   'matrix-transformation': `${BASE_PROMPT}
 
-The user is viewing the Matrix Transformation visualization. This shows how 2D and 3D matrices transform space. Key transformations: rotation, scaling, shearing, reflection. The determinant represents area/volume scaling. Eigenvalues/eigenvectors show invariant directions. Matrix multiplication composes transformations.`,
+The user is viewing the Matrix Transformation visualization. This shows how 2D/3D matrices transform space. Key transformations: rotation, scaling, shearing, reflection. Determinant represents area/volume scaling.
+
+Interactive controls: 2D/3D mode toggle, matrix entry inputs (step 0.1), Reset Matrix button, Show Grid/Unit Circle/Axes/Basis Vectors checkboxes, preset buttons (Identity/Scale/Reflection/Rotate/Shear), Add Current Matrix / Remove Last / Clear All for sequences, Animate Sequence button, Animation Speed slider.`,
 
   'eigen-geometry-explorer': `${BASE_PROMPT}
 
-The user is viewing the Eigen Geometry Explorer. This shows how 2x2 matrices transform vectors, with focus on eigenvalues and eigenvectors. Eigenvectors are directions that only get scaled (not rotated) by the transformation. The visualization shows the unit circle becoming an ellipse, grid deformation, and eigen directions. Complex eigenvalues indicate rotation.`,
+The user is viewing the Eigen Geometry Explorer. This shows how 2x2 matrices transform vectors, with focus on eigenvalues and eigenvectors. Eigenvectors are directions that only get scaled by the transformation.
+
+Interactive controls: Matrix entry sliders a11/a12/a21/a22 (-3 to 3), Interpolation t slider (0-1, from identity to target), Input Vector x/y sliders, preset buttons (Axis Stretch/Shear/Reflect/Rotation/Saddle), Reset button, toggle buttons for Original Grid/Transformed Grid/Unit Circle/Eigen Directions.`,
 
   'derivative-explorer': `${BASE_PROMPT}
 
-The user is viewing the Derivative Explorer. This shows the geometric meaning of derivatives as tangent line slopes. Key concepts: the limit definition f'(x) = lim(h->0) [f(x+h)-f(x)]/h, secant lines approaching tangent lines, local linearity. Users can drag a point along curves and see how the derivative changes.`,
+The user is viewing the Derivative Explorer. This shows the geometric meaning of derivatives as tangent line slopes. Key concept: f'(x) = lim(h->0) [f(x+h)-f(x)]/h.
+
+Interactive controls: Function radio buttons (10 functions including Quadratic, Cubic, Sine, Cosine, Exponential, Logarithmic, etc.), Point Position slider (-5 to 5) or drag the green point, Secant Line dx slider (0.01-2), Zoom In/Out buttons, Reset button, Show/Hide Secant Line and Derivative Value toggles.`,
 
   'wave-interference': `${BASE_PROMPT}
 
-The user is viewing the Wave Interference visualization. This shows how waves combine through superposition. Key concepts: constructive interference (waves in phase), destructive interference (waves out of phase), standing waves, beats. Parameters include frequency, amplitude, and phase for multiple wave sources.`,
+The user is viewing the Wave Interference visualization. This shows how waves combine through superposition. Key concepts: constructive/destructive interference, standing waves.
+
+Interactive controls: Play/Pause, Reset, preset buttons (Two Sources/Three Sources/Double Slit/Circular Barrier), Clear All, Frequency slider (0.5-5Hz), Wavelength slider (10-100px), Amplitude slider (0.1-1.0), Animation Speed (0.1-3x), Cross-Section Position slider, Ripple Tank / Cross Section view modes, click canvas to place sources (max 4).`,
 
   'double-pendulum': `${BASE_PROMPT}
 
-The user is viewing the Double Pendulum visualization. This is a classic example of a chaotic system — tiny changes in initial conditions lead to dramatically different trajectories. Key concepts: sensitive dependence on initial conditions, phase space, energy conservation. The double pendulum has 2 degrees of freedom and exhibits both regular and chaotic motion.`,
+The user is viewing the Double Pendulum visualization. A classic chaotic system where tiny changes in initial conditions lead to dramatically different trajectories.
+
+Interactive controls: Play/Pause, Reset, presets (Symmetric/Asymmetric/High Energy/Butterfly Effect), Mass 1/2 sliders (0.5-5 kg), Length 1/2 sliders (50-200px), Initial Angle 1/2 sliders (-180 to 180 deg), Gravity slider (1-20 m/s^2), Trail Length (0-500), Damping slider (0-0.1), Compare Mode checkbox.`,
 
   'epidemic-sir': `${BASE_PROMPT}
 
-The user is viewing the SIR Epidemic Model. This compartmental model divides a population into Susceptible, Infected, and Recovered groups. Key parameters: transmission rate (beta), recovery rate (gamma), basic reproduction number R0 = beta/gamma. When R0 > 1, the disease spreads. The visualization shows how interventions (reducing contact) flatten the curve.`,
+The user is viewing the SIR Epidemic Model. Compartmental model: Susceptible -> Infected -> Recovered. Key parameter: R0 = beta/gamma. When R0 > 1, disease spreads.
+
+Interactive controls: Presets (No Intervention/Mild Flu/Aggressive Virus/With Vaccination/Social Distancing), Population slider (100-500), Initial Infected (1-20), Infection Radius (5-30), Infection Probability (0.1-1.0), Recovery Time (50-500 frames), Mortality Rate (0-0.3), Vaccination Rate (0-0.5), Movement Speed (0.5-3.0), Social Distancing/Quarantine toggles, Play/Pause, Reset.`,
 
   'reaction-kinetics': `${BASE_PROMPT}
 
-The user is viewing the Reaction Kinetics visualization. This shows how chemical reactions proceed over time. Key concepts: rate laws, reaction order, Arrhenius equation k = A*e^(-Ea/RT), equilibrium constants. Temperature affects reaction rates through the Boltzmann distribution of molecular energies.`,
+The user is viewing the Reaction Kinetics visualization. This shows chemical reactions proceeding over time. Key concepts: rate laws, Arrhenius equation k = A*e^(-Ea/RT), equilibrium.
+
+Interactive controls: Presets (Fast/Slow/Equilibrium/With Catalyst/Le Chatelier), Temperature slider (200-600K), Activation Energy slider (10-100 kJ/mol), Initial [A]/[B] sliders (10-100 particles), Volume slider (200-800), Reaction Type dropdown (Irreversible/Reversible), Catalyst checkbox, Play/Pause, Reset.`,
 
   'fractal-explorer': `${BASE_PROMPT}
 
-The user is viewing the Fractal Explorer. This shows the Mandelbrot set and Julia sets, generated by iterating z = z^2 + c. Key concepts: fractal dimension, self-similarity, escape time algorithm, complex numbers. The Mandelbrot set boundary has infinite complexity. Points inside never diverge; the coloring shows how quickly points outside escape.`,
+The user is viewing the Fractal Explorer. This shows Mandelbrot set, Julia sets, and Burning Ship fractal via z = z^2 + c iteration. Coloring shows escape speed.
+
+Interactive controls: Presets (Full View/Seahorse Valley/Spiral/Julia Classic/Julia Dendrite/Burning Ship), Fractal Type dropdown, Max Iterations (50-500), Color Scheme dropdown (Classic/Fire/Rainbow/Grayscale/Ocean), Reset View, Julia c Real/Imaginary sliders (-2 to 2), click to zoom in, shift+click to zoom out.`,
 
   'gravity-simulator': `${BASE_PROMPT}
 
-The user is viewing the Gravity Simulator. This shows N-body gravitational interactions using Newton's law F = G*m1*m2/r^2. Key concepts: gravitational fields, orbital mechanics, escape velocity, tidal forces. The simulation demonstrates how gravity shapes orbits and how multiple bodies create complex trajectories.`,
+The user is viewing the Gravity Simulator. N-body gravitational interactions using F = G*m1*m2/r^2. Demonstrates orbital mechanics and complex trajectories.
+
+Interactive controls: Play/Pause, Reset, Remove Last body, presets (Solar System/Binary Star/Figure Eight/Random Orbits), Simulation Speed (0.1-5x), Gravitational Constant (0.1-5), Softening (1-30), Show Orbital Trails checkbox, Trail Length (50-800), Add Body mode (click to place, drag for velocity), scroll to zoom.`,
 
   'binary-search-tree': `${BASE_PROMPT}
 
-The user is viewing the Binary Search Tree visualization. BSTs store data such that left children are smaller and right children are larger. Key operations: insert, search, delete — all O(h) where h is tree height. Balanced trees (AVL, Red-Black) maintain O(log n) height. The visualization shows tree structure changes during operations.`,
+The user is viewing the Binary Search Tree visualization. BSTs store data with left < parent < right. Operations: insert, search, delete — all O(h). AVL mode maintains O(log n) height via rotations.
+
+Interactive controls: Value input field, Insert/Search/Delete buttons, In-Order/Pre-Order/Post-Order traversal buttons, Random insert button, Clear button, presets (Balanced/Skewed/Random), AVL Mode toggle, Speed slider, click nodes for details.`,
 
   'game-of-life': `${BASE_PROMPT}
 
-The user is viewing Conway's Game of Life. This cellular automaton follows simple rules: a cell is born with exactly 3 neighbors, survives with 2-3 neighbors, and dies otherwise. Despite simple rules, complex behaviors emerge: still lifes, oscillators, gliders, and even universal computation. This demonstrates emergence and complexity from simplicity.`,
+The user is viewing Conway's Game of Life. Rules: birth with exactly 3 neighbors, survival with 2-3 neighbors, death otherwise. Complex behaviors emerge: still lifes, oscillators, gliders.`,
 
   'hypothesis-testing': `${BASE_PROMPT}
 
-The user is viewing the Hypothesis Testing visualization. This shows the framework for making statistical decisions. Key concepts: null and alternative hypotheses, p-values, significance level (alpha), Type I errors (false positives), Type II errors (false negatives), power. The visualization shows how sample size and effect size affect the test outcome.`,
+The user is viewing the Hypothesis Testing visualization. Framework for statistical decisions. Key concepts: null/alternative hypotheses, p-values, alpha, Type I/II errors, statistical power.`,
 
   'electromagnetic-fields': `${BASE_PROMPT}
 
-The user is viewing the Electromagnetic Fields visualization. This shows electric fields from point charges using Coulomb's law F = kq1q2/r^2. Key concepts: field lines, superposition, equipotential lines, electric potential V = kQ/r. Field lines start on positive charges and end on negative charges. The visualization shows dipoles, quadrupoles, and parallel plate configurations.`,
+The user is viewing the Electromagnetic Fields visualization. Electric fields from point charges using Coulomb's law F = kq1q2/r^2. Field lines, superposition, equipotential lines.`,
 
   'predator-prey': `${BASE_PROMPT}
 
-The user is viewing the Predator-Prey (Lotka-Volterra) model. This system of differential equations models population dynamics between predators and prey. Key behavior: populations oscillate cyclically — more prey leads to more predators, which reduces prey, which reduces predators, and the cycle repeats. The phase portrait shows characteristic closed orbits.`,
+The user is viewing the Predator-Prey (Lotka-Volterra) model. Populations oscillate: more prey -> more predators -> fewer prey -> fewer predators -> cycle repeats. Phase portrait shows closed orbits.`,
 
   'markov-chain': `${BASE_PROMPT}
 
-The user is viewing the Markov Chain visualization. Markov chains are systems where the next state depends only on the current state (memoryless property). Key concepts: transition probabilities, stationary distribution, ergodicity, absorbing states. Applications include PageRank, weather modeling, and language models.`,
+The user is viewing the Markov Chain visualization. Next state depends only on current state (memoryless). Key concepts: transition probabilities, stationary distribution, ergodicity, absorbing states.`,
 
   'lorenz-attractor': `${BASE_PROMPT}
 
-The user is viewing the Lorenz Attractor. This system of 3 differential equations (discovered by Edward Lorenz in 1963) produces a butterfly-shaped strange attractor. It's a foundational example of deterministic chaos — the system is fully determined by equations but impossible to predict long-term due to sensitive dependence on initial conditions.`,
+The user is viewing the Lorenz Attractor. Three differential equations producing a butterfly-shaped strange attractor. Discovered by Edward Lorenz in 1963. Foundational example of deterministic chaos.`,
 
   'voronoi-diagram': `${BASE_PROMPT}
 
-The user is viewing the Voronoi Diagram visualization. A Voronoi diagram partitions space into regions based on distance to a set of seed points — each region contains all points closest to its seed. Key concepts: Delaunay triangulation (the dual graph), nearest-neighbor classification, applications in GIS, biology (cell territories), and computer graphics.`,
+The user is viewing the Voronoi Diagram. Partitions space into regions based on proximity to seed points. Dual graph is the Delaunay triangulation. Applications in GIS, biology, computer graphics.`,
 
   'spring-mass-system': `${BASE_PROMPT}
 
-The user is viewing the Spring-Mass System visualization. This demonstrates Hooke's law (F = -kx) and simple/coupled harmonic motion. Key concepts: natural frequency, damping, resonance, normal modes. Coupled oscillators exchange energy and exhibit normal modes where all masses oscillate at the same frequency.`,
+The user is viewing the Spring-Mass System. Demonstrates Hooke's law F = -kx and harmonic motion. Key concepts: natural frequency, damping, resonance, normal modes of coupled oscillators.`,
 
   'taylor-series': `${BASE_PROMPT}
 
-The user is viewing the Taylor Series Approximation visualizer. This shows how functions like sin(x), cos(x), e^x, and ln(1+x) can be approximated by polynomials. Key concepts: the Taylor formula sum of f^(n)(a)(x-a)^n/n!, radius of convergence, truncation error. More terms give better approximation within the radius of convergence.`,
+The user is viewing the Taylor Series Approximation visualizer. This shows how functions like sin(x), cos(x), e^x, and ln(1+x) can be approximated by polynomials. Key concepts: the Taylor formula sum of f^(n)(a)(x-a)^n/n!, radius of convergence, truncation error. More terms give better approximation within the radius of convergence.
+
+Interactive controls: Function selector (sin, cos, e^x, ln(1+x)), number of terms slider, expansion center point, zoom controls, animation for adding terms one by one, toggle to show individual terms vs sum.`,
 
   'genetic-algorithm': `${BASE_PROMPT}
 
-The user is viewing the Genetic Algorithm visualization. GAs are optimization algorithms inspired by natural selection. Key operations: selection (survival of the fittest), crossover (combining parent solutions), mutation (random changes). The population evolves over generations toward better fitness. Applications include scheduling, design optimization, and machine learning.`,
+The user is viewing the Genetic Algorithm visualization. GAs are optimization algorithms inspired by natural selection. Key operations: selection (survival of the fittest), crossover (combining parent solutions), mutation (random changes). The population evolves over generations toward better fitness.
+
+Interactive controls: Population size slider, mutation rate slider, crossover rate slider, obstacle presets, play/pause, reset, generation counter, fitness graph, speed control. Watch dots evolve to navigate through obstacles.`,
 
   'orbital-mechanics': `${BASE_PROMPT}
 
-The user is viewing the Orbital Mechanics simulation. This shows gravitational N-body dynamics using the Velocity Verlet integrator. Key concepts: Kepler's laws (elliptical orbits, equal areas, T^2 proportional to a^3), Newton's gravitation F = Gm1m2/r^2, conservation of energy and angular momentum. Presets include solar system, binary stars, and the figure-8 three-body solution.`,
+The user is viewing the Orbital Mechanics simulation. This shows gravitational N-body dynamics using the Velocity Verlet integrator. Key concepts: Kepler's laws (elliptical orbits, equal areas, T^2 proportional to a^3), Newton's gravitation F = Gm1m2/r^2, conservation of energy and angular momentum.
+
+Interactive controls: Presets (Solar System/Binary Star/Figure-8 Three-Body/Lagrange Points/Random), simulation speed, gravitational constant, trail length toggle, add body mode (click to place, drag for velocity), zoom with scroll wheel, energy/momentum readouts.`,
 
   'diffusion-simulation': `${BASE_PROMPT}
 
-The user is viewing the Diffusion & Brownian Motion simulator. This shows how particles spread from high to low concentration via random thermal motion. Key equations: Fick's first law J = -D(dC/dx), Fick's second law (diffusion equation), Einstein-Stokes relation D = kT/(6*pi*eta*r), mean squared displacement <r^2> = 4Dt. Higher temperature means faster diffusion.`,
+The user is viewing the Diffusion & Brownian Motion simulator. Particles spread from high to low concentration via random thermal motion. Key equations: Fick's first law J = -D(dC/dx), Einstein relation D = kT/(6*pi*eta*r), mean squared displacement <r^2> = 4Dt.
+
+Interactive controls: Scenario presets (Free Diffusion/Concentration Gradient/Membrane), particle count slider, temperature slider, particle radius, play/pause, reset, real-time MSD tracking chart, concentration histogram.`,
 
   'chaos-game': `${BASE_PROMPT}
 
-The user is viewing the Chaos Game visualization. This demonstrates Iterated Function Systems (IFS) — placing points by repeatedly jumping a fraction of the distance toward randomly chosen vertices. Key concepts: the classic Sierpinski triangle (3 vertices, ratio 1/2), contraction mappings, fractal dimension, the Banach Fixed Point Theorem guaranteeing convergence to the attractor.`,
+The user is viewing the Chaos Game visualization. This demonstrates Iterated Function Systems (IFS) — placing points by repeatedly jumping a fraction of the distance toward randomly chosen vertices. Key concepts: the classic Sierpinski triangle (3 vertices, ratio 1/2), contraction mappings, fractal dimension, the Banach Fixed Point Theorem.
+
+Interactive controls: Preset buttons (Triangle/Square/Pentagon/Hexagon/Custom), speed slider (1-1000 points per frame), color mode selector (by vertex/by age/single color), play/pause, clear, reset buttons, vertex labels toggle.`,
 
   'compression-algorithms': `${BASE_PROMPT}
 
-The user is viewing the Compression Algorithms visualization. This shows how data compression works using algorithms like Run-Length Encoding, Huffman coding, and LZW. Key concepts: lossless vs lossy compression, entropy (Shannon's information theory), prefix-free codes, dictionary-based methods. Compression ratio depends on data redundancy.`,
+The user is viewing the Compression Algorithms visualization. Shows Run-Length Encoding, Huffman coding, and LZW. Key concepts: lossless vs lossy compression, entropy, prefix-free codes, dictionary-based methods.`,
 
   'maze-generation': `${BASE_PROMPT}
 
-The user is viewing the Maze Generation visualization. This shows different algorithms for creating random mazes: recursive backtracking (DFS), Prim's algorithm, Kruskal's algorithm, and others. Key concepts: spanning trees, graph traversal, randomness. Each algorithm produces mazes with different characteristics (long corridors vs many branches).`,
+The user is viewing the Maze Generation visualization. Shows recursive backtracking (DFS), Prim's, Kruskal's algorithms for maze creation. Key concepts: spanning trees, graph traversal, procedural generation.`,
+
+  'projectile-motion-lab': `${BASE_PROMPT}
+
+The user is viewing the Projectile Motion Lab. This shows how angle, speed, gravity, drag, and wind shape projectile trajectories. Compare numerical simulation with analytic (no-drag) baseline.`,
 };
+
+/**
+ * Suggested starter questions for each visualization.
+ */
+const suggestedQuestions = {
+  'bayes-theorem': [
+    'Why do accurate tests still produce so many false positives?',
+    'How does disease prevalence affect the posterior probability?',
+    'Can you explain the difference between sensitivity and specificity?',
+  ],
+  'monty-hall': [
+    'Why does switching doors win 2/3 of the time?',
+    'How do I interpret the simulation results?',
+    "What if there were 100 doors instead of 3?",
+  ],
+  'integral-accumulation': [
+    'Why does the midpoint rule converge faster than left/right?',
+    'What is the trapezoidal rule doing differently?',
+    'How does the error change as I add more subintervals?',
+  ],
+  'sorting-algorithms': [
+    'Why is Quick Sort faster than Bubble Sort on average?',
+    'What does O(n log n) mean in plain English?',
+    'Which sorting algorithm is best for nearly-sorted data?',
+  ],
+  'central-limit-theorem': [
+    'Why does the CLT work even for skewed distributions?',
+    'What happens when I increase the sample size?',
+    'What is the standard error and why does it shrink?',
+  ],
+  'pathfinding-algorithms': [
+    "What makes A* faster than Dijkstra's?",
+    'When would BFS be better than A*?',
+    'What is a heuristic and why does it matter?',
+  ],
+  'pendulum-wave': [
+    'Why do the pendulums create wave patterns?',
+    'How are the pendulum lengths calculated?',
+    'What causes them to re-align after one cycle?',
+  ],
+  'fourier-transform': [
+    'Why do square waves only have odd harmonics?',
+    'What causes the ringing near sharp edges (Gibbs phenomenon)?',
+    'How is the Fourier Transform used in real life?',
+  ],
+  'neural-network-training': [
+    'What is backpropagation doing at each step?',
+    'Why does the decision boundary change during training?',
+    'What happens if the learning rate is too high?',
+  ],
+  'traveling-salesman': [
+    'Why is TSP considered NP-hard?',
+    'How does 2-opt improve on nearest neighbor?',
+    'What makes the genetic algorithm approach different?',
+  ],
+  'matrix-transformation': [
+    'What does the determinant tell us geometrically?',
+    'How do I compose two transformations?',
+    'What happens when the determinant is zero?',
+  ],
+  'eigen-geometry-explorer': [
+    'What are eigenvectors in simple terms?',
+    'Why do complex eigenvalues mean rotation?',
+    'What does the interpolation slider show?',
+  ],
+  'derivative-explorer': [
+    'What does the derivative mean geometrically?',
+    'How does the secant line approach the tangent?',
+    'Why does zooming in make the curve look linear?',
+  ],
+  'wave-interference': [
+    'What is the difference between constructive and destructive interference?',
+    'How does the double-slit experiment work?',
+    'Why do the interference fringes change with wavelength?',
+  ],
+  'double-pendulum': [
+    'What makes the double pendulum chaotic?',
+    'What does "sensitive dependence on initial conditions" mean?',
+    'How does compare mode demonstrate the butterfly effect?',
+  ],
+  'epidemic-sir': [
+    'What is R0 and why does it matter?',
+    'How does vaccination help flatten the curve?',
+    'What is herd immunity and when is it reached?',
+  ],
+  'reaction-kinetics': [
+    'How does temperature affect reaction rate?',
+    'What does a catalyst do at the molecular level?',
+    "Can you explain Le Chatelier's principle?",
+  ],
+  'fractal-explorer': [
+    'What determines if a point is in the Mandelbrot set?',
+    'What is the relationship between Mandelbrot and Julia sets?',
+    'Why are fractals infinitely complex?',
+  ],
+  'gravity-simulator': [
+    "What is the figure-eight three-body solution?",
+    'Why do orbits become chaotic with three or more bodies?',
+    "How does this relate to Kepler's laws?",
+  ],
+  'binary-search-tree': [
+    'Why does an unbalanced BST become slow?',
+    'How do AVL rotations maintain balance?',
+    'What is the difference between in-order and pre-order traversal?',
+  ],
+  'game-of-life': [
+    'How can such simple rules create complex behavior?',
+    'What are gliders and why are they important?',
+    'Is the Game of Life Turing complete?',
+  ],
+  'hypothesis-testing': [
+    'What is a p-value in plain English?',
+    "What's the difference between Type I and Type II errors?",
+    'How does sample size affect statistical power?',
+  ],
+  'electromagnetic-fields': [
+    'Why do field lines go from positive to negative?',
+    'What are equipotential lines?',
+    'How does superposition work for multiple charges?',
+  ],
+  'predator-prey': [
+    'Why do predator and prey populations oscillate?',
+    'What does the phase portrait show?',
+    'What happens if predators become too efficient?',
+  ],
+  'markov-chain': [
+    'What does the "memoryless property" mean?',
+    'How does PageRank use Markov chains?',
+    'What is a stationary distribution?',
+  ],
+  'lorenz-attractor': [
+    'What is a strange attractor?',
+    'Why is the Lorenz system called deterministic chaos?',
+    'What do the parameters sigma, rho, and beta control?',
+  ],
+  'voronoi-diagram': [
+    'What is the relationship between Voronoi and Delaunay?',
+    'Where are Voronoi diagrams used in real life?',
+    'How is each region boundary calculated?',
+  ],
+  'spring-mass-system': [
+    "What is Hooke's law?",
+    'What are normal modes in coupled oscillators?',
+    'How does damping affect the oscillation?',
+  ],
+  'taylor-series': [
+    'Why does adding more terms improve the approximation?',
+    'What is the radius of convergence?',
+    'Why does the ln(1+x) series only work for |x| <= 1?',
+  ],
+  'genetic-algorithm': [
+    'How does crossover combine two parent solutions?',
+    'What happens if the mutation rate is too high or too low?',
+    'How is fitness measured in this visualization?',
+  ],
+  'orbital-mechanics': [
+    "What are Kepler's three laws of planetary motion?",
+    'Why is the figure-8 three-body orbit so special?',
+    'How does the Velocity Verlet integrator work?',
+  ],
+  'diffusion-simulation': [
+    "What is Fick's law of diffusion?",
+    'How does temperature affect the speed of diffusion?',
+    'What is mean squared displacement telling us?',
+  ],
+  'chaos-game': [
+    'How does random jumping create a fractal pattern?',
+    'Why does the Sierpinski triangle appear with ratio 1/2?',
+    'What happens if I change the number of vertices or ratio?',
+  ],
+  'compression-algorithms': [
+    'How does Huffman coding assign shorter codes to frequent characters?',
+    'What is the difference between lossless and lossy compression?',
+    'Why does LZW work well for repeated patterns?',
+  ],
+  'maze-generation': [
+    'How does recursive backtracking generate a maze?',
+    "What makes Prim's maze different from Kruskal's?",
+    'Why are maze algorithms related to spanning trees?',
+  ],
+  'projectile-motion-lab': [
+    'What launch angle gives the maximum range?',
+    'How does air drag change the trajectory shape?',
+    'Why does higher gravity reduce the range?',
+  ],
+};
+
+const DEFAULT_QUESTIONS = [
+  'What am I looking at in this visualization?',
+  'What are the key concepts here?',
+  'How can I interact with the controls?',
+];
 
 export function getVisualizationContext(visualizationId) {
   return contexts[visualizationId] || BASE_PROMPT;
+}
+
+export function getSuggestedQuestions(visualizationId) {
+  return suggestedQuestions[visualizationId] || DEFAULT_QUESTIONS;
 }
 
 export default contexts;
