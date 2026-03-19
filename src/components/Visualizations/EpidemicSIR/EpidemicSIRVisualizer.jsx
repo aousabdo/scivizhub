@@ -292,6 +292,7 @@ const EpidemicSIRVisualizer = () => {
 
   useEffect(() => {
     resetSimulation();
+    setIsRunning(true);
   }, []);
 
   useEffect(() => {

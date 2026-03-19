@@ -538,6 +538,15 @@ const GeneticAlgorithmVisualizer = () => {
     drawChart();
   }, [drawMain, drawChart]);
 
+  // Auto-start on mount
+  const gaInitRef = useRef(false);
+  useEffect(() => {
+    if (!gaInitRef.current) {
+      gaInitRef.current = true;
+      setIsRunning(true);
+    }
+  }, []);
+
   // ── Event handlers ────────────────────────────────────────────────────────
 
   const handleReset = () => {
