@@ -127,40 +127,6 @@ function findMin(node) {
 function bstDelete(root, value, avlMode) {
   const steps = [];
 
-  function remove(node) {
-    if (!node) {
-      steps.push({ type: 'notfound', value });
-      return null;
-    }
-    steps.push({ type: 'visit', value: node.value });
-    if (value < node.value) {
-      node.left = remove(node.left);
-    } else if (value > node.value) {
-      node.right = remove(node.right);
-    } else {
-      steps.push({ type: 'delete', value: node.value });
-      if (!node.left && !node.right) return null;
-      if (!node.left) return node.right;
-      if (!node.right) return node.left;
-      const successor = findMin(node.right);
-      steps.push({ type: 'successor', value: successor.value });
-      node.value = successor.value;
-      node.right = remove.call(this, node.right);
-      // need to re-find since we changed target
-    }
-    if (!node) return null;
-    updateHeight(node);
-    if (avlMode) {
-      const bf = balanceFactor(node);
-      if (Math.abs(bf) > 1) {
-        steps.push({ type: 'rotate', value: node.value, bf });
-      }
-      node = avlBalance(node);
-    }
-    return node;
-  }
-
-  // We need a special version for successor deletion within the same call
   function removeInner(node, val) {
     if (!node) return null;
     if (val < node.value) {

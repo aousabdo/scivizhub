@@ -3,7 +3,7 @@ import { InlineMath, BlockMath } from 'react-katex';
 
 const WaveInterferenceVisualizer = () => {
   // Configuration state
-  const [isRunning, setIsRunning] = useState(false);
+  const [isRunning, setIsRunning] = useState(true);
   const [frequency, setFrequency] = useState(2.0);
   const [wavelength, setWavelength] = useState(40);
   const [amplitude, setAmplitude] = useState(0.8);

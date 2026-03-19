@@ -163,12 +163,19 @@ const SpringMassSystemVisualizer = () => {
   }, [initState, computeEnergy]);
 
   // Initialize on mount and when numMasses changes
+  const mountedRef = useRef(false);
   useEffect(() => {
     resetSimulation();
-    setIsRunning(false);
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current);
-      animationRef.current = null;
+    if (!mountedRef.current) {
+      // Auto-start on first mount
+      mountedRef.current = true;
+      setIsRunning(true);
+    } else {
+      setIsRunning(false);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
+      }
     }
   }, [numMasses]); // eslint-disable-line react-hooks/exhaustive-deps
 
