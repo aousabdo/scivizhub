@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import DoublePendulumVisualizer from '../../components/Visualizations/DoublePendulum/DoublePendulumVisualizer';
 
 const DoublePendulumPage = () => {
@@ -31,23 +32,15 @@ const DoublePendulumPage = () => {
             <h3 className="text-xl font-bold text-blue-800 mb-3">Mathematical Foundation</h3>
             <p>
               The double pendulum is analyzed using Lagrangian mechanics. The Lagrangian
-              <em> L = T - V </em> (kinetic minus potential energy) yields two coupled second-order
-              differential equations for the angles &theta;<sub>1</sub> and &theta;<sub>2</sub>.
+              <InlineMath>{"L = T - V"}</InlineMath> (kinetic minus potential energy) yields two coupled second-order
+              differential equations for the angles <InlineMath>{"\\theta_1"}</InlineMath> and <InlineMath>{"\\theta_2"}</InlineMath>.
             </p>
 
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono text-sm">
-                L = &frac12;(m<sub>1</sub>+m<sub>2</sub>)L<sub>1</sub>&sup2;&theta;&#775;<sub>1</sub>&sup2;
-                + &frac12;m<sub>2</sub>L<sub>2</sub>&sup2;&theta;&#775;<sub>2</sub>&sup2;
-                + m<sub>2</sub>L<sub>1</sub>L<sub>2</sub>&theta;&#775;<sub>1</sub>&theta;&#775;<sub>2</sub>cos(&theta;<sub>1</sub>-&theta;<sub>2</sub>)
-              </p>
-              <p className="text-center font-mono text-sm mt-1">
-                + (m<sub>1</sub>+m<sub>2</sub>)gL<sub>1</sub>cos&theta;<sub>1</sub>
-                + m<sub>2</sub>gL<sub>2</sub>cos&theta;<sub>2</sub>
-              </p>
+              <BlockMath>{"L = \\tfrac{1}{2}(m_1+m_2)L_1^2\\dot{\\theta}_1^2 + \\tfrac{1}{2}m_2 L_2^2\\dot{\\theta}_2^2 + m_2 L_1 L_2 \\dot{\\theta}_1 \\dot{\\theta}_2 \\cos(\\theta_1 - \\theta_2)"}</BlockMath>
+              <BlockMath>{"\\quad + (m_1+m_2)gL_1\\cos\\theta_1 + m_2 gL_2\\cos\\theta_2"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
-                Applying the Euler-Lagrange equations d/dt(&part;L/&part;&theta;&#775;) - &part;L/&part;&theta; = 0
-                yields the equations of motion for each angle.
+                Applying the Euler–Lagrange equations <InlineMath>{"\\frac{d}{dt}\\frac{\\partial L}{\\partial \\dot{\\theta}} - \\frac{\\partial L}{\\partial \\theta} = 0"}</InlineMath> yields the equations of motion for each angle.
               </p>
             </div>
 
@@ -69,7 +62,7 @@ const DoublePendulumPage = () => {
                 <strong>Sensitive Dependence on Initial Conditions:</strong> Often called the
                 "butterfly effect," this means that two trajectories starting infinitesimally
                 close together will diverge exponentially over time. Use the Compare mode to see
-                how a mere 0.5&deg; difference leads to completely different behavior.
+                how a mere 0.5° difference leads to completely different behavior.
               </li>
               <li>
                 <strong>Lyapunov Exponents:</strong> These quantify the rate of divergence between

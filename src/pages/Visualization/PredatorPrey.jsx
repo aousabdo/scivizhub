@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import PredatorPreyVisualizer from '../../components/Visualizations/PredatorPrey/PredatorPreyVisualizer';
 
 const PredatorPreyPage = () => {
@@ -34,16 +35,16 @@ const PredatorPreyPage = () => {
               The classical predator-prey model is described by two coupled ordinary differential equations that
               govern the growth and decline of each population:
             </p>
-            <div className="bg-white rounded p-4 font-mono text-sm space-y-2 mt-3">
-              <p>dx/dt = alpha * x - beta * x * y</p>
-              <p>dy/dt = delta * x * y - gamma * y</p>
+            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+              <BlockMath>{"\\frac{dx}{dt} = \\alpha x - \\beta x y"}</BlockMath>
+              <BlockMath>{"\\frac{dy}{dt} = \\delta x y - \\gamma y"}</BlockMath>
             </div>
             <p className="mt-3">
-              Here, <strong>x</strong> is the prey population and <strong>y</strong> is the predator population.
-              The parameter <strong>alpha</strong> is the prey birth rate, <strong>beta</strong> is the predation rate,
-              <strong> delta</strong> is the rate at which predators convert consumed prey into new predators, and
-              <strong> gamma</strong> is the predator death rate. The key insight is that both equations involve the
-              product <strong>x * y</strong>, representing encounters between the two species.
+              Here, <InlineMath>{"x"}</InlineMath> is the prey population and <InlineMath>{"y"}</InlineMath> is the predator population.
+              The parameter <InlineMath>{"\\alpha"}</InlineMath> is the prey birth rate, <InlineMath>{"\\beta"}</InlineMath> is the predation rate,
+              <InlineMath>{"\\delta"}</InlineMath> is the rate at which predators convert consumed prey into new predators, and
+              <InlineMath>{"\\gamma"}</InlineMath> is the predator death rate. The key insight is that both equations involve the
+              product <InlineMath>{"xy"}</InlineMath>, representing encounters between the two species.
             </p>
           </div>
 

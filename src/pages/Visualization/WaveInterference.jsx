@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import WaveInterferenceVisualizer from '../../components/Visualizations/WaveInterference/WaveInterferenceVisualizer';
 
 const WaveInterferencePage = () => {
@@ -34,9 +35,7 @@ const WaveInterferencePage = () => {
               pass through and combine linearly.
             </p>
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono">
-                y_total(x, t) = y₁(x, t) + y₂(x, t) + ... + yₙ(x, t)
-              </p>
+              <BlockMath>{"y_{\\text{total}}(x, t) = y_1(x, t) + y_2(x, t) + \\cdots + y_n(x, t)"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 The total wave amplitude at any point is the algebraic sum of all individual wave amplitudes.
               </p>
@@ -52,8 +51,8 @@ const WaveInterferencePage = () => {
               this is <strong>destructive interference</strong>.
             </p>
             <ul className="list-disc pl-5 space-y-2 mt-3">
-              <li><strong>Constructive:</strong> Path difference = nλ (integer multiples of wavelength)</li>
-              <li><strong>Destructive:</strong> Path difference = (n + ½)λ (half-integer multiples)</li>
+              <li><strong>Constructive:</strong> Path difference <InlineMath>{"= n\\lambda"}</InlineMath> (integer multiples of wavelength)</li>
+              <li><strong>Destructive:</strong> Path difference <InlineMath>{"= (n + \\tfrac{1}{2})\\lambda"}</InlineMath> (half-integer multiples)</li>
               <li><strong>Partial:</strong> Most points show intermediate interference between the two extremes</li>
             </ul>
           </div>

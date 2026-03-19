@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import SpringMassSystemVisualizer from '../../components/Visualizations/SpringMassSystem/SpringMassSystemVisualizer';
 
 const SpringMassSystemPage = () => {
@@ -37,19 +38,15 @@ const SpringMassSystemPage = () => {
               type of periodic motion in nature.
             </p>
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono text-sm">
-                F = -kx &nbsp;&nbsp;&rarr;&nbsp;&nbsp; m&nbsp;d&sup2;x/dt&sup2; = -kx
-              </p>
-              <p className="text-center font-mono text-sm mt-1">
-                x(t) = A cos(&omega;t + &phi;) &nbsp;&nbsp;where&nbsp;&nbsp; &omega; = &radic;(k/m)
-              </p>
+              <BlockMath>{"F = -kx \\quad \\Rightarrow \\quad m\\frac{d^2x}{dt^2} = -kx"}</BlockMath>
+              <BlockMath>{"x(t) = A\\cos(\\omega t + \\phi) \\quad \\text{where} \\quad \\omega = \\sqrt{k/m}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
-                The angular frequency &omega; depends only on the spring constant k and the mass m,
+                The angular frequency <InlineMath>{"\\omega"}</InlineMath> depends only on the spring constant <InlineMath>{"k"}</InlineMath> and the mass <InlineMath>{"m"}</InlineMath>,
                 not on the amplitude. This is the hallmark of a linear oscillator.
               </p>
             </div>
             <p>
-              The period T = 2&pi;/&omega; = 2&pi;&radic;(m/k) tells us that stiffer springs oscillate
+              The period <InlineMath>{"T = 2\\pi/\\omega = 2\\pi\\sqrt{m/k}"}</InlineMath> tells us that stiffer springs oscillate
               faster while heavier masses oscillate slower. Try adjusting the sliders to verify this!
             </p>
           </div>
@@ -90,9 +87,7 @@ const SpringMassSystemPage = () => {
               but the total remains constant:
             </p>
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono text-sm">
-                E<sub>total</sub> = KE + PE = &frac12;mv&sup2; + &frac12;kx&sup2; = constant
-              </p>
+              <BlockMath>{"E_{\\text{total}} = KE + PE = \\tfrac{1}{2}mv^2 + \\tfrac{1}{2}kx^2 = \\text{constant}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 Kinetic energy is maximum at equilibrium (maximum velocity); potential energy
                 is maximum at maximum displacement (zero velocity).
@@ -110,7 +105,7 @@ const SpringMassSystemPage = () => {
             <h3 className="text-xl font-bold text-amber-800 mb-3">Damping & Resonance</h3>
             <p>
               Real oscillators always experience some form of energy dissipation. The damping
-              force, proportional to velocity (F<sub>damp</sub> = -b&middot;v), causes oscillations
+              force, proportional to velocity (<InlineMath>{"F_{\\text{damp}} = -bv"}</InlineMath>), causes oscillations
               to decay exponentially over time. The behavior depends on the damping ratio:
             </p>
             <ul className="list-disc pl-5 space-y-2 mt-3">
