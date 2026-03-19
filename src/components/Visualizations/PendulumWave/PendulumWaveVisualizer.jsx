@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 
 const PendulumWaveVisualizer = () => {
   // Configuration state
@@ -860,12 +861,12 @@ const PendulumWaveVisualizer = () => {
             according to the pendulum length formula:
           </p>
           
-          <div className="p-3 bg-gray-50 rounded mb-3 text-center font-mono">
-            T = 2π√(L/g)
+          <div className="p-3 bg-gray-50 rounded mb-3 text-center">
+            <BlockMath>{"T = 2\\pi\\sqrt{\\frac{L}{g}}"}</BlockMath>
           </div>
-          
+
           <p className="mb-3">
-            Where T is the period, L is the pendulum's length, and g is the acceleration due to gravity.
+            Where <InlineMath>{"T"}</InlineMath> is the period, <InlineMath>{"L"}</InlineMath> is the pendulum's length, and <InlineMath>{"g"}</InlineMath> is the acceleration due to gravity.
             By carefully choosing each pendulum's length, we create a system where all pendulums return to 
             their initial formation after a specific cycle time.
           </p>

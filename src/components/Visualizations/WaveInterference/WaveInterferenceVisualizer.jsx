@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 
 const WaveInterferenceVisualizer = () => {
   // Configuration state
@@ -845,14 +846,15 @@ const WaveInterferenceVisualizer = () => {
             point is the sum of the individual wave amplitudes, a principle known as superposition.
           </p>
 
-          <div className="p-3 bg-gray-50 rounded mb-3 text-center font-mono">
-            Superposition: y(x,t) = y1(x,t) + y2(x,t) + ... + yn(x,t)
+          <div className="p-3 bg-gray-50 rounded mb-3 text-center">
+            <BlockMath>{"y(x,t) = y_1(x,t) + y_2(x,t) + \\cdots + y_n(x,t)"}</BlockMath>
           </div>
 
           <p className="mb-3">
-            Each circular wave spreads outward from its source with the equation
-            y = A sin(kr - wt) / sqrt(r), where k is the wave number (2pi/lambda),
-            omega is the angular frequency, and r is the distance from the source.
+            Each circular wave spreads outward from its source with the equation{' '}
+            <InlineMath>{"y = \\frac{A \\sin(kr - \\omega t)}{\\sqrt{r}}"}</InlineMath>, where <InlineMath>{"k"}</InlineMath> is
+            the wave number (<InlineMath>{"2\\pi/\\lambda"}</InlineMath>), <InlineMath>{"\\omega"}</InlineMath> is the angular
+            frequency, and <InlineMath>{"r"}</InlineMath> is the distance from the source.
           </p>
 
           <h4 className="text-md font-semibold mt-4 mb-2">Key Interference Concepts:</h4>
