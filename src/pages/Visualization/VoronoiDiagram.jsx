@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import VoronoiDiagramVisualizer from '../../components/Visualizations/VoronoiDiagram/VoronoiDiagramVisualizer';
 
 const VoronoiDiagramPage = () => {
@@ -38,17 +39,15 @@ const VoronoiDiagramPage = () => {
               the line segments connecting neighboring seeds.
             </p>
             <p className="mt-3">
-              Formally, for a set of seeds S = {'{'}s_1, s_2, ..., s_n{'}'}, the Voronoi cell for seed s_i
-              is the set of all points p such that d(p, s_i) &le; d(p, s_j) for all j &ne; i, where d is
+              Formally, for a set of seeds <InlineMath>{"S = \\{s_1, s_2, \\ldots, s_n\\}"}</InlineMath>, the Voronoi cell for seed <InlineMath>{"s_i"}</InlineMath> is
+              the set of all points <InlineMath>{"p"}</InlineMath> such that <InlineMath>{"d(p, s_i) \\le d(p, s_j)"}</InlineMath> for all <InlineMath>{"j \\ne i"}</InlineMath>, where <InlineMath>{"d"}</InlineMath> is
               the Euclidean distance function. The result is a partition of the entire plane into convex
               polygonal regions (with some cells extending to infinity at the boundary).
             </p>
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono text-sm">
-                V(s_i) = {'{'} p : ||p - s_i|| &le; ||p - s_j|| for all j &ne; i {'}'}
-              </p>
+              <BlockMath>{"V(s_i) = \\{\\, p : \\|p - s_i\\| \\le \\|p - s_j\\| \\text{ for all } j \\ne i \\,\\}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
-                The Voronoi cell for seed s_i contains all points nearest to s_i
+                The Voronoi cell for seed <InlineMath>{"s_i"}</InlineMath> contains all points nearest to <InlineMath>{"s_i"}</InlineMath>
               </p>
             </div>
           </div>

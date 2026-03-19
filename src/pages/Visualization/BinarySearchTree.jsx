@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath } from 'react-katex';
 import BinarySearchTreeVisualizer from '../../components/Visualizations/BinarySearchTree/BinarySearchTreeVisualizer';
 
 const BinarySearchTreePage = () => {
@@ -16,7 +17,7 @@ const BinarySearchTreePage = () => {
         <p>
           This interactive visualization lets you build and manipulate BSTs step by step. Watch how nodes are inserted,
           searched, and deleted with animated highlights showing the traversal path. Toggle AVL mode to see how
-          self-balancing trees maintain optimal height through rotations, ensuring O(log n) performance for all operations.
+          self-balancing trees maintain optimal height through rotations, ensuring <InlineMath>{"O(\\log n)"}</InlineMath> performance for all operations.
         </p>
       </div>
 
@@ -92,33 +93,33 @@ const BinarySearchTreePage = () => {
                 <tbody>
                   <tr>
                     <td className="p-2 border font-medium">Search</td>
-                    <td className="p-2 border">O(log n)</td>
-                    <td className="p-2 border">O(n)</td>
-                    <td className="p-2 border">O(log n)</td>
+                    <td className="p-2 border"><InlineMath>{"O(\\log n)"}</InlineMath></td>
+                    <td className="p-2 border"><InlineMath>{"O(n)"}</InlineMath></td>
+                    <td className="p-2 border"><InlineMath>{"O(\\log n)"}</InlineMath></td>
                   </tr>
                   <tr>
                     <td className="p-2 border font-medium">Insert</td>
-                    <td className="p-2 border">O(log n)</td>
-                    <td className="p-2 border">O(n)</td>
-                    <td className="p-2 border">O(log n)</td>
+                    <td className="p-2 border"><InlineMath>{"O(\\log n)"}</InlineMath></td>
+                    <td className="p-2 border"><InlineMath>{"O(n)"}</InlineMath></td>
+                    <td className="p-2 border"><InlineMath>{"O(\\log n)"}</InlineMath></td>
                   </tr>
                   <tr>
                     <td className="p-2 border font-medium">Delete</td>
-                    <td className="p-2 border">O(log n)</td>
-                    <td className="p-2 border">O(n)</td>
-                    <td className="p-2 border">O(log n)</td>
+                    <td className="p-2 border"><InlineMath>{"O(\\log n)"}</InlineMath></td>
+                    <td className="p-2 border"><InlineMath>{"O(n)"}</InlineMath></td>
+                    <td className="p-2 border"><InlineMath>{"O(\\log n)"}</InlineMath></td>
                   </tr>
                   <tr>
                     <td className="p-2 border font-medium">Traversal</td>
-                    <td className="p-2 border">O(n)</td>
-                    <td className="p-2 border">O(n)</td>
-                    <td className="p-2 border">O(n)</td>
+                    <td className="p-2 border"><InlineMath>{"O(n)"}</InlineMath></td>
+                    <td className="p-2 border"><InlineMath>{"O(n)"}</InlineMath></td>
+                    <td className="p-2 border"><InlineMath>{"O(n)"}</InlineMath></td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <p className="mt-4">
-              The worst-case O(n) for a plain BST occurs when elements are inserted in sorted order, creating a
+              The worst-case <InlineMath>{"O(n)"}</InlineMath> for a plain BST occurs when elements are inserted in sorted order, creating a
               degenerate tree that resembles a linked list. AVL balancing prevents this degradation.
             </p>
           </div>

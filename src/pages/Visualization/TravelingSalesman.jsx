@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath } from 'react-katex';
 import TravelingSalesmanVisualizer from '../../components/Visualizations/TravelingSalesman/TravelingSalesmanVisualizer';
 
 const TravelingSalesmanPage = () => {
@@ -32,8 +33,8 @@ const TravelingSalesmanPage = () => {
             </p>
             
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono">
-                Possible routes for n cities: (n-1)!/2
+              <p className="text-center">
+                <InlineMath>{"\\text{Possible routes for } n \\text{ cities} = \\frac{(n-1)!}{2}"}</InlineMath>
               </p>
               <p className="mt-2 text-sm text-center text-gray-600">
                 For just 20 cities, there are over 60 quintillion possible routes!

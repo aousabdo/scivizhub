@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import EpidemicSIRVisualizer from '../../components/Visualizations/EpidemicSIR/EpidemicSIRVisualizer';
 
 const EpidemicSIRPage = () => {
@@ -34,35 +35,35 @@ const EpidemicSIRPage = () => {
               The classical SIR model is described by three ordinary differential equations that govern how individuals
               transition between compartments:
             </p>
-            <div className="bg-white rounded p-4 font-mono text-sm space-y-2 mt-3">
-              <p>dS/dt = -beta * S * I / N</p>
-              <p>dI/dt = beta * S * I / N - gamma * I</p>
-              <p>dR/dt = gamma * I</p>
+            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+              <BlockMath>{"\\frac{dS}{dt} = -\\frac{\\beta S I}{N}"}</BlockMath>
+              <BlockMath>{"\\frac{dI}{dt} = \\frac{\\beta S I}{N} - \\gamma I"}</BlockMath>
+              <BlockMath>{"\\frac{dR}{dt} = \\gamma I"}</BlockMath>
             </div>
             <p className="mt-3">
-              Here, <strong>beta</strong> is the transmission rate (how quickly the disease spreads on contact),
-              <strong> gamma</strong> is the recovery rate (1 / average duration of infection), and <strong>N</strong> is
-              the total population. The ratio beta/gamma determines whether an epidemic will grow or die out.
+              Here, <InlineMath>{"\\beta"}</InlineMath> is the transmission rate (how quickly the disease spreads on contact),
+              <InlineMath>{"\\gamma"}</InlineMath> is the recovery rate (<InlineMath>{"1 / \\text{average duration of infection}"}</InlineMath>), and <InlineMath>{"N"}</InlineMath> is
+              the total population. The ratio <InlineMath>{"\\beta / \\gamma"}</InlineMath> determines whether an epidemic will grow or die out.
             </p>
           </div>
 
           <div className="bg-green-50 p-6 rounded-lg border border-green-200">
             <h3 className="text-xl font-bold text-green-800 mb-3">R0 and Herd Immunity</h3>
             <p>
-              The <strong>basic reproduction number R0</strong> (pronounced "R-naught") represents the average number of
+              The <strong>basic reproduction number <InlineMath>{"R_0"}</InlineMath></strong> (pronounced "R-naught") represents the average number of
               secondary infections caused by a single infected individual in a fully susceptible population. It is calculated
-              as R0 = beta / gamma.
+              as <InlineMath>{"R_0 = \\beta / \\gamma"}</InlineMath>.
             </p>
             <ul className="mt-2 space-y-1">
-              <li><strong>R0 &lt; 1:</strong> Each infected person infects fewer than one other person on average. The epidemic dies out.</li>
-              <li><strong>R0 = 1:</strong> The epidemic is at a tipping point, neither growing nor shrinking.</li>
-              <li><strong>R0 &gt; 1:</strong> The epidemic grows exponentially in its early stages.</li>
+              <li><InlineMath>{"R_0 < 1"}</InlineMath>: Each infected person infects fewer than one other person on average. The epidemic dies out.</li>
+              <li><InlineMath>{"R_0 = 1"}</InlineMath>: The epidemic is at a tipping point, neither growing nor shrinking.</li>
+              <li><InlineMath>{"R_0 > 1"}</InlineMath>: The epidemic grows exponentially in its early stages.</li>
             </ul>
             <p className="mt-3">
               <strong>Herd immunity</strong> is achieved when enough of the population is immune (through vaccination or
               prior infection) that the effective reproduction number drops below 1. The herd immunity threshold is
-              calculated as <span className="font-mono">1 - 1/R0</span>. For measles (R0 ~ 15), this threshold is about
-              93%, while for seasonal flu (R0 ~ 1.5), it is around 33%.
+              calculated as <InlineMath>{"1 - 1/R_0"}</InlineMath>. For measles (<InlineMath>{"R_0 \\approx 15"}</InlineMath>), this threshold is about
+              93%, while for seasonal flu (<InlineMath>{"R_0 \\approx 1.5"}</InlineMath>), it is around 33%.
             </p>
           </div>
 

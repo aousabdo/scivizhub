@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import GravitySimulatorVisualizer from '../../components/Visualizations/GravitySimulator/GravitySimulatorVisualizer';
 
 const GravitySimulatorPage = () => {
@@ -39,12 +40,10 @@ const GravitySimulatorPage = () => {
             </p>
 
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono text-sm">
-                F = G &middot; m<sub>1</sub> &middot; m<sub>2</sub> / r&sup2;
-              </p>
+              <BlockMath>{"F = G \\frac{m_1 m_2}{r^2}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
-                where G is the gravitational constant (6.674 &times; 10<sup>-11</sup> N m&sup2; kg<sup>-2</sup>),
-                m<sub>1</sub> and m<sub>2</sub> are the masses, and r is the distance between their centers.
+                where <InlineMath>{"G"}</InlineMath> is the gravitational constant (<InlineMath>{"6.674 \\times 10^{-11}\\;\\text{N m}^2\\text{kg}^{-2}"}</InlineMath>),
+                <InlineMath>{"m_1"}</InlineMath> and <InlineMath>{"m_2"}</InlineMath> are the masses, and <InlineMath>{"r"}</InlineMath> is the distance between their centers.
               </p>
             </div>
 
@@ -77,7 +76,7 @@ const GravitySimulatorPage = () => {
               </li>
               <li>
                 <strong>Third Law (Harmonic Law):</strong> The square of the orbital period is
-                proportional to the cube of the semi-major axis: T&sup2; &prop; a&sup3;. Outer
+                proportional to the cube of the semi-major axis: <InlineMath>{"T^2 \\propto a^3"}</InlineMath>. Outer
                 planets take longer to complete their orbits, which you can verify by watching
                 the Solar System preset.
               </li>
@@ -99,7 +98,7 @@ const GravitySimulatorPage = () => {
                 2D simulation, only the first two are relevant.
               </li>
               <li>
-                <strong>Escape Velocity:</strong> A body must reach v<sub>esc</sub> = &radic;(2GM/r)
+                <strong>Escape Velocity:</strong> A body must reach <InlineMath>{"v_{\\text{esc}} = \\sqrt{2GM/r}"}</InlineMath>
                 to escape the gravitational pull of a massive body. Try launching a body with
                 a high initial velocity to see it fly away on a hyperbolic trajectory.
               </li>
@@ -154,12 +153,8 @@ const GravitySimulatorPage = () => {
             </p>
 
             <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-center font-mono text-sm">
-                x(t + &Delta;t) = x(t) + v(t)&Delta;t + &frac12;a(t)&Delta;t&sup2;
-              </p>
-              <p className="text-center font-mono text-sm mt-1">
-                v(t + &Delta;t) = v(t) + &frac12;[a(t) + a(t + &Delta;t)]&Delta;t
-              </p>
+              <BlockMath>{"x(t + \\Delta t) = x(t) + v(t)\\Delta t + \\tfrac{1}{2}a(t)\\Delta t^2"}</BlockMath>
+              <BlockMath>{"v(t + \\Delta t) = v(t) + \\tfrac{1}{2}\\bigl[a(t) + a(t + \\Delta t)\\bigr]\\Delta t"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 Positions are updated first using current accelerations, then accelerations are
                 recomputed at the new positions, and finally velocities are updated using the
@@ -169,10 +164,10 @@ const GravitySimulatorPage = () => {
 
             <p>
               For an N-body system, computing all pairwise gravitational forces requires
-              O(N&sup2;) operations per time step. Real astrophysical simulations with millions
-              of bodies use tree-based approximations (Barnes-Hut algorithm, O(N log N)) or
-              fast multipole methods (O(N)) to make the computation tractable. Our simulation
-              uses the direct O(N&sup2;) approach, which is perfectly adequate for the small
+              <InlineMath>{"O(N^2)"}</InlineMath> operations per time step. Real astrophysical simulations with millions
+              of bodies use tree-based approximations (Barnes-Hut algorithm, <InlineMath>{"O(N \\log N)"}</InlineMath>) or
+              fast multipole methods (<InlineMath>{"O(N)"}</InlineMath>) to make the computation tractable. Our simulation
+              uses the direct <InlineMath>{"O(N^2)"}</InlineMath> approach, which is perfectly adequate for the small
               number of bodies shown here.
             </p>
           </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import MarkovChainVisualizer from '../../components/Visualizations/MarkovChain/MarkovChainVisualizer';
 
 const MarkovChainPage = () => {
@@ -36,8 +37,8 @@ const MarkovChainPage = () => {
               memorylessness): the future state depends only on the present state, not on the sequence of
               events that preceded it.
             </p>
-            <div className="bg-white rounded p-4 font-mono text-sm mt-3">
-              <p>P(X<sub>n+1</sub> = j | X<sub>n</sub> = i, X<sub>n-1</sub>, ..., X<sub>0</sub>) = P(X<sub>n+1</sub> = j | X<sub>n</sub> = i) = P(i, j)</p>
+            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+              <BlockMath>{"P(X_{n+1} = j \\mid X_n = i,\\, X_{n-1},\\, \\ldots,\\, X_0) = P(X_{n+1} = j \\mid X_n = i) = P_{ij}"}</BlockMath>
             </div>
             <p className="mt-3">
               The transition matrix is <strong>row-stochastic</strong>: every row sums to 1, because from
@@ -52,7 +53,7 @@ const MarkovChainPage = () => {
             <p>
               One of the most remarkable properties of many Markov chains is that they converge to a
               <strong> steady-state (stationary) distribution</strong> regardless of the starting state.
-              This is a probability vector <strong>pi</strong> satisfying pi = pi * P, meaning the distribution
+              This is a probability vector <InlineMath>{"\\boldsymbol{\\pi}"}</InlineMath> satisfying <InlineMath>{"\\boldsymbol{\\pi} = \\boldsymbol{\\pi} P"}</InlineMath>, meaning the distribution
               no longer changes after a transition step.
             </p>
             <p className="mt-3">

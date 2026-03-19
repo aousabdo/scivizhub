@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath } from 'react-katex';
 import IntegralAccumulationVisualizer from '../../components/Visualizations/IntegralAccumulation/IntegralAccumulationVisualizer';
 
 const IntegralAccumulationPage = () => {
@@ -26,7 +27,7 @@ const IntegralAccumulationPage = () => {
           <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
             <h3 className="text-xl font-bold text-blue-800 mb-3">Partitioning the Interval</h3>
             <p>
-              We split the interval [a, b] into n equal subintervals with width Δx = (b-a)/n. Each method uses these slices
+              We split the interval <InlineMath>{"[a, b]"}</InlineMath> into <InlineMath>{"n"}</InlineMath> equal subintervals with width <InlineMath>{"\\Delta x = (b-a)/n"}</InlineMath>. Each method uses these slices
               to estimate area contributions that are then summed.
             </p>
           </div>
@@ -35,14 +36,14 @@ const IntegralAccumulationPage = () => {
             <h3 className="text-xl font-bold text-green-800 mb-3">Approximation vs Exact Value</h3>
             <p>
               Numerical rules estimate the integral using finite geometry. When an antiderivative is known, the exact value
-              comes from the Fundamental Theorem of Calculus: ∫[a,b] f(x)dx = F(b) - F(a).
+              comes from the Fundamental Theorem of Calculus: <InlineMath>{"\\int_a^b f(x)\\,dx = F(b) - F(a)"}</InlineMath>.
             </p>
           </div>
 
           <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
             <h3 className="text-xl font-bold text-purple-800 mb-3">Convergence</h3>
             <p>
-              Increasing n usually decreases error because each slice becomes narrower and tracks the curve more closely.
+              Increasing <InlineMath>{"n"}</InlineMath> usually decreases error because each slice becomes narrower and tracks the curve more closely.
               Different methods converge at different rates depending on function shape.
             </p>
           </div>
