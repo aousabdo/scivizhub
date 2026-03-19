@@ -1,29 +1,33 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { bubbleSort, selectionSort, insertionSort, mergeSort, quickSort } from './sortingAlgorithms';
 
-const ARRAY_SIZE = 50;
 const MIN_VALUE = 5;
 const MAX_VALUE = 100;
 const DEFAULT_ANIMATION_SPEED = 50; // milliseconds
 
 const SortingAlgorithmVisualizer = () => {
   const [array, setArray] = useState([]);
+  const [arraySize, setArraySize] = useState(50);
   const [isSorting, setIsSorting] = useState(false);
   const [sortingAlgorithm, setSortingAlgorithm] = useState('bubble');
   const [animationSpeed, setAnimationSpeed] = useState(DEFAULT_ANIMATION_SPEED);
   const [comparisons, setComparisons] = useState(0);
   const [swaps, setSwaps] = useState(0);
+  const [highlightedIndices, setHighlightedIndices] = useState([]);
+  const [sortedIndices, setSortedIndices] = useState([]);
   const animationTimeoutsRef = useRef([]);
 
   // Generate a new random array
-  const generateRandomArray = () => {
+  const generateRandomArray = (size = arraySize) => {
     const newArray = [];
-    for (let i = 0; i < ARRAY_SIZE; i++) {
+    for (let i = 0; i < size; i++) {
       newArray.push(Math.floor(Math.random() * (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE);
     }
     setArray(newArray);
     setComparisons(0);
     setSwaps(0);
+    setHighlightedIndices([]);
+    setSortedIndices([]);
   };
 
   // Initialize array on component mount
@@ -40,6 +44,7 @@ const SortingAlgorithmVisualizer = () => {
     animationTimeoutsRef.current.forEach(timeout => clearTimeout(timeout));
     animationTimeoutsRef.current = [];
     setIsSorting(false);
+    setHighlightedIndices([]);
   };
 
   // Start sorting
@@ -94,31 +99,19 @@ const SortingAlgorithmVisualizer = () => {
     animations.forEach((animation, index) => {
       const timeout = setTimeout(() => {
         const { type, indices, values, stats } = animation;
-        
+
         // Update stats if provided
         if (stats) {
           if (stats.comparisons !== undefined) setComparisons(stats.comparisons);
           if (stats.swaps !== undefined) setSwaps(stats.swaps);
         }
-        
+
         if (type === 'comparison') {
-          // Just for visual highlighting, no array changes
-          const arrayBars = document.getElementsByClassName('array-bar');
-          const [i, j] = indices;
-          
-          // Change color for comparison
-          if (arrayBars[i]) arrayBars[i].style.backgroundColor = 'red';
-          if (arrayBars[j]) arrayBars[j].style.backgroundColor = 'red';
-          
-          // Revert color after a short delay
-          const revertTimeout = setTimeout(() => {
-            if (arrayBars[i]) arrayBars[i].style.backgroundColor = 'turquoise';
-            if (arrayBars[j]) arrayBars[j].style.backgroundColor = 'turquoise';
-          }, animationSpeed / 2);
-          
-          animationTimeoutsRef.current.push(revertTimeout);
+          // Highlight compared indices via React state
+          setHighlightedIndices(indices);
         } else if (type === 'swap' || type === 'replace') {
           // Update the array for swap or replacements
+          setHighlightedIndices(indices);
           setArray(prevArray => {
             const newArray = [...prevArray];
             indices.forEach((idx, i) => {
@@ -129,13 +122,15 @@ const SortingAlgorithmVisualizer = () => {
             return newArray;
           });
         }
-        
-        // If this is the last animation, we're done sorting
+
+        // If this is the last animation, mark all as sorted
         if (index === animations.length - 1) {
           setIsSorting(false);
+          setHighlightedIndices([]);
+          setSortedIndices(Array.from({ length: array.length }, (_, i) => i));
         }
       }, index * animationSpeed);
-      
+
       animationTimeoutsRef.current.push(timeout);
     });
   };
@@ -235,7 +230,7 @@ const SortingAlgorithmVisualizer = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="space-y-2">
             <label className="block text-sm font-medium text-gray-700">
               Algorithm:
@@ -255,14 +250,33 @@ const SortingAlgorithmVisualizer = () => {
               <option value="quick">Quick Sort</option>
             </select>
           </div>
-          
+
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">
+              Array Size: {arraySize}
+            </label>
+            <input
+              type="range"
+              min="10"
+              max="150"
+              value={arraySize}
+              onChange={(e) => {
+                const newSize = parseInt(e.target.value);
+                setArraySize(newSize);
+                if (!isSorting) generateRandomArray(newSize);
+              }}
+              disabled={isSorting}
+              className="w-full"
+            />
+          </div>
+
           <div className="space-y-2">
             <label className="block text-sm font-medium text-gray-700">
               Animation Speed: {animationSpeed}ms
             </label>
             <input
               type="range"
-              min="5"
+              min="1"
               max="200"
               value={animationSpeed}
               onChange={handleSpeedChange}
@@ -289,18 +303,27 @@ const SortingAlgorithmVisualizer = () => {
       
       <div className="visualization-container bg-white p-4 rounded-lg shadow-md">
         <div className="array-container flex items-end justify-center h-64 border-b border-gray-300">
-          {array.map((value, idx) => (
-            <div
-              key={idx}
-              className="array-bar mx-px"
-              style={{
-                height: `${value * 2.5}px`,
-                width: `${100 / ARRAY_SIZE}%`,
-                backgroundColor: 'turquoise',
-                transition: 'height 0.1s ease'
-              }}
-            ></div>
-          ))}
+          {array.map((value, idx) => {
+            const isHighlighted = highlightedIndices.includes(idx);
+            const isSorted = sortedIndices.includes(idx);
+            const bgColor = isHighlighted
+              ? '#EF4444'
+              : isSorted
+                ? '#10B981'
+                : '#40E0D0';
+            return (
+              <div
+                key={idx}
+                className="mx-px"
+                style={{
+                  height: `${value * 2.5}px`,
+                  width: `${100 / arraySize}%`,
+                  backgroundColor: bgColor,
+                  transition: 'height 0.1s ease, background-color 0.15s ease'
+                }}
+              />
+            );
+          })}
         </div>
       </div>
       

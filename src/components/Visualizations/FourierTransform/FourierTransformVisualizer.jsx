@@ -105,29 +105,40 @@ const FourierTransformVisualizer = () => {
       stopAnimation();
       return;
     }
-    
+
     setIsAnimating(true);
     setAnimationProgress(0);
-    
+
     let progress = 0;
-    const animate = () => {
-      progress += 0.5;
-      if (progress > 100) {
-        setIsAnimating(false);
-        return;
+    let lastTime = null;
+    const animate = (timestamp) => {
+      if (!lastTime) lastTime = timestamp;
+      const elapsed = timestamp - lastTime;
+
+      // Scale progress by animation speed (faster speed = faster progress)
+      if (elapsed >= animationSpeed) {
+        progress += (elapsed / animationSpeed) * 0.5;
+        lastTime = timestamp;
+
+        if (progress > 100) {
+          setAnimationProgress(100);
+          setIsAnimating(false);
+          return;
+        }
+
+        setAnimationProgress(progress);
       }
-      
-      setAnimationProgress(progress);
-      animationRef.current = setTimeout(animate, animationSpeed);
+
+      animationRef.current = requestAnimationFrame(animate);
     };
-    
-    animate();
+
+    animationRef.current = requestAnimationFrame(animate);
   };
-  
+
   // Stop the animation
   const stopAnimation = () => {
     if (animationRef.current) {
-      clearTimeout(animationRef.current);
+      cancelAnimationFrame(animationRef.current);
     }
     setIsAnimating(false);
   };
@@ -151,14 +162,17 @@ const FourierTransformVisualizer = () => {
     ctx.strokeStyle = '#CBD5E1';
     ctx.stroke();
     
-    // Start new path
+    // Start new path with smooth lines
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.strokeStyle = '#3B82F6';
-    
+    ctx.lineWidth = 2;
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+
     customSignalPointsRef.current.push({
       x: x / canvas.width,  // Normalize to 0-1
-      y: 1 - (y / canvas.height) * 2  // Normalize to -1 to 1
+      y: 1 - (2 * y / canvas.height)  // Normalize to -1 to 1
     });
   };
   
@@ -176,7 +190,7 @@ const FourierTransformVisualizer = () => {
     
     customSignalPointsRef.current.push({
       x: x / canvas.width,  // Normalize to 0-1
-      y: 1 - (y / canvas.height) * 2  // Normalize to -1 to 1
+      y: 1 - (2 * y / canvas.height)  // Normalize to -1 to 1
     });
   };
   
