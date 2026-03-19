@@ -1,0 +1,12 @@
+name = "scivizhub-chat-proxy"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# Deploy instructions:
+# 1. cd proxy
+# 2. npx wrangler login
+# 3. npx wrangler secret put GROQ_API_KEY   (paste your key when prompted)
+# 4. npx wrangler deploy
+#
+# The worker URL will be printed after deploy (e.g. https://scivizhub-chat-proxy.<your-subdomain>.workers.dev)
+# Set REACT_APP_CHAT_PROXY_URL to that URL in your .env or CI environment.
