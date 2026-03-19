@@ -1,13 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+// Fast grid copy — avoids expensive JSON.parse(JSON.stringify())
+const copyGrid = (grid) => {
+  return grid.map(row => row.map(cell => ({
+    ...cell,
+    walls: { ...cell.walls }
+  })));
+};
+
 const MazeGenerationVisualizer = () => {
   // Grid configuration
   const [gridSize, setGridSize] = useState({ rows: 25, cols: 40 });
   const [cellSize, setCellSize] = useState(18);
-  
+
   // Algorithm configuration
   const [algorithm, setAlgorithm] = useState('recursiveBacktracking');
   const [isGenerating, setIsGenerating] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const [isGenerated, setIsGenerated] = useState(false);
   const [animationSpeed, setAnimationSpeed] = useState(20); // milliseconds
   const [showExplanation, setShowExplanation] = useState(true);
@@ -136,20 +145,20 @@ const MazeGenerationVisualizer = () => {
     const startCol = Math.floor(Math.random() * gridSize.cols);
     
     // Create a deep copy of the grid to avoid modifying state directly
-    let newGrid = JSON.parse(JSON.stringify(grid));
+    let newGrid = copyGrid(grid);
     newGrid[startRow][startCol].visited = true;
     newGrid[startRow][startCol].isStart = true;
-    
+
     // Stack for backtracking
     const stack = [{ row: startRow, col: startCol }];
     stackRef.current = stack;
-    
+
     let visitedCount = 1;
-    
+
     // Generate steps for animation
     const steps = [];
     steps.push({
-      grid: JSON.parse(JSON.stringify(newGrid)),
+      grid: copyGrid(newGrid),
       currentCell: { row: startRow, col: startCol },
       visitedCount,
       stack: [...stack]
@@ -170,7 +179,7 @@ const MazeGenerationVisualizer = () => {
         if (stack.length > 0) {
           const current = stack[stack.length - 1];
           steps.push({
-            grid: JSON.parse(JSON.stringify(newGrid)),
+            grid: copyGrid(newGrid),
             currentCell: current,
             visitedCount,
             stack: [...stack]
@@ -195,7 +204,7 @@ const MazeGenerationVisualizer = () => {
       
       // Record this step for animation
       steps.push({
-        grid: JSON.parse(JSON.stringify(newGrid)),
+        grid: copyGrid(newGrid),
         currentCell: { row: nextCell.row, col: nextCell.col },
         visitedCount,
         stack: [...stack]
@@ -205,7 +214,7 @@ const MazeGenerationVisualizer = () => {
     // Mark the last cell as the end point
     if (steps.length > 0) {
       const lastStep = steps[steps.length - 1];
-      const lastGrid = JSON.parse(JSON.stringify(lastStep.grid));
+      const lastGrid = copyGrid(lastStep.grid);
       const endRow = Math.floor(Math.random() * gridSize.rows);
       const endCol = Math.floor(Math.random() * gridSize.cols);
       
@@ -239,7 +248,7 @@ const MazeGenerationVisualizer = () => {
     currentStepRef.current = 0;
     
     // Create a deep copy of the grid to avoid modifying state directly
-    let newGrid = JSON.parse(JSON.stringify(grid));
+    let newGrid = copyGrid(grid);
     
     // Initialize disjoint-set for each cell
     const sets = Array(gridSize.rows * gridSize.cols).fill().map((_, i) => i);
@@ -302,7 +311,7 @@ const MazeGenerationVisualizer = () => {
     // Generate steps for animation
     const steps = [];
     steps.push({
-      grid: JSON.parse(JSON.stringify(newGrid)),
+      grid: copyGrid(newGrid),
       currentCell: null,
       visitedCount: 0,
       sets: [...sets],
@@ -344,7 +353,7 @@ const MazeGenerationVisualizer = () => {
         }
         
         // Highlight current cells being processed
-        const gridCopy = JSON.parse(JSON.stringify(newGrid));
+        const gridCopy = copyGrid(newGrid);
         gridCopy[fromRow][fromCol].highlight = true;
         gridCopy[toRow][toCol].highlight = true;
         
@@ -380,7 +389,7 @@ const MazeGenerationVisualizer = () => {
     currentStepRef.current = 0;
     
     // Create a deep copy of the grid to avoid modifying state directly
-    let newGrid = JSON.parse(JSON.stringify(grid));
+    let newGrid = copyGrid(grid);
     
     // Start with a random cell
     const startRow = Math.floor(Math.random() * gridSize.rows);
@@ -424,7 +433,7 @@ const MazeGenerationVisualizer = () => {
     // Generate steps for animation
     const steps = [];
     steps.push({
-      grid: JSON.parse(JSON.stringify(newGrid)),
+      grid: copyGrid(newGrid),
       currentCell: { row: startRow, col: startCol },
       visitedCount: 1,
       walls: [...walls]
@@ -480,7 +489,7 @@ const MazeGenerationVisualizer = () => {
         }
         
         // Highlight current cells being processed
-        const gridCopy = JSON.parse(JSON.stringify(newGrid));
+        const gridCopy = copyGrid(newGrid);
         gridCopy[fromRow][fromCol].highlight = true;
         gridCopy[toRow][toCol].highlight = true;
         
@@ -515,7 +524,7 @@ const MazeGenerationVisualizer = () => {
     currentStepRef.current = 0;
     
     // Create a deep copy of the grid to avoid modifying state directly
-    let newGrid = JSON.parse(JSON.stringify(grid));
+    let newGrid = copyGrid(grid);
     
     // For recursive division, we start with all walls removed
     for (let row = 0; row < gridSize.rows; row++) {
@@ -589,7 +598,7 @@ const MazeGenerationVisualizer = () => {
     // Generate steps for animation
     const steps = [];
     steps.push({
-      grid: JSON.parse(JSON.stringify(newGrid)),
+      grid: copyGrid(newGrid),
       currentCell: null,
       visitedCount: gridSize.rows * gridSize.cols
     });
@@ -654,7 +663,7 @@ const MazeGenerationVisualizer = () => {
         
         // Record this step
         steps.push({
-          grid: JSON.parse(JSON.stringify(newGrid)),
+          grid: copyGrid(newGrid),
           currentCell: null,
           visitedCount: gridSize.rows * gridSize.cols,
           chamber: { x1, y1, x2, y2, divisionX, divideHorizontally, passageY }
@@ -691,7 +700,7 @@ const MazeGenerationVisualizer = () => {
         
         // Record this step
         steps.push({
-          grid: JSON.parse(JSON.stringify(newGrid)),
+          grid: copyGrid(newGrid),
           currentCell: null,
           visitedCount: gridSize.rows * gridSize.cols,
           chamber: { x1, y1, x2, y2, divisionY, divideHorizontally, passageX }
@@ -717,41 +726,45 @@ const MazeGenerationVisualizer = () => {
   };
   
   // Animate maze generation one step at a time
-  const animateMazeGeneration = () => {
-    // Use a reference variable to track the current step in the animation
-    const stepRef = { current: 0 };
+  const pausedStepRef = useRef(0);
+
+  const animateMazeGeneration = (startFrom = 0) => {
     const steps = animationStepsRef.current;
-    
-    const animate = () => {
-      if (stepRef.current < steps.length) {
-        const step = steps[stepRef.current];
-        
-        // Update grid state
+
+    const animate = (stepIndex) => {
+      if (stepIndex < steps.length) {
+        const step = steps[stepIndex];
         setGrid(step.grid);
-        
-        // Update current cell
         setCurrentCell(step.currentCell);
-        
-        // Update visited count
         setVisitedCells(step.visitedCount);
-        
-        // Increment step counter
-        stepRef.current++;
-        
-        // Schedule next animation frame
-        animationTimerRef.current = setTimeout(animate, animationSpeed);
+        pausedStepRef.current = stepIndex + 1;
+
+        animationTimerRef.current = setTimeout(() => animate(stepIndex + 1), animationSpeed);
       } else {
-        // Animation complete
         setIsGenerating(false);
+        setIsPaused(false);
         setIsGenerated(true);
         setCurrentCell(null);
       }
     };
-    
-    // Start animation
-    animate();
+
+    animate(startFrom);
   };
   
+  // Pause/resume
+  const pauseAnimation = () => {
+    if (animationTimerRef.current) {
+      clearTimeout(animationTimerRef.current);
+      animationTimerRef.current = null;
+    }
+    setIsPaused(true);
+  };
+
+  const resumeAnimation = () => {
+    setIsPaused(false);
+    animateMazeGeneration(pausedStepRef.current);
+  };
+
   // Run the selected algorithm
   const runAlgorithm = () => {
     // Stop any running animation
@@ -786,7 +799,8 @@ const MazeGenerationVisualizer = () => {
     }
     
     setIsGenerating(false);
-    
+    setIsPaused(false);
+
     // If animation was in progress, show the final maze
     if (animationStepsRef.current.length > 0) {
       const finalStep = animationStepsRef.current[animationStepsRef.current.length - 1];
@@ -890,12 +904,7 @@ const MazeGenerationVisualizer = () => {
         key={`${cell.row}-${cell.col}`} 
         className="maze-cell" 
         style={cellStyle}
-      >
-        {/* Optionally show cell coordinates for debugging */}
-        {/* <span style={{ fontSize: '8px', position: 'absolute', top: '1px', left: '1px', color: '#999' }}>
-          {cell.row},{cell.col}
-        </span> */}
-      </div>
+      />
     );
   };
   
@@ -933,11 +942,29 @@ const MazeGenerationVisualizer = () => {
             <button
               onClick={() => initializeGrid()}
               className="px-4 py-2 bg-blue-500 text-white rounded-md font-medium hover:bg-blue-600 transition-colors"
-              disabled={isGenerating}
+              disabled={isGenerating && !isPaused}
             >
               Reset Grid
             </button>
-            
+
+            {isGenerating && !isPaused && (
+              <button
+                onClick={pauseAnimation}
+                className="px-4 py-2 bg-yellow-500 text-white rounded-md font-medium hover:bg-yellow-600 transition-colors"
+              >
+                Pause
+              </button>
+            )}
+
+            {isPaused && (
+              <button
+                onClick={resumeAnimation}
+                className="px-4 py-2 bg-green-500 text-white rounded-md font-medium hover:bg-green-600 transition-colors"
+              >
+                Resume
+              </button>
+            )}
+
             <button
               onClick={runAlgorithm}
               className={`px-4 py-2 ${isGenerating ? 'bg-red-500 hover:bg-red-600' : 'bg-green-500 hover:bg-green-600'} text-white rounded-md font-medium transition-colors`}

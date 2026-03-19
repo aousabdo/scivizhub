@@ -81,7 +81,7 @@ const generateRandomBodies = () => {
 };
 
 const GravitySimulatorVisualizer = () => {
-  const [isRunning, setIsRunning] = useState(false);
+  const [isRunning, setIsRunning] = useState(true);
   const [speed, setSpeed] = useState(1.0);
   const [showTrails, setShowTrails] = useState(true);
   const [trailLength, setTrailLength] = useState(300);

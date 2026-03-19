@@ -89,7 +89,7 @@ export const FUNCTIONS = {
    */
   export const evaluateFunction = (functionType, x) => {
     if (!FUNCTIONS[functionType]) {
-      console.error(`Unknown function type: ${functionType}`);
+      // Unknown function type
       return 0;
     }
     return FUNCTIONS[functionType].func(x);
@@ -104,7 +104,7 @@ export const FUNCTIONS = {
    */
   export const evaluateDerivative = (functionType, x) => {
     if (!FUNCTIONS[functionType]) {
-      console.error(`Unknown function type: ${functionType}`);
+      // Unknown function type
       return 0;
     }
     return FUNCTIONS[functionType].derivative(x);

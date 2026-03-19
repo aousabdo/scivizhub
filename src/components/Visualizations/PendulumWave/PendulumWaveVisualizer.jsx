@@ -3,7 +3,7 @@ import { InlineMath, BlockMath } from 'react-katex';
 
 const PendulumWaveVisualizer = () => {
   // Configuration state
-  const [isRunning, setIsRunning] = useState(false);
+  const [isRunning, setIsRunning] = useState(true);
   const [pendulumCount, setPendulumCount] = useState(15);
   const [pendulumLength, setPendulumLength] = useState(200);
   const [gravity, setGravity] = useState(9.8);
@@ -36,13 +36,6 @@ const PendulumWaveVisualizer = () => {
       // Calculate period for this pendulum
       // For pendulum wave, we want frequencies that differ by a small amount (baseFrequency)
       const frequency = baseFrequency * (pendulumCount) / (i + 1);
-      
-      // Using pendulum period formula T = 2π√(L/g), solve for L
-      // L = g * (T/(2π))^2, where T is the period (1/frequency)
-      const lengthFactor = gravity * Math.pow(1 / (frequency * 2 * Math.PI), 2);
-      
-      // Scale to desired visual length
-      const length = pendulumLength * (lengthFactor / lengthFactor);
       
       pendulums.push({
         length: pendulumLength * Math.pow((pendulumCount - i) / pendulumCount, 2),

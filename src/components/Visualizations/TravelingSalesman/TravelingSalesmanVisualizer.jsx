@@ -50,7 +50,9 @@ const TravelingSalesmanVisualizer = () => {
       const canvas = canvasRef.current;
       if (canvas) {
         const container = canvas.parentElement;
-        canvas.width = container.clientWidth;
+        const w = container.clientWidth;
+        canvas.width = w;
+        canvas.height = Math.round(w * 0.625);
       }
     };
     
@@ -75,12 +77,15 @@ const TravelingSalesmanVisualizer = () => {
   const generateRandomCities = () => {
     const newCities = [];
     const padding = options.nodeRadius * 2;
-    
+    const canvas = canvasRef.current;
+    const w = canvas ? canvas.width : options.width;
+    const h = canvas ? canvas.height : options.height;
+
     for (let i = 0; i < cityCount; i++) {
       newCities.push({
         id: i,
-        x: padding + Math.random() * (options.width - padding * 2),
-        y: padding + Math.random() * (options.height - padding * 2),
+        x: padding + Math.random() * (w - padding * 2),
+        y: padding + Math.random() * (h - padding * 2),
         label: `City ${i + 1}`
       });
     }
@@ -770,11 +775,12 @@ const TravelingSalesmanVisualizer = () => {
       </div>
       
       <div className="bg-white p-4 rounded-lg shadow-md">
-        <canvas 
-          ref={canvasRef} 
-          width={options.width} 
+        <canvas
+          ref={canvasRef}
+          width={options.width}
           height={options.height}
           className="w-full border rounded-lg"
+          style={{ maxHeight: '500px' }}
         ></canvas>
         
         <div className="mt-4 flex flex-wrap justify-center gap-4">

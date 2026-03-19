@@ -113,7 +113,7 @@ const BG_STARS = generateStars(120, 42);
 // Main Visualizer Component
 // ================================================================
 const OrbitalMechanicsVisualizer = () => {
-  const [isRunning, setIsRunning] = useState(false);
+  const [isRunning, setIsRunning] = useState(true);
   const [speed, setSpeed] = useState(1.0);
   const [showTrails, setShowTrails] = useState(true);
   const [trailLength, setTrailLength] = useState(400);

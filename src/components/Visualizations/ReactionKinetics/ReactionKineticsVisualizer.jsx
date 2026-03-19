@@ -172,7 +172,7 @@ const ReactionKineticsVisualizer = () => {
   const [reactionType, setReactionType] = useState('reversible');
   const [catalystActive, setCatalystActive] = useState(false);
   const [volume, setVolume] = useState(500);
-  const [running, setRunning] = useState(false);
+  const [running, setRunning] = useState(true);
   const [concentrationData, setConcentrationData] = useState([]);
 
   const canvasRef = useRef(null);

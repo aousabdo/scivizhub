@@ -53,7 +53,7 @@ export const generateGrid = (mode) => {
         }
       }
     } catch (error) {
-      console.error("Error generating grid:", error);
+      // grid generation error
       // Return a minimal valid grid in case of error
       return mode === '2d' 
         ? [[-1, 0], [1, 0], [0, -1], [0, 1]]
@@ -99,12 +99,11 @@ export const generateGrid = (mode) => {
   export const applyTransformation = (points, matrix, mode) => {
     // Safety checks
     if (!points || !Array.isArray(points) || points.length === 0) {
-      console.warn("Invalid points for transformation");
       return [];
     }
     
     if (!matrix || !Array.isArray(matrix) || matrix.length === 0) {
-      console.warn("Invalid transformation matrix");
+      // Invalid transformation matrix
       return points; // Return original points if matrix is invalid
     }
     
@@ -115,7 +114,7 @@ export const generateGrid = (mode) => {
       
       for (const point of inputPoints) {
         if (!Array.isArray(point)) {
-          console.warn("Invalid point:", point);
+          // skip invalid point
           continue;
         }
         
@@ -128,7 +127,7 @@ export const generateGrid = (mode) => {
           if (!matrix[0] || !matrix[1] || 
               !Array.isArray(matrix[0]) || !Array.isArray(matrix[1]) ||
               matrix[0].length < 2 || matrix[1].length < 2) {
-            console.warn("Invalid 2D matrix structure");
+            // invalid 2D matrix
             result.push([x, y]); // Return original point
             continue;
           }
@@ -147,7 +146,7 @@ export const generateGrid = (mode) => {
           if (!matrix[0] || !matrix[1] || !matrix[2] ||
               !Array.isArray(matrix[0]) || !Array.isArray(matrix[1]) || !Array.isArray(matrix[2]) ||
               matrix[0].length < 3 || matrix[1].length < 3 || matrix[2].length < 3) {
-            console.warn("Invalid 3D matrix structure");
+            // invalid 3D matrix
             result.push([x, y, z]); // Return original point
             continue;
           }
@@ -162,7 +161,7 @@ export const generateGrid = (mode) => {
       
       return Array.isArray(points[0]) ? result : result[0];
     } catch (error) {
-      console.error("Error applying transformation:", error);
+      // transformation error
       return points; // Return original points in case of error
     }
   };

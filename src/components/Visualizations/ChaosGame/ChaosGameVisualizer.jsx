@@ -199,6 +199,15 @@ const ChaosGameVisualizer = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [numVertices, jumpRatio, restriction]);
 
+  // Auto-start on first mount
+  const chaosInitRef = useRef(false);
+  useEffect(() => {
+    if (!chaosInitRef.current) {
+      chaosInitRef.current = true;
+      setPlaying(true);
+    }
+  }, []);
+
   // Handle resize
   useEffect(() => {
     const handleResize = () => {

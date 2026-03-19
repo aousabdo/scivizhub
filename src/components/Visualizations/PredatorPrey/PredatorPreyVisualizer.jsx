@@ -565,6 +565,8 @@ const PredatorPreyVisualizer = () => {
 
   useEffect(() => {
     resetSimulation();
+    // Auto-start after initialization
+    setIsRunning(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

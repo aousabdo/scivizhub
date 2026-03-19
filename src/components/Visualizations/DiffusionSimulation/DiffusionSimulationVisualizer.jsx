@@ -394,6 +394,7 @@ const DiffusionSimulationVisualizer = () => {
 
     handleResize();
     resetSimulation();
+    setIsRunning(true);
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);

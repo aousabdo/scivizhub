@@ -57,8 +57,17 @@ const CompressionAlgorithmVisualizer = () => {
   // Calculate original size in bytes
   useEffect(() => {
     setOriginalSize(inputText.length);
-    // In a real system, we'd calculate byte size more accurately
   }, [inputText]);
+
+  // Auto-run compression on mount to show results immediately
+  const autoRunRef = useRef(false);
+  useEffect(() => {
+    if (!autoRunRef.current) {
+      autoRunRef.current = true;
+      // Defer to next tick so state is settled
+      setTimeout(() => runCompression(), 0);
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   
   // Add a step to the visualization
   const addStep = (step) => {

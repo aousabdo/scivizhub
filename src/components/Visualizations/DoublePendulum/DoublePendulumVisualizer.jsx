@@ -36,7 +36,7 @@ const DoublePendulumVisualizer = () => {
   const [initAngle2, setInitAngle2] = useState(90);
   const [trailLength, setTrailLength] = useState(200);
   const [damping, setDamping] = useState(0);
-  const [isRunning, setIsRunning] = useState(false);
+  const [isRunning, setIsRunning] = useState(true);
   const [compareMode, setCompareMode] = useState(false);
 
   const canvasRef = useRef(null);
