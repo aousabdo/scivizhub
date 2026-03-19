@@ -209,21 +209,46 @@ const EpidemicSIRVisualizer = () => {
       if (p.y > CANVAS_HEIGHT - 3) { p.y = CANVAS_HEIGHT - 3; p.vy = -Math.abs(p.vy); }
     }
 
-    // Infection spread
-    for (let i = 0; i < people.length; i++) {
-      const a = people[i];
+    // Infection spread — spatial grid for O(n) instead of O(n²)
+    const cellSize = Math.max(params.infectionRadius, 10);
+    const gridCols = Math.ceil(CANVAS_WIDTH / cellSize);
+    const gridRows = Math.ceil(CANVAS_HEIGHT / cellSize);
+    const grid = new Array(gridCols * gridRows);
+
+    // Bin susceptible people into grid cells
+    for (const p of people) {
+      if (p.status !== STATUS.SUSCEPTIBLE) continue;
+      const cx = Math.min(Math.floor(p.x / cellSize), gridCols - 1);
+      const cy = Math.min(Math.floor(p.y / cellSize), gridRows - 1);
+      const idx = cy * gridCols + cx;
+      if (!grid[idx]) grid[idx] = [];
+      grid[idx].push(p);
+    }
+
+    // For each infected person, only check nearby grid cells
+    const r2 = params.infectionRadius * params.infectionRadius;
+    for (const a of people) {
       if (a.status !== STATUS.INFECTED) continue;
-      for (let j = 0; j < people.length; j++) {
-        const b = people[j];
-        if (b.status !== STATUS.SUSCEPTIBLE) continue;
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < params.infectionRadius && Math.random() < params.infectionProbability * 0.05) {
-          b.status = STATUS.INFECTED;
-          b.infectedFrame = frame;
-          a.transmissions++;
-          totalTransmissionsRef.current++;
+      const cx = Math.min(Math.floor(a.x / cellSize), gridCols - 1);
+      const cy = Math.min(Math.floor(a.y / cellSize), gridRows - 1);
+
+      for (let dy = -1; dy <= 1; dy++) {
+        for (let dx = -1; dx <= 1; dx++) {
+          const nx = cx + dx;
+          const ny = cy + dy;
+          if (nx < 0 || nx >= gridCols || ny < 0 || ny >= gridRows) continue;
+          const cell = grid[ny * gridCols + nx];
+          if (!cell) continue;
+          for (const b of cell) {
+            const ddx = a.x - b.x;
+            const ddy = a.y - b.y;
+            if (ddx * ddx + ddy * ddy < r2 && Math.random() < params.infectionProbability * 0.05) {
+              b.status = STATUS.INFECTED;
+              b.infectedFrame = frame;
+              a.transmissions++;
+              totalTransmissionsRef.current++;
+            }
+          }
         }
       }
     }
@@ -245,11 +270,13 @@ const EpidemicSIRVisualizer = () => {
     const s = computeStats(people);
     setStats(s);
 
-    // Record chart data every 5 frames
+    // Record chart data every 5 frames (push in place, batch state update)
     if (frame % 5 === 0) {
-      const point = { frame, Susceptible: s.S, Infected: s.I, Recovered: s.R, Deceased: s.D };
-      chartAccRef.current = [...chartAccRef.current, point];
-      setChartData(chartAccRef.current);
+      chartAccRef.current.push({ frame, Susceptible: s.S, Infected: s.I, Recovered: s.R, Deceased: s.D });
+      // Only trigger React re-render every 20 frames to reduce chart redraws
+      if (frame % 20 === 0) {
+        setChartData([...chartAccRef.current]);
+      }
     }
 
     drawCanvas(people, params);

@@ -228,7 +228,7 @@ export const createNeuralNetwork = (inputSize, hiddenLayerSizes, outputSize, act
   // Train the neural network for one epoch - simplified version
   export const trainNeuralNetwork = async (network, trainingData, batchSize, learningRate) => {
     if (!network || !trainingData || trainingData.length === 0) {
-      console.error("Invalid network or training data");
+      // Invalid network or training data
       return { loss: Infinity, updatedNetwork: network };
     }
     
@@ -297,7 +297,7 @@ export const createNeuralNetwork = (inputSize, hiddenLayerSizes, outputSize, act
         updatedNetwork: updatedNetwork
       };
     } catch (error) {
-      console.error("Error in neural network training:", error);
+      // Training error
       return { loss: Infinity, updatedNetwork: network };
     }
   };
