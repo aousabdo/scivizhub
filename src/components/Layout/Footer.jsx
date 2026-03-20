@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
+  
   return (
-    <footer className="bg-gray-800 dark:bg-gray-950 text-white transition-colors">
+    <footer className="bg-gray-800 text-white">
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Section */}
@@ -15,10 +15,10 @@ const Footer = () => {
               Making complex scientific concepts intuitive and accessible through interactive visualizations.
             </p>
             <p className="text-gray-400 text-sm">
-              &copy; {currentYear} SciVizHub. All rights reserved.
+              © {currentYear} SciVizHub. All rights reserved.
             </p>
           </div>
-
+          
           {/* Categories Section */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Explore</h3>
@@ -45,7 +45,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
+          
           {/* Resources Section */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Resources</h3>
@@ -61,9 +61,9 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a
-                  href="https://github.com/aousabdo/scivizhub"
-                  target="_blank"
+                <a 
+                  href="https://github.com/aousabdo/scivizhub" 
+                  target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-white"
                 >
@@ -71,8 +71,8 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a
-                  href="mailto:contact@scivizhub.org"
+                <a 
+                  href="mailto:contact@scivizhub.org" 
                   className="text-gray-300 hover:text-white"
                 >
                   Contact
@@ -81,7 +81,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-
+        
         <div className="mt-8 pt-6 border-t border-gray-700 text-center text-gray-400 text-sm">
           <p>
             SciVizHub is an open educational resource created for students and educators.
@@ -92,4 +92,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Footer; 
