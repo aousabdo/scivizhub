@@ -148,6 +148,64 @@
     stroke-width: 0;
   }
   
+  /* ── Dark mode ── */
+  .dark .controls-panel {
+    background-color: #1f2937;
+    color: #e5e7eb;
+  }
+
+  .dark .control-label {
+    color: #e5e7eb;
+  }
+
+  .dark .radio-label {
+    color: #d1d5db;
+  }
+
+  .dark .slider-container label {
+    color: #d1d5db;
+  }
+
+  .dark .control-button,
+  .dark .toggle-button {
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #d1d5db;
+  }
+
+  .dark .control-button:hover,
+  .dark .toggle-button:hover {
+    background-color: #4b5563;
+  }
+
+  .dark .toggle-button.active {
+    background-color: #4a90e2;
+    color: white;
+    border-color: #4a90e2;
+  }
+
+  .dark .visualization-card {
+    background-color: #1f2937;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .dark .function-info {
+    background-color: #1f2937;
+    color: #d1d5db;
+  }
+
+  .dark .info-label {
+    color: #e5e7eb;
+  }
+
+  .dark .info-value {
+    color: #93c5fd;
+  }
+
+  .dark .grid line {
+    stroke: #4b5563;
+  }
+
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .slider-controls {
