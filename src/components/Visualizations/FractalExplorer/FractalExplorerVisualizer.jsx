@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import VisualizationToolbar from '../../UI/VisualizationToolbar';
 
 const PRESETS = [
   { name: 'Full View', type: 'mandelbrot', centerX: -0.5, centerY: 0, zoom: 1, maxIter: 150, juliaR: -0.7, juliaI: 0.27015 },
@@ -327,6 +328,7 @@ const FractalExplorerVisualizer = () => {
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 max-w-5xl mx-auto">
+      <VisualizationToolbar canvasRef={canvasRef} filename="fractal-explorer" />
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-center mb-2">Fractal Explorer</h2>
         <p className="text-center text-gray-600 dark:text-gray-400 text-sm">

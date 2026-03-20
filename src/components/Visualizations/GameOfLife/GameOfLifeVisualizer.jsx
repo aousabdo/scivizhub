@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
 import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
+import VisualizationToolbar from '../../UI/VisualizationToolbar';
 
 // ── Pattern presets ──────────────────────────────────────────────────
 const PRESETS = {
@@ -486,6 +487,7 @@ const GameOfLifeVisualizer = () => {
   // ── Render UI ────────────────────────────────────────────────────
   return (
     <div className="max-w-6xl mx-auto">
+      <VisualizationToolbar canvasRef={canvasRef} filename="game-of-life" />
       {/* Controls bar */}
       <div className="bg-gray-900 rounded-t-xl p-4 flex flex-wrap items-center gap-3">
         {/* Play / Pause / Step / Reset */}

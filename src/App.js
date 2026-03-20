@@ -10,6 +10,7 @@ const AboutPage = lazy(() => import('./pages/About'));
 const ContributePage = lazy(() => import('./pages/Contribute'));
 const CategoryPage = lazy(() => import('./pages/Category'));
 const AllCategoriesPage = lazy(() => import('./pages/Category/AllCategories'));
+const ComparePage = lazy(() => import('./pages/Compare'));
 
 // Lazy-loaded visualizations
 const BayesTheoremPage = lazy(() => import('./pages/Visualization/BayesTheorem'));
@@ -113,6 +114,7 @@ function App() {
             <Route path="/visualization/chaos-game" element={<WithChat id="chaos-game" title="Chaos Game"><ChaosGamePage /></WithChat>} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contribute" element={<ContributePage />} />
+            <Route path="/compare" element={<ComparePage />} />
             <Route path="/categories" element={<AllCategoriesPage />} />
             <Route path="/category/:categoryId" element={<CategoryPage />} />
           </Routes>
