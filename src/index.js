@@ -3,15 +3,12 @@ import ReactDOM from 'react-dom/client';
 import 'katex/dist/katex.min.css';
 import './index.css';
 import App from './App';
-import { ThemeProvider } from './context/ThemeContext';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
+    <App />
   </React.StrictMode>
 );
 
