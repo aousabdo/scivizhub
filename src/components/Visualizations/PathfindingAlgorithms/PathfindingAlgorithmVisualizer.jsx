@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { InlineMath } from 'react-katex';
+import 'katex/dist/katex.min.css';
 import { dijkstra, aStar, bfs, dfs, greedyBestFirstSearch } from './pathfindingAlgorithms';
 
 // Constants for visualization
@@ -484,7 +486,7 @@ const PathfindingAlgorithmVisualizer = () => {
           name: "Dijkstra's Algorithm",
           description: "Explores all possible paths, starting with the shortest ones, and guarantees the shortest path.",
           properties: "Weighted, Guarantees shortest path, Explores in all directions",
-          complexity: "Time: O(V²) or O(E + V log V) with a priority queue | Space: O(V)",
+          complexity: <span>Time: <InlineMath>{"\\mathcal{O}(V^2)"}</InlineMath> or <InlineMath>{"\\mathcal{O}(E + V \\log V)"}</InlineMath> with a priority queue &nbsp;|&nbsp; Space: <InlineMath>{"\\mathcal{O}(V)"}</InlineMath></span>,
           inventor: "Edsger W. Dijkstra, 1956"
         };
       case 'aStar':
@@ -492,7 +494,7 @@ const PathfindingAlgorithmVisualizer = () => {
           name: "A* Algorithm",
           description: "Uses a heuristic to estimate the distance to the goal, focusing the search toward the target.",
           properties: "Weighted, Guarantees shortest path (with admissible heuristic), Directed search",
-          complexity: "Time: O(E) | Space: O(V)",
+          complexity: <span>Time: <InlineMath>{"\\mathcal{O}(E)"}</InlineMath> &nbsp;|&nbsp; Space: <InlineMath>{"\\mathcal{O}(V)"}</InlineMath></span>,
           inventor: "Peter Hart, Nils Nilsson, and Bertram Raphael, 1968"
         };
       case 'bfs':
@@ -500,7 +502,7 @@ const PathfindingAlgorithmVisualizer = () => {
           name: "Breadth-First Search",
           description: "Explores all neighboring nodes at the present depth before moving to nodes at the next depth level.",
           properties: "Unweighted, Guarantees shortest path (in unweighted graphs), Explores in concentric circles",
-          complexity: "Time: O(V + E) | Space: O(V)",
+          complexity: <span>Time: <InlineMath>{"\\mathcal{O}(V + E)"}</InlineMath> &nbsp;|&nbsp; Space: <InlineMath>{"\\mathcal{O}(V)"}</InlineMath></span>,
           inventor: "Discovered independently by multiple researchers"
         };
       case 'dfs':
@@ -508,7 +510,7 @@ const PathfindingAlgorithmVisualizer = () => {
           name: "Depth-First Search",
           description: "Explores as far as possible along each branch before backtracking, often finding suboptimal paths.",
           properties: "Unweighted, Does not guarantee shortest path, Memory-efficient",
-          complexity: "Time: O(V + E) | Space: O(V) worst case or O(h) with h being the maximum depth",
+          complexity: <span>Time: <InlineMath>{"\\mathcal{O}(V + E)"}</InlineMath> &nbsp;|&nbsp; Space: <InlineMath>{"\\mathcal{O}(V)"}</InlineMath> worst case or <InlineMath>{"\\mathcal{O}(h)"}</InlineMath> with <InlineMath>{"h"}</InlineMath> being the maximum depth</span>,
           inventor: "Attributed to French mathematician Charles Pierre Trémaux in the 19th century"
         };
       case 'greedy':
@@ -516,7 +518,7 @@ const PathfindingAlgorithmVisualizer = () => {
           name: "Greedy Best-First Search",
           description: "Always moves toward the goal based solely on heuristic, ignoring the cost of the path so far.",
           properties: "Weighted, Does not guarantee shortest path, Very directed search",
-          complexity: "Time: O(E) | Space: O(V)",
+          complexity: <span>Time: <InlineMath>{"\\mathcal{O}(E)"}</InlineMath> &nbsp;|&nbsp; Space: <InlineMath>{"\\mathcal{O}(V)"}</InlineMath></span>,
           inventor: "Variations developed by multiple researchers"
         };
       default:

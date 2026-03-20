@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { InlineMath } from 'react-katex';
+import 'katex/dist/katex.min.css';
 import { bubbleSort, selectionSort, insertionSort, mergeSort, quickSort } from './sortingAlgorithms';
 
 const MIN_VALUE = 5;
@@ -154,36 +156,36 @@ const SortingAlgorithmVisualizer = () => {
         return {
           name: 'Bubble Sort',
           description: 'Repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.',
-          timeComplexity: 'O(n²)',
-          spaceComplexity: 'O(1)'
+          timeComplexity: <InlineMath>{"\\mathcal{O}(n^2)"}</InlineMath>,
+          spaceComplexity: <InlineMath>{"\\mathcal{O}(1)"}</InlineMath>
         };
       case 'selection':
         return {
           name: 'Selection Sort',
           description: 'Repeatedly finds the minimum element from the unsorted part and puts it at the beginning.',
-          timeComplexity: 'O(n²)',
-          spaceComplexity: 'O(1)'
+          timeComplexity: <InlineMath>{"\\mathcal{O}(n^2)"}</InlineMath>,
+          spaceComplexity: <InlineMath>{"\\mathcal{O}(1)"}</InlineMath>
         };
       case 'insertion':
         return {
           name: 'Insertion Sort',
           description: 'Builds the sorted array one item at a time by shifting elements as necessary.',
-          timeComplexity: 'O(n²)',
-          spaceComplexity: 'O(1)'
+          timeComplexity: <InlineMath>{"\\mathcal{O}(n^2)"}</InlineMath>,
+          spaceComplexity: <InlineMath>{"\\mathcal{O}(1)"}</InlineMath>
         };
       case 'merge':
         return {
           name: 'Merge Sort',
           description: 'Divides the array into halves, sorts them, and then merges them back together.',
-          timeComplexity: 'O(n log n)',
-          spaceComplexity: 'O(n)'
+          timeComplexity: <InlineMath>{"\\mathcal{O}(n \\log n)"}</InlineMath>,
+          spaceComplexity: <InlineMath>{"\\mathcal{O}(n)"}</InlineMath>
         };
       case 'quick':
         return {
           name: 'Quick Sort',
           description: 'Picks a pivot element and partitions the array around it, recursively sorting the sub-arrays.',
-          timeComplexity: 'O(n log n) average, O(n²) worst case',
-          spaceComplexity: 'O(log n)'
+          timeComplexity: <span><InlineMath>{"\\mathcal{O}(n \\log n)"}</InlineMath> average, <InlineMath>{"\\mathcal{O}(n^2)"}</InlineMath> worst case</span>,
+          spaceComplexity: <InlineMath>{"\\mathcal{O}(\\log n)"}</InlineMath>
         };
       default:
         return {

@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { InlineMath } from 'react-katex';
+import 'katex/dist/katex.min.css';
 
 // Fast grid copy — avoids expensive JSON.parse(JSON.stringify())
 const copyGrid = (grid) => {
@@ -833,7 +835,7 @@ const MazeGenerationVisualizer = () => {
           description: 'A depth-first algorithm that "carves" passages by randomly breaking walls, backtracking when it reaches a dead end.',
           steps: '1. Start from a random cell\n2. Choose a random unvisited neighbor\n3. Remove the wall between the current cell and the chosen neighbor\n4. Move to the chosen neighbor\n5. Repeat steps 2-4 until all cells are visited or no valid moves remain\n6. Backtrack if no unvisited neighbors exist',
           characteristics: 'Produces mazes with long, winding passages. Tends to create many dead ends and few loops.',
-          complexity: 'Time: O(n) | Space: O(n) (for the stack)',
+          complexity: <span>Time: <InlineMath>{"\\mathcal{O}(n)"}</InlineMath> &nbsp;|&nbsp; Space: <InlineMath>{"\\mathcal{O}(n)"}</InlineMath> (for the stack)</span>,
         };
       case 'kruskal':
         return {
@@ -841,7 +843,7 @@ const MazeGenerationVisualizer = () => {
           description: 'A minimum spanning tree algorithm that works by selecting edges randomly and connecting disjoint sets of cells.',
           steps: '1. Start with all walls intact\n2. Assign each cell to its own set\n3. Randomly select walls (edges)\n4. If the cells separated by the wall are in different sets, remove the wall and merge the sets\n5. Repeat until all cells are in the same set',
           characteristics: 'Creates mazes with a more branching, "river-like" structure. Tends to have a balanced mix of passages and dead ends.',
-          complexity: 'Time: O(E log E) | Space: O(V + E)',
+          complexity: <span>Time: <InlineMath>{"\\mathcal{O}(E \\log E)"}</InlineMath> &nbsp;|&nbsp; Space: <InlineMath>{"\\mathcal{O}(V + E)"}</InlineMath></span>,
         };
       case 'prim':
         return {
@@ -849,7 +851,7 @@ const MazeGenerationVisualizer = () => {
           description: 'Another minimum spanning tree algorithm that builds a maze by adding random walls to a growing region.',
           steps: '1. Start with a random cell in the maze\n2. Add the walls of this cell to a list\n3. While there are walls in the list:\n4.   Pick a random wall that connects a visited cell to an unvisited cell\n5.   Remove the wall, mark the unvisited cell as part of the maze\n6.   Add the walls of the new cell to the list',
           characteristics: 'Produces mazes with a "branching tree" appearance. Often has short, winding passages with many dead ends.',
-          complexity: 'Time: O(E log V) | Space: O(V + E)',
+          complexity: <span>Time: <InlineMath>{"\\mathcal{O}(E \\log V)"}</InlineMath> &nbsp;|&nbsp; Space: <InlineMath>{"\\mathcal{O}(V + E)"}</InlineMath></span>,
         };
       case 'recursiveDivision':
         return {
@@ -857,7 +859,7 @@ const MazeGenerationVisualizer = () => {
           description: 'A divide-and-conquer algorithm that recursively divides the grid into chambers, adding walls with passages.',
           steps: '1. Start with an empty grid (no walls)\n2. Recursively divide the grid into two sub-chambers by adding a wall with a single passage\n3. Continue dividing until chambers are too small to divide further',
           characteristics: 'Creates mazes with long, straight corridors. Tends to have a more structured, geometric appearance.',
-          complexity: 'Time: O(n log n) | Space: O(log n) (for the recursion stack)',
+          complexity: <span>Time: <InlineMath>{"\\mathcal{O}(n \\log n)"}</InlineMath> &nbsp;|&nbsp; Space: <InlineMath>{"\\mathcal{O}(\\log n)"}</InlineMath> (for the recursion stack)</span>,
         };
       default:
         return {

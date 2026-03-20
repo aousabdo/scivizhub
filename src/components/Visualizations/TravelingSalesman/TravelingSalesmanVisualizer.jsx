@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { InlineMath } from 'react-katex';
+import 'katex/dist/katex.min.css';
 
 const TravelingSalesmanVisualizer = () => {
   // State for visualization parameters
@@ -602,7 +604,7 @@ const TravelingSalesmanVisualizer = () => {
         return {
           name: 'Nearest Neighbor',
           description: 'A greedy algorithm that always selects the closest unvisited city next. Fast but often suboptimal.',
-          complexity: 'O(n²)',
+          complexity: <InlineMath>{"\\mathcal{O}(n^2)"}</InlineMath>,
           strengths: 'Simple, fast, and provides a reasonable approximation',
           weaknesses: 'Can miss the optimal solution by a significant margin',
         };
@@ -610,7 +612,7 @@ const TravelingSalesmanVisualizer = () => {
         return {
           name: '2-Opt Improvement',
           description: 'Iteratively improves a tour by swapping two edges when it would reduce the total distance.',
-          complexity: 'O(n²) per iteration',
+          complexity: <span><InlineMath>{"\\mathcal{O}(n^2)"}</InlineMath> per iteration</span>,
           strengths: 'Can improve upon an existing solution, often significant improvement over Nearest Neighbor',
           weaknesses: 'Can get stuck in local optima, results depend on initial tour',
         };
@@ -618,7 +620,7 @@ const TravelingSalesmanVisualizer = () => {
         return {
           name: 'Genetic Algorithm',
           description: 'Evolves a population of possible tours using selection, crossover, and mutation operators.',
-          complexity: 'O(g × p × n) where g=generations, p=population size, n=cities',
+          complexity: <span><InlineMath>{"\\mathcal{O}(g \\times p \\times n)"}</InlineMath> where <InlineMath>{"g"}</InlineMath>=generations, <InlineMath>{"p"}</InlineMath>=population size, <InlineMath>{"n"}</InlineMath>=cities</span>,
           strengths: 'Can escape local optima, often finds high-quality solutions for large problems',
           weaknesses: 'Slow execution, results are non-deterministic, requires parameter tuning',
         };
