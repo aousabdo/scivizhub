@@ -7,8 +7,8 @@ const categoryInfo = [
     id: CATEGORIES.PROBABILITY,
     name: 'Probability & Statistics',
     description: 'Explore concepts in probability theory, statistical analysis, and data interpretation through interactive visualizations.',
-    color: 'bg-blue-100 hover:bg-blue-200',
-    textColor: 'text-blue-800',
+    color: 'bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/30 dark:hover:bg-blue-900/50',
+    textColor: 'text-blue-800 dark:text-blue-300',
     icon: (
       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
         <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zm6-4a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm6-3a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
@@ -19,8 +19,8 @@ const categoryInfo = [
     id: CATEGORIES.CALCULUS,
     name: 'Calculus',
     description: 'Visualize derivatives, integrals, and other calculus concepts to develop an intuitive understanding of rates of change and accumulation.',
-    color: 'bg-green-100 hover:bg-green-200',
-    textColor: 'text-green-800',
+    color: 'bg-green-100 hover:bg-green-200 dark:bg-green-900/30 dark:hover:bg-green-900/50',
+    textColor: 'text-green-800 dark:text-green-300',
     icon: (
       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
         <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
@@ -32,8 +32,8 @@ const categoryInfo = [
     id: CATEGORIES.PHYSICS,
     name: 'Physics',
     description: 'Interact with simulations of physical phenomena to better understand mechanics, electromagnetism, thermodynamics, and more.',
-    color: 'bg-red-100 hover:bg-red-200',
-    textColor: 'text-red-800',
+    color: 'bg-red-100 hover:bg-red-200 dark:bg-red-900/30 dark:hover:bg-red-900/50',
+    textColor: 'text-red-800 dark:text-red-300',
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         {/* Atom icon with orbits - perfect for physics */}
@@ -49,8 +49,8 @@ const categoryInfo = [
     id: CATEGORIES.ENGINEERING,
     name: 'Engineering',
     description: 'See engineering principles in action through interactive models and simulations of mechanical, electrical, and civil engineering concepts.',
-    color: 'bg-yellow-100 hover:bg-yellow-200',
-    textColor: 'text-yellow-800',
+    color: 'bg-yellow-100 hover:bg-yellow-200 dark:bg-yellow-900/30 dark:hover:bg-yellow-900/50',
+    textColor: 'text-yellow-800 dark:text-yellow-300',
     icon: (
       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
         <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
@@ -61,8 +61,8 @@ const categoryInfo = [
     id: CATEGORIES.LINEAR_ALGEBRA,
     name: 'Linear Algebra',
     description: 'Visualize vectors, matrices, and transformations to build intuition for this fundamental mathematical field.',
-    color: 'bg-indigo-100 hover:bg-indigo-200',
-    textColor: 'text-indigo-800',
+    color: 'bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50',
+    textColor: 'text-indigo-800 dark:text-indigo-300',
     icon: (
       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
         <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
@@ -73,8 +73,8 @@ const categoryInfo = [
     id: CATEGORIES.COMPUTER_SCIENCE,
     name: 'Computer Science',
     description: 'Explore algorithms, data structures, and computational concepts through interactive visualizations and simulations.',
-    color: 'bg-purple-100 hover:bg-purple-200',
-    textColor: 'text-purple-800',
+    color: 'bg-purple-100 hover:bg-purple-200 dark:bg-purple-900/30 dark:hover:bg-purple-900/50',
+    textColor: 'text-purple-800 dark:text-purple-300',
     icon: (
       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
         <path fillRule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293 1.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L7.586 10 5.293 7.707a1 1 0 010-1.414zM11 12a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
@@ -85,8 +85,8 @@ const categoryInfo = [
     id: CATEGORIES.STATISTICS,
     name: 'Statistics',
     description: 'Build intuition for inference, estimation, and uncertainty through data-driven interactive experiments.',
-    color: 'bg-cyan-100 hover:bg-cyan-200',
-    textColor: 'text-cyan-800',
+    color: 'bg-cyan-100 hover:bg-cyan-200 dark:bg-cyan-900/30 dark:hover:bg-cyan-900/50',
+    textColor: 'text-cyan-800 dark:text-cyan-300',
     icon: (
       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
         <path d="M3 3a1 1 0 011 1v12h12a1 1 0 110 2H3a1 1 0 01-1-1V4a1 1 0 011-1z" />
@@ -98,8 +98,8 @@ const categoryInfo = [
     id: CATEGORIES.CHEMISTRY,
     name: 'Chemistry',
     description: 'Visualize molecules, reactions, and equilibrium behavior to connect symbolic chemistry to physical intuition.',
-    color: 'bg-orange-100 hover:bg-orange-200',
-    textColor: 'text-orange-800',
+    color: 'bg-orange-100 hover:bg-orange-200 dark:bg-orange-900/30 dark:hover:bg-orange-900/50',
+    textColor: 'text-orange-800 dark:text-orange-300',
     icon: (
       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
         <path fillRule="evenodd" d="M8 2a1 1 0 000 2v3.586l-4.707 6.293A2 2 0 004.893 17h10.214a2 2 0 001.6-3.121L12 7.586V4a1 1 0 100-2H8zm2 7.25L6.2 14.5h7.6L10 9.25z" clipRule="evenodd" />
@@ -110,8 +110,8 @@ const categoryInfo = [
     id: CATEGORIES.MATHEMATICS,
     name: 'Mathematics',
     description: 'Discover the beauty of pure mathematics through interactive explorations of fractals, number theory, and geometric patterns.',
-    color: 'bg-pink-100 hover:bg-pink-200',
-    textColor: 'text-pink-800',
+    color: 'bg-pink-100 hover:bg-pink-200 dark:bg-pink-900/30 dark:hover:bg-pink-900/50',
+    textColor: 'text-pink-800 dark:text-pink-300',
     icon: (
       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
         <path d="M10 2a1 1 0 011 1v6h6a1 1 0 110 2h-6v6a1 1 0 11-2 0v-6H3a1 1 0 110-2h6V3a1 1 0 011-1z" />
@@ -122,8 +122,8 @@ const categoryInfo = [
     id: CATEGORIES.BIOLOGY,
     name: 'Biology',
     description: 'Explore living systems with interactive models of populations, cells, and ecological dynamics.',
-    color: 'bg-emerald-100 hover:bg-emerald-200',
-    textColor: 'text-emerald-800',
+    color: 'bg-emerald-100 hover:bg-emerald-200 dark:bg-emerald-900/30 dark:hover:bg-emerald-900/50',
+    textColor: 'text-emerald-800 dark:text-emerald-300',
     icon: (
       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
         <path d="M5 3a7 7 0 017 7v7a1 1 0 11-2 0v-2.2A5.5 5.5 0 014.2 9H2a1 1 0 110-2h2.2A7 7 0 015 3z" />
@@ -138,7 +138,7 @@ const AllCategoriesPage = () => {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">Explore by Category</h1>
       
-      <p className="text-lg text-gray-600 mb-8 max-w-3xl">
+      <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-3xl">
         Browse our collection of interactive visualizations by subject area. Each category contains 
         visualizations designed to help you understand key concepts through interactive exploration.
       </p>
@@ -154,12 +154,12 @@ const AllCategoriesPage = () => {
               className={`${category.color} p-6 rounded-lg transition-all ${visualizationCount > 0 ? 'cursor-pointer' : 'cursor-default opacity-70'}`}
             >
               <div className="flex items-start">
-                <div className={`p-3 rounded-full ${category.textColor} bg-white bg-opacity-50 mr-4`}>
+                <div className={`p-3 rounded-full ${category.textColor} bg-white dark:bg-white/10 bg-opacity-50 mr-4`}>
                   {category.icon}
                 </div>
                 <div>
                   <h2 className="text-xl font-semibold mb-2">{category.name}</h2>
-                  <p className="text-gray-700 mb-3">{category.description}</p>
+                  <p className="text-gray-700 dark:text-gray-300 mb-3">{category.description}</p>
                   <div className="flex items-center">
                     <span className={`font-medium ${category.textColor}`}>
                       {visualizationCount} {visualizationCount === 1 ? 'visualization' : 'visualizations'} available
