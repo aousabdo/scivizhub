@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
 import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
+import ShareButton from '../../UI/ShareButton';
 
 const PRESETS = {
   classic: {
@@ -26,13 +28,26 @@ const PRESETS = {
 };
 
 const LorenzAttractorVisualizer = () => {
-  const [sigma, setSigma] = useState(10);
-  const [rho, setRho] = useState(28);
-  const [beta, setBeta] = useState(8 / 3);
-  const [speed, setSpeed] = useState(1);
-  const [trailLength, setTrailLength] = useState(2000);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const p = (k, d) => { const v = searchParams.get(k); return v !== null ? Number(v) : d; };
+
+  const [sigma, setSigma] = useState(() => p('sigma', 10));
+  const [rho, setRho] = useState(() => p('rho', 28));
+  const [beta, setBeta] = useState(() => p('beta', 8 / 3));
+  const [speed, setSpeed] = useState(() => p('speed', 1));
+  const [trailLength, setTrailLength] = useState(() => p('trail', 2000));
   const [isRunning, setIsRunning] = useState(true);
   const [autoRotate, setAutoRotate] = useState(true);
+
+  const buildShareURL = useCallback(() => {
+    const params = new URLSearchParams();
+    params.set('sigma', sigma);
+    params.set('rho', rho);
+    params.set('beta', beta.toFixed(4));
+    params.set('speed', speed);
+    params.set('trail', trailLength);
+    return `${window.location.origin}${window.location.pathname}?${params}`;
+  }, [sigma, rho, beta, speed, trailLength]);
 
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
@@ -325,6 +340,7 @@ const LorenzAttractorVisualizer = () => {
             >
               Reset
             </button>
+            <ShareButton getURL={buildShareURL} />
           </div>
         </div>
 
