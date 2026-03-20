@@ -30,8 +30,8 @@ const DiffusionSimulationPage = () => {
         <h2 className="text-center text-2xl font-bold">The Science of Diffusion</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
-            <h3 className="text-xl font-bold text-amber-800 mb-3">Brownian Motion: A Brief History</h3>
+          <div className="bg-amber-50 dark:bg-amber-900/30 p-6 rounded-lg border border-amber-200 dark:border-amber-700">
+            <h3 className="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">Brownian Motion: A Brief History</h3>
             <p>
               In 1827, Scottish botanist <strong>Robert Brown</strong> observed that pollen grains suspended in water
               exhibited a ceaseless, irregular motion. For decades, the cause remained a mystery. It was not until
@@ -48,8 +48,8 @@ const DiffusionSimulationPage = () => {
             </p>
           </div>
 
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Fick's Laws of Diffusion</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Fick's Laws of Diffusion</h3>
             <p>
               <strong>Fick's First Law</strong> states that the diffusive flux is proportional to the negative
               concentration gradient. In one dimension:
@@ -75,8 +75,8 @@ const DiffusionSimulationPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Einstein's Diffusion Relation</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Einstein's Diffusion Relation</h3>
             <p>
               Einstein's key insight was connecting the macroscopic diffusion coefficient <strong>D</strong> to
               microscopic properties of the particle and the surrounding fluid:
@@ -107,8 +107,8 @@ const DiffusionSimulationPage = () => {
             </p>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Osmosis and Membrane Transport</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Osmosis and Membrane Transport</h3>
             <p>
               When a semi-permeable membrane separates two solutions of different concentrations, solvent molecules
               diffuse through the membrane from the region of lower solute concentration to the region of higher
@@ -128,8 +128,8 @@ const DiffusionSimulationPage = () => {
             </p>
           </div>
 
-          <div className="bg-red-50 p-6 rounded-lg border border-red-200">
-            <h3 className="text-xl font-bold text-red-800 mb-3">Applications Across Science and Engineering</h3>
+          <div className="bg-red-50 dark:bg-red-900/30 p-6 rounded-lg border border-red-200 dark:border-red-700">
+            <h3 className="text-xl font-bold text-red-800 dark:text-red-300 mb-3">Applications Across Science and Engineering</h3>
             <p>
               Diffusion is a ubiquitous process that appears across virtually every scientific discipline:
             </p>
@@ -166,7 +166,7 @@ const DiffusionSimulationPage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-300 my-8">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600 my-8">
           <h2 className="text-xl font-bold mb-4">Exploring the Simulator</h2>
           <p>
             Use the <strong>Drop of Ink</strong> preset to watch free diffusion from a central point -- notice how the

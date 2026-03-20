@@ -514,7 +514,7 @@ const HypothesisTestingVisualizer = () => {
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-all shadow-sm ${
               activePreset === key
                 ? 'bg-blue-600 text-white shadow-md'
-                : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 hover:border-blue-400'
+                : 'bg-white text-gray-700 dark:text-gray-300 border border-gray-300 hover:bg-gray-50 hover:border-blue-400'
             }`}
           >
             {preset.label}
@@ -530,8 +530,8 @@ const HypothesisTestingVisualizer = () => {
 
       {/* Controls */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <div className="bg-white rounded-lg border border-gray-200 p-4 shadow-sm">
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+        <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600 p-4 shadow-sm">
+          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
             Significance Level (&alpha;)
           </label>
           <input
@@ -551,8 +551,8 @@ const HypothesisTestingVisualizer = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg border border-gray-200 p-4 shadow-sm">
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+        <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600 p-4 shadow-sm">
+          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
             Effect Size (Cohen&apos;s d)
           </label>
           <input
@@ -579,8 +579,8 @@ const HypothesisTestingVisualizer = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg border border-gray-200 p-4 shadow-sm">
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+        <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600 p-4 shadow-sm">
+          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
             Sample Size (n)
           </label>
           <input
@@ -603,8 +603,8 @@ const HypothesisTestingVisualizer = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg border border-gray-200 p-4 shadow-sm">
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+        <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600 p-4 shadow-sm">
+          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
             Test Type
           </label>
           <div className="flex gap-2 mt-1">
@@ -613,7 +613,7 @@ const HypothesisTestingVisualizer = () => {
               className={`flex-1 py-2 rounded-md text-sm font-medium transition-all ${
                 twoTailed
                   ? 'bg-blue-600 text-white shadow'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  : 'bg-gray-100 dark:bg-gray-600 text-gray-600 hover:bg-gray-200'
               }`}
             >
               Two-tailed
@@ -623,7 +623,7 @@ const HypothesisTestingVisualizer = () => {
               className={`flex-1 py-2 rounded-md text-sm font-medium transition-all ${
                 !twoTailed
                   ? 'bg-blue-600 text-white shadow'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  : 'bg-gray-100 dark:bg-gray-600 text-gray-600 hover:bg-gray-200'
               }`}
             >
               One-tailed

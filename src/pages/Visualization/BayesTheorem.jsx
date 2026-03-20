@@ -25,8 +25,8 @@ const BayesTheoremPage = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-10">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h2 className="text-xl font-bold text-blue-800 mb-3">Medicine</h2>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h2 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Medicine</h2>
             <p className="mb-3">Bayes' theorem is fundamental to medical diagnostics, helping doctors interpret test results correctly:</p>
             <ul className="list-disc pl-5 space-y-2">
               <li>Evaluating the true probability of disease given positive test results</li>
@@ -40,8 +40,8 @@ const BayesTheoremPage = () => {
             </div>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h2 className="text-xl font-bold text-green-800 mb-3">Machine Learning</h2>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h2 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Machine Learning</h2>
             <p className="mb-3">Bayesian methods are central to many machine learning algorithms:</p>
             <ul className="list-disc pl-5 space-y-2">
               <li>Naive Bayes classifiers for text categorization and spam filtering</li>
@@ -55,8 +55,8 @@ const BayesTheoremPage = () => {
             </div>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h2 className="text-xl font-bold text-purple-800 mb-3">Statistics</h2>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h2 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Statistics</h2>
             <p className="mb-3">Bayesian statistics offers a powerful alternative to traditional frequentist approaches:</p>
             <ul className="list-disc pl-5 space-y-2">
               <li>Prior distributions encode existing knowledge or beliefs</li>
@@ -70,8 +70,8 @@ const BayesTheoremPage = () => {
             </div>
           </div>
 
-          <div className="bg-red-50 p-6 rounded-lg border border-red-200">
-            <h2 className="text-xl font-bold text-red-800 mb-3">Search Algorithms</h2>
+          <div className="bg-red-50 dark:bg-red-900/30 p-6 rounded-lg border border-red-200 dark:border-red-700">
+            <h2 className="text-xl font-bold text-red-800 dark:text-red-300 mb-3">Search Algorithms</h2>
             <p className="mb-3">Information retrieval and search engines leverage Bayesian principles:</p>
             <ul className="list-disc pl-5 space-y-2">
               <li>Spam filtering based on word frequencies and patterns</li>
@@ -85,8 +85,8 @@ const BayesTheoremPage = () => {
             </div>
           </div>
 
-          <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
-            <h2 className="text-xl font-bold text-yellow-800 mb-3">Decision Theory</h2>
+          <div className="bg-yellow-50 dark:bg-yellow-900/30 p-6 rounded-lg border border-yellow-200 dark:border-yellow-700">
+            <h2 className="text-xl font-bold text-yellow-800 dark:text-yellow-300 mb-3">Decision Theory</h2>
             <p className="mb-3">Bayes' theorem provides a framework for rational decision-making:</p>
             <ul className="list-disc pl-5 space-y-2">
               <li>Sequential decision problems with evolving information</li>
@@ -100,8 +100,8 @@ const BayesTheoremPage = () => {
             </div>
           </div>
 
-          <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
-            <h2 className="text-xl font-bold text-indigo-800 mb-3">More Applications</h2>
+          <div className="bg-indigo-50 dark:bg-indigo-900/30 p-6 rounded-lg border border-indigo-200 dark:border-indigo-700">
+            <h2 className="text-xl font-bold text-indigo-800 dark:text-indigo-300 mb-3">More Applications</h2>
             <ul className="list-disc pl-5 space-y-2">
               <li><strong>Finance:</strong> Stock price prediction, risk assessment, portfolio optimization</li>
               <li><strong>Genetics:</strong> Gene mapping, ancestry analysis, genetic disease risk</li>
@@ -114,7 +114,7 @@ const BayesTheoremPage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-300 my-8">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600 my-8">
           <h2 className="text-xl font-bold mb-4">The Power of Bayesian Thinking</h2>
           <p>
             Beyond formal applications, Bayesian thinking provides a powerful mental model for reasoning in everyday life. It reminds us to:

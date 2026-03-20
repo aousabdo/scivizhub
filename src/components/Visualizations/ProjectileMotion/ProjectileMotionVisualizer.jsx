@@ -25,7 +25,7 @@ const SliderControl = ({
   unit = '',
 }) => (
   <div>
-    <label className="block text-sm font-medium text-gray-700 mb-2">
+    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
       {label}: {value}
       {unit}
     </label>
@@ -171,7 +171,7 @@ const ProjectileMotionVisualizer = () => {
     <div className="p-4 max-w-6xl mx-auto space-y-6">
       <div className="bg-white border border-gray-200 rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold mb-2">Projectile Motion Lab</h2>
-        <p className="text-gray-700 mb-5">
+        <p className="text-gray-700 dark:text-gray-300 mb-5">
           Adjust launch conditions and environmental parameters to explore trajectory shape, range, and flight time.
         </p>
 
@@ -236,7 +236,7 @@ const ProjectileMotionVisualizer = () => {
           <button
             type="button"
             onClick={() => setDragEnabled((current) => !current)}
-            className={`px-4 py-2 rounded-md border ${dragEnabled ? 'bg-blue-100 border-blue-300 text-blue-900' : 'bg-gray-100 border-gray-300 text-gray-700'}`}
+            className={`px-4 py-2 rounded-md border ${dragEnabled ? 'bg-blue-100 border-blue-300 text-blue-900' : 'bg-gray-100 dark:bg-gray-600 border-gray-300 text-gray-700'}`}
           >
             Air Resistance: {dragEnabled ? 'On' : 'Off'}
           </button>
@@ -244,7 +244,7 @@ const ProjectileMotionVisualizer = () => {
           <button
             type="button"
             onClick={() => setShowNoDragReference((current) => !current)}
-            className={`px-4 py-2 rounded-md border ${showNoDragReference ? 'bg-emerald-100 border-emerald-300 text-emerald-900' : 'bg-gray-100 border-gray-300 text-gray-700'}`}
+            className={`px-4 py-2 rounded-md border ${showNoDragReference ? 'bg-emerald-100 border-emerald-300 text-emerald-900' : 'bg-gray-100 dark:bg-gray-600 border-gray-300 text-gray-700'}`}
           >
             No-Drag Reference: {showNoDragReference ? 'Shown' : 'Hidden'}
           </button>

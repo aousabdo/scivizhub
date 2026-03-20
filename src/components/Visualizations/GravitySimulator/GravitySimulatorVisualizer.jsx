@@ -562,7 +562,7 @@ const GravitySimulatorVisualizer = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-md">
+      <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>
             <h2 className="text-2xl font-bold mb-2">N-Body Gravity Simulator</h2>
@@ -600,7 +600,7 @@ const GravitySimulatorVisualizer = () => {
 
         {/* Presets */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">Presets</label>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Presets</label>
           <div className="flex flex-wrap gap-2">
             {Object.entries(PRESETS).map(([key, p]) => (
               <button
@@ -609,7 +609,7 @@ const GravitySimulatorVisualizer = () => {
                 className={`px-3 py-1.5 text-sm rounded-md border transition-colors ${
                   activePreset === key
                     ? 'bg-blue-100 border-blue-400 text-blue-800'
-                    : 'bg-gray-100 hover:bg-gray-200 border-gray-300'
+                    : 'bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 border-gray-300'
                 }`}
               >
                 {p.label}
@@ -623,7 +623,7 @@ const GravitySimulatorVisualizer = () => {
           {/* Column 1: Simulation parameters */}
           <div className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Simulation Speed: {speed.toFixed(1)}x
               </label>
               <input
@@ -633,7 +633,7 @@ const GravitySimulatorVisualizer = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Gravitational Constant: {G.toFixed(2)}
               </label>
               <input
@@ -643,7 +643,7 @@ const GravitySimulatorVisualizer = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Softening: {softening.toFixed(1)}
               </label>
               <input
@@ -663,13 +663,13 @@ const GravitySimulatorVisualizer = () => {
                 onChange={() => setShowTrails(!showTrails)}
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
               />
-              <label htmlFor="showTrails" className="ml-2 block text-sm text-gray-700">
+              <label htmlFor="showTrails" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
                 Show Orbital Trails
               </label>
             </div>
             {showTrails && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Trail Length: {trailLength} points
                 </label>
                 <input
@@ -680,14 +680,14 @@ const GravitySimulatorVisualizer = () => {
               </div>
             )}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Interaction Mode</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Interaction Mode</label>
               <div className="flex gap-2">
                 <button
                   onClick={() => setInteractionMode('add')}
                   className={`px-3 py-1.5 text-sm rounded-md border transition-colors ${
                     interactionMode === 'add'
                       ? 'bg-green-100 border-green-400 text-green-800'
-                      : 'bg-gray-100 hover:bg-gray-200 border-gray-300'
+                      : 'bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 border-gray-300'
                   }`}
                 >
                   Add Body
@@ -698,12 +698,12 @@ const GravitySimulatorVisualizer = () => {
 
           {/* Column 3: Body list */}
           <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Bodies ({bodyCount})
             </label>
             <div className="max-h-36 overflow-y-auto space-y-1">
               {bodiesRef.current.map((b, i) => (
-                <div key={i} className="flex items-center text-xs space-x-2 px-2 py-1 bg-gray-50 rounded">
+                <div key={i} className="flex items-center text-xs space-x-2 px-2 py-1 bg-gray-50 dark:bg-gray-700 rounded">
                   <span
                     className="inline-block w-3 h-3 rounded-full flex-shrink-0"
                     style={{ backgroundColor: b.color }}
@@ -718,21 +718,21 @@ const GravitySimulatorVisualizer = () => {
 
         {/* Stats panel */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-xs text-gray-500 uppercase tracking-wide">Kinetic Energy</p>
             <p className="text-lg font-mono font-bold text-red-500">{stats.KE}</p>
           </div>
-          <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-xs text-gray-500 uppercase tracking-wide">Potential Energy</p>
             <p className="text-lg font-mono font-bold text-blue-500">{stats.PE}</p>
           </div>
-          <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-xs text-gray-500 uppercase tracking-wide">Total Energy</p>
             <p className="text-lg font-mono font-bold text-green-600">{stats.total}</p>
           </div>
-          <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-xs text-gray-500 uppercase tracking-wide">Elapsed Time</p>
-            <p className="text-lg font-mono font-bold text-gray-700">{stats.time}s</p>
+            <p className="text-lg font-mono font-bold text-gray-700 dark:text-gray-300">{stats.time}s</p>
           </div>
         </div>
       </div>

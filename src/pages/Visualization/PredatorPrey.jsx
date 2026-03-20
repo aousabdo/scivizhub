@@ -29,13 +29,13 @@ const PredatorPreyPage = () => {
         <h2 className="text-center text-2xl font-bold">Understanding Predator-Prey Dynamics</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">The Lotka-Volterra Equations</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">The Lotka-Volterra Equations</h3>
             <p>
               The classical predator-prey model is described by two coupled ordinary differential equations that
               govern the growth and decline of each population:
             </p>
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"\\frac{dx}{dt} = \\alpha x - \\beta x y"}</BlockMath>
               <BlockMath>{"\\frac{dy}{dt} = \\delta x y - \\gamma y"}</BlockMath>
             </div>
@@ -48,8 +48,8 @@ const PredatorPreyPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Population Oscillations</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Population Oscillations</h3>
             <p>
               The Lotka-Volterra model produces characteristic oscillating cycles with a consistent phase relationship:
             </p>
@@ -77,8 +77,8 @@ const PredatorPreyPage = () => {
             </p>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Ecological Balance and Trophic Cascades</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Ecological Balance and Trophic Cascades</h3>
             <p>
               Predator-prey dynamics are central to understanding <strong>trophic cascades</strong>, where changes at
               one level of a food chain ripple through the entire ecosystem:
@@ -100,8 +100,8 @@ const PredatorPreyPage = () => {
             </ul>
           </div>
 
-          <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
-            <h3 className="text-xl font-bold text-amber-800 mb-3">Real-World Examples</h3>
+          <div className="bg-amber-50 dark:bg-amber-900/30 p-6 rounded-lg border border-amber-200 dark:border-amber-700">
+            <h3 className="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">Real-World Examples</h3>
             <p>
               Predator-prey oscillations have been documented across many ecosystems:
             </p>
@@ -124,8 +124,8 @@ const PredatorPreyPage = () => {
             </ul>
           </div>
 
-          <div className="bg-red-50 p-6 rounded-lg border border-red-200">
-            <h3 className="text-xl font-bold text-red-800 mb-3">History: Lotka and Volterra</h3>
+          <div className="bg-red-50 dark:bg-red-900/30 p-6 rounded-lg border border-red-200 dark:border-red-700">
+            <h3 className="text-xl font-bold text-red-800 dark:text-red-300 mb-3">History: Lotka and Volterra</h3>
             <p>
               The predator-prey model was developed independently by two scientists in the 1920s:
             </p>
@@ -151,7 +151,7 @@ const PredatorPreyPage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-300 my-8">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600 my-8">
           <h2 className="text-xl font-bold mb-4">Exploring the Simulator</h2>
           <p>
             Use the preset scenarios to see different ecological outcomes. "Stable Oscillation" produces the classic

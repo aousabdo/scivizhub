@@ -32,8 +32,8 @@ const OrbitalMechanicsPage = () => {
 
         <div className="mt-8 grid gap-8">
           {/* Kepler's Laws */}
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Kepler&apos;s Laws of Planetary Motion</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Kepler&apos;s Laws of Planetary Motion</h3>
             <p>
               In the early 17th century, Johannes Kepler distilled decades of precise astronomical
               observations by Tycho Brahe into three elegant laws that describe how planets move
@@ -64,15 +64,15 @@ const OrbitalMechanicsPage = () => {
           </div>
 
           {/* Newton's Gravitation */}
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Newton&apos;s Law of Universal Gravitation</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Newton&apos;s Law of Universal Gravitation</h3>
             <p>
               Isaac Newton unified terrestrial and celestial mechanics with a single law: every
               object with mass attracts every other object with a force proportional to the product
               of their masses and inversely proportional to the square of the distance between them.
             </p>
 
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"F = G \\cdot \\frac{m_1 \\cdot m_2}{r^2}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 <InlineMath>{'G = 6.674 \\times 10^{-11}'}</InlineMath> N·m²·kg⁻² is the gravitational
@@ -96,8 +96,8 @@ const OrbitalMechanicsPage = () => {
           </div>
 
           {/* Conservation Laws */}
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Conservation Laws</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Conservation Laws</h3>
             <p>
               Fundamental conservation principles govern isolated gravitational systems. The stats
               panel tracks these quantities so you can verify them as the simulation runs.
@@ -128,8 +128,8 @@ const OrbitalMechanicsPage = () => {
           </div>
 
           {/* Applications */}
-          <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
-            <h3 className="text-xl font-bold text-amber-800 mb-3">Applications</h3>
+          <div className="bg-amber-50 dark:bg-amber-900/30 p-6 rounded-lg border border-amber-200 dark:border-amber-700">
+            <h3 className="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">Applications</h3>
             <ul className="list-disc pl-5 space-y-3">
               <li>
                 <strong>Space Missions &amp; Orbital Transfers:</strong> Getting a spacecraft from
@@ -162,7 +162,7 @@ const OrbitalMechanicsPage = () => {
           </div>
 
           {/* Historical Context */}
-          <div className="bg-gray-50 p-6 rounded-lg border border-gray-300">
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600">
             <h3 className="text-xl font-bold mb-4">Historical Context</h3>
             <p>
               The story of orbital mechanics spans millennia of human curiosity about the heavens:
@@ -208,8 +208,8 @@ const OrbitalMechanicsPage = () => {
           </div>
 
           {/* Numerical Methods */}
-          <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
-            <h3 className="text-xl font-bold text-indigo-800 mb-3">Numerical Integration: Velocity Verlet</h3>
+          <div className="bg-indigo-50 dark:bg-indigo-900/30 p-6 rounded-lg border border-indigo-200 dark:border-indigo-700">
+            <h3 className="text-xl font-bold text-indigo-800 dark:text-indigo-300 mb-3">Numerical Integration: Velocity Verlet</h3>
             <p>
               This simulator uses the Velocity Verlet algorithm, a second-order symplectic
               integrator widely used in celestial mechanics and molecular dynamics. Unlike simple
@@ -217,7 +217,7 @@ const OrbitalMechanicsPage = () => {
               method is time-reversible and preserves the geometric structure of Hamiltonian systems.
             </p>
 
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"x(t + \\Delta t) = x(t) + v(t) \\cdot \\Delta t + \\tfrac{1}{2} a(t) \\cdot \\Delta t^2"}</BlockMath>
               <BlockMath>{"v(t + \\Delta t) = v(t) + \\tfrac{1}{2}\\bigl[a(t) + a(t + \\Delta t)\\bigr] \\cdot \\Delta t"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">

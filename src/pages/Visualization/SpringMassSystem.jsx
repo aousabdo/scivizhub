@@ -30,14 +30,14 @@ const SpringMassSystemPage = () => {
         <h2 className="text-center text-2xl font-bold">The Physics of Coupled Oscillators</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Hooke's Law & Simple Harmonic Motion</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Hooke's Law & Simple Harmonic Motion</h3>
             <p>
               A single mass on a spring obeys Hooke's law: the restoring force is proportional
               to displacement. This produces simple harmonic motion (SHM), the most fundamental
               type of periodic motion in nature.
             </p>
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"F = -kx \\quad \\Rightarrow \\quad m\\frac{d^2x}{dt^2} = -kx"}</BlockMath>
               <BlockMath>{"x(t) = A\\cos(\\omega t + \\phi) \\quad \\text{where} \\quad \\omega = \\sqrt{k/m}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
@@ -51,8 +51,8 @@ const SpringMassSystemPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Coupled Oscillators & Normal Modes</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Coupled Oscillators & Normal Modes</h3>
             <p>
               When two or more masses are connected by springs, their motions become coupled:
               displacing one mass exerts forces on its neighbors. The resulting motion can look
@@ -80,13 +80,13 @@ const SpringMassSystemPage = () => {
             </p>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Energy Conservation</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Energy Conservation</h3>
             <p>
               In an undamped spring-mass system, energy is continuously exchanged between two forms
               but the total remains constant:
             </p>
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"E_{\\text{total}} = KE + PE = \\tfrac{1}{2}mv^2 + \\tfrac{1}{2}kx^2 = \\text{constant}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 Kinetic energy is maximum at equilibrium (maximum velocity); potential energy
@@ -101,8 +101,8 @@ const SpringMassSystemPage = () => {
             </p>
           </div>
 
-          <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
-            <h3 className="text-xl font-bold text-amber-800 mb-3">Damping & Resonance</h3>
+          <div className="bg-amber-50 dark:bg-amber-900/30 p-6 rounded-lg border border-amber-200 dark:border-amber-700">
+            <h3 className="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">Damping & Resonance</h3>
             <p>
               Real oscillators always experience some form of energy dissipation. The damping
               force, proportional to velocity (<InlineMath>{"F_{\\text{damp}} = -bv"}</InlineMath>), causes oscillations
@@ -129,7 +129,7 @@ const SpringMassSystemPage = () => {
             </p>
           </div>
 
-          <div className="bg-gray-50 p-6 rounded-lg border border-gray-300">
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600">
             <h3 className="text-xl font-bold mb-4">Real-World Applications</h3>
             <p>
               The spring-mass model is one of the most widely applied concepts in science and

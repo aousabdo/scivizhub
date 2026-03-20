@@ -27,8 +27,8 @@ const BinarySearchTreePage = () => {
         <h2 className="text-center text-2xl font-bold">Understanding Binary Search Trees</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">The BST Property</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">The BST Property</h3>
             <p>
               The defining characteristic of a Binary Search Tree is its ordering invariant:
             </p>
@@ -44,8 +44,8 @@ const BinarySearchTreePage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Tree Traversals</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Tree Traversals</h3>
             <p>
               There are three primary ways to visit every node in a BST, each producing a different ordering:
             </p>
@@ -59,8 +59,8 @@ const BinarySearchTreePage = () => {
             </p>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">AVL Trees and Balancing</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">AVL Trees and Balancing</h3>
             <p>
               An AVL tree (named after Adelson-Velsky and Landis) is a self-balancing BST where the heights of the
               left and right subtrees of every node differ by at most one. When an insertion or deletion causes an
@@ -78,8 +78,8 @@ const BinarySearchTreePage = () => {
             </p>
           </div>
 
-          <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
-            <h3 className="text-xl font-bold text-yellow-800 mb-3">Time Complexity</h3>
+          <div className="bg-yellow-50 dark:bg-yellow-900/30 p-6 rounded-lg border border-yellow-200 dark:border-yellow-700">
+            <h3 className="text-xl font-bold text-yellow-800 dark:text-yellow-300 mb-3">Time Complexity</h3>
             <div className="overflow-x-auto">
               <table className="min-w-full mt-3 border-collapse">
                 <thead>
@@ -124,8 +124,8 @@ const BinarySearchTreePage = () => {
             </p>
           </div>
 
-          <div className="bg-red-50 p-6 rounded-lg border border-red-200">
-            <h3 className="text-xl font-bold text-red-800 mb-3">BST Deletion Cases</h3>
+          <div className="bg-red-50 dark:bg-red-900/30 p-6 rounded-lg border border-red-200 dark:border-red-700">
+            <h3 className="text-xl font-bold text-red-800 dark:text-red-300 mb-3">BST Deletion Cases</h3>
             <p>
               Deleting a node from a BST involves three distinct cases:
             </p>

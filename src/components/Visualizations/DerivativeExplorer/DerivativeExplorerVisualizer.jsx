@@ -283,7 +283,7 @@ const DerivativeExplorerVisualizer = () => {
           <div className="flex flex-wrap gap-2" style={{ marginBottom: '12px' }}>
             {Object.entries(PRESETS).map(([key, p]) => (
               <button key={key} onClick={() => loadPreset(key)}
-                className="px-3 py-1.5 text-sm rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
+                className="px-3 py-1.5 text-sm rounded-md bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 text-gray-700 dark:text-gray-300 transition-colors">
                 {p.label}
               </button>
             ))}

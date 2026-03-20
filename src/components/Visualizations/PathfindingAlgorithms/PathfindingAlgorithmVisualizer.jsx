@@ -539,11 +539,11 @@ const PathfindingAlgorithmVisualizer = () => {
   
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-md">
+      <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div className="mb-2 sm:mb-0">
             <h2 className="text-2xl font-bold">{algorithmInfo.name}</h2>
-            <p className="text-gray-600">{algorithmInfo.description}</p>
+            <p className="text-gray-600 dark:text-gray-400">{algorithmInfo.description}</p>
           </div>
           
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
@@ -582,7 +582,7 @@ const PathfindingAlgorithmVisualizer = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Algorithm:
             </label>
             <select
@@ -590,7 +590,7 @@ const PathfindingAlgorithmVisualizer = () => {
               onChange={handleAlgorithmChange}
               disabled={isRunning}
               className={`block w-full p-2 border border-gray-300 rounded-md ${
-                isRunning ? 'bg-gray-100 cursor-not-allowed' : ''
+                isRunning ? 'bg-gray-100 dark:bg-gray-600 cursor-not-allowed' : ''
               }`}
             >
               <option value="dijkstra">Dijkstra's Algorithm</option>
@@ -602,7 +602,7 @@ const PathfindingAlgorithmVisualizer = () => {
           </div>
           
           <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Animation Speed: {animationSpeed}ms
             </label>
             <input
@@ -647,7 +647,7 @@ const PathfindingAlgorithmVisualizer = () => {
               onChange={() => setShowAlgorithmDescription(!showAlgorithmDescription)}
               className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
             />
-            <label htmlFor="showDescription" className="ml-2 block text-sm text-gray-700">
+            <label htmlFor="showDescription" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
               Show Algorithm Details
             </label>
           </div>
@@ -655,16 +655,16 @@ const PathfindingAlgorithmVisualizer = () => {
         
         {showAlgorithmDescription && (
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-            <div className="p-2 bg-gray-50 rounded">
+            <div className="p-2 bg-gray-50 dark:bg-gray-700 rounded">
               <span className="font-semibold">Properties:</span> {algorithmInfo.properties}
             </div>
-            <div className="p-2 bg-gray-50 rounded">
+            <div className="p-2 bg-gray-50 dark:bg-gray-700 rounded">
               <span className="font-semibold">Complexity:</span> {algorithmInfo.complexity}
             </div>
-            <div className="p-2 bg-gray-50 rounded">
+            <div className="p-2 bg-gray-50 dark:bg-gray-700 rounded">
               <span className="font-semibold">Nodes Explored:</span> {stats.nodesExplored}
             </div>
-            <div className="p-2 bg-gray-50 rounded">
+            <div className="p-2 bg-gray-50 dark:bg-gray-700 rounded">
               <span className="font-semibold">Path Status:</span>{' '}
               {algorithmComplete 
                 ? (pathFound ? 'Path found!' : 'No path possible!') 
@@ -674,7 +674,7 @@ const PathfindingAlgorithmVisualizer = () => {
         )}
       </div>
       
-      <div className="visualization-container bg-white p-4 rounded-lg shadow-md overflow-x-auto">
+      <div className="visualization-container bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900 overflow-x-auto">
         <div className="grid-container" style={{ display: 'inline-block', minWidth: '100%' }}>
           <div className="legend flex flex-wrap gap-4 mb-4 justify-center">
             <div className="flex items-center">
@@ -755,9 +755,9 @@ const PathfindingAlgorithmVisualizer = () => {
         </div>
       </div>
       
-      <div className="mt-6 bg-white p-4 rounded-lg shadow-md">
+      <div className="mt-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
         <h3 className="text-lg font-semibold mb-2">How to Use This Visualization</h3>
-        <ul className="list-disc list-inside text-gray-700">
+        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
           <li>Click and drag to create walls that block the path</li>
           <li>Click and drag the blue start node or red finish node to move them</li>
           <li>Select an algorithm from the dropdown menu</li>
@@ -770,7 +770,7 @@ const PathfindingAlgorithmVisualizer = () => {
         
         <div className="mt-4">
           <h4 className="font-semibold">About Pathfinding Algorithms</h4>
-          <p className="mt-2 text-gray-700">
+          <p className="mt-2 text-gray-700 dark:text-gray-300">
             Pathfinding algorithms are used to find the shortest or most efficient route between two points.
             They have applications in GPS navigation, robotics, video games, network routing, and many other fields.
             Different algorithms have different properties and trade-offs in terms of speed, memory usage, and optimality

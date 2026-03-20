@@ -26,8 +26,8 @@ const ReactionKineticsPage = () => {
         <h2 className="text-center text-2xl font-bold">Key Concepts in Chemical Kinetics</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Arrhenius Equation and Temperature Dependence</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Arrhenius Equation and Temperature Dependence</h3>
             <p>
               The Arrhenius equation, <InlineMath>{'k = A e^{-E_a/RT}'}</InlineMath>, describes how the rate constant <InlineMath>{'k'}</InlineMath> depends
               on temperature <InlineMath>{'T'}</InlineMath>, activation energy <InlineMath>{'E_a'}</InlineMath>, and the pre-exponential factor <InlineMath>{'A'}</InlineMath>.
@@ -37,8 +37,8 @@ const ReactionKineticsPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Chemical Equilibrium and Le Chatelier&apos;s Principle</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Chemical Equilibrium and Le Chatelier&apos;s Principle</h3>
             <p>
               In reversible reactions, the system eventually reaches a dynamic equilibrium where the forward and reverse
               reaction rates are equal, and the concentrations of reactants and products remain constant. The equilibrium
@@ -52,8 +52,8 @@ const ReactionKineticsPage = () => {
             </p>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Collision Theory</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Collision Theory</h3>
             <p>
               Collision theory explains that chemical reactions occur when reactant molecules collide with sufficient
               energy (exceeding the activation energy) and with proper orientation. The rate of reaction depends on the
@@ -63,8 +63,8 @@ const ReactionKineticsPage = () => {
             </p>
           </div>
 
-          <div className="bg-orange-50 p-6 rounded-lg border border-orange-200">
-            <h3 className="text-xl font-bold text-orange-800 mb-3">Catalysis and Activation Energy</h3>
+          <div className="bg-orange-50 dark:bg-orange-900/30 p-6 rounded-lg border border-orange-200 dark:border-orange-700">
+            <h3 className="text-xl font-bold text-orange-800 dark:text-orange-300 mb-3">Catalysis and Activation Energy</h3>
             <p>
               A catalyst speeds up a reaction by providing an alternative reaction pathway with a lower activation
               energy. Crucially, catalysts are not consumed in the process and do not change the equilibrium position --
@@ -79,7 +79,7 @@ const ReactionKineticsPage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-300 my-8">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600 my-8">
           <h2 className="text-xl font-bold mb-4">Real-World Applications</h2>
           <ul className="list-disc list-inside space-y-2">
             <li>

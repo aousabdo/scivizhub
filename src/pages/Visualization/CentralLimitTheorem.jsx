@@ -25,13 +25,13 @@ const CentralLimitTheoremPage = () => {
         <h2 className="text-center text-2xl font-bold">The Importance of the Central Limit Theorem</h2>
         
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Mathematical Foundation</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Mathematical Foundation</h3>
             <p>
               The Central Limit Theorem provides a precise statement about the distribution of sample means:
             </p>
             
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <p className="italic">
                 If you take random samples of size n from any population with mean μ and finite standard deviation σ, 
                 then as n becomes larger, the sampling distribution of the sample mean approaches a normal distribution 
@@ -46,8 +46,8 @@ const CentralLimitTheoremPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Applications in Statistics</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Applications in Statistics</h3>
             <p>
               The Central Limit Theorem is the foundation for many statistical methods:
             </p>
@@ -60,8 +60,8 @@ const CentralLimitTheoremPage = () => {
             </ul>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Key Implications</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Key Implications</h3>
             <p>
               Understanding the Central Limit Theorem reveals several important insights:
             </p>
@@ -85,8 +85,8 @@ const CentralLimitTheoremPage = () => {
             </ul>
           </div>
           
-          <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
-            <h3 className="text-xl font-bold text-yellow-800 mb-3">Real-World Examples</h3>
+          <div className="bg-yellow-50 dark:bg-yellow-900/30 p-6 rounded-lg border border-yellow-200 dark:border-yellow-700">
+            <h3 className="text-xl font-bold text-yellow-800 dark:text-yellow-300 mb-3">Real-World Examples</h3>
             <p>
               The Central Limit Theorem appears in many everyday scenarios:
             </p>
@@ -110,7 +110,7 @@ const CentralLimitTheoremPage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-300 my-8">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600 my-8">
           <h2 className="text-xl font-bold mb-4">Limitations and Considerations</h2>
           <p>
             While the Central Limit Theorem is extremely powerful, it's important to understand its limitations:

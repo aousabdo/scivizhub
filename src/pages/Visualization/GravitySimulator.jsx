@@ -30,8 +30,8 @@ const GravitySimulatorPage = () => {
         <h2 className="text-center text-2xl font-bold">The Science of Gravitational Dynamics</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Newton's Law of Universal Gravitation</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Newton's Law of Universal Gravitation</h3>
             <p>
               Every object with mass attracts every other object with a force proportional to the
               product of their masses and inversely proportional to the square of the distance
@@ -39,7 +39,7 @@ const GravitySimulatorPage = () => {
               to galaxy formation.
             </p>
 
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"F = G \\frac{m_1 m_2}{r^2}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 where <InlineMath>{"G"}</InlineMath> is the gravitational constant (<InlineMath>{"6.674 \\times 10^{-11}\\;\\text{N m}^2\\text{kg}^{-2}"}</InlineMath>),
@@ -55,8 +55,8 @@ const GravitySimulatorPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Kepler's Laws of Planetary Motion</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Kepler's Laws of Planetary Motion</h3>
             <p>
               In the special case of two bodies (one much more massive than the other), orbits
               follow Kepler's three laws, which emerge naturally from Newton's gravitational law:
@@ -83,8 +83,8 @@ const GravitySimulatorPage = () => {
             </ul>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Orbital Mechanics & the N-Body Problem</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Orbital Mechanics & the N-Body Problem</h3>
             <p>
               While two-body orbits are perfectly predictable, adding even one more body makes
               the system vastly more complex. The three-body problem, famously studied by
@@ -116,8 +116,8 @@ const GravitySimulatorPage = () => {
             </ul>
           </div>
 
-          <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
-            <h3 className="text-xl font-bold text-amber-800 mb-3">Conservation Laws</h3>
+          <div className="bg-amber-50 dark:bg-amber-900/30 p-6 rounded-lg border border-amber-200 dark:border-amber-700">
+            <h3 className="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">Conservation Laws</h3>
             <p>
               Fundamental conservation laws constrain the behavior of gravitational systems and
               serve as powerful checks on the accuracy of numerical simulations:
@@ -143,7 +143,7 @@ const GravitySimulatorPage = () => {
             </ul>
           </div>
 
-          <div className="bg-gray-50 p-6 rounded-lg border border-gray-300">
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600">
             <h3 className="text-xl font-bold mb-4">Numerical Methods: Velocity Verlet Integration</h3>
             <p>
               This simulation uses the Velocity Verlet algorithm, a second-order symplectic
@@ -152,7 +152,7 @@ const GravitySimulatorPage = () => {
               method is time-reversible and conserves the structure of Hamiltonian systems.
             </p>
 
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"x(t + \\Delta t) = x(t) + v(t)\\Delta t + \\tfrac{1}{2}a(t)\\Delta t^2"}</BlockMath>
               <BlockMath>{"v(t + \\Delta t) = v(t) + \\tfrac{1}{2}\\bigl[a(t) + a(t + \\Delta t)\\bigr]\\Delta t"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">

@@ -25,8 +25,8 @@ const MatrixTransformationPage = () => {
         <h2 className="text-center text-2xl font-bold">Understanding Matrix Transformations</h2>
         
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Linear Transformations</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Linear Transformations</h3>
             <p>
               A linear transformation is a function between vector spaces that preserves vector addition and scalar multiplication.
               In simpler terms, it's a transformation where:
@@ -43,8 +43,8 @@ const MatrixTransformationPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Common Transformations</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Common Transformations</h3>
             <div className="overflow-x-auto">
               <table className="min-w-full mt-3 border-collapse">
                 <thead>
@@ -85,8 +85,8 @@ const MatrixTransformationPage = () => {
             </div>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Matrix Properties</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Matrix Properties</h3>
             <p>
               The properties of a transformation matrix reveal important characteristics of the transformation:
             </p>
@@ -99,8 +99,8 @@ const MatrixTransformationPage = () => {
             </ul>
           </div>
           
-          <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
-            <h3 className="text-xl font-bold text-yellow-800 mb-3">Real-World Applications</h3>
+          <div className="bg-yellow-50 dark:bg-yellow-900/30 p-6 rounded-lg border border-yellow-200 dark:border-yellow-700">
+            <h3 className="text-xl font-bold text-yellow-800 dark:text-yellow-300 mb-3">Real-World Applications</h3>
             <p>
               Matrix transformations are essential in numerous fields:
             </p>
@@ -116,7 +116,7 @@ const MatrixTransformationPage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-300 my-8">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600 my-8">
           <h2 className="text-xl font-bold mb-4">Tips for Using This Visualization</h2>
           <ul className="list-disc pl-5 space-y-2">
             <li>

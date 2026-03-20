@@ -28,8 +28,8 @@ const MarkovChainPage = () => {
         <h2 className="text-center text-2xl font-bold">Understanding Markov Chains</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">What Is a Markov Chain?</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">What Is a Markov Chain?</h3>
             <p>
               A Markov chain consists of a set of <strong>states</strong> and a <strong>transition
               matrix</strong> P, where each entry P(i, j) gives the probability of moving from state i
@@ -37,7 +37,7 @@ const MarkovChainPage = () => {
               memorylessness): the future state depends only on the present state, not on the sequence of
               events that preceded it.
             </p>
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"P(X_{n+1} = j \\mid X_n = i,\\, X_{n-1},\\, \\ldots,\\, X_0) = P(X_{n+1} = j \\mid X_n = i) = P_{ij}"}</BlockMath>
             </div>
             <p className="mt-3">
@@ -48,8 +48,8 @@ const MarkovChainPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Steady-State Distribution</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Steady-State Distribution</h3>
             <p>
               One of the most remarkable properties of many Markov chains is that they converge to a
               <strong> steady-state (stationary) distribution</strong> regardless of the starting state.
@@ -70,8 +70,8 @@ const MarkovChainPage = () => {
             </p>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Absorbing States and Classification</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Absorbing States and Classification</h3>
             <p>
               States in a Markov chain can be classified based on their long-term behavior:
             </p>
@@ -96,8 +96,8 @@ const MarkovChainPage = () => {
             </ul>
           </div>
 
-          <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
-            <h3 className="text-xl font-bold text-amber-800 mb-3">The PageRank Algorithm</h3>
+          <div className="bg-amber-50 dark:bg-amber-900/30 p-6 rounded-lg border border-amber-200 dark:border-amber-700">
+            <h3 className="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">The PageRank Algorithm</h3>
             <p>
               Google's original PageRank algorithm models web browsing as a Markov chain. Each web page is a
               state, and the transition probabilities are determined by the hyperlinks: if a page has k
@@ -115,8 +115,8 @@ const MarkovChainPage = () => {
             </p>
           </div>
 
-          <div className="bg-red-50 p-6 rounded-lg border border-red-200">
-            <h3 className="text-xl font-bold text-red-800 mb-3">Applications Across Fields</h3>
+          <div className="bg-red-50 dark:bg-red-900/30 p-6 rounded-lg border border-red-200 dark:border-red-700">
+            <h3 className="text-xl font-bold text-red-800 dark:text-red-300 mb-3">Applications Across Fields</h3>
             <p>
               Markov chains appear throughout science, engineering, and everyday life:
             </p>
@@ -149,7 +149,7 @@ const MarkovChainPage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-300 my-8">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600 my-8">
           <h2 className="text-xl font-bold mb-4">Exploring the Simulator</h2>
           <p>
             Select a preset to load a classic Markov chain scenario, or enable matrix editing to create your

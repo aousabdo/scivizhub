@@ -24,24 +24,24 @@ const EigenGeometryExplorerPage = () => {
         <h2 className="text-center text-2xl font-bold">How to Read the Visualization</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Invariant Directions</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Invariant Directions</h3>
             <p>
               Dashed amber lines mark real eigenvector directions. Any vector on one of these lines is mapped back onto the
               same line by the transformation, only stretched or flipped by the associated eigenvalue.
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Determinant and Area</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Determinant and Area</h3>
             <p>
               The determinant is the area-scaling factor. If det(A) is negative, orientation is reversed (a flip). If
               det(A)=0, the transformation is singular and collapses area to a line or point.
             </p>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Complex Eigenvalues</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Complex Eigenvalues</h3>
             <p>
               When the discriminant is negative, eigenvalues are complex and there are no real invariant directions. In 2D,
               this often appears as rotation combined with scaling.
@@ -49,7 +49,7 @@ const EigenGeometryExplorerPage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-300 my-8">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600 my-8">
           <h2 className="text-xl font-bold mb-4">Why This Matters</h2>
           <p>
             Eigen-analysis is foundational in differential equations, stability analysis, principal component analysis,

@@ -28,15 +28,15 @@ const DoublePendulumPage = () => {
         <h2 className="text-center text-2xl font-bold">The Science Behind Double Pendulum Chaos</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Mathematical Foundation</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Mathematical Foundation</h3>
             <p>
               The double pendulum is analyzed using Lagrangian mechanics. The Lagrangian
               <InlineMath>{"L = T - V"}</InlineMath> (kinetic minus potential energy) yields two coupled second-order
               differential equations for the angles <InlineMath>{"\\theta_1"}</InlineMath> and <InlineMath>{"\\theta_2"}</InlineMath>.
             </p>
 
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"L = \\tfrac{1}{2}(m_1+m_2)L_1^2\\dot{\\theta}_1^2 + \\tfrac{1}{2}m_2 L_2^2\\dot{\\theta}_2^2 + m_2 L_1 L_2 \\dot{\\theta}_1 \\dot{\\theta}_2 \\cos(\\theta_1 - \\theta_2)"}</BlockMath>
               <BlockMath>{"\\quad + (m_1+m_2)gL_1\\cos\\theta_1 + m_2 gL_2\\cos\\theta_2"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
@@ -51,8 +51,8 @@ const DoublePendulumPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Chaos Theory</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Chaos Theory</h3>
             <p>
               The double pendulum is a paradigmatic example of deterministic chaos. Key concepts
               illustrated by this system include:
@@ -84,8 +84,8 @@ const DoublePendulumPage = () => {
             </ul>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Applications</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Applications</h3>
             <p>
               The principles of chaos theory revealed by the double pendulum extend far beyond
               this simple mechanical system:
@@ -121,7 +121,7 @@ const DoublePendulumPage = () => {
             </ul>
           </div>
 
-          <div className="bg-gray-50 p-6 rounded-lg border border-gray-300">
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600">
             <h3 className="text-xl font-bold mb-4">Historical Context</h3>
             <p>
               The study of chaos has deep roots. In the 1880s, <strong>Henri Poincare</strong> discovered

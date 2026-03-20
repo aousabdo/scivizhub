@@ -751,7 +751,7 @@ const SpringMassSystemVisualizer = () => {
                 }
               }, 20);
             }}
-            className="px-5 py-2 rounded-lg font-semibold text-sm bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors"
+            className="px-5 py-2 rounded-lg font-semibold text-sm bg-gray-200 text-gray-700 dark:text-gray-300 hover:bg-gray-300 transition-colors"
           >
             Reset
           </button>
@@ -787,7 +787,7 @@ const SpringMassSystemVisualizer = () => {
         </div>
 
         {/* Energy display */}
-        <div className="mt-2 flex items-center gap-4 text-xs text-gray-600">
+        <div className="mt-2 flex items-center gap-4 text-xs text-gray-600 dark:text-gray-400">
           <span className="flex items-center gap-1">
             <span className="inline-block w-3 h-3 rounded-sm bg-red-500" />
             Kinetic: {energy.kinetic.toFixed(1)}

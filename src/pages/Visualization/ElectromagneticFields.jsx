@@ -28,14 +28,14 @@ const ElectromagneticFieldsPage = () => {
         <h2 className="text-center text-2xl font-bold">The Science of Electric Fields</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Coulomb's Law</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Coulomb's Law</h3>
             <p>
               The foundation of electrostatics, Coulomb's law describes the force between two point charges.
               The force is proportional to the product of the charges and inversely proportional to the
               square of the distance between them. Like charges repel; opposite charges attract.
             </p>
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"F = k \\frac{q_1 q_2}{r^2}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 Where <InlineMath>{'k = 8.99 \\times 10^9'}</InlineMath> N·m²/C² is Coulomb's constant, <InlineMath>{'q_1'}</InlineMath> and <InlineMath>{'q_2'}</InlineMath> are charges, and <InlineMath>{'r'}</InlineMath> is the separation distance.
@@ -43,14 +43,14 @@ const ElectromagneticFieldsPage = () => {
             </div>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Electric Field</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Electric Field</h3>
             <p>
               The electric field <strong>E</strong> at a point in space describes the force per unit charge
               that a small positive test charge would experience at that location. The field points away
               from positive charges and toward negative charges.
             </p>
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"E = \\frac{F}{q} = \\frac{kQ}{r^2}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 The electric field has units of N/C or equivalently V/m (volts per meter).
@@ -62,14 +62,14 @@ const ElectromagneticFieldsPage = () => {
             </p>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Superposition Principle</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Superposition Principle</h3>
             <p>
               When multiple charges are present, the total electric field at any point is the vector sum
               of the fields produced by each individual charge. This principle of superposition allows us
               to calculate the field from any arrangement of charges by adding contributions one at a time.
             </p>
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"\\vec{E}_{\\text{total}} = \\vec{E}_1 + \\vec{E}_2 + \\vec{E}_3 + \\cdots + \\vec{E}_n"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 Each <InlineMath>{'\\vec{E}_i'}</InlineMath> is a vector — both magnitude and direction matter when summing fields.
@@ -77,8 +77,8 @@ const ElectromagneticFieldsPage = () => {
             </div>
           </div>
 
-          <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
-            <h3 className="text-xl font-bold text-amber-800 mb-3">Field Lines & Their Properties</h3>
+          <div className="bg-amber-50 dark:bg-amber-900/30 p-6 rounded-lg border border-amber-200 dark:border-amber-700">
+            <h3 className="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">Field Lines & Their Properties</h3>
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li><strong>Origin:</strong> Field lines begin on positive charges and end on negative charges</li>
               <li><strong>Direction:</strong> The tangent to a field line at any point gives the electric field direction</li>
@@ -95,7 +95,7 @@ const ElectromagneticFieldsPage = () => {
               test charge from infinity to that point. Equipotential lines connect points of equal potential
               and are always perpendicular to electric field lines.
             </p>
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"V = \\frac{kQ}{r}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 Potential is a scalar quantity — superposition involves simple addition, not vector addition.
@@ -103,8 +103,8 @@ const ElectromagneticFieldsPage = () => {
             </div>
           </div>
 
-          <div className="bg-teal-50 p-6 rounded-lg border border-teal-200">
-            <h3 className="text-xl font-bold text-teal-800 mb-3">Electric Dipoles</h3>
+          <div className="bg-teal-50 dark:bg-teal-900/30 p-6 rounded-lg border border-teal-200 dark:border-teal-700">
+            <h3 className="text-xl font-bold text-teal-800 dark:text-teal-300 mb-3">Electric Dipoles</h3>
             <p>
               An electric dipole consists of two equal and opposite charges separated by a small distance.
               Dipoles are fundamental in nature — water molecules, radio antennas, and many biological
@@ -119,7 +119,7 @@ const ElectromagneticFieldsPage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-300 my-8">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600 my-8">
           <h2 className="text-xl font-bold mb-4">Historical Context</h2>
           <p>
             Charles-Augustin de Coulomb first quantified the electrostatic force in 1785 using a torsion

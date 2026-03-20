@@ -25,8 +25,8 @@ const HypothesisTestingPage = () => {
         <h2 className="text-center text-2xl font-bold">Understanding Hypothesis Testing</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Null and Alternative Hypotheses</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Null and Alternative Hypotheses</h3>
             <p>
               Every hypothesis test begins with two competing claims:
             </p>
@@ -47,8 +47,8 @@ const HypothesisTestingPage = () => {
             </p>
           </div>
 
-          <div className="bg-red-50 p-6 rounded-lg border border-red-200">
-            <h3 className="text-xl font-bold text-red-800 mb-3">Type I and Type II Errors</h3>
+          <div className="bg-red-50 dark:bg-red-900/30 p-6 rounded-lg border border-red-200 dark:border-red-700">
+            <h3 className="text-xl font-bold text-red-800 dark:text-red-300 mb-3">Type I and Type II Errors</h3>
             <p>
               Because we make decisions under uncertainty, two kinds of errors are possible:
             </p>
@@ -99,14 +99,14 @@ const HypothesisTestingPage = () => {
             </ul>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">P-Values and Significance Levels</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">P-Values and Significance Levels</h3>
             <p>
               The <strong>p-value</strong> is the probability of observing a test statistic at least as extreme as the
               one calculated, assuming the null hypothesis is true. It answers: "If there really were no effect, how
               surprising would our data be?"
             </p>
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <p className="italic">
                 If the p-value is less than or equal to the chosen significance level (&alpha;), we reject the null
                 hypothesis. Otherwise, we fail to reject it.
@@ -120,8 +120,8 @@ const HypothesisTestingPage = () => {
             </ul>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Statistical Power</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Statistical Power</h3>
             <p>
               <strong>Power</strong> (1 &minus; &beta;) is the probability of correctly rejecting the null hypothesis
               when the alternative hypothesis is true. In other words, it measures a test's ability to detect a real
@@ -148,8 +148,8 @@ const HypothesisTestingPage = () => {
             </p>
           </div>
 
-          <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
-            <h3 className="text-xl font-bold text-yellow-800 mb-3">One-Tailed vs. Two-Tailed Tests</h3>
+          <div className="bg-yellow-50 dark:bg-yellow-900/30 p-6 rounded-lg border border-yellow-200 dark:border-yellow-700">
+            <h3 className="text-xl font-bold text-yellow-800 dark:text-yellow-300 mb-3">One-Tailed vs. Two-Tailed Tests</h3>
             <p>
               The choice between one-tailed and two-tailed tests depends on the research question:
             </p>
@@ -170,7 +170,7 @@ const HypothesisTestingPage = () => {
             </p>
           </div>
 
-          <div className="bg-gray-50 p-6 rounded-lg border border-gray-300">
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600">
             <h2 className="text-xl font-bold mb-4">Common Misconceptions</h2>
             <ul className="list-disc pl-5 space-y-2">
               <li>A p-value of 0.05 does <em>not</em> mean there is a 5% chance the null hypothesis is true</li>

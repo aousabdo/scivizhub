@@ -329,14 +329,14 @@ const FractalExplorerVisualizer = () => {
     <div className="bg-white rounded-xl shadow-lg p-6 max-w-5xl mx-auto">
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-center mb-2">Fractal Explorer</h2>
-        <p className="text-center text-gray-600 text-sm">
+        <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
           Click to zoom in. Shift+click or right-click to zoom out. Explore the infinite complexity of fractals.
         </p>
       </div>
 
       {/* Preset Buttons */}
       <div className="mb-4">
-        <label className="block text-sm font-semibold text-gray-700 mb-2">Presets</label>
+        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Presets</label>
         <div className="flex flex-wrap gap-2">
           {PRESETS.map((preset) => (
             <button
@@ -353,7 +353,7 @@ const FractalExplorerVisualizer = () => {
       {/* Controls */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">Fractal Type</label>
+          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Fractal Type</label>
           <select
             value={fractalType}
             onChange={(e) => {
@@ -376,7 +376,7 @@ const FractalExplorerVisualizer = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">
+          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">
             Max Iterations: {maxIterations}
           </label>
           <input
@@ -390,7 +390,7 @@ const FractalExplorerVisualizer = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">Color Scheme</label>
+          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Color Scheme</label>
           <select
             value={colorScheme}
             onChange={(e) => setColorScheme(e.target.value)}
@@ -496,8 +496,8 @@ const FractalExplorerVisualizer = () => {
 
       {/* Histogram */}
       {histogram && (
-        <div className="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
-          <label className="block text-sm font-semibold text-gray-700 mb-2">Iteration Count Histogram</label>
+        <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200">
+          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Iteration Count Histogram</label>
           <div className="flex items-end gap-0.5" style={{ height: 60 }}>
             {(() => {
               const maxVal = Math.max(...histogram, 1);
@@ -530,15 +530,15 @@ const FractalExplorerVisualizer = () => {
       {/* Info */}
       <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
         <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
-          <span className="font-semibold text-gray-700">Center:</span>{' '}
+          <span className="font-semibold text-gray-700 dark:text-gray-300">Center:</span>{' '}
           <span className="font-mono text-xs">{centerX.toFixed(6)}, {centerY.toFixed(6)}</span>
         </div>
         <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
-          <span className="font-semibold text-gray-700">Zoom Level:</span>{' '}
+          <span className="font-semibold text-gray-700 dark:text-gray-300">Zoom Level:</span>{' '}
           <span className="font-mono text-xs">{zoomDisplay}</span>
         </div>
         <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
-          <span className="font-semibold text-gray-700">Pixel Size:</span>{' '}
+          <span className="font-semibold text-gray-700 dark:text-gray-300">Pixel Size:</span>{' '}
           <span className="font-mono text-xs">{(3.0 / (zoom * Math.min(CANVAS_WIDTH, CANVAS_HEIGHT))).toExponential(2)}</span>
         </div>
       </div>

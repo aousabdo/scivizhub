@@ -29,14 +29,14 @@ const TaylorSeriesPage = () => {
         <h2 className="text-center text-2xl font-bold">The Mathematics of Taylor Series</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Mathematical Foundation</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Mathematical Foundation</h3>
             <p>
               The Taylor series of a function f(x) expanded about the point a is given by the
               infinite sum of terms involving successively higher derivatives of f evaluated at a.
             </p>
 
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"f(x) = f(a) + f'(a)(x-a) + \\frac{f''(a)}{2!}(x-a)^2 + \\frac{f'''(a)}{3!}(x-a)^3 + \\cdots"}</BlockMath>
               <BlockMath>{"= \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!}(x-a)^n"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
@@ -54,8 +54,8 @@ const TaylorSeriesPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Convergence</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Convergence</h3>
             <p>
               Not every Taylor series converges to its generating function everywhere. The
               behavior of a Taylor series is governed by two key concepts:
@@ -92,8 +92,8 @@ const TaylorSeriesPage = () => {
             </ul>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Applications</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Applications</h3>
             <p>
               Taylor series are ubiquitous across science, engineering, and computing:
             </p>
@@ -132,7 +132,7 @@ const TaylorSeriesPage = () => {
             </ul>
           </div>
 
-          <div className="bg-gray-50 p-6 rounded-lg border border-gray-300">
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600">
             <h3 className="text-xl font-bold mb-4">Historical Context</h3>
             <p>
               The idea of representing functions as power series has a long and rich history.

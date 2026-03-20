@@ -29,13 +29,13 @@ const EpidemicSIRPage = () => {
         <h2 className="text-center text-2xl font-bold">Understanding the SIR Model</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">The SIR Equations</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">The SIR Equations</h3>
             <p>
               The classical SIR model is described by three ordinary differential equations that govern how individuals
               transition between compartments:
             </p>
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"\\frac{dS}{dt} = -\\frac{\\beta S I}{N}"}</BlockMath>
               <BlockMath>{"\\frac{dI}{dt} = \\frac{\\beta S I}{N} - \\gamma I"}</BlockMath>
               <BlockMath>{"\\frac{dR}{dt} = \\gamma I"}</BlockMath>
@@ -47,8 +47,8 @@ const EpidemicSIRPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">R0 and Herd Immunity</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">R0 and Herd Immunity</h3>
             <p>
               The <strong>basic reproduction number <InlineMath>{"R_0"}</InlineMath></strong> (pronounced "R-naught") represents the average number of
               secondary infections caused by a single infected individual in a fully susceptible population. It is calculated
@@ -67,8 +67,8 @@ const EpidemicSIRPage = () => {
             </p>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Real-World Applications</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Real-World Applications</h3>
             <p>
               SIR-type models have been instrumental in understanding and responding to real epidemics:
             </p>
@@ -88,8 +88,8 @@ const EpidemicSIRPage = () => {
             </ul>
           </div>
 
-          <div className="bg-red-50 p-6 rounded-lg border border-red-200">
-            <h3 className="text-xl font-bold text-red-800 mb-3">Intervention Strategies</h3>
+          <div className="bg-red-50 dark:bg-red-900/30 p-6 rounded-lg border border-red-200 dark:border-red-700">
+            <h3 className="text-xl font-bold text-red-800 dark:text-red-300 mb-3">Intervention Strategies</h3>
             <p>
               Public health interventions work by modifying the parameters of the SIR model:
             </p>
@@ -115,7 +115,7 @@ const EpidemicSIRPage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-300 my-8">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600 my-8">
           <h2 className="text-xl font-bold mb-4">Exploring the Simulator</h2>
           <p>
             Use the preset scenarios to quickly see the effect of different disease characteristics and interventions.

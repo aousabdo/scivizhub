@@ -38,18 +38,18 @@ const BayesTheoremVisualizer = () => {
       
       <div className="grid grid-cols-3 gap-1 text-center mb-6">
         <div className="border p-2 bg-gray-100"></div>
-        <div className="border p-2 bg-gray-100 font-medium">Test Positive</div>
-        <div className="border p-2 bg-gray-100 font-medium">Test Negative</div>
+        <div className="border p-2 bg-gray-100 dark:bg-gray-600 font-medium">Test Positive</div>
+        <div className="border p-2 bg-gray-100 dark:bg-gray-600 font-medium">Test Negative</div>
         
-        <div className="border p-2 bg-gray-100 font-medium">Has Disease</div>
+        <div className="border p-2 bg-gray-100 dark:bg-gray-600 font-medium">Has Disease</div>
         <div className="border p-2 bg-green-100">{truePositives} <span className="text-sm text-gray-500">(True Positives)</span></div>
         <div className="border p-2 bg-red-100">{falseNegatives} <span className="text-sm text-gray-500">(False Negatives)</span></div>
         
-        <div className="border p-2 bg-gray-100 font-medium">No Disease</div>
+        <div className="border p-2 bg-gray-100 dark:bg-gray-600 font-medium">No Disease</div>
         <div className="border p-2 bg-red-100">{falsePositives} <span className="text-sm text-gray-500">(False Positives)</span></div>
         <div className="border p-2 bg-green-100">{trueNegatives} <span className="text-sm text-gray-500">(True Negatives)</span></div>
         
-        <div className="border p-2 bg-gray-100 font-medium">Total</div>
+        <div className="border p-2 bg-gray-100 dark:bg-gray-600 font-medium">Total</div>
         <div className="border p-2 bg-blue-50">{totalPositives}</div>
         <div className="border p-2 bg-blue-50">{populationSize - totalPositives}</div>
       </div>
@@ -171,7 +171,7 @@ const BayesTheoremVisualizer = () => {
         <div className="flex flex-col md:flex-row gap-6">
           {/* Main Diagram Area */}
           <div className="flex-1">
-            <div className="bg-gray-50 rounded-lg p-4 relative overflow-hidden">
+            <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 relative overflow-hidden">
               <svg 
                 width="100%" 
                 height="360" 
@@ -344,7 +344,7 @@ const BayesTheoremVisualizer = () => {
           
           {/* Legend and Information */}
           <div className="md:w-80 flex-shrink-0">
-            <div className="bg-gray-50 rounded-lg p-4 border mb-4">
+            <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border mb-4">
               <h4 className="text-lg font-bold border-b pb-2 mb-3">Diagram Legend</h4>
               <div className="space-y-3">
                 <div className="flex items-start">
@@ -391,7 +391,7 @@ const BayesTheoremVisualizer = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-5 h-5 bg-gray-100 border border-gray-400 mr-2 mt-1 rounded"></div>
+                  <div className="w-5 h-5 bg-gray-100 dark:bg-gray-600 border border-gray-400 mr-2 mt-1 rounded"></div>
                   <div>
                     <div className="font-medium">True Negatives</div>
                     <div className="text-sm">People without disease who test negative</div>
@@ -401,7 +401,7 @@ const BayesTheoremVisualizer = () => {
               </div>
             </div>
             
-            <div className="bg-gray-50 rounded-lg p-4 border">
+            <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border">
               <h4 className="text-lg font-bold border-b pb-2 mb-3">Base Rate Fallacy</h4>
               <p className="text-sm mb-2">
                 Many people expect a positive test to indicate a high probability of disease 
@@ -416,28 +416,28 @@ const BayesTheoremVisualizer = () => {
         </div>
         
         {/* Probability Breakdown - Bottom Card */}
-        <div className="mt-6 p-4 bg-gray-50 rounded-lg border">
+        <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border">
           <h3 className="text-lg font-bold border-b pb-2 mb-4">Probability Breakdown</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="p-2 bg-white rounded border">
+            <div className="p-2 bg-white dark:bg-gray-700 rounded border dark:border-gray-600">
               <div className="font-mono text-sm mb-1">P(Disease)</div>
               <div className="text-xl font-bold">{prevalence.toFixed(4)}</div>
               <div className="text-xs text-gray-500">Prior probability</div>
             </div>
             
-            <div className="p-2 bg-white rounded border">
+            <div className="p-2 bg-white dark:bg-gray-700 rounded border dark:border-gray-600">
               <div className="font-mono text-sm mb-1">P(Positive|Disease)</div>
               <div className="text-xl font-bold">{sensitivity.toFixed(2)}</div>
               <div className="text-xs text-gray-500">Sensitivity</div>
             </div>
             
-            <div className="p-2 bg-white rounded border">
+            <div className="p-2 bg-white dark:bg-gray-700 rounded border dark:border-gray-600">
               <div className="font-mono text-sm mb-1">P(Negative|No Disease)</div>
               <div className="text-xl font-bold">{specificity.toFixed(2)}</div>
               <div className="text-xs text-gray-500">Specificity</div>
             </div>
             
-            <div className="p-2 bg-white rounded border">
+            <div className="p-2 bg-white dark:bg-gray-700 rounded border dark:border-gray-600">
               <div className="font-mono text-sm mb-1">P(Positive)</div>
               <div className="text-xl font-bold">{(totalPositives/populationSize).toFixed(4)}</div>
               <div className="text-xs text-gray-500">Total positive rate</div>
@@ -506,13 +506,13 @@ const BayesTheoremVisualizer = () => {
         <p className="mb-2">
           Bayes' theorem helps us update our beliefs when new evidence comes in. The formula is:
         </p>
-        <div className="p-3 bg-gray-100 rounded mb-4 text-center">
+        <div className="p-3 bg-gray-100 dark:bg-gray-600 rounded mb-4 text-center">
           <BlockMath math="P(A|B) = \frac{P(B|A) \times P(A)}{P(B)}" />
         </div>
         <p className="mb-4">
           In medical testing, this translates to:
         </p>
-        <div className="p-3 bg-gray-100 rounded mb-4 text-center">
+        <div className="p-3 bg-gray-100 dark:bg-gray-600 rounded mb-4 text-center">
           <BlockMath math="P(\text{Disease}|\text{Positive}) = \frac{P(\text{Positive}|\text{Disease}) \times P(\text{Disease})}{P(\text{Positive})}" />
         </div>
       </div>
@@ -612,7 +612,7 @@ const BayesTheoremVisualizer = () => {
         {activeTab === 'visual-proof' && <VisualProof />}
       </div>
       
-      <div className="mt-6 p-4 bg-gray-50 rounded-lg border">
+      <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border">
         <h3 className="text-lg font-semibold mb-2">Key Insights</h3>
         <ul className="space-y-2">
           <li>• When a disease is rare (low prevalence), even a highly accurate test can result in many false positives.</li>

@@ -28,8 +28,8 @@ const FractalExplorerPage = () => {
         <h2 className="text-center text-2xl font-bold">Understanding Fractals</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">What Are Fractals?</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">What Are Fractals?</h3>
             <p>
               A fractal is a geometric shape that exhibits <strong>self-similarity</strong> -- it looks similar
               at different levels of magnification. Unlike smooth Euclidean shapes like circles and squares,
@@ -42,7 +42,7 @@ const FractalExplorerPage = () => {
               Other fractals, like the Koch snowflake, have dimensions between 1 and 2 (approximately 1.26),
               reflecting their intermediate complexity.
             </p>
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"D = \\frac{\\log(N)}{\\log(S)}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 Where <InlineMath>{'N'}</InlineMath> is the number of self-similar pieces and <InlineMath>{'S'}</InlineMath> is the scaling factor
@@ -50,8 +50,8 @@ const FractalExplorerPage = () => {
             </div>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">The Mandelbrot Set</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">The Mandelbrot Set</h3>
             <p>
               The Mandelbrot set is defined by the iteration <InlineMath>{'z_{n+1} = z_n^2 + c'}</InlineMath>, starting with <InlineMath>{'z_0 = 0'}</InlineMath>.
               For each complex number c in the plane, we iterate this formula and check whether the sequence
@@ -62,7 +62,7 @@ const FractalExplorerPage = () => {
               The <strong>escape-time algorithm</strong> assigns colors based on how many iterations it takes for
               <InlineMath>{'|z|'}</InlineMath> to exceed 2. Smooth coloring is achieved using the formula:
             </p>
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"n_{\\text{smooth}} = n + 1 - \\frac{\\log(\\log|z|)}{\\log 2}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 This fractional iteration count eliminates the visible banding between integer iteration levels
@@ -77,8 +77,8 @@ const FractalExplorerPage = () => {
             </p>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Julia Sets</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Julia Sets</h3>
             <p>
               Julia sets use the same formula <InlineMath>{'z_{n+1} = z_n^2 + c'}</InlineMath>, but with a twist: instead of varying <InlineMath>{'c'}</InlineMath>
               across the plane, c is held <strong>fixed</strong> and the initial value of z varies. Each point
@@ -98,8 +98,8 @@ const FractalExplorerPage = () => {
             </p>
           </div>
 
-          <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
-            <h3 className="text-xl font-bold text-amber-800 mb-3">Fractals in Nature</h3>
+          <div className="bg-amber-50 dark:bg-amber-900/30 p-6 rounded-lg border border-amber-200 dark:border-amber-700">
+            <h3 className="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">Fractals in Nature</h3>
             <p>
               Fractal patterns appear throughout the natural world, a testament to how simple recursive
               processes can generate extraordinary complexity:

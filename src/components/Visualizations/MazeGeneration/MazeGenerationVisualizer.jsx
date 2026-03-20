@@ -930,7 +930,7 @@ const MazeGenerationVisualizer = () => {
   
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-md">
+      <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>
             <h2 className="text-2xl font-bold mb-2">Maze Generation Algorithms</h2>
@@ -979,7 +979,7 @@ const MazeGenerationVisualizer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Algorithm:
               </label>
               <select
@@ -996,7 +996,7 @@ const MazeGenerationVisualizer = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Grid Size: {gridSize.rows} × {gridSize.cols}
               </label>
               <div className="flex gap-2">
@@ -1024,7 +1024,7 @@ const MazeGenerationVisualizer = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Animation Speed: {animationSpeed}ms
               </label>
               <input
@@ -1045,7 +1045,7 @@ const MazeGenerationVisualizer = () => {
                 onChange={() => setShowExplanation(!showExplanation)}
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
               />
-              <label htmlFor="showExplanation" className="ml-2 block text-sm text-gray-700">
+              <label htmlFor="showExplanation" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
                 Show Algorithm Explanation
               </label>
             </div>
@@ -1053,7 +1053,7 @@ const MazeGenerationVisualizer = () => {
           
           <div className="space-y-3">
             {showExplanation && (
-              <div className="p-4 bg-gray-50 rounded-lg border">
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border">
                 <h3 className="font-semibold">{algorithmInfo.name}</h3>
                 <p className="text-sm mt-1">{algorithmInfo.description}</p>
                 
@@ -1076,7 +1076,7 @@ const MazeGenerationVisualizer = () => {
                     style={{ width: `${(visitedCells / totalCells) * 100}%` }}
                   ></div>
                 </div>
-                <div className="mt-1 text-xs text-gray-600">
+                <div className="mt-1 text-xs text-gray-600 dark:text-gray-400">
                   {isGenerating ? 'Generating maze...' : isGenerated ? 'Maze generated!' : 'Ready to generate'}
                 </div>
               </div>
@@ -1091,7 +1091,7 @@ const MazeGenerationVisualizer = () => {
               </div>
             </div>
             
-            <div className="p-3 bg-gray-50 rounded-lg grid grid-cols-2 gap-2 text-xs">
+            <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg grid grid-cols-2 gap-2 text-xs">
               <div className="flex items-center">
                 <div className="w-4 h-4 bg-green-500 rounded-sm mr-2"></div>
                 <span>Start Point</span>
@@ -1113,7 +1113,7 @@ const MazeGenerationVisualizer = () => {
         </div>
       </div>
       
-      <div className="bg-white p-4 rounded-lg shadow-md mb-6">
+      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900 mb-6">
         <div className="maze-container overflow-auto">
           <div
             className="maze-grid inline-block"
@@ -1130,15 +1130,15 @@ const MazeGenerationVisualizer = () => {
       </div>
       
       {algorithmInfo.steps && (
-        <div className="bg-white p-4 rounded-lg shadow-md mb-6">
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900 mb-6">
           <h3 className="text-lg font-semibold mb-2">Algorithm Steps</h3>
-          <div className="p-3 bg-gray-50 rounded-lg">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
             <pre className="text-sm whitespace-pre-wrap">{algorithmInfo.steps}</pre>
           </div>
         </div>
       )}
       
-      <div className="mt-6 bg-white p-4 rounded-lg shadow-md">
+      <div className="mt-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
         <h3 className="text-lg font-semibold mb-2">Understanding Maze Generation</h3>
         
         <div className="prose max-w-none">

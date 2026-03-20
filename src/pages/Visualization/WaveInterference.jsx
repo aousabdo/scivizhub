@@ -27,14 +27,14 @@ const WaveInterferencePage = () => {
         <h2 className="text-center text-2xl font-bold">The Science of Wave Interference</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">The Superposition Principle</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">The Superposition Principle</h3>
             <p>
               When two or more waves meet at a point, the resulting displacement is the sum of the individual
               displacements. This is the principle of superposition — waves don't bounce off each other, they
               pass through and combine linearly.
             </p>
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"y_{\\text{total}}(x, t) = y_1(x, t) + y_2(x, t) + \\cdots + y_n(x, t)"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 The total wave amplitude at any point is the algebraic sum of all individual wave amplitudes.
@@ -42,8 +42,8 @@ const WaveInterferencePage = () => {
             </div>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Constructive & Destructive Interference</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Constructive & Destructive Interference</h3>
             <p>
               When waves meet in phase (crests aligning with crests), their amplitudes add together, producing
               brighter, louder, or stronger signals — this is <strong>constructive interference</strong>. When
@@ -57,8 +57,8 @@ const WaveInterferencePage = () => {
             </ul>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">The Double-Slit Experiment</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">The Double-Slit Experiment</h3>
             <p>
               Thomas Young's double-slit experiment (1801) was one of the most important experiments in physics.
               By passing light through two narrow slits, Young demonstrated that light produces an interference
@@ -71,8 +71,8 @@ const WaveInterferencePage = () => {
             </p>
           </div>
 
-          <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
-            <h3 className="text-xl font-bold text-amber-800 mb-3">Real-World Applications</h3>
+          <div className="bg-amber-50 dark:bg-amber-900/30 p-6 rounded-lg border border-amber-200 dark:border-amber-700">
+            <h3 className="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">Real-World Applications</h3>
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li><strong>Noise-Canceling Headphones:</strong> Use destructive interference to eliminate unwanted sound</li>
               <li><strong>Radio Antennas:</strong> Phased arrays use constructive interference to focus signals</li>
@@ -84,7 +84,7 @@ const WaveInterferencePage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-300 my-8">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600 my-8">
           <h2 className="text-xl font-bold mb-4">Historical Context</h2>
           <p>
             The wave theory of light was championed by Christiaan Huygens in the 17th century, but it was

@@ -26,15 +26,15 @@ const LorenzAttractorPage = () => {
         <h2 className="text-center text-2xl font-bold">The Mathematics of Chaos</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">The Lorenz System</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">The Lorenz System</h3>
             <p>
               The Lorenz system is defined by three coupled ordinary differential equations that model
               a simplified version of atmospheric convection — the rising of warm air and sinking
               of cool air in a fluid layer heated from below:
             </p>
 
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"\\frac{dx}{dt} = \\sigma(y - x)"}</BlockMath>
               <BlockMath>{"\\frac{dy}{dt} = x(\\rho - z) - y"}</BlockMath>
               <BlockMath>{"\\frac{dz}{dt} = xy - \\beta z"}</BlockMath>
@@ -53,8 +53,8 @@ const LorenzAttractorPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">The Butterfly Effect</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">The Butterfly Effect</h3>
             <p>
               The Lorenz system is the origin of the famous "butterfly effect" — the idea that a butterfly
               flapping its wings in Brazil might set off a tornado in Texas. More precisely, it demonstrates
@@ -76,8 +76,8 @@ const LorenzAttractorPage = () => {
             </p>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Strange Attractors</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Strange Attractors</h3>
             <p>
               The Lorenz attractor is a <strong>strange attractor</strong> — a fractal set in phase space
               toward which all nearby trajectories converge, yet on which no two trajectories ever merge. It
@@ -99,8 +99,8 @@ const LorenzAttractorPage = () => {
             </p>
           </div>
 
-          <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
-            <h3 className="text-xl font-bold text-amber-800 mb-3">History and Discovery</h3>
+          <div className="bg-amber-50 dark:bg-amber-900/30 p-6 rounded-lg border border-amber-200 dark:border-amber-700">
+            <h3 className="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">History and Discovery</h3>
             <p>
               In the early 1960s, <strong>Edward Norton Lorenz</strong>, a mathematician and meteorologist at MIT,
               was using a simple computer model to study weather patterns. His model consisted of twelve
@@ -123,7 +123,7 @@ const LorenzAttractorPage = () => {
             </p>
           </div>
 
-          <div className="bg-gray-50 p-6 rounded-lg border border-gray-300">
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600">
             <h3 className="text-xl font-bold mb-4">Real-World Applications</h3>
             <p>
               The principles revealed by the Lorenz system extend far beyond meteorology, influencing fields
