@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { InlineMath, BlockMath } from 'react-katex';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 const PendulumWaveVisualizer = () => {
   // Configuration state
@@ -22,7 +24,9 @@ const PendulumWaveVisualizer = () => {
   const pendulumTrailsRef = useRef([]);
   const startTimeRef = useRef(0);
   const lastTimeRef = useRef(0);
-  
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsRunning(r => !r) });
+
   // Reset and initialize pendulums with proper length ratios
   const initializePendulums = () => {
     const pendulums = [];
@@ -892,6 +896,7 @@ const PendulumWaveVisualizer = () => {
           </div>
         </div>
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

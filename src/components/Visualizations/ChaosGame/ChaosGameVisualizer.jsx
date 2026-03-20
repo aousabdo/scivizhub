@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 const PRESETS = [
   {
@@ -104,6 +106,8 @@ const ChaosGameVisualizer = () => {
   });
   const verticesRef = useRef([]);
   const canvasSizeRef = useRef({ w: 800, h: 600 });
+
+  useVisualizationShortcuts({ onTogglePlay: () => setPlaying(p => !p) });
 
   const getCanvasSize = useCallback(() => {
     const container = canvasRef.current?.parentElement;
@@ -518,6 +522,7 @@ const ChaosGameVisualizer = () => {
           style={{ maxWidth: '900px', imageRendering: 'pixelated' }}
         />
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

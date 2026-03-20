@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 // ── Helper utilities ──────────────────────────────────────────────────────────
 
@@ -207,6 +209,8 @@ const GeneticAlgorithmVisualizer = () => {
   const [bestFitness, setBestFitness] = useState(0);
   const [avgFitness, setAvgFitness] = useState(0);
   const [reachedCount, setReachedCount] = useState(0);
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsRunning(r => !r) });
 
   // Refs
   const mainCanvasRef = useRef(null);
@@ -693,6 +697,7 @@ const GeneticAlgorithmVisualizer = () => {
           <span className="inline-block w-3 h-3 rounded-sm bg-red-500/60" /> Obstacles
         </span>
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

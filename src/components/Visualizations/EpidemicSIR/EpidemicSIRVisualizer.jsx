@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 const CANVAS_WIDTH = 600;
 const CANVAS_HEIGHT = 450;
@@ -86,6 +88,8 @@ const EpidemicSIRVisualizer = () => {
   const chartAccRef = useRef([]);
   const totalTransmissionsRef = useRef(0);
   const totalRecoveredAndDeadRef = useRef(0);
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsRunning(r => !r) });
 
   const getParams = useCallback(() => ({
     populationSize, initialInfected, infectionRadius, infectionProbability,
@@ -423,6 +427,7 @@ const EpidemicSIRVisualizer = () => {
           </div>
         </div>
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

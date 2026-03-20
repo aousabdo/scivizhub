@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 // ── Pattern presets ──────────────────────────────────────────────────
 const PRESETS = {
@@ -107,6 +109,8 @@ const GameOfLifeVisualizer = () => {
   const animFrameRef = useRef(null);
   const lastTickRef = useRef(0);
   const renderRequestRef = useRef(null);
+
+  useVisualizationShortcuts({ onTogglePlay: () => setRunning(r => !r) });
 
   // Keep refs in sync
   useEffect(() => { runningRef.current = running; }, [running]);
@@ -623,6 +627,7 @@ const GameOfLifeVisualizer = () => {
         <span className="inline-block mx-2">|</span>
         <span className="inline-block mx-2">Scroll to zoom, middle-click to pan</span>
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

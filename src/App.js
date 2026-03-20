@@ -50,8 +50,21 @@ const DiffusionSimulationPage = lazy(() => import('./pages/Visualization/Diffusi
 const ChaosGamePage = lazy(() => import('./pages/Visualization/ChaosGame'));
 
 const Loading = () => (
-  <div className="flex justify-center items-center py-24">
-    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+  <div className="container mx-auto px-4 py-8 animate-pulse">
+    {/* Title skeleton */}
+    <div className="h-8 bg-gray-200 rounded w-1/3 mb-3"></div>
+    <div className="h-4 bg-gray-200 rounded w-2/3 mb-6"></div>
+    {/* Controls skeleton */}
+    <div className="flex gap-3 mb-6">
+      <div className="h-10 bg-gray-200 rounded w-24"></div>
+      <div className="h-10 bg-gray-200 rounded w-24"></div>
+      <div className="h-10 bg-gray-200 rounded w-24"></div>
+    </div>
+    {/* Canvas skeleton */}
+    <div className="h-96 bg-gray-200 rounded-lg mb-6"></div>
+    {/* Info skeleton */}
+    <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+    <div className="h-4 bg-gray-200 rounded w-5/6"></div>
   </div>
 );
 

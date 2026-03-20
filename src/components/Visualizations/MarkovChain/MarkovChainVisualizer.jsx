@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 // ── Preset transition matrices ─────────────────────────────────────
 const PRESETS = {
@@ -96,6 +98,8 @@ const MarkovChainVisualizer = () => {
 
   const statePositionsRef = useRef([]);
   const n = states.length;
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsPlaying(p => !p) });
 
   // ── Compute state positions (circle layout) ─────────────────────
   const computePositions = useCallback((width, height) => {
@@ -688,6 +692,7 @@ const MarkovChainVisualizer = () => {
           <p className="text-xs text-gray-500 mt-2">Each row should sum to 1.00 for a valid transition matrix.</p>
         )}
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

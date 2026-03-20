@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 const PRESETS = {
   classic: {
@@ -41,6 +43,8 @@ const LorenzAttractorVisualizer = () => {
   const statsRef = useRef({ x: 0.1, y: 0, z: 0 });
   const [stats, setStats] = useState({ x: '0.1', y: '0.0', z: '0.0' });
   const statsCounterRef = useRef(0);
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsRunning(r => !r) });
 
   // Lorenz system derivatives
   const lorenzDerivatives = useCallback((x, y, z, s, r, b) => {
@@ -427,6 +431,7 @@ const LorenzAttractorVisualizer = () => {
           <canvas ref={canvasRef} className="w-full h-full rounded" />
         </div>
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

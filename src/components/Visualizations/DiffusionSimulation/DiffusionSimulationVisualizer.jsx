@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 const PARTICLE_RADIUS = 2.5;
 
@@ -92,6 +94,8 @@ const DiffusionSimulationVisualizer = () => {
   const modeRef = useRef(mode);
   const temperatureRef = useRef(temperature);
   const canvasSizeRef = useRef({ w: 800, h: 600 });
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsRunning(r => !r) });
 
   // Keep refs in sync
   useEffect(() => { modeRef.current = mode; }, [mode]);
@@ -537,6 +541,7 @@ const DiffusionSimulationVisualizer = () => {
           </div>
         </div>
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

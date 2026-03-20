@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 import { dijkstra, aStar, bfs, dfs, greedyBestFirstSearch } from './pathfindingAlgorithms';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 // Constants for visualization
 const DEFAULT_GRID_ROWS = 20;
@@ -26,7 +28,9 @@ const PathfindingAlgorithmVisualizer = () => {
   const [pathFound, setPathFound] = useState(false);
   
   const animationsTimeoutsRef = useRef([]);
-  
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsRunning(r => !r) });
+
   // Initialize and reset grid
   const initializeGrid = () => {
     const newGrid = [];
@@ -774,6 +778,7 @@ const PathfindingAlgorithmVisualizer = () => {
           </p>
         </div>
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

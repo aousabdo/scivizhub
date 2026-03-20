@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 // Polyfill for roundRect (not available in all browsers)
 if (typeof CanvasRenderingContext2D !== 'undefined' && !CanvasRenderingContext2D.prototype.roundRect) {
@@ -89,6 +91,8 @@ const TaylorSeriesVisualizer = () => {
   const lastTickRef = useRef(0);
   const statsRef = useRef({ maxError: 0 });
   const [stats, setStats] = useState({ maxError: 0 });
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsPlaying(p => !p) });
 
   // Evaluate Taylor polynomial at x for given function and number of terms
   const evalTaylor = useCallback((fnKey, x, nTerms) => {
@@ -625,6 +629,7 @@ const TaylorSeriesVisualizer = () => {
           <canvas ref={canvasRef} className="w-full h-full" />
         </div>
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };
