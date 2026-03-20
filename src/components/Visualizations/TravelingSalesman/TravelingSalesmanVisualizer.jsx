@@ -639,7 +639,7 @@ const TravelingSalesmanVisualizer = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-md">
+      <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>
             <h2 className="text-2xl font-bold mb-2">Traveling Salesman Problem</h2>
@@ -662,7 +662,7 @@ const TravelingSalesmanVisualizer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Number of Cities: {cityCount}
               </label>
               <input
@@ -680,7 +680,7 @@ const TravelingSalesmanVisualizer = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Animation Speed: {animationSpeed}ms
               </label>
               <input
@@ -694,7 +694,7 @@ const TravelingSalesmanVisualizer = () => {
             </div>
             
             <div className="py-2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Heuristic Algorithms:
               </label>
               <div className="flex flex-wrap gap-2 mt-2">
@@ -721,7 +721,7 @@ const TravelingSalesmanVisualizer = () => {
           </div>
           
           <div className="space-y-3">
-            <div className="p-4 bg-gray-50 rounded-lg">
+            <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
               <h3 className="font-semibold">{algorithmInfo.name}</h3>
               <p className="text-sm mt-1">{algorithmInfo.description}</p>
               
@@ -745,9 +745,9 @@ const TravelingSalesmanVisualizer = () => {
               )}
             </div>
             
-            <div className="p-3 bg-gray-50 rounded-lg grid grid-cols-3 gap-2 text-sm">
+            <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg grid grid-cols-3 gap-2 text-sm">
               {Object.entries(stats).map(([key, value]) => (
-                <div key={key} className="p-2 bg-white rounded border">
+                <div key={key} className="p-2 bg-white dark:bg-gray-700 rounded border dark:border-gray-600">
                   <div 
                     className="h-2 rounded-full" 
                     style={{ backgroundColor: options.heuristicColors[key] }}
@@ -760,7 +760,7 @@ const TravelingSalesmanVisualizer = () => {
             </div>
             
             {isAnimating && (
-              <div className="p-3 bg-gray-50 rounded-lg">
+              <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                 <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
                   <div 
                     className="h-full bg-blue-500 transition-all duration-300" 
@@ -776,7 +776,7 @@ const TravelingSalesmanVisualizer = () => {
         </div>
       </div>
       
-      <div className="bg-white p-4 rounded-lg shadow-md">
+      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
         <canvas
           ref={canvasRef}
           width={options.width}
@@ -805,7 +805,7 @@ const TravelingSalesmanVisualizer = () => {
         </div>
       </div>
       
-      <div className="mt-6 bg-white p-4 rounded-lg shadow-md">
+      <div className="mt-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
         <h3 className="text-lg font-semibold mb-2">Understanding the Traveling Salesman Problem</h3>
         
         <div className="prose max-w-none">

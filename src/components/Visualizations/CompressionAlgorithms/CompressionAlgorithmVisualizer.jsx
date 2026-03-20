@@ -358,11 +358,11 @@ const CompressionAlgorithmVisualizer = () => {
           <h5 className="text-sm font-medium mb-1">Predefined ASCII Entries (showing visible characters)</h5>
           <div className="flex flex-wrap gap-1">
             {Object.entries(asciiEntries).map(([key, value]) => (
-              <div key={key} className="px-2 py-1 bg-gray-100 rounded text-xs">
+              <div key={key} className="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-xs">
                 '{key}' → {value}
               </div>
             ))}
-            <div className="px-2 py-1 bg-gray-100 rounded text-xs">
+            <div className="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-xs">
               ...and other ASCII characters
             </div>
           </div>
@@ -377,7 +377,7 @@ const CompressionAlgorithmVisualizer = () => {
               </div>
             ))}
             {Object.keys(dynamicEntries).length > 50 && (
-              <div className="px-2 py-1 bg-gray-100 rounded text-xs">
+              <div className="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-xs">
                 ...and {Object.keys(dynamicEntries).length - 50} more entries
               </div>
             )}
@@ -417,11 +417,11 @@ const CompressionAlgorithmVisualizer = () => {
   
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-md">
+      <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>
             <h2 className="text-2xl font-bold">{algorithmInfo.name}</h2>
-            <p className="text-gray-600">{algorithmInfo.description}</p>
+            <p className="text-gray-600 dark:text-gray-400">{algorithmInfo.description}</p>
           </div>
           
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 mt-2 sm:mt-0">
@@ -449,7 +449,7 @@ const CompressionAlgorithmVisualizer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Input Text
               </label>
               <textarea
@@ -463,31 +463,31 @@ const CompressionAlgorithmVisualizer = () => {
             <div className="flex flex-wrap gap-2">
               <button 
                 onClick={() => setInputText(exampleTexts.repetitive)} 
-                className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded text-sm"
+                className="px-2 py-1 bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 rounded text-sm"
               >
                 Repetitive Example
               </button>
               <button 
                 onClick={() => setInputText(exampleTexts.text)} 
-                className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded text-sm"
+                className="px-2 py-1 bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 rounded text-sm"
               >
                 Text Example
               </button>
               <button 
                 onClick={() => setInputText(exampleTexts.structured)} 
-                className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded text-sm"
+                className="px-2 py-1 bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 rounded text-sm"
               >
                 Structured Example
               </button>
               <button 
                 onClick={() => setInputText(exampleTexts.binary)} 
-                className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded text-sm"
+                className="px-2 py-1 bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 rounded text-sm"
               >
                 Binary Example
               </button>
               <button 
                 onClick={() => setInputText(exampleTexts.mixedContent)} 
-                className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded text-sm"
+                className="px-2 py-1 bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 rounded text-sm"
               >
                 Mixed Content
               </button>
@@ -501,13 +501,13 @@ const CompressionAlgorithmVisualizer = () => {
                 onChange={() => setShowBinary(!showBinary)}
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
               />
-              <label htmlFor="showBinary" className="ml-2 block text-sm text-gray-700">
+              <label htmlFor="showBinary" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
                 Show binary representation
               </label>
             </div>
             
             {showBinary && (
-              <div className="p-2 bg-gray-50 rounded border overflow-x-auto">
+              <div className="p-2 bg-gray-50 dark:bg-gray-700 rounded border overflow-x-auto">
                 <code className="text-xs font-mono break-all">
                   {stringToBinary(inputText)}
                 </code>
@@ -517,7 +517,7 @@ const CompressionAlgorithmVisualizer = () => {
           
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Compression Algorithm:
               </label>
               <select
@@ -532,7 +532,7 @@ const CompressionAlgorithmVisualizer = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Animation Speed: {animationSpeed}ms
               </label>
               <input
@@ -554,7 +554,7 @@ const CompressionAlgorithmVisualizer = () => {
                 onChange={() => setShowExplanation(!showExplanation)}
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
               />
-              <label htmlFor="showExplanation" className="ml-2 block text-sm text-gray-700">
+              <label htmlFor="showExplanation" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
                 Show algorithm explanation
               </label>
             </div>
@@ -577,7 +577,7 @@ const CompressionAlgorithmVisualizer = () => {
         </div>
         
         {showExplanation && (
-          <div className="mt-4 p-4 bg-gray-50 rounded-lg border">
+          <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border">
             <h3 className="text-lg font-semibold mb-2">How {algorithmInfo.name} Works</h3>
             <p className="mb-2">{algorithmInfo.howItWorks}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
@@ -596,7 +596,7 @@ const CompressionAlgorithmVisualizer = () => {
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Visualization Area */}
-        <div className="bg-white p-4 rounded-lg shadow-md">
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
           <h3 className="text-lg font-semibold mb-4">Compression Process</h3>
           
           {currentVisualizationStep ? (
@@ -607,14 +607,14 @@ const CompressionAlgorithmVisualizer = () => {
               
               <div className="mb-4">
                 <h4 className="text-sm font-medium mb-2">Original Input:</h4>
-                <div className="p-2 bg-gray-50 rounded border font-mono break-all">
+                <div className="p-2 bg-gray-50 dark:bg-gray-700 rounded border font-mono break-all">
                   {renderHighlightedText(inputText, currentVisualizationStep.highlight)}
                 </div>
               </div>
               
               <div className="mb-4">
                 <h4 className="text-sm font-medium mb-2">Current Output:</h4>
-                <div className="p-2 bg-gray-50 rounded border font-mono break-all">
+                <div className="p-2 bg-gray-50 dark:bg-gray-700 rounded border font-mono break-all">
                   {compressionAlgorithm === 'runlength' && currentVisualizationStep.intermediate}
                   
                   {compressionAlgorithm === 'huffman' && currentVisualizationStep.state && (
@@ -672,7 +672,7 @@ const CompressionAlgorithmVisualizer = () => {
                                 </div>
                               ))}
                             {Object.entries(currentVisualizationStep.dictionary).filter(([_, v]) => v >= 256).length > 15 && (
-                              <div className="px-2 py-1 bg-gray-100 rounded text-xs">
+                              <div className="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-xs">
                                 ...and more
                               </div>
                             )}
@@ -715,18 +715,18 @@ const CompressionAlgorithmVisualizer = () => {
         </div>
         
         {/* Results Area */}
-        <div className="bg-white p-4 rounded-lg shadow-md">
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
           <h3 className="text-lg font-semibold mb-4">Compression Results</h3>
           
           <div className="grid grid-cols-1 gap-4">
             {/* Original Input */}
             <div>
               <h4 className="text-sm font-medium mb-2">Original Input ({originalSize} bytes):</h4>
-              <div className="p-2 h-24 overflow-auto bg-gray-50 rounded border font-mono break-all">
+              <div className="p-2 h-24 overflow-auto bg-gray-50 dark:bg-gray-700 rounded border font-mono break-all">
                 {inputText}
               </div>
               {showBinary && (
-                <div className="mt-1 p-2 h-16 overflow-auto bg-gray-50 rounded border">
+                <div className="mt-1 p-2 h-16 overflow-auto bg-gray-50 dark:bg-gray-700 rounded border">
                   <code className="text-xs font-mono break-all">
                     {stringToBinary(inputText)}
                   </code>
@@ -739,11 +739,11 @@ const CompressionAlgorithmVisualizer = () => {
               <h4 className="text-sm font-medium mb-2">
                 Compressed Output ({compressedSize} {compressionAlgorithm === 'huffman' ? 'bytes (from bits)' : 'bytes'}):
               </h4>
-              <div className="p-2 h-24 overflow-auto bg-gray-50 rounded border font-mono break-all">
+              <div className="p-2 h-24 overflow-auto bg-gray-50 dark:bg-gray-700 rounded border font-mono break-all">
                 {formatOutput(compressedOutput)}
               </div>
               {compressionAlgorithm === 'huffman' && (
-                <div className="mt-1 text-xs text-gray-600">
+                <div className="mt-1 text-xs text-gray-600 dark:text-gray-400">
                   * For Huffman coding, showing the bitstream for visualization purposes.
                   Actual storage would be more compact using bit packing.
                 </div>
@@ -754,7 +754,7 @@ const CompressionAlgorithmVisualizer = () => {
             {decompressedOutput && (
               <div>
                 <h4 className="text-sm font-medium mb-2">Decompressed Output:</h4>
-                <div className="p-2 h-24 overflow-auto bg-gray-50 rounded border font-mono break-all">
+                <div className="p-2 h-24 overflow-auto bg-gray-50 dark:bg-gray-700 rounded border font-mono break-all">
                   {decompressedOutput}
                 </div>
                 <div className="mt-1">
@@ -782,9 +782,9 @@ const CompressionAlgorithmVisualizer = () => {
         </div>
       </div>
       
-      <div className="mt-6 bg-white p-4 rounded-lg shadow-md">
+      <div className="mt-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
         <h3 className="text-lg font-semibold mb-2">Using This Visualization</h3>
-        <ul className="list-disc list-inside text-gray-700">
+        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
           <li>Enter text or use the provided examples to see how different algorithms compress data</li>
           <li>Click "Visualize Compression" to see the step-by-step compression process</li>
           <li>Adjust the animation speed to control how quickly the steps progress</li>
@@ -795,7 +795,7 @@ const CompressionAlgorithmVisualizer = () => {
         
         <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
           <h4 className="font-semibold mb-2">Pro Tips:</h4>
-          <ul className="list-disc list-inside text-gray-700">
+          <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
             <li>Run-Length Encoding works best with long sequences of repeated characters</li>
             <li>Huffman Coding is optimal for text with uneven character distributions</li>
             <li>LZW is excellent for text with recurring patterns and phrases</li>

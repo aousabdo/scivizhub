@@ -22,7 +22,7 @@ const DEFAULT_PARAMS = PRESETS['No Intervention'];
 
 const SliderControl = ({ label, min, max, step, value, onChange, disabled = false }) => (
   <div>
-    <label className="block text-sm font-medium text-gray-700 mb-1">
+    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
       {label}: <span className="font-semibold">{typeof value === 'number' ? (Number.isInteger(step) ? value : value.toFixed(2)) : value}</span>
     </label>
     <input type="range" min={min} max={max} step={step} value={value} onChange={e => onChange(parseFloat(e.target.value))} disabled={disabled} className="w-full disabled:opacity-50" />
@@ -30,7 +30,7 @@ const SliderControl = ({ label, min, max, step, value, onChange, disabled = fals
 );
 
 const ToggleControl = ({ label, checked, onChange, disabled = false }) => (
-  <label className="flex items-center gap-2 text-sm font-medium text-gray-700 cursor-pointer">
+  <label className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer">
     <input type="checkbox" checked={checked} onChange={e => onChange(e.target.checked)} disabled={disabled} className="w-4 h-4" />
     {label}
   </label>
@@ -330,7 +330,7 @@ const EpidemicSIRVisualizer = () => {
       <div className="mb-4 flex flex-wrap gap-2">
         <span className="text-sm font-semibold text-gray-600 self-center mr-2">Presets:</span>
         {Object.keys(PRESETS).map(name => (
-          <button key={name} onClick={() => applyPreset(name)} className="px-3 py-1.5 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg border border-gray-300 transition-colors">
+          <button key={name} onClick={() => applyPreset(name)} className="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 rounded-lg border border-gray-300 transition-colors">
             {name}
           </button>
         ))}
@@ -382,7 +382,7 @@ const EpidemicSIRVisualizer = () => {
               <span className="w-3 h-3 rounded-full bg-blue-500 inline-block"></span>
               <span className="text-sm font-medium">Recovered: <strong>{stats.R}</strong></span>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-50 rounded-lg border border-gray-200">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200">
               <span className="w-3 h-3 rounded-full bg-gray-400 inline-block"></span>
               <span className="text-sm font-medium">Deceased: <strong>{stats.D}</strong></span>
             </div>

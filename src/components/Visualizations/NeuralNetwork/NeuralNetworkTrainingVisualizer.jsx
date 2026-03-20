@@ -420,11 +420,11 @@ const NeuralNetworkTrainingVisualizer = () => {
   
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-md">
+      <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>
             <h2 className="text-2xl font-bold">Neural Network Training Visualization</h2>
-            <p className="text-gray-600">Watch a neural network learn to classify data in real-time.</p>
+            <p className="text-gray-600 dark:text-gray-400">Watch a neural network learn to classify data in real-time.</p>
           </div>
           
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 mt-2 sm:mt-0">
@@ -452,7 +452,7 @@ const NeuralNetworkTrainingVisualizer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Dataset Type:
               </label>
               <select
@@ -470,7 +470,7 @@ const NeuralNetworkTrainingVisualizer = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Number of Points: {dataPointCount}
               </label>
               <input
@@ -485,7 +485,7 @@ const NeuralNetworkTrainingVisualizer = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Noise Level: {noise.toFixed(2)}
               </label>
               <input
@@ -500,11 +500,11 @@ const NeuralNetworkTrainingVisualizer = () => {
               />
             </div>
             
-            <div className="p-3 bg-gray-50 rounded-lg border border-gray-200">
+            <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200">
               <h3 className="text-md font-medium mb-2">Network Architecture</h3>
               
               <div className="mb-3">
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Hidden Layers:
                 </label>
                 <div className="flex flex-col space-y-2">
@@ -519,7 +519,7 @@ const NeuralNetworkTrainingVisualizer = () => {
                         className="w-20 p-1 border border-gray-300 rounded-md"
                         disabled={isTraining}
                       />
-                      <span className="text-sm text-gray-600">neurons in layer {index + 1}</span>
+                      <span className="text-sm text-gray-600 dark:text-gray-400">neurons in layer {index + 1}</span>
                       <button
                         onClick={() => removeHiddenLayer(index)}
                         className="p-1 text-red-500 hover:text-red-700"
@@ -531,7 +531,7 @@ const NeuralNetworkTrainingVisualizer = () => {
                   ))}
                   <button
                     onClick={addHiddenLayer}
-                    className="px-3 py-1 bg-gray-200 text-gray-700 rounded-md text-sm hover:bg-gray-300 transition-colors self-start"
+                    className="px-3 py-1 bg-gray-200 text-gray-700 dark:text-gray-300 rounded-md text-sm hover:bg-gray-300 transition-colors self-start"
                     disabled={networkConfig.hiddenLayers.length >= 5 || isTraining}
                   >
                     + Add Layer
@@ -541,7 +541,7 @@ const NeuralNetworkTrainingVisualizer = () => {
               
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Activation Function:
                   </label>
                   <select
@@ -557,7 +557,7 @@ const NeuralNetworkTrainingVisualizer = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Learning Rate: {networkConfig.learningRate}
                   </label>
                   <input
@@ -577,7 +577,7 @@ const NeuralNetworkTrainingVisualizer = () => {
           
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Maximum Epochs: {maxEpochs}
               </label>
               <input
@@ -592,7 +592,7 @@ const NeuralNetworkTrainingVisualizer = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Batch Size: {batchSize}
               </label>
               <input
@@ -607,7 +607,7 @@ const NeuralNetworkTrainingVisualizer = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Animation Speed: {animationSpeed}ms
               </label>
               <input
@@ -628,12 +628,12 @@ const NeuralNetworkTrainingVisualizer = () => {
                 onChange={() => setShowBoundary(!showBoundary)}
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
               />
-              <label htmlFor="showBoundary" className="ml-2 block text-sm text-gray-700">
+              <label htmlFor="showBoundary" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
                 Show Decision Boundary
               </label>
             </div>
             
-            <div className="p-3 bg-gray-50 rounded-lg border border-gray-200">
+            <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200">
               <h3 className="text-md font-medium mb-2">Training Metrics</h3>
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div className="p-2 bg-blue-50 rounded">
@@ -663,7 +663,7 @@ const NeuralNetworkTrainingVisualizer = () => {
       </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white p-4 rounded-lg shadow-md">
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
           <h3 className="text-lg font-semibold mb-4">Network Visualization</h3>
           <div className="relative">
             <canvas 
@@ -689,7 +689,7 @@ const NeuralNetworkTrainingVisualizer = () => {
           </div>
         </div>
         
-        <div className="bg-white p-4 rounded-lg shadow-md">
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
           <h3 className="text-lg font-semibold mb-4">Training Progress</h3>
           <div className="h-80">
             {trainingMetrics.length > 0 ? (
@@ -748,7 +748,7 @@ const NeuralNetworkTrainingVisualizer = () => {
         </div>
       </div>
       
-      <div className="mt-6 bg-white p-4 rounded-lg shadow-md">
+      <div className="mt-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
         <h3 className="text-lg font-semibold mb-2">About Neural Networks</h3>
         <div className="prose max-w-none">
           <p>

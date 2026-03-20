@@ -56,7 +56,7 @@ const AboutPage = () => {
           <li><span className="font-medium">Open Access</span> - Free to use for educational purposes</li>
         </ul>
         
-        <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 my-6">
+        <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700 my-6">
           <h3 className="text-lg font-semibold mb-2 text-blue-800">Categories</h3>
           <p className="mb-3">Our visualizations span multiple disciplines:</p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
@@ -155,7 +155,7 @@ const AboutPage = () => {
           </div>
         </div>
         
-        <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 mt-6 mb-6 text-center">
+        <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700 mt-6 mb-6 text-center">
           <h3 className="text-xl font-semibold mb-3 text-blue-800">Get Started Contributing</h3>
           <p className="mb-4">
             Ready to contribute? Check out our GitHub repository and contribution guidelines!

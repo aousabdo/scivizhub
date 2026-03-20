@@ -66,7 +66,7 @@ function createParticles(count, mode, canvasW, canvasH) {
 
 const SliderControl = ({ label, min, max, step, value, onChange, disabled = false }) => (
   <div>
-    <label className="block text-sm font-medium text-gray-700 mb-1">
+    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
       {label}: <span className="font-semibold">{typeof step === 'number' && step < 1 ? value.toFixed(1) : value}</span>
     </label>
     <input

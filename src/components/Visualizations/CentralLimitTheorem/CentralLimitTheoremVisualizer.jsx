@@ -298,11 +298,11 @@ const CentralLimitTheoremVisualizer = () => {
   
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-md">
+      <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>
             <h2 className="text-2xl font-bold">Central Limit Theorem</h2>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-400">
               See how the distribution of sample means approaches a normal distribution regardless of the original population's distribution.
             </p>
           </div>
@@ -311,7 +311,7 @@ const CentralLimitTheoremVisualizer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Population Distribution:
               </label>
               <select
@@ -330,7 +330,7 @@ const CentralLimitTheoremVisualizer = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Sample Size (n): {sampleSize}
               </label>
               <input
@@ -345,7 +345,7 @@ const CentralLimitTheoremVisualizer = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Number of Samples: {numberOfSamples}
               </label>
               <input
@@ -363,7 +363,7 @@ const CentralLimitTheoremVisualizer = () => {
           
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Histogram Bins: {histogramBins}
               </label>
               <input
@@ -385,7 +385,7 @@ const CentralLimitTheoremVisualizer = () => {
                 onChange={(e) => setShowTheory(e.target.checked)}
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
               />
-              <label htmlFor="showTheory" className="ml-2 block text-sm text-gray-700">
+              <label htmlFor="showTheory" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
                 Show theoretical normal curve
               </label>
             </div>
@@ -422,7 +422,7 @@ const CentralLimitTheoremVisualizer = () => {
       </div>
       
       <div className="flex flex-col gap-8">
-        <div className="bg-white p-4 rounded-lg shadow-md">
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
           <h3 className="text-lg font-semibold mb-2 text-center">Population Distribution</h3>
           <div className="h-96">
             <ResponsiveContainer width="100%" height="100%">
@@ -461,7 +461,7 @@ const CentralLimitTheoremVisualizer = () => {
           </div>
         </div>
         
-        <div className="bg-white p-4 rounded-lg shadow-md">
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
           <h3 className="text-lg font-semibold mb-2 text-center">Distribution of Sample Means</h3>
           <div className="h-96">
             <ResponsiveContainer width="100%" height="100%">
@@ -520,16 +520,16 @@ const CentralLimitTheoremVisualizer = () => {
         </div>
       </div>
       
-      <div className="mt-6 bg-white p-4 rounded-lg shadow-md">
+      <div className="mt-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
         <h3 className="text-lg font-semibold mb-2">How This Visualization Works</h3>
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
           This visualization demonstrates the Central Limit Theorem, which states that when independent random variables are 
           added together, their sum tends toward a normal distribution even if the original variables are not normally distributed.
         </p>
         
         <div className="mt-4">
           <h4 className="font-semibold">The Central Limit Theorem states:</h4>
-          <p className="ml-4 mt-2 text-gray-700">
+          <p className="ml-4 mt-2 text-gray-700 dark:text-gray-300">
             Given a population with mean <InlineMath>{'\mu'}</InlineMath> and standard deviation <InlineMath>{'\\sigma'}</InlineMath>, the sampling distribution of the mean
             approaches a normal distribution with mean <InlineMath>{'\mu'}</InlineMath> and standard deviation <InlineMath>{'\\sigma/\\sqrt{n}'}</InlineMath> as the sample size (<InlineMath>{'n'}</InlineMath>) increases.
           </p>
@@ -537,7 +537,7 @@ const CentralLimitTheoremVisualizer = () => {
         
         <div className="mt-4">
           <h4 className="font-semibold">In this visualization:</h4>
-          <ol className="list-decimal list-inside text-gray-700 mt-2 space-y-2">
+          <ol className="list-decimal list-inside text-gray-700 dark:text-gray-300 mt-2 space-y-2">
             <li>We start with a population having any distribution (uniform, exponential, etc.)</li>
             <li>We take many random samples of size n from this population</li>
             <li>We calculate the mean of each sample</li>
@@ -548,7 +548,7 @@ const CentralLimitTheoremVisualizer = () => {
         
         <div className="mt-4">
           <h4 className="font-semibold">Tips:</h4>
-          <ul className="list-disc list-inside text-gray-700 mt-2">
+          <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mt-2">
             <li>Try different population distributions to see that the CLT works regardless of the original shape</li>
             <li>Increase the sample size to see the distribution of means become more normal</li>
             <li>Note how the standard deviation of sample means decreases as sample size increases (by a factor of <InlineMath>{'1/\\sqrt{n}'}</InlineMath>)</li>

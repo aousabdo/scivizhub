@@ -445,7 +445,7 @@ const DoublePendulumVisualizer = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-md">
+      <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>
             <h2 className="text-2xl font-bold mb-2">Double Pendulum Chaos Visualizer</h2>
@@ -477,13 +477,13 @@ const DoublePendulumVisualizer = () => {
 
         {/* Presets */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">Presets</label>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Presets</label>
           <div className="flex flex-wrap gap-2">
             {Object.entries(PRESETS).map(([key, p]) => (
               <button
                 key={key}
                 onClick={() => loadPreset(key)}
-                className="px-3 py-1.5 text-sm bg-gray-100 hover:bg-gray-200 rounded-md border border-gray-300 transition-colors"
+                className="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 rounded-md border border-gray-300 transition-colors"
               >
                 {p.label}
               </button>
@@ -496,28 +496,28 @@ const DoublePendulumVisualizer = () => {
           {/* Column 1: Masses and lengths */}
           <div className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Mass 1: {m1.toFixed(1)} kg
               </label>
               <input type="range" min="0.5" max="5" step="0.1" value={m1}
                 onChange={(e) => setM1(parseFloat(e.target.value))} className="w-full" disabled={isRunning} />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Mass 2: {m2.toFixed(1)} kg
               </label>
               <input type="range" min="0.5" max="5" step="0.1" value={m2}
                 onChange={(e) => setM2(parseFloat(e.target.value))} className="w-full" disabled={isRunning} />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Length 1: {L1} px
               </label>
               <input type="range" min="50" max="200" value={L1}
                 onChange={(e) => setL1(parseInt(e.target.value))} className="w-full" disabled={isRunning} />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Length 2: {L2} px
               </label>
               <input type="range" min="50" max="200" value={L2}
@@ -528,21 +528,21 @@ const DoublePendulumVisualizer = () => {
           {/* Column 2: Angles and gravity */}
           <div className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Initial Angle 1: {initAngle1}&deg;
               </label>
               <input type="range" min="-180" max="180" value={initAngle1}
                 onChange={(e) => setInitAngle1(parseInt(e.target.value))} className="w-full" disabled={isRunning} />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Initial Angle 2: {initAngle2}&deg;
               </label>
               <input type="range" min="-180" max="180" value={initAngle2}
                 onChange={(e) => setInitAngle2(parseInt(e.target.value))} className="w-full" disabled={isRunning} />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Gravity: {gravity.toFixed(1)} m/s&sup2;
               </label>
               <input type="range" min="1" max="20" step="0.1" value={gravity}
@@ -553,14 +553,14 @@ const DoublePendulumVisualizer = () => {
           {/* Column 3: Trail, damping, compare */}
           <div className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Trail Length: {trailLength} points
               </label>
               <input type="range" min="0" max="500" value={trailLength}
                 onChange={(e) => setTrailLength(parseInt(e.target.value))} className="w-full" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Damping: {damping.toFixed(3)}
               </label>
               <input type="range" min="0" max="0.1" step="0.001" value={damping}
@@ -572,7 +572,7 @@ const DoublePendulumVisualizer = () => {
                 onChange={() => setCompareMode(!compareMode)}
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 disabled={isRunning} />
-              <label htmlFor="compareMode" className="ml-2 block text-sm text-gray-700">
+              <label htmlFor="compareMode" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
                 Compare Mode (two pendulums, +0.5&deg; offset)
               </label>
             </div>
@@ -581,19 +581,19 @@ const DoublePendulumVisualizer = () => {
 
         {/* Stats panel */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-xs text-gray-500 uppercase tracking-wide">Angle 1</p>
             <p className="text-lg font-mono font-bold text-blue-600">{stats.th1}&deg;</p>
           </div>
-          <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-xs text-gray-500 uppercase tracking-wide">Angle 2</p>
             <p className="text-lg font-mono font-bold text-red-600">{stats.th2}&deg;</p>
           </div>
-          <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-xs text-gray-500 uppercase tracking-wide">&omega;1 / &omega;2</p>
-            <p className="text-lg font-mono font-bold text-gray-700">{stats.w1} / {stats.w2}</p>
+            <p className="text-lg font-mono font-bold text-gray-700 dark:text-gray-300">{stats.w1} / {stats.w2}</p>
           </div>
-          <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-xs text-gray-500 uppercase tracking-wide">Total Energy</p>
             <p className="text-lg font-mono font-bold text-green-600">{stats.energy}</p>
             <p className="text-xs text-gray-400">KE: {stats.KE || '0.0'} | PE: {stats.PE || '0.0'}</p>
@@ -602,7 +602,7 @@ const DoublePendulumVisualizer = () => {
       </div>
 
       {/* Canvas */}
-      <div className="bg-white p-4 rounded-lg shadow-md mb-6">
+      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900 mb-6">
         <div className="w-full" style={{ minHeight: '500px' }}>
           <canvas ref={canvasRef} className="w-full h-full" />
         </div>

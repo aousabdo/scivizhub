@@ -24,8 +24,8 @@ const PathfindingAlgorithmsPage = () => {
         <h2 className="text-center text-2xl font-bold">Understanding Pathfinding Algorithms</h2>
         
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Algorithm Characteristics</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Algorithm Characteristics</h3>
             <p>
               When comparing pathfinding algorithms, it's important to understand several key properties:
             </p>
@@ -38,8 +38,8 @@ const PathfindingAlgorithmsPage = () => {
             </ul>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Algorithm Comparison</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Algorithm Comparison</h3>
             <p>
               The visualization includes several popular pathfinding algorithms:
             </p>
@@ -96,8 +96,8 @@ const PathfindingAlgorithmsPage = () => {
             <p className="text-xs mt-2">*Guaranteed optimal if the heuristic is admissible (never overestimates)</p>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Real-World Applications</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Real-World Applications</h3>
             <p>
               Pathfinding algorithms have numerous practical applications:
             </p>
@@ -113,7 +113,7 @@ const PathfindingAlgorithmsPage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-300 my-8">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600 my-8">
           <h2 className="text-xl font-bold mb-4">Key Insights</h2>
           <p>
             Experimenting with this visualization reveals several important insights about pathfinding:

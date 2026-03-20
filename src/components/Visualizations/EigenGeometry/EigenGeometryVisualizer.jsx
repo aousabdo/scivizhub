@@ -27,7 +27,7 @@ const getOrientationLabel = (determinant) => {
 
 const SliderInput = ({ label, value, min, max, step, onChange, unit = '' }) => (
   <div>
-    <label className="block text-sm font-medium text-gray-700 mb-2">
+    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
       {label}: {value}
       {unit}
     </label>
@@ -140,7 +140,7 @@ const EigenGeometryVisualizer = () => {
     <div className="p-4 max-w-6xl mx-auto space-y-6">
       <div className="bg-white border border-gray-200 rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold mb-2">Eigen Geometry Explorer (2x2)</h2>
-        <p className="text-gray-700 mb-6">
+        <p className="text-gray-700 dark:text-gray-300 mb-6">
           Explore how linear transformations stretch, flip, or rotate space, and identify invariant eigenvector directions.
         </p>
 
@@ -200,28 +200,28 @@ const EigenGeometryVisualizer = () => {
           <button
             type="button"
             onClick={() => setShowGrid((value) => !value)}
-            className={`px-3 py-2 border rounded-md ${showGrid ? 'bg-blue-100 border-blue-300' : 'bg-gray-100 border-gray-300'}`}
+            className={`px-3 py-2 border rounded-md ${showGrid ? 'bg-blue-100 border-blue-300' : 'bg-gray-100 dark:bg-gray-600 border-gray-300'}`}
           >
             Original Grid: {showGrid ? 'On' : 'Off'}
           </button>
           <button
             type="button"
             onClick={() => setShowTransformedGrid((value) => !value)}
-            className={`px-3 py-2 border rounded-md ${showTransformedGrid ? 'bg-emerald-100 border-emerald-300' : 'bg-gray-100 border-gray-300'}`}
+            className={`px-3 py-2 border rounded-md ${showTransformedGrid ? 'bg-emerald-100 border-emerald-300' : 'bg-gray-100 dark:bg-gray-600 border-gray-300'}`}
           >
             Transformed Grid: {showTransformedGrid ? 'On' : 'Off'}
           </button>
           <button
             type="button"
             onClick={() => setShowUnitCircle((value) => !value)}
-            className={`px-3 py-2 border rounded-md ${showUnitCircle ? 'bg-purple-100 border-purple-300' : 'bg-gray-100 border-gray-300'}`}
+            className={`px-3 py-2 border rounded-md ${showUnitCircle ? 'bg-purple-100 border-purple-300' : 'bg-gray-100 dark:bg-gray-600 border-gray-300'}`}
           >
             Unit Circle: {showUnitCircle ? 'On' : 'Off'}
           </button>
           <button
             type="button"
             onClick={() => setShowEigenDirections((value) => !value)}
-            className={`px-3 py-2 border rounded-md ${showEigenDirections ? 'bg-amber-100 border-amber-300' : 'bg-gray-100 border-gray-300'}`}
+            className={`px-3 py-2 border rounded-md ${showEigenDirections ? 'bg-amber-100 border-amber-300' : 'bg-gray-100 dark:bg-gray-600 border-gray-300'}`}
           >
             Eigen Directions: {showEigenDirections ? 'On' : 'Off'}
           </button>

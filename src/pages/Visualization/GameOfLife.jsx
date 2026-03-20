@@ -25,36 +25,36 @@ const GameOfLifePage = () => {
         <h2 className="text-center text-2xl font-bold">Understanding the Game of Life</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">The Rules of Life</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">The Rules of Life</h3>
             <p>
               The Game of Life operates on a two-dimensional grid of cells, each of which is either alive or dead.
               Every cell interacts with its eight neighbors (horizontally, vertically, and diagonally adjacent cells).
               At each step in time, the following transitions occur simultaneously:
             </p>
             <div className="my-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-4 bg-white rounded-lg border border-gray-200">
+              <div className="p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
                 <h4 className="font-semibold mb-2">Birth</h4>
                 <p className="text-sm">
                   A dead cell with exactly <strong>3</strong> live neighbors becomes a live cell, as if by reproduction.
                   This is the only way new cells are born.
                 </p>
               </div>
-              <div className="p-4 bg-white rounded-lg border border-gray-200">
+              <div className="p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
                 <h4 className="font-semibold mb-2">Survival</h4>
                 <p className="text-sm">
                   A live cell with <strong>2 or 3</strong> live neighbors survives to the next generation.
                   The cell has just enough support from its community to thrive.
                 </p>
               </div>
-              <div className="p-4 bg-white rounded-lg border border-gray-200">
+              <div className="p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
                 <h4 className="font-semibold mb-2">Underpopulation</h4>
                 <p className="text-sm">
                   A live cell with <strong>fewer than 2</strong> live neighbors dies, as if by isolation.
                   Without enough neighbors, the cell cannot sustain itself.
                 </p>
               </div>
-              <div className="p-4 bg-white rounded-lg border border-gray-200">
+              <div className="p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
                 <h4 className="font-semibold mb-2">Overpopulation</h4>
                 <p className="text-sm">
                   A live cell with <strong>more than 3</strong> live neighbors dies, as if by overcrowding.
@@ -64,8 +64,8 @@ const GameOfLifePage = () => {
             </div>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Pattern Categories</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Pattern Categories</h3>
             <p>
               Over decades of exploration, Life enthusiasts have cataloged thousands of patterns, organized into key categories:
             </p>
@@ -93,8 +93,8 @@ const GameOfLifePage = () => {
             </ul>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Cellular Automata and Emergence</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Cellular Automata and Emergence</h3>
             <p>
               The Game of Life is the most famous example of a cellular automaton -- a discrete model studied in
               mathematics, physics, and theoretical computer science. Cellular automata consist of a grid of cells,
@@ -112,8 +112,8 @@ const GameOfLifePage = () => {
             </p>
           </div>
 
-          <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
-            <h3 className="text-xl font-bold text-yellow-800 mb-3">Turing Completeness</h3>
+          <div className="bg-yellow-50 dark:bg-yellow-900/30 p-6 rounded-lg border border-yellow-200 dark:border-yellow-700">
+            <h3 className="text-xl font-bold text-yellow-800 dark:text-yellow-300 mb-3">Turing Completeness</h3>
             <p>
               One of the most profound discoveries about the Game of Life is that it is <strong>Turing complete</strong>.
               This means that, in principle, any computation that can be performed by a computer can also be carried

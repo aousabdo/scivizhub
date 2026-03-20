@@ -27,8 +27,8 @@ const GeneticAlgorithmPage = () => {
 
         <div className="mt-8 grid gap-8">
           {/* Selection, Crossover, Mutation */}
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">
               Selection, Crossover &amp; Mutation
             </h3>
             <p>
@@ -58,8 +58,8 @@ const GeneticAlgorithmPage = () => {
           </div>
 
           {/* Fitness Functions */}
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Fitness Functions</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Fitness Functions</h3>
             <p>
               The fitness function is the heart of any genetic algorithm. It quantitatively evaluates
               how "good" a candidate solution is relative to the problem being solved.
@@ -89,8 +89,8 @@ const GeneticAlgorithmPage = () => {
           </div>
 
           {/* Key Parameters */}
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Key Parameters to Explore</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Key Parameters to Explore</h3>
             <p>
               Use the controls above to experiment with different parameter settings and observe their
               effects:
@@ -98,7 +98,7 @@ const GeneticAlgorithmPage = () => {
             <div className="mt-3 overflow-x-auto">
               <table className="min-w-full text-sm">
                 <thead>
-                  <tr className="bg-purple-100">
+                  <tr className="bg-purple-100 dark:bg-purple-900/40">
                     <th className="px-4 py-2 text-left">Parameter</th>
                     <th className="px-4 py-2 text-left">Effect of Increasing</th>
                     <th className="px-4 py-2 text-left">Trade-off</th>
@@ -126,8 +126,8 @@ const GeneticAlgorithmPage = () => {
           </div>
 
           {/* Applications */}
-          <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
-            <h3 className="text-xl font-bold text-amber-800 mb-3">Real-World Applications</h3>
+          <div className="bg-amber-50 dark:bg-amber-900/30 p-6 rounded-lg border border-amber-200 dark:border-amber-700">
+            <h3 className="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">Real-World Applications</h3>
             <p>
               Genetic algorithms have been successfully applied across a remarkable range of fields:
             </p>
@@ -158,8 +158,8 @@ const GeneticAlgorithmPage = () => {
           </div>
 
           {/* Historical Context */}
-          <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-            <h3 className="text-xl font-bold text-gray-800 mb-3">Historical Context</h3>
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-600">
+            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">Historical Context</h3>
             <p>
               The idea of using evolutionary principles for computation dates back to the 1950s and 1960s,
               but the field was truly established by <strong>John Holland</strong> at the University of
@@ -182,8 +182,8 @@ const GeneticAlgorithmPage = () => {
           </div>
 
           {/* How this visualizer works */}
-          <div className="bg-cyan-50 p-6 rounded-lg border border-cyan-200">
-            <h3 className="text-xl font-bold text-cyan-800 mb-3">How This Visualizer Works</h3>
+          <div className="bg-cyan-50 dark:bg-cyan-900/30 p-6 rounded-lg border border-cyan-200 dark:border-cyan-700">
+            <h3 className="text-xl font-bold text-cyan-800 dark:text-cyan-300 mb-3">How This Visualizer Works</h3>
             <ol className="mt-3 space-y-2 list-decimal list-inside">
               <li>
                 A population of dots is created at the <strong>start position</strong>. Each dot has a

@@ -212,7 +212,7 @@ const MontyHallVisualizer = () => {
     <div className="p-4 max-w-6xl mx-auto space-y-6">
       <div className="bg-white border border-gray-200 rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold mb-2">Play A Round</h2>
-        <p className="text-gray-700 mb-4">{phaseMessage}</p>
+        <p className="text-gray-700 dark:text-gray-300 mb-4">{phaseMessage}</p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
           {DOORS.map((door) => (
@@ -224,7 +224,7 @@ const MontyHallVisualizer = () => {
               onClick={() => handleInitialPick(door)}
             >
               <p className="text-lg font-semibold mb-2">Door {door + 1}</p>
-              <p className="text-sm text-gray-700">{renderDoorStatus(door)}</p>
+              <p className="text-sm text-gray-700 dark:text-gray-300">{renderDoorStatus(door)}</p>
               {round.phase === 'result' && door === round.finalPick && (
                 <p className="text-xs text-gray-600 mt-3">
                   Final choice ({round.decision === 'switch' ? 'Switched' : 'Stayed'})
@@ -264,13 +264,13 @@ const MontyHallVisualizer = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 bg-white border border-gray-200 rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-bold mb-2">Run Strategy Simulation</h2>
-          <p className="text-gray-700 mb-5">
+          <p className="text-gray-700 dark:text-gray-300 mb-5">
             Run many random games and compare long-run outcomes for always staying versus always switching.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label htmlFor="batch-size" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="batch-size" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Trials per batch: {batchSize}
               </label>
               <input
@@ -371,7 +371,7 @@ const MontyHallVisualizer = () => {
               Current measured switch advantage: {switchAdvantage}% points.
             </p>
           </div>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
             The host always reveals a goat and knows where the car is. That information changes the odds.
           </p>
         </div>

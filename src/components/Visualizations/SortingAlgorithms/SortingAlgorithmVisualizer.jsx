@@ -201,11 +201,11 @@ const SortingAlgorithmVisualizer = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-md">
+      <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>
             <h2 className="text-2xl font-bold">{algorithmInfo.name}</h2>
-            <p className="text-gray-600">{algorithmInfo.description}</p>
+            <p className="text-gray-600 dark:text-gray-400">{algorithmInfo.description}</p>
           </div>
           
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 mt-2 sm:mt-0">
@@ -234,7 +234,7 @@ const SortingAlgorithmVisualizer = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Algorithm:
             </label>
             <select
@@ -242,7 +242,7 @@ const SortingAlgorithmVisualizer = () => {
               onChange={handleAlgorithmChange}
               disabled={isSorting}
               className={`block w-full p-2 border border-gray-300 rounded-md ${
-                isSorting ? 'bg-gray-100 cursor-not-allowed' : ''
+                isSorting ? 'bg-gray-100 dark:bg-gray-600 cursor-not-allowed' : ''
               }`}
             >
               <option value="bubble">Bubble Sort</option>
@@ -254,7 +254,7 @@ const SortingAlgorithmVisualizer = () => {
           </div>
 
           <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Array Size: {arraySize}
             </label>
             <input
@@ -273,7 +273,7 @@ const SortingAlgorithmVisualizer = () => {
           </div>
 
           <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Animation Speed: {animationSpeed}ms
             </label>
             <input
@@ -288,22 +288,22 @@ const SortingAlgorithmVisualizer = () => {
         </div>
         
         <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
-          <div className="p-2 bg-gray-50 rounded">
+          <div className="p-2 bg-gray-50 dark:bg-gray-700 rounded">
             <span className="font-semibold">Time Complexity:</span> {algorithmInfo.timeComplexity}
           </div>
-          <div className="p-2 bg-gray-50 rounded">
+          <div className="p-2 bg-gray-50 dark:bg-gray-700 rounded">
             <span className="font-semibold">Space Complexity:</span> {algorithmInfo.spaceComplexity}
           </div>
-          <div className="p-2 bg-gray-50 rounded">
+          <div className="p-2 bg-gray-50 dark:bg-gray-700 rounded">
             <span className="font-semibold">Comparisons:</span> {comparisons}
           </div>
-          <div className="p-2 bg-gray-50 rounded">
+          <div className="p-2 bg-gray-50 dark:bg-gray-700 rounded">
             <span className="font-semibold">Swaps/Writes:</span> {swaps}
           </div>
         </div>
       </div>
       
-      <div className="visualization-container bg-white p-4 rounded-lg shadow-md">
+      <div className="visualization-container bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="array-container flex items-end justify-center h-64 border-b border-gray-300">
           {array.map((value, idx) => {
             const isHighlighted = highlightedIndices.includes(idx);
@@ -329,16 +329,16 @@ const SortingAlgorithmVisualizer = () => {
         </div>
       </div>
       
-      <div className="mt-6 bg-white p-4 rounded-lg shadow-md">
+      <div className="mt-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
         <h3 className="text-lg font-semibold mb-2">How This Visualization Works</h3>
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
           Each bar represents a value in an array. The height of the bar corresponds to the value.
           When sorting, bars being compared are highlighted in red, and you can see them swap positions
           when the algorithm determines they need to be reordered.
         </p>
         
         <h3 className="text-lg font-semibold mb-2">Tips</h3>
-        <ul className="list-disc list-inside text-gray-700">
+        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
           <li>Click "New Array" to generate a new random set of values</li>
           <li>Select different algorithms from the dropdown to see how they perform</li>
           <li>Adjust the animation speed slider to speed up or slow down the visualization</li>

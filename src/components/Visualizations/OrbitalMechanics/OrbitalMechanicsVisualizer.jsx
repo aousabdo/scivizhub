@@ -686,12 +686,12 @@ const OrbitalMechanicsVisualizer = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-md">
+      <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         {/* Header */}
         <div className="flex flex-wrap justify-between items-start mb-4 gap-3">
           <div>
             <h2 className="text-2xl font-bold mb-1">Orbital Mechanics Simulator</h2>
-            <p className="text-gray-600 text-sm max-w-2xl">
+            <p className="text-gray-600 dark:text-gray-400 text-sm max-w-2xl">
               {PRESETS[activePreset]?.description || 'Explore gravitational orbits using Newtonian mechanics with Velocity Verlet integration.'}
             </p>
           </div>
@@ -730,7 +730,7 @@ const OrbitalMechanicsVisualizer = () => {
                 className={`px-3 py-1.5 text-sm rounded-md border transition-colors ${
                   activePreset === key
                     ? 'bg-indigo-100 border-indigo-400 text-indigo-800 font-medium'
-                    : 'bg-gray-50 hover:bg-gray-100 border-gray-300 text-gray-700'
+                    : 'bg-gray-50 hover:bg-gray-100 dark:bg-gray-600 border-gray-300 text-gray-700'
                 }`}
               >
                 {p.label}
@@ -744,7 +744,7 @@ const OrbitalMechanicsVisualizer = () => {
           {/* Column 1: Simulation */}
           <div className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Time Speed: {speed.toFixed(1)}x
               </label>
               <input
@@ -754,7 +754,7 @@ const OrbitalMechanicsVisualizer = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 New Body Mass: {newBodyMass}
               </label>
               <input
@@ -771,7 +771,7 @@ const OrbitalMechanicsVisualizer = () => {
             <div className="flex items-center">
               <input type="checkbox" id="omTrails" checked={showTrails} onChange={() => setShowTrails(!showTrails)}
                 className="h-4 w-4 text-indigo-600 border-gray-300 rounded" />
-              <label htmlFor="omTrails" className="ml-2 text-sm text-gray-700">Orbital Trails</label>
+              <label htmlFor="omTrails" className="ml-2 text-sm text-gray-700 dark:text-gray-300">Orbital Trails</label>
             </div>
             {showTrails && (
               <div className="ml-6">
@@ -783,14 +783,14 @@ const OrbitalMechanicsVisualizer = () => {
             <div className="flex items-center">
               <input type="checkbox" id="omVelVec" checked={showVelocityVectors} onChange={() => setShowVelocityVectors(!showVelocityVectors)}
                 className="h-4 w-4 text-green-600 border-gray-300 rounded" />
-              <label htmlFor="omVelVec" className="ml-2 text-sm text-gray-700">
+              <label htmlFor="omVelVec" className="ml-2 text-sm text-gray-700 dark:text-gray-300">
                 Velocity Vectors <span className="text-green-500 text-xs">(green)</span>
               </label>
             </div>
             <div className="flex items-center">
               <input type="checkbox" id="omForceVec" checked={showForceVectors} onChange={() => setShowForceVectors(!showForceVectors)}
                 className="h-4 w-4 text-red-600 border-gray-300 rounded" />
-              <label htmlFor="omForceVec" className="ml-2 text-sm text-gray-700">
+              <label htmlFor="omForceVec" className="ml-2 text-sm text-gray-700 dark:text-gray-300">
                 Force Vectors <span className="text-red-400 text-xs">(red)</span>
               </label>
             </div>
@@ -809,7 +809,7 @@ const OrbitalMechanicsVisualizer = () => {
                     key={i}
                     onClick={() => setSelectedBody(selectedBody === i ? null : i)}
                     className={`flex items-center text-xs px-2 py-1 rounded cursor-pointer transition-colors ${
-                      selectedBody === i ? 'bg-indigo-50 border border-indigo-300' : 'bg-gray-50 hover:bg-gray-100 border border-transparent'
+                      selectedBody === i ? 'bg-indigo-50 border border-indigo-300' : 'bg-gray-50 hover:bg-gray-100 dark:bg-gray-600 border border-transparent'
                     }`}
                   >
                     <span className="inline-block w-3 h-3 rounded-full flex-shrink-0 mr-2" style={{ backgroundColor: b.color }} />
@@ -827,25 +827,25 @@ const OrbitalMechanicsVisualizer = () => {
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
-          <div className="p-2.5 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-2.5 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-[10px] text-gray-500 uppercase tracking-wide">Kinetic Energy</p>
             <p className="text-base font-mono font-bold text-red-500">{stats.KE}</p>
           </div>
-          <div className="p-2.5 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-2.5 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-[10px] text-gray-500 uppercase tracking-wide">Potential Energy</p>
             <p className="text-base font-mono font-bold text-blue-500">{stats.PE}</p>
           </div>
-          <div className="p-2.5 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-2.5 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-[10px] text-gray-500 uppercase tracking-wide">Total Energy</p>
             <p className="text-base font-mono font-bold text-green-600">{stats.total}</p>
           </div>
-          <div className="p-2.5 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-2.5 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-[10px] text-gray-500 uppercase tracking-wide">Angular Mom.</p>
             <p className="text-base font-mono font-bold text-purple-500">{stats.angularMom}</p>
           </div>
-          <div className="p-2.5 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-2.5 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-[10px] text-gray-500 uppercase tracking-wide">Elapsed</p>
-            <p className="text-base font-mono font-bold text-gray-700">{stats.time}s</p>
+            <p className="text-base font-mono font-bold text-gray-700 dark:text-gray-300">{stats.time}s</p>
           </div>
         </div>
       </div>

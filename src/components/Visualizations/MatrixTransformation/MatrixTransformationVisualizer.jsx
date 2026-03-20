@@ -520,11 +520,11 @@ const drawGrid = (ctx, gridPoints, color) => {
   
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-md">
+      <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>
             <h2 className="text-2xl font-bold mb-2">Matrix Transformation Visualizer</h2>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-400">
               Explore how matrices transform space by visualizing various linear transformations.
             </p>
           </div>
@@ -548,7 +548,7 @@ const drawGrid = (ctx, gridPoints, color) => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="md:col-span-2">
-            <div className="canvas-container bg-gray-50 border rounded-md overflow-hidden">
+            <div className="canvas-container bg-gray-50 dark:bg-gray-700 border dark:border-gray-600 rounded-md overflow-hidden">
               <canvas ref={canvasRef} className="w-full"></canvas>
             </div>
             
@@ -596,7 +596,7 @@ const drawGrid = (ctx, gridPoints, color) => {
           </div>
           
           <div>
-            <div className="bg-gray-50 p-4 rounded-md border">
+            <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-md border dark:border-gray-600">
               <h3 className="text-lg font-semibold mb-3">Transformation Matrix</h3>
               
               {mode === '2d' ? (
@@ -709,10 +709,10 @@ const drawGrid = (ctx, gridPoints, color) => {
               )}
               
               {/* Determinant display */}
-              <div className="mt-3 p-2 bg-white rounded border text-center text-sm">
+              <div className="mt-3 p-2 bg-white dark:bg-gray-700 rounded border dark:border-gray-600 text-center text-sm">
                 {mode === '2d' ? (
                   <>
-                    <span className="text-gray-600">det = </span>
+                    <span className="text-gray-600 dark:text-gray-400">det = </span>
                     <span className={`font-bold ${
                       Math.abs(matrix2D[0][0] * matrix2D[1][1] - matrix2D[0][1] * matrix2D[1][0]) < 0.001
                         ? 'text-red-600' : 'text-gray-900'
@@ -731,7 +731,7 @@ const drawGrid = (ctx, gridPoints, color) => {
                               + m[0][2]*(m[1][0]*m[2][1]-m[1][1]*m[2][0]);
                     return (
                       <>
-                        <span className="text-gray-600">det = </span>
+                        <span className="text-gray-600 dark:text-gray-400">det = </span>
                         <span className={`font-bold ${Math.abs(det) < 0.001 ? 'text-red-600' : 'text-gray-900'}`}>
                           {det.toFixed(3)}
                         </span>
@@ -830,7 +830,7 @@ const drawGrid = (ctx, gridPoints, color) => {
           </div>
         </div>
         
-        <div className="mt-6 p-4 bg-gray-50 rounded-md border">
+        <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-md border">
           <h3 className="text-lg font-semibold mb-3">Transformation Sequence</h3>
           
           <div className="flex space-x-2 mb-4">
@@ -871,7 +871,7 @@ const drawGrid = (ctx, gridPoints, color) => {
           </div>
           
           <div className="animation-speed">
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Animation Speed: {animationSpeed}ms
             </label>
             <input
@@ -918,7 +918,7 @@ const drawGrid = (ctx, gridPoints, color) => {
         </div>
       </div>
       
-      <div className="bg-white p-4 rounded-lg shadow-md">
+      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
         <h3 className="text-lg font-semibold mb-2">Understanding Matrix Transformations</h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">

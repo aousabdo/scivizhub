@@ -40,3 +40,44 @@
     transform: rotate(360deg);
   }
 }
+
+/* Dark mode overrides for visualization components */
+@layer utilities {
+  /* Input fields in dark mode */
+  .dark input[type="text"],
+  .dark input[type="number"],
+  .dark input[type="range"],
+  .dark select,
+  .dark textarea {
+    background-color: rgb(55 65 81);
+    border-color: rgb(75 85 99);
+    color: rgb(243 244 246);
+  }
+
+  /* Prose content in dark mode */
+  .dark .prose {
+    color: rgb(209 213 219);
+  }
+
+  .dark .prose p,
+  .dark .prose li,
+  .dark .prose td {
+    color: rgb(209 213 219);
+  }
+
+  .dark .prose strong {
+    color: rgb(243 244 246);
+  }
+
+  .dark .prose h1,
+  .dark .prose h2,
+  .dark .prose h3,
+  .dark .prose h4 {
+    color: rgb(243 244 246);
+  }
+
+  /* KaTeX math in dark mode */
+  .dark .katex {
+    color: rgb(229 231 235);
+  }
+}

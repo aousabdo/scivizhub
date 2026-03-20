@@ -670,7 +670,7 @@ const PendulumWaveVisualizer = () => {
   
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-md">
+      <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>
             <h2 className="text-2xl font-bold mb-2">Pendulum Wave Dynamics</h2>
@@ -702,11 +702,11 @@ const PendulumWaveVisualizer = () => {
         </div>
         
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">Presets</label>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Presets</label>
           <div className="flex flex-wrap gap-2">
             {Object.entries(PRESETS).map(([key, p]) => (
               <button key={key} onClick={() => loadPreset(key)}
-                className="px-3 py-1.5 text-sm rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
+                className="px-3 py-1.5 text-sm rounded-md bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 text-gray-700 dark:text-gray-300 transition-colors">
                 {p.label}
               </button>
             ))}
@@ -716,7 +716,7 @@ const PendulumWaveVisualizer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Number of Pendulums: {pendulumCount}
               </label>
               <input
@@ -731,7 +731,7 @@ const PendulumWaveVisualizer = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Pendulum Length: {pendulumLength} pixels
               </label>
               <input
@@ -746,7 +746,7 @@ const PendulumWaveVisualizer = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Cycle Time: {cycleTime} seconds
               </label>
               <input
@@ -764,7 +764,7 @@ const PendulumWaveVisualizer = () => {
           
           <div className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Gravity: {gravity.toFixed(1)} m/s²
               </label>
               <input
@@ -780,7 +780,7 @@ const PendulumWaveVisualizer = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Damping Factor: {dampingFactor.toFixed(3)}
               </label>
               <input
@@ -805,14 +805,14 @@ const PendulumWaveVisualizer = () => {
                   onChange={() => setShowTrails(!showTrails)}
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
-                <label htmlFor="showTrails" className="ml-2 block text-sm text-gray-700">
+                <label htmlFor="showTrails" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
                   Show Pendulum Trails
                 </label>
               </div>
               
               {showTrails && (
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Trail Length: {trailsLength}
                   </label>
                   <input
@@ -834,7 +834,7 @@ const PendulumWaveVisualizer = () => {
                   onChange={() => setShowPhaseInfo(!showPhaseInfo)}
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
-                <label htmlFor="showPhaseInfo" className="ml-2 block text-sm text-gray-700">
+                <label htmlFor="showPhaseInfo" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
                   Show Phase Information
                 </label>
               </div>
@@ -847,7 +847,7 @@ const PendulumWaveVisualizer = () => {
                   onChange={() => setShowSineWave(!showSineWave)}
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
-                <label htmlFor="showSineWave" className="ml-2 block text-sm text-gray-700">
+                <label htmlFor="showSineWave" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
                   Show Sine Wave Visualization
                 </label>
               </div>
@@ -855,28 +855,28 @@ const PendulumWaveVisualizer = () => {
           </div>
         </div>
         
-        <div className="p-3 bg-gray-50 rounded-lg border border-gray-200">
+        <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200">
           <p className="text-sm font-medium">
             Current Pattern: <span className="text-blue-600">{getPatternDescription()}</span>
           </p>
         </div>
       </div>
       
-      <div className="visualization-container bg-white p-4 rounded-lg shadow-md mb-6">
+      <div className="visualization-container bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900 mb-6">
         <div className="canvas-container w-full" style={{ minHeight: '400px' }}>
           <canvas ref={canvasRef} className="w-full h-full"></canvas>
         </div>
       </div>
       
       {showSineWave && (
-        <div className="visualization-container bg-white p-4 rounded-lg shadow-md mb-6">
+        <div className="visualization-container bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900 mb-6">
           <div className="canvas-container w-full" style={{ height: '200px' }}>
             <canvas ref={sineCanvasRef} className="w-full h-full"></canvas>
           </div>
         </div>
       )}
       
-      <div className="bg-white p-4 rounded-lg shadow-md">
+      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
         <h3 className="text-lg font-semibold mb-2">Understanding Pendulum Waves</h3>
         
         <div className="prose max-w-none">
@@ -886,7 +886,7 @@ const PendulumWaveVisualizer = () => {
             according to the pendulum length formula:
           </p>
           
-          <div className="p-3 bg-gray-50 rounded mb-3 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded mb-3 text-center">
             <BlockMath>{"T = 2\\pi\\sqrt{\\frac{L}{g}}"}</BlockMath>
           </div>
 

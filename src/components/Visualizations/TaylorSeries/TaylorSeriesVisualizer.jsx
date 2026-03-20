@@ -521,7 +521,7 @@ const TaylorSeriesVisualizer = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-md">
+      <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>
             <h2 className="text-2xl font-bold mb-2">Taylor Series Approximation Visualizer</h2>
@@ -554,11 +554,11 @@ const TaylorSeriesVisualizer = () => {
 
         {/* Presets */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">Presets</label>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Presets</label>
           <div className="flex flex-wrap gap-2">
             {Object.entries(PRESETS).map(([key, p]) => (
               <button key={key} onClick={() => loadPreset(key)}
-                className="px-3 py-1.5 text-sm rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
+                className="px-3 py-1.5 text-sm rounded-md bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 text-gray-700 dark:text-gray-300 transition-colors">
                 {p.label}
               </button>
             ))}
@@ -567,7 +567,7 @@ const TaylorSeriesVisualizer = () => {
 
         {/* Function selection */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">Function</label>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Function</label>
           <div className="flex flex-wrap gap-2">
             {Object.entries(FUNCTIONS).map(([key, def]) => (
               <button
@@ -576,7 +576,7 @@ const TaylorSeriesVisualizer = () => {
                 className={`px-4 py-2 text-sm rounded-md border font-medium transition-colors ${
                   selectedFn === key
                     ? 'bg-blue-500 text-white border-blue-500'
-                    : 'bg-gray-100 hover:bg-gray-200 border-gray-300 text-gray-700'
+                    : 'bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 border-gray-300 text-gray-700'
                 }`}
               >
                 {def.label}
@@ -588,7 +588,7 @@ const TaylorSeriesVisualizer = () => {
         {/* Controls grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Number of Terms: <span className="font-mono font-bold text-blue-600">{numTerms}</span>
             </label>
             <input
@@ -609,7 +609,7 @@ const TaylorSeriesVisualizer = () => {
             </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               View Range: <span className="font-mono font-bold text-blue-600">&plusmn;{viewXRange}</span>
             </label>
             <input
@@ -630,21 +630,21 @@ const TaylorSeriesVisualizer = () => {
 
         {/* Stats panel */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-xs text-gray-500 uppercase tracking-wide">Function</p>
             <p className="text-lg font-mono font-bold text-blue-600">{FUNCTIONS[selectedFn].label}</p>
           </div>
-          <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-xs text-gray-500 uppercase tracking-wide">Terms</p>
             <p className="text-lg font-mono font-bold text-orange-600">{numTerms}</p>
           </div>
-          <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-xs text-gray-500 uppercase tracking-wide">Max Error (in view)</p>
             <p className="text-lg font-mono font-bold text-red-600">
               {stats.maxError < 0.001 ? stats.maxError.toExponential(2) : stats.maxError.toFixed(4)}
             </p>
           </div>
-          <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-xs text-gray-500 uppercase tracking-wide">Convergence Radius</p>
             <p className="text-lg font-mono font-bold text-green-600">{FUNCTIONS[selectedFn].rocLabel}</p>
           </div>
@@ -652,7 +652,7 @@ const TaylorSeriesVisualizer = () => {
       </div>
 
       {/* Canvas */}
-      <div className="bg-white p-4 rounded-lg shadow-md mb-6">
+      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900 mb-6">
         <div className="w-full" style={{ minHeight: '500px' }}>
           <canvas ref={canvasRef} className="w-full h-full" />
         </div>

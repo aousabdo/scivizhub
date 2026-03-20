@@ -26,14 +26,14 @@ const FourierTransformPage = () => {
         <h2 className="text-center text-2xl font-bold">Understanding Fourier Transforms</h2>
         
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Mathematical Foundation</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Mathematical Foundation</h3>
             <p>
               The Fourier Transform is based on the principle that any periodic function can be expressed as an infinite sum
               of sine and cosine functions with different frequencies:
             </p>
             
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"f(t) = \\frac{a_0}{2} + \\sum_{n=1}^{\\infty} \\left[ a_n \\cos(n\\omega t) + b_n \\sin(n\\omega t) \\right]"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 Where <InlineMath>{'a_n'}</InlineMath> and <InlineMath>{'b_n'}</InlineMath> are the amplitudes of the cosine and sine components for each frequency <InlineMath>{'n'}</InlineMath>
@@ -47,8 +47,8 @@ const FourierTransformPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Time and Frequency Domains</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Time and Frequency Domains</h3>
             <p>
               The Fourier Transform reveals information about a signal that might not be obvious in the time domain:
             </p>
@@ -62,8 +62,8 @@ const FourierTransformPage = () => {
             </p>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Real-World Applications</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Real-World Applications</h3>
             <p>
               Fourier transforms are everywhere in modern technology and science:
             </p>
@@ -78,8 +78,8 @@ const FourierTransformPage = () => {
             </ul>
           </div>
           
-          <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
-            <h3 className="text-xl font-bold text-yellow-800 mb-3">Types of Fourier Transforms</h3>
+          <div className="bg-yellow-50 dark:bg-yellow-900/30 p-6 rounded-lg border border-yellow-200 dark:border-yellow-700">
+            <h3 className="text-xl font-bold text-yellow-800 dark:text-yellow-300 mb-3">Types of Fourier Transforms</h3>
             <div className="overflow-x-auto">
               <table className="min-w-full mt-3 border-collapse">
                 <thead>
@@ -120,7 +120,7 @@ const FourierTransformPage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-300 my-8">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600 my-8">
           <h2 className="text-xl font-bold mb-4">Key Insights from Fourier Analysis</h2>
           <ul className="list-disc pl-5 space-y-2">
             <li>

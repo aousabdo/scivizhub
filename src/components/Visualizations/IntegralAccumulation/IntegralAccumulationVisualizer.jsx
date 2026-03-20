@@ -206,7 +206,7 @@ const IntegralAccumulationVisualizer = () => {
     <div className="p-4 max-w-6xl mx-auto space-y-6">
       <div className="bg-white border border-gray-200 rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold mb-2">Integral Accumulation Explorer</h2>
-        <p className="text-gray-700">
+        <p className="text-gray-700 dark:text-gray-300">
           Approximate area under a curve using {getMethodLabel(method)} and compare it to the exact integral.
         </p>
       </div>
@@ -214,7 +214,7 @@ const IntegralAccumulationVisualizer = () => {
       <div className="bg-white border border-gray-200 rounded-lg shadow-md p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Function</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Function</label>
             <select
               className="w-full p-2 border border-gray-300 rounded-md"
               value={functionId}
@@ -230,7 +230,7 @@ const IntegralAccumulationVisualizer = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Approximation Method</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Approximation Method</label>
             <select
               className="w-full p-2 border border-gray-300 rounded-md"
               value={method}
@@ -245,7 +245,7 @@ const IntegralAccumulationVisualizer = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Subintervals (n): {subintervals}
             </label>
             <input
@@ -274,7 +274,7 @@ const IntegralAccumulationVisualizer = () => {
 
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Lower Bound a: {toDisplay(a, 2)}
             </label>
             <input
@@ -289,7 +289,7 @@ const IntegralAccumulationVisualizer = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Upper Bound b: {toDisplay(b, 2)}
             </label>
             <input

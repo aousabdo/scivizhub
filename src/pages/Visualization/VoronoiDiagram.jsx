@@ -29,8 +29,8 @@ const VoronoiDiagramPage = () => {
         <h2 className="text-center text-2xl font-bold">Understanding Voronoi Diagrams</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">What Is a Voronoi Diagram?</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">What Is a Voronoi Diagram?</h3>
             <p>
               Given a set of seed points (also called sites or generators) in a plane, a Voronoi diagram
               divides the plane into regions called <strong>Voronoi cells</strong>. Each cell contains
@@ -44,7 +44,7 @@ const VoronoiDiagramPage = () => {
               the Euclidean distance function. The result is a partition of the entire plane into convex
               polygonal regions (with some cells extending to infinity at the boundary).
             </p>
-            <div className="my-4 p-4 bg-white rounded-lg border border-gray-200">
+            <div className="my-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
               <BlockMath>{"V(s_i) = \\{\\, p : \\|p - s_i\\| \\le \\|p - s_j\\| \\text{ for all } j \\ne i \\,\\}"}</BlockMath>
               <p className="mt-2 text-sm text-center text-gray-600">
                 The Voronoi cell for seed <InlineMath>{"s_i"}</InlineMath> contains all points nearest to <InlineMath>{"s_i"}</InlineMath>
@@ -52,8 +52,8 @@ const VoronoiDiagramPage = () => {
             </div>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Delaunay Triangulation</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Delaunay Triangulation</h3>
             <p>
               The <strong>Delaunay triangulation</strong> is the geometric dual of the Voronoi diagram.
               Two seeds are connected by a Delaunay edge if and only if their Voronoi cells share a
@@ -73,8 +73,8 @@ const VoronoiDiagramPage = () => {
             </p>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Fortune's Algorithm</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Fortune's Algorithm</h3>
             <p>
               While the brute-force approach of checking every pixel against every seed works for small
               point sets, computing Voronoi diagrams efficiently requires sophisticated algorithms.
@@ -104,8 +104,8 @@ const VoronoiDiagramPage = () => {
             </p>
           </div>
 
-          <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
-            <h3 className="text-xl font-bold text-amber-800 mb-3">Applications</h3>
+          <div className="bg-amber-50 dark:bg-amber-900/30 p-6 rounded-lg border border-amber-200 dark:border-amber-700">
+            <h3 className="text-xl font-bold text-amber-800 dark:text-amber-300 mb-3">Applications</h3>
             <p>
               Voronoi diagrams appear in a remarkable range of fields, wherever the notion of
               "nearest neighbor" or "territory" is relevant:

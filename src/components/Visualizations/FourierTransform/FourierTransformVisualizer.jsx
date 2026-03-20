@@ -323,11 +323,11 @@ const FourierTransformVisualizer = () => {
   
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-md">
+      <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>
             <h2 className="text-2xl font-bold">Fourier Series Visualizer</h2>
-            <p className="text-gray-600">{getSignalDescription()}</p>
+            <p className="text-gray-600 dark:text-gray-400">{getSignalDescription()}</p>
           </div>
           
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 mt-2 sm:mt-0">
@@ -354,7 +354,7 @@ const FourierTransformVisualizer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Signal Type:
               </label>
               <select
@@ -373,25 +373,25 @@ const FourierTransformVisualizer = () => {
             <div className="flex flex-wrap gap-2">
               <button 
                 onClick={() => applyPreset('sine')} 
-                className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded text-sm"
+                className="px-2 py-1 bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 rounded text-sm"
               >
                 Sine Example
               </button>
               <button 
                 onClick={() => applyPreset('square')} 
-                className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded text-sm"
+                className="px-2 py-1 bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 rounded text-sm"
               >
                 Square Example
               </button>
               <button 
                 onClick={() => applyPreset('sawtooth')} 
-                className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded text-sm"
+                className="px-2 py-1 bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 rounded text-sm"
               >
                 Sawtooth Example
               </button>
               <button 
                 onClick={() => applyPreset('triangle')} 
-                className="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded text-sm"
+                className="px-2 py-1 bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 rounded text-sm"
               >
                 Triangle Example
               </button>
@@ -399,7 +399,7 @@ const FourierTransformVisualizer = () => {
             
             {signalType === 'custom' && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Draw Custom Signal:
                 </label>
                 <div className="border border-gray-300 rounded-md overflow-hidden">
@@ -421,7 +421,7 @@ const FourierTransformVisualizer = () => {
             {signalType !== 'custom' && (
               <>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Frequency: {frequency} Hz
                   </label>
                   <input
@@ -436,7 +436,7 @@ const FourierTransformVisualizer = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Amplitude: {amplitude}
                   </label>
                   <input
@@ -451,7 +451,7 @@ const FourierTransformVisualizer = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Phase: {phase.toFixed(2)} radians
                   </label>
                   <input
@@ -470,7 +470,7 @@ const FourierTransformVisualizer = () => {
           
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Number of Harmonics: {harmonics}
               </label>
               <input
@@ -485,7 +485,7 @@ const FourierTransformVisualizer = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Animation Speed: {animationSpeed}ms
               </label>
               <input
@@ -507,7 +507,7 @@ const FourierTransformVisualizer = () => {
                   onChange={(e) => setShowHarmonics(e.target.checked)}
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
-                <label htmlFor="showHarmonics" className="ml-2 block text-sm text-gray-700">
+                <label htmlFor="showHarmonics" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
                   Show Harmonic Components
                 </label>
               </div>
@@ -520,13 +520,13 @@ const FourierTransformVisualizer = () => {
                   onChange={(e) => setShowReconstructed(e.target.checked)}
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
-                <label htmlFor="showReconstructed" className="ml-2 block text-sm text-gray-700">
+                <label htmlFor="showReconstructed" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
                   Show Reconstructed Signal
                 </label>
               </div>
             </div>
             
-            <div className="p-3 bg-gray-50 rounded-lg border border-gray-200">
+            <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200">
               <h4 className="font-medium mb-2">Fourier Series Information</h4>
               <div className="grid grid-cols-2 gap-2 text-sm">
                 <div>
@@ -550,7 +550,7 @@ const FourierTransformVisualizer = () => {
       
       <div className="grid grid-cols-1 gap-6">
         {/* Signal in Time Domain */}
-        <div className="bg-white p-4 rounded-lg shadow-md">
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
           <h3 className="text-lg font-semibold mb-4">Signal in Time Domain</h3>
           <div className="h-64">
             <ResponsiveContainer width="100%" height="100%">
@@ -624,7 +624,7 @@ const FourierTransformVisualizer = () => {
         </div>
         
         {/* Frequency Spectrum */}
-        <div className="bg-white p-4 rounded-lg shadow-md">
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
           <h3 className="text-lg font-semibold mb-4">Frequency Spectrum</h3>
           <div className="h-64">
             <ResponsiveContainer width="100%" height="100%">
@@ -672,9 +672,9 @@ const FourierTransformVisualizer = () => {
         </div>
       </div>
       
-      <div className="mt-6 bg-white p-4 rounded-lg shadow-md">
+      <div className="mt-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
         <h3 className="text-lg font-semibold mb-2">How to Use This Visualization</h3>
-        <ul className="list-disc list-inside text-gray-700">
+        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
           <li>Select a signal type or draw your own custom signal</li>
           <li>Adjust parameters like frequency, amplitude, and phase</li>
           <li>Set the number of harmonic components to visualize</li>
@@ -685,7 +685,7 @@ const FourierTransformVisualizer = () => {
         
         <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
           <h4 className="font-semibold mb-2">Key Observations:</h4>
-          <ul className="list-disc list-inside text-gray-700">
+          <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
             <li>A pure sine wave has a single frequency component</li>
             <li>Square waves contain only odd harmonics (1, 3, 5, ...)</li>
             <li>Sawtooth waves contain all harmonics with amplitudes decreasing as <InlineMath>{'1/n'}</InlineMath></li>

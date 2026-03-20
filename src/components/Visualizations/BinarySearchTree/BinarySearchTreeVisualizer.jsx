@@ -861,7 +861,7 @@ const BinarySearchTreeVisualizer = () => {
 
       {/* Status bar */}
       <div className="bg-white rounded-lg shadow px-4 py-2 mb-2 border border-gray-200 flex flex-wrap items-center gap-4">
-        <p className="text-sm text-gray-700 flex-1">{statusMsg}</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300 flex-1">{statusMsg}</p>
         {tree && (
           <span className="text-xs text-gray-400">
             Nodes: {countNodes(tree)} | Height: {nodeHeight(tree)}
@@ -890,7 +890,7 @@ const BinarySearchTreeVisualizer = () => {
         {/* Node info panel */}
         {info && (
           <div className="w-full lg:w-56 bg-white rounded-xl shadow-lg border border-gray-200 p-4 self-start">
-            <h3 className="text-sm font-bold text-gray-800 mb-3">Node Info</h3>
+            <h3 className="text-sm font-bold text-gray-800 dark:text-gray-200 mb-3">Node Info</h3>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span className="text-gray-500">Value</span>

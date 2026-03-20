@@ -638,7 +638,7 @@ const WaveInterferenceVisualizer = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-md">
+      <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>
             <h2 className="text-2xl font-bold mb-2">Wave Interference Simulator</h2>
@@ -671,7 +671,7 @@ const WaveInterferenceVisualizer = () => {
 
         {/* Preset buttons */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">Presets</label>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Presets</label>
           <div className="flex flex-wrap gap-2">
             {Object.entries(presets).map(([key, preset]) => (
               <button
@@ -684,7 +684,7 @@ const WaveInterferenceVisualizer = () => {
             ))}
             <button
               onClick={clearSources}
-              className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors border border-gray-200"
+              className="px-3 py-1.5 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors border border-gray-200"
             >
               Clear All
             </button>
@@ -694,7 +694,7 @@ const WaveInterferenceVisualizer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Frequency: {frequency.toFixed(1)} Hz
               </label>
               <input
@@ -709,7 +709,7 @@ const WaveInterferenceVisualizer = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Wavelength: {wavelength} px
               </label>
               <input
@@ -724,7 +724,7 @@ const WaveInterferenceVisualizer = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Amplitude: {amplitude.toFixed(2)}
               </label>
               <input
@@ -741,7 +741,7 @@ const WaveInterferenceVisualizer = () => {
 
           <div className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Animation Speed: {animationSpeed.toFixed(1)}x
               </label>
               <input
@@ -756,7 +756,7 @@ const WaveInterferenceVisualizer = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Cross-Section Position: {(crossSectionY * 100).toFixed(0)}%
               </label>
               <input
@@ -772,14 +772,14 @@ const WaveInterferenceVisualizer = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">View Mode</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">View Mode</label>
               <div className="flex space-x-2">
                 <button
                   onClick={() => setViewMode('ripple')}
                   className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
                     viewMode === 'ripple'
                       ? 'bg-blue-500 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-200'
                   }`}
                 >
                   Ripple Tank
@@ -789,7 +789,7 @@ const WaveInterferenceVisualizer = () => {
                   className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
                     viewMode === 'crossSection'
                       ? 'bg-blue-500 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-200'
                   }`}
                 >
                   Cross Section
@@ -799,7 +799,7 @@ const WaveInterferenceVisualizer = () => {
           </div>
         </div>
 
-        <div className="p-3 bg-gray-50 rounded-lg border border-gray-200">
+        <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200">
           <p className="text-sm font-medium">
             Status: <span className="text-blue-600">{getStatusDescription()}</span>
           </p>
@@ -807,7 +807,7 @@ const WaveInterferenceVisualizer = () => {
       </div>
 
       {/* Ripple Tank Canvas */}
-      <div className="visualization-container bg-white p-4 rounded-lg shadow-md mb-6">
+      <div className="visualization-container bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900 mb-6">
         <div className="canvas-container w-full" style={{ minHeight: '400px' }}>
           <canvas
             ref={canvasRef}
@@ -835,13 +835,13 @@ const WaveInterferenceVisualizer = () => {
       </div>
 
       {/* Cross Section Canvas */}
-      <div className="visualization-container bg-white p-4 rounded-lg shadow-md mb-6">
+      <div className="visualization-container bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900 mb-6">
         <div className="canvas-container w-full" style={{ height: '200px' }}>
           <canvas ref={crossSectionCanvasRef} className="w-full h-full"></canvas>
         </div>
       </div>
 
-      <div className="bg-white p-4 rounded-lg shadow-md">
+      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md dark:shadow-gray-900">
         <h3 className="text-lg font-semibold mb-2">Understanding Wave Interference</h3>
 
         <div className="prose max-w-none">
@@ -850,7 +850,7 @@ const WaveInterferenceVisualizer = () => {
             point is the sum of the individual wave amplitudes, a principle known as superposition.
           </p>
 
-          <div className="p-3 bg-gray-50 rounded mb-3 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded mb-3 text-center">
             <BlockMath>{"y(x,t) = y_1(x,t) + y_2(x,t) + \\cdots + y_n(x,t)"}</BlockMath>
           </div>
 

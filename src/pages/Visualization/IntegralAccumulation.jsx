@@ -24,24 +24,24 @@ const IntegralAccumulationPage = () => {
         <h2 className="text-center text-2xl font-bold">Core Ideas Behind Integral Accumulation</h2>
 
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Partitioning the Interval</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Partitioning the Interval</h3>
             <p>
               We split the interval <InlineMath>{"[a, b]"}</InlineMath> into <InlineMath>{"n"}</InlineMath> equal subintervals with width <InlineMath>{"\\Delta x = (b-a)/n"}</InlineMath>. Each method uses these slices
               to estimate area contributions that are then summed.
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Approximation vs Exact Value</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Approximation vs Exact Value</h3>
             <p>
               Numerical rules estimate the integral using finite geometry. When an antiderivative is known, the exact value
               comes from the Fundamental Theorem of Calculus: <InlineMath>{"\\int_a^b f(x)\\,dx = F(b) - F(a)"}</InlineMath>.
             </p>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Convergence</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Convergence</h3>
             <p>
               Increasing <InlineMath>{"n"}</InlineMath> usually decreases error because each slice becomes narrower and tracks the curve more closely.
               Different methods converge at different rates depending on function shape.
@@ -49,7 +49,7 @@ const IntegralAccumulationPage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-300 my-8">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600 my-8">
           <h2 className="text-xl font-bold mb-4">Where This Matters</h2>
           <p>
             Integral accumulation appears across physics, engineering, economics, and data science whenever continuous rates

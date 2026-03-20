@@ -313,7 +313,7 @@ const LorenzAttractorVisualizer = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-md">
+      <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>
             <h2 className="text-2xl font-bold mb-2">Lorenz Attractor Visualizer</h2>
@@ -346,13 +346,13 @@ const LorenzAttractorVisualizer = () => {
 
         {/* Presets */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">Presets</label>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Presets</label>
           <div className="flex flex-wrap gap-2">
             {Object.entries(PRESETS).map(([key, p]) => (
               <button
                 key={key}
                 onClick={() => loadPreset(key)}
-                className="px-3 py-1.5 text-sm bg-gray-100 hover:bg-gray-200 rounded-md border border-gray-300 transition-colors"
+                className="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-600 hover:bg-gray-200 rounded-md border border-gray-300 transition-colors"
               >
                 {p.label}
               </button>
@@ -365,7 +365,7 @@ const LorenzAttractorVisualizer = () => {
           {/* Column 1: Lorenz parameters */}
           <div className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 &sigma; (Sigma): {sigma.toFixed(1)}
               </label>
               <input type="range" min="0" max="30" step="0.1" value={sigma}
@@ -373,7 +373,7 @@ const LorenzAttractorVisualizer = () => {
               <p className="text-xs text-gray-500">Prandtl number (default: 10)</p>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 &rho; (Rho): {rho.toFixed(1)}
               </label>
               <input type="range" min="0" max="100" step="0.1" value={rho}
@@ -381,7 +381,7 @@ const LorenzAttractorVisualizer = () => {
               <p className="text-xs text-gray-500">Rayleigh number (default: 28)</p>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 &beta; (Beta): {beta.toFixed(2)}
               </label>
               <input type="range" min="0.1" max="10" step="0.01" value={beta}
@@ -393,14 +393,14 @@ const LorenzAttractorVisualizer = () => {
           {/* Column 2: Speed and trail */}
           <div className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Speed: {speed.toFixed(1)}x
               </label>
               <input type="range" min="0.1" max="3" step="0.1" value={speed}
                 onChange={(e) => setSpeed(parseFloat(e.target.value))} className="w-full" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Trail Length: {trailLength} points
               </label>
               <input type="range" min="100" max="5000" step="100" value={trailLength}
@@ -414,7 +414,7 @@ const LorenzAttractorVisualizer = () => {
               <input type="checkbox" id="autoRotate" checked={autoRotate}
                 onChange={() => setAutoRotate(!autoRotate)}
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
-              <label htmlFor="autoRotate" className="ml-2 block text-sm text-gray-700">
+              <label htmlFor="autoRotate" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
                 Auto-Rotate View
               </label>
             </div>
@@ -426,15 +426,15 @@ const LorenzAttractorVisualizer = () => {
 
         {/* Stats panel */}
         <div className="grid grid-cols-3 gap-3">
-          <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-xs text-gray-500 uppercase tracking-wide">X</p>
             <p className="text-lg font-mono font-bold text-blue-600">{stats.x}</p>
           </div>
-          <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-xs text-gray-500 uppercase tracking-wide">Y</p>
             <p className="text-lg font-mono font-bold text-red-600">{stats.y}</p>
           </div>
-          <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 text-center">
+          <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
             <p className="text-xs text-gray-500 uppercase tracking-wide">Z</p>
             <p className="text-lg font-mono font-bold text-green-600">{stats.z}</p>
           </div>

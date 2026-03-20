@@ -92,7 +92,7 @@ const COLOR_LABELS = { A: 'Reactant A (red)', B: 'Reactant B (blue)', C: 'Produc
 
 const SliderControl = ({ label, min, max, step, value, onChange, unit = '' }) => (
   <div>
-    <label className="block text-sm font-medium text-gray-700 mb-1">
+    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
       {label}: {value}{unit}
     </label>
     <input
@@ -119,7 +119,7 @@ const EnergyDiagram = ({ activationEnergy, catalystActive, reactionType }) => {
   const midX = w / 2;
 
   return (
-    <svg width={w} height={h} className="bg-white rounded border border-gray-200">
+    <svg width={w} height={h} className="bg-white dark:bg-gray-700 rounded border dark:border-gray-600 border-gray-200">
       <text x={w / 2} y={14} textAnchor="middle" fontSize="11" fontWeight="bold" fill="#374151">
         Energy Diagram
       </text>
@@ -506,7 +506,7 @@ const ReactionKineticsVisualizer = () => {
           />
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Reaction Type</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Reaction Type</label>
             <select
               value={reactionType}
               onChange={(e) => setReactionType(e.target.value)}
@@ -525,7 +525,7 @@ const ReactionKineticsVisualizer = () => {
               onChange={(e) => setCatalystActive(e.target.checked)}
               className="rounded text-indigo-600"
             />
-            <label htmlFor="catalyst" className="text-sm font-medium text-gray-700">
+            <label htmlFor="catalyst" className="text-sm font-medium text-gray-700 dark:text-gray-300">
               Catalyst (lowers Ea by 60%)
             </label>
           </div>
@@ -565,7 +565,7 @@ const ReactionKineticsVisualizer = () => {
             {['A', 'B', 'C', ...(reactionType === 'reversible' ? ['D'] : [])].map((species) => (
               <div
                 key={species}
-                className="bg-gray-50 rounded-lg p-3 text-center border"
+                className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 text-center border"
                 style={{ borderColor: COLORS[species] }}
               >
                 <div className="text-xs text-gray-500 uppercase font-medium">{species}</div>
@@ -578,12 +578,12 @@ const ReactionKineticsVisualizer = () => {
 
           {/* Rate and Equilibrium Info */}
           <div className="flex flex-wrap gap-4 text-sm">
-            <span className="bg-gray-100 px-3 py-1 rounded-full">
+            <span className="bg-gray-100 dark:bg-gray-600 px-3 py-1 rounded-full">
               Rate constant: <strong>{currentRate}</strong>
             </span>
             {reactionType === 'reversible' && (
               <>
-                <span className="bg-gray-100 px-3 py-1 rounded-full">
+                <span className="bg-gray-100 dark:bg-gray-600 px-3 py-1 rounded-full">
                   K<sub>eq</sub> = <strong>{equilibriumK}</strong>
                 </span>
                 <span

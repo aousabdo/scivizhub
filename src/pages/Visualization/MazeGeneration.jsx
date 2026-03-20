@@ -24,14 +24,14 @@ const MazeGenerationPage = () => {
         <h2 className="text-center text-2xl font-bold">The Art and Science of Maze Generation</h2>
         
         <div className="mt-8 grid gap-8">
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Perfect vs. Braided Mazes</h3>
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-700">
+            <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-3">Perfect vs. Braided Mazes</h3>
             <p>
               Mazes can be classified based on their topological properties:
             </p>
             
             <div className="my-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-4 bg-white rounded-lg border border-gray-200">
+              <div className="p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
                 <h4 className="font-semibold mb-2">Perfect Mazes</h4>
                 <p className="text-sm">
                   A perfect maze has exactly one path between any two points, with no loops or inaccessible areas.
@@ -44,7 +44,7 @@ const MazeGenerationPage = () => {
                 </ul>
               </div>
               
-              <div className="p-4 bg-white rounded-lg border border-gray-200">
+              <div className="p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600">
                 <h4 className="font-semibold mb-2">Braided Mazes</h4>
                 <p className="text-sm">
                   Braided mazes intentionally contain loops and multiple paths between points.
@@ -65,8 +65,8 @@ const MazeGenerationPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold text-green-800 mb-3">Algorithm Characteristics</h3>
+          <div className="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-200 dark:border-green-700">
+            <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-3">Algorithm Characteristics</h3>
             <div className="overflow-x-auto">
               <table className="min-w-full mt-3 border-collapse">
                 <thead>
@@ -112,8 +112,8 @@ const MazeGenerationPage = () => {
             </div>
           </div>
 
-          <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-purple-800 mb-3">Evaluating Maze Complexity</h3>
+          <div className="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-200 dark:border-purple-700">
+            <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-3">Evaluating Maze Complexity</h3>
             <p>
               Several metrics can be used to evaluate the complexity and difficulty of generated mazes:
             </p>
@@ -132,8 +132,8 @@ const MazeGenerationPage = () => {
             </p>
           </div>
           
-          <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
-            <h3 className="text-xl font-bold text-yellow-800 mb-3">Historical and Cultural Significance</h3>
+          <div className="bg-yellow-50 dark:bg-yellow-900/30 p-6 rounded-lg border border-yellow-200 dark:border-yellow-700">
+            <h3 className="text-xl font-bold text-yellow-800 dark:text-yellow-300 mb-3">Historical and Cultural Significance</h3>
             <p>
               Mazes have fascinated humans across cultures and throughout history:
             </p>
@@ -151,7 +151,7 @@ const MazeGenerationPage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-300 my-8">
+        <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-300 dark:border-gray-600 my-8">
           <h2 className="text-xl font-bold mb-4">Beyond the Grid</h2>
           <p>
             While this visualization focuses on 2D orthogonal grid mazes, many variations exist:
