@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 const PRESETS = {
   single: {
@@ -69,6 +71,8 @@ const SpringMassSystemVisualizer = () => {
   const dragRef = useRef({ active: false, massIndex: -1 });
   const paramsRef = useRef({ numMasses: 2, springK: 20, damping: 0, massValue: 1.0 });
   const canvasContainerRef = useRef(null);
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsRunning(r => !r) });
 
   // Keep params ref in sync
   useEffect(() => {
@@ -810,6 +814,7 @@ const SpringMassSystemVisualizer = () => {
           </div>
         )}
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

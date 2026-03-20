@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { InlineMath, BlockMath } from 'react-katex';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 const WaveInterferenceVisualizer = () => {
   // Configuration state
@@ -27,6 +29,8 @@ const WaveInterferenceVisualizer = () => {
   const timeRef = useRef(0);
   const lastFrameTimeRef = useRef(0);
   const imageDataRef = useRef(null);
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsRunning(r => !r) });
 
   // Preset configurations
   const presets = {
@@ -879,6 +883,7 @@ const WaveInterferenceVisualizer = () => {
           </div>
         </div>
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

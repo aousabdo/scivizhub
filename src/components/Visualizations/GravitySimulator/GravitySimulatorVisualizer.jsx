@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 // ---- Preset configurations ----
 const PRESETS = {
@@ -100,6 +102,8 @@ const GravitySimulatorVisualizer = () => {
   const statsCounterRef = useRef(0);
   const mouseRef = useRef({ down: false, startX: 0, startY: 0, currentX: 0, currentY: 0 });
   const cameraRef = useRef({ x: 0, y: 0, zoom: 1 });
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsRunning(r => !r) });
 
   // ---- Physics: Velocity Verlet integration ----
   const computeAccelerations = useCallback((bodies, gConst, soft) => {
@@ -743,6 +747,7 @@ const GravitySimulatorVisualizer = () => {
           />
         </div>
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

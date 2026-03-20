@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 // Polyfill for roundRect (not available in all browsers)
 if (typeof CanvasRenderingContext2D !== 'undefined' && !CanvasRenderingContext2D.prototype.roundRect) {
@@ -78,6 +80,13 @@ const FUNCTIONS = {
 
 const MAX_TERMS = 20;
 
+const PRESETS = {
+  sinBasic: { label: 'sin(x) - 5 terms', func: 'sin', numTerms: 5 },
+  expConverge: { label: 'exp(x) - 10 terms', func: 'exp', numTerms: 10 },
+  lnExpand: { label: 'ln(1+x) - 8 terms', func: 'ln', numTerms: 8 },
+  cosHighOrder: { label: 'cos(x) - 15 terms', func: 'cos', numTerms: 15 },
+};
+
 const TaylorSeriesVisualizer = () => {
   const [selectedFn, setSelectedFn] = useState('sin');
   const [numTerms, setNumTerms] = useState(1);
@@ -89,6 +98,16 @@ const TaylorSeriesVisualizer = () => {
   const lastTickRef = useRef(0);
   const statsRef = useRef({ maxError: 0 });
   const [stats, setStats] = useState({ maxError: 0 });
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsPlaying(p => !p) });
+
+  const loadPreset = useCallback((key) => {
+    const p = PRESETS[key];
+    if (!p) return;
+    setIsPlaying(false);
+    setSelectedFn(p.func);
+    setNumTerms(p.numTerms);
+  }, []);
 
   // Evaluate Taylor polynomial at x for given function and number of terms
   const evalTaylor = useCallback((fnKey, x, nTerms) => {
@@ -533,6 +552,19 @@ const TaylorSeriesVisualizer = () => {
           </div>
         </div>
 
+        {/* Presets */}
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700 mb-2">Presets</label>
+          <div className="flex flex-wrap gap-2">
+            {Object.entries(PRESETS).map(([key, p]) => (
+              <button key={key} onClick={() => loadPreset(key)}
+                className="px-3 py-1.5 text-sm rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
+                {p.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Function selection */}
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700 mb-2">Function</label>
@@ -625,6 +657,7 @@ const TaylorSeriesVisualizer = () => {
           <canvas ref={canvasRef} className="w-full h-full" />
         </div>
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

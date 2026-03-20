@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 const PRESETS = {
   symmetric: {
@@ -49,6 +51,8 @@ const DoublePendulumVisualizer = () => {
   const statsRef = useRef({ th1: 0, th2: 0, w1: 0, w2: 0, energy: 0 });
   const [stats, setStats] = useState({ th1: 0, th2: 0, w1: 0, w2: 0, energy: 0 });
   const statsCounterRef = useRef(0);
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsRunning(r => !r) });
 
   // ---- Physics: Lagrangian equations of motion for double pendulum ----
   const computeDerivatives = useCallback((st, params) => {
@@ -603,6 +607,7 @@ const DoublePendulumVisualizer = () => {
           <canvas ref={canvasRef} className="w-full h-full" />
         </div>
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

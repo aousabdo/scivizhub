@@ -19,6 +19,13 @@ import './DerivativeExplorerVisualizer.css';
  * visualization by dragging a point along various functions, toggling between different
  * function types, and exploring the relationship between secant lines and tangent lines.
  */
+const PRESETS = {
+  polynomial: { label: 'Polynomial', func: 'cubic', xPoint: 1 },
+  trigonometric: { label: 'Trigonometric', func: 'sine', xPoint: 0 },
+  exponential: { label: 'Exponential', func: 'exponential', xPoint: 0 },
+  cosineWave: { label: 'Cosine', func: 'cosine', xPoint: 0 },
+};
+
 const DerivativeExplorerVisualizer = () => {
   // SVG dimensions and margins
   const margin = { top: 40, right: 40, bottom: 60, left: 60 };
@@ -38,6 +45,13 @@ const DerivativeExplorerVisualizer = () => {
   const [zoomLevel, setZoomLevel] = useState(1);
   const [dragActive, setDragActive] = useState(false);
   
+  const loadPreset = (key) => {
+    const p = PRESETS[key];
+    if (!p) return;
+    setSelectedFunction(p.func);
+    setXValue(p.xPoint);
+  };
+
   // Calculate domain based on zoom level
   const getDomain = () => {
     const baseDomain = [-5, 5];
@@ -264,6 +278,18 @@ const DerivativeExplorerVisualizer = () => {
   return (
     <div className="derivative-explorer" ref={containerRef}>
       <div className="controls-panel">
+        <div className="control-section">
+          <label className="control-label">Presets</label>
+          <div className="flex flex-wrap gap-2" style={{ marginBottom: '12px' }}>
+            {Object.entries(PRESETS).map(([key, p]) => (
+              <button key={key} onClick={() => loadPreset(key)}
+                className="px-3 py-1.5 text-sm rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
+                {p.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
         <div className="control-section">
           <label className="control-label">Function</label>
           <div className="radio-group">

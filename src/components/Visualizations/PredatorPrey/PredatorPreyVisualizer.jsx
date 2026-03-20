@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 const CANVAS_WIDTH = 600;
 const CANVAS_HEIGHT = 450;
@@ -71,6 +73,8 @@ const PredatorPreyVisualizer = () => {
   const animationRef = useRef(null);
   const historyRef = useRef([]);
   const maxPopRef = useRef(200);
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsRunning(r => !r) });
 
   const getParams = useCallback(() => ({
     preyBirthRate, predatorDeathRate, predationRate, predatorReproRate,
@@ -695,6 +699,7 @@ const PredatorPreyVisualizer = () => {
           </div>
         </div>
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

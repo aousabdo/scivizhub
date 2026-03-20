@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 // ── Helper utilities ──────────────────────────────────────────────────────────
 
@@ -195,6 +197,13 @@ class Population {
 
 // ── Main component ────────────────────────────────────────────────────────────
 
+const PRESETS = {
+  balanced: { label: 'Balanced', populationSize: 100, mutationRate: 0.02 },
+  highMutation: { label: 'High Mutation', populationSize: 100, mutationRate: 0.15 },
+  largePopulation: { label: 'Large Population', populationSize: 300, mutationRate: 0.02 },
+  smallFast: { label: 'Small & Fast', populationSize: 50, mutationRate: 0.05 },
+};
+
 const GeneticAlgorithmVisualizer = () => {
   // Controls state
   const [populationSize, setPopulationSize] = useState(200);
@@ -207,6 +216,16 @@ const GeneticAlgorithmVisualizer = () => {
   const [bestFitness, setBestFitness] = useState(0);
   const [avgFitness, setAvgFitness] = useState(0);
   const [reachedCount, setReachedCount] = useState(0);
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsRunning(r => !r) });
+
+  const loadPreset = useCallback((key) => {
+    const p = PRESETS[key];
+    if (!p) return;
+    setIsRunning(false);
+    setPopulationSize(p.populationSize);
+    setMutationRate(p.mutationRate);
+  }, []);
 
   // Refs
   const mainCanvasRef = useRef(null);
@@ -589,6 +608,19 @@ const GeneticAlgorithmVisualizer = () => {
           </button>
         </div>
 
+        {/* Presets */}
+        <div className="flex flex-col">
+          <label className="text-xs text-gray-400 mb-0.5">Presets</label>
+          <div className="flex flex-wrap gap-1.5">
+            {Object.entries(PRESETS).map(([key, p]) => (
+              <button key={key} onClick={() => loadPreset(key)}
+                className="px-2 py-1 text-xs rounded-md bg-gray-600 hover:bg-gray-500 text-gray-200 transition-colors">
+                {p.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Population Size */}
         <div className="flex flex-col">
           <label className="text-xs text-gray-400 mb-0.5">Population: {populationSize}</label>
@@ -693,6 +725,7 @@ const GeneticAlgorithmVisualizer = () => {
           <span className="inline-block w-3 h-3 rounded-sm bg-red-500/60" /> Obstacles
         </span>
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

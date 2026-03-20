@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link, useLocation } from 'react-router-dom';
 import VisualizationCard from '../../components/UI/VisualizationCard';
 import { getAllVisualizations, getFeaturedVisualizations, CATEGORIES, DIFFICULTY } from '../../data/visualizations';
@@ -73,10 +74,16 @@ const HomePage = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
+      <Helmet>
+        <title>SciVizHub — Interactive Science Visualizations</title>
+        <meta name="description" content="Explore interactive visualizations that make complex scientific concepts intuitive and accessible. Physics, math, computer science, and more." />
+        <meta property="og:title" content="SciVizHub — Interactive Science Visualizations" />
+        <meta property="og:description" content="Explore interactive visualizations that make complex scientific concepts intuitive and accessible." />
+      </Helmet>
       {/* Hero */}
       <div className="text-center mb-10">
         <h1 className="text-4xl font-bold mb-4">SciVizHub</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-6">
           Interactive visualizations that make complex scientific concepts intuitive and accessible.
         </p>
 
@@ -90,7 +97,7 @@ const HomePage = () => {
             placeholder="Search visualizations... (e.g. sorting, pendulum, probability)"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-primary-600 focus:border-primary-600 outline-none text-base"
+            className="w-full pl-10 pr-10 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 rounded-lg shadow-sm focus:ring-2 focus:ring-primary-600 focus:border-primary-600 outline-none text-base"
           />
           {searchTerm && (
             <button
@@ -213,7 +220,7 @@ const HomePage = () => {
       )}
 
       {/* Why SciVizHub */}
-      <div className="bg-gray-50 p-6 rounded-lg border mb-12">
+      <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border dark:border-gray-700 mb-12">
         <h2 className="text-2xl font-bold mb-4">Why SciVizHub?</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="text-center p-4">

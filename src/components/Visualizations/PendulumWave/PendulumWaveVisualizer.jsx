@@ -1,5 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { InlineMath, BlockMath } from 'react-katex';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
+
+const PRESETS = {
+  classic: { label: 'Classic Wave', pendulumCount: 15, cycleTime: 30, dampingFactor: 0.999 },
+  dense: { label: 'Dense (25)', pendulumCount: 25, cycleTime: 30, dampingFactor: 0.999 },
+  quickCycle: { label: 'Quick Cycle', pendulumCount: 12, cycleTime: 15, dampingFactor: 0.999 },
+  damped: { label: 'Damped Wave', pendulumCount: 15, cycleTime: 30, dampingFactor: 0.993 },
+};
 
 const PendulumWaveVisualizer = () => {
   // Configuration state
@@ -22,7 +31,18 @@ const PendulumWaveVisualizer = () => {
   const pendulumTrailsRef = useRef([]);
   const startTimeRef = useRef(0);
   const lastTimeRef = useRef(0);
-  
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsRunning(r => !r) });
+
+  const loadPreset = (key) => {
+    const p = PRESETS[key];
+    if (!p) return;
+    setIsRunning(false);
+    setPendulumCount(p.pendulumCount);
+    setCycleTime(p.cycleTime);
+    setDampingFactor(p.dampingFactor);
+  };
+
   // Reset and initialize pendulums with proper length ratios
   const initializePendulums = () => {
     const pendulums = [];
@@ -681,6 +701,18 @@ const PendulumWaveVisualizer = () => {
           </div>
         </div>
         
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700 mb-2">Presets</label>
+          <div className="flex flex-wrap gap-2">
+            {Object.entries(PRESETS).map(([key, p]) => (
+              <button key={key} onClick={() => loadPreset(key)}
+                className="px-3 py-1.5 text-sm rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
+                {p.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div className="space-y-3">
             <div>
@@ -892,6 +924,7 @@ const PendulumWaveVisualizer = () => {
           </div>
         </div>
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

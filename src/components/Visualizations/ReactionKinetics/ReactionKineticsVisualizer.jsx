@@ -9,6 +9,8 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 const R_GAS = 8.314; // J/(mol·K)
 const A_FACTOR = 1e10; // Pre-exponential factor
@@ -180,6 +182,8 @@ const ReactionKineticsVisualizer = () => {
   const frameRef = useRef(null);
   const tickRef = useRef(0);
   const runningRef = useRef(false);
+
+  useVisualizationShortcuts({ onTogglePlay: () => setRunning(r => !r) });
 
   const effectiveEa = catalystActive ? activationEnergy * 0.4 : activationEnergy;
   const kForward = arrheniusRate(effectiveEa, temperature);
@@ -655,6 +659,7 @@ const ReactionKineticsVisualizer = () => {
           while the simulation is running. Watch how the system shifts to re-establish equilibrium.
         </div>
       )}
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };

@@ -45,7 +45,7 @@ const VisualizationCard = ({ visualization, detailed = false }) => {
   };
 
   return (
-    <div className="border rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+    <div className="border dark:border-gray-700 rounded-lg overflow-hidden shadow-lg dark:bg-gray-800 transition-transform hover:scale-105">
       <div className="relative">
         <img 
           src={thumbnail} 
@@ -65,7 +65,7 @@ const VisualizationCard = ({ visualization, detailed = false }) => {
 
       <div className="p-4">
         <h3 className="text-xl font-bold mb-2">{title}</h3>
-        <p className="text-gray-700 mb-4">{shortDescription}</p>
+        <p className="text-gray-700 dark:text-gray-300 mb-4">{shortDescription}</p>
         
         {detailed && (
           <div className="mb-4">
@@ -73,17 +73,17 @@ const VisualizationCard = ({ visualization, detailed = false }) => {
               <svg className="w-4 h-4 mr-1 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
               </svg>
-              <span className="text-sm text-gray-600">{estimatedTime}</span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">{estimatedTime}</span>
             </div>
             
             <div className="flex flex-wrap gap-1 mt-2">
               {tags.slice(0, 3).map((tag, index) => (
-                <span key={index} className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+                <span key={index} className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">
                   {tag}
                 </span>
               ))}
               {tags.length > 3 && (
-                <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+                <span className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">
                   +{tags.length - 3} more
                 </span>
               )}

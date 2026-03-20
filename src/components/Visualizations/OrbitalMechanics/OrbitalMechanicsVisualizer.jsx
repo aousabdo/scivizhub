@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
+import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 
 // ---- Preset configurations ----
 const PRESETS = {
@@ -136,6 +138,8 @@ const OrbitalMechanicsVisualizer = () => {
   const GRef = useRef(1.0);
   const softeningRef = useRef(4);
   const periodTrackerRef = useRef({}); // track orbital periods
+
+  useVisualizationShortcuts({ onTogglePlay: () => setIsRunning(r => !r) });
 
   // ---- Physics: compute accelerations ----
   const computeAccelerations = useCallback((bodies, gConst, soft) => {
@@ -856,6 +860,7 @@ const OrbitalMechanicsVisualizer = () => {
           />
         </div>
       </div>
+      <KeyboardShortcutHint showReset={false} />
     </div>
   );
 };
