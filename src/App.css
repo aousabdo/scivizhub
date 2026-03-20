@@ -81,3 +81,134 @@
     color: rgb(229 231 235);
   }
 }
+
+/* ── Global dark-mode overrides for visualization components ────────────
+   These catch common Tailwind utility classes that are missing explicit
+   dark: variants throughout the 36+ visualizer components.
+   Tailwind's own dark:* utilities (higher specificity when present)
+   will override these rules automatically. ─────────────────────────── */
+
+/* White / light backgrounds → dark in dark mode */
+.dark .bg-white {
+  background-color: rgb(31 41 55); /* gray-800 */
+  color: rgb(229 231 235); /* gray-200 — ensure text is readable */
+}
+
+.dark .bg-gray-50 {
+  background-color: rgb(55 65 81); /* gray-700 */
+}
+
+.dark .bg-gray-100 {
+  background-color: rgb(55 65 81); /* gray-700 */
+}
+
+/* Light colored backgrounds → dark tinted versions */
+.dark .bg-blue-100 {
+  background-color: rgb(30 58 138 / 0.4); /* blue-900/40 */
+}
+
+.dark .bg-emerald-100 {
+  background-color: rgb(6 78 59 / 0.4); /* emerald-900/40 */
+}
+
+.dark .bg-green-100 {
+  background-color: rgb(6 78 59 / 0.4); /* green-900/40 */
+}
+
+.dark .bg-yellow-100 {
+  background-color: rgb(113 63 18 / 0.4); /* yellow-900/40 */
+}
+
+.dark .bg-indigo-50 {
+  background-color: rgb(49 46 129 / 0.3); /* indigo-900/30 */
+}
+
+/* Gray text → lighter in dark mode */
+.dark .text-gray-400 {
+  color: rgb(156 163 175); /* stays gray-400 which is fine on dark bg */
+}
+
+.dark .text-gray-500 {
+  color: rgb(156 163 175); /* gray-400 */
+}
+
+.dark .text-gray-600 {
+  color: rgb(189 195 199); /* light gray */
+}
+
+.dark .text-gray-700 {
+  color: rgb(209 213 219); /* gray-300 */
+}
+
+.dark .text-gray-800 {
+  color: rgb(229 231 235); /* gray-200 */
+}
+
+.dark .text-gray-900 {
+  color: rgb(243 244 246); /* gray-100 */
+}
+
+/* Colored text → lighter in dark mode */
+.dark .text-blue-800 {
+  color: rgb(147 197 253); /* blue-300 */
+}
+
+.dark .text-blue-900 {
+  color: rgb(147 197 253); /* blue-300 */
+}
+
+.dark .text-green-800 {
+  color: rgb(134 239 172); /* green-300 */
+}
+
+.dark .text-emerald-900 {
+  color: rgb(110 231 183); /* emerald-300 */
+}
+
+.dark .text-purple-800 {
+  color: rgb(196 181 253); /* purple-300 */
+}
+
+.dark .text-indigo-800 {
+  color: rgb(165 180 252); /* indigo-300 */
+}
+
+/* Borders → darker in dark mode */
+.dark .border-gray-200 {
+  border-color: rgb(75 85 99); /* gray-600 */
+}
+
+.dark .border-gray-300 {
+  border-color: rgb(75 85 99); /* gray-600 */
+}
+
+.dark .border-blue-300 {
+  border-color: rgb(59 130 246 / 0.5); /* blue-500/50 */
+}
+
+.dark .border-emerald-300 {
+  border-color: rgb(16 185 129 / 0.5); /* emerald-500/50 */
+}
+
+/* Shadow adjustments for dark mode */
+.dark .shadow-md {
+  --tw-shadow-color: rgb(0 0 0 / 0.3);
+}
+
+/* Headings that use default text color in dark mode */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: rgb(243 244 246); /* gray-100 */
+}
+
+/* Body text and paragraphs in dark mode — covers unstyled text in white boxes */
+.dark .bg-white p,
+.dark .bg-white li,
+.dark .bg-white label,
+.dark .bg-white span {
+  color: rgb(209 213 219); /* gray-300 */
+}
+
+/* Ensure SVG/canvas containers maintain dark background */
+.dark .rounded-lg.shadow-md {
+  border-color: rgb(55 65 81); /* gray-700 */
+}
