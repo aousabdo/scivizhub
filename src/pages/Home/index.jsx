@@ -1,68 +1,218 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import VisualizationCard from '../../components/UI/VisualizationCard';
-import { getFeaturedVisualizations, CATEGORIES } from '../../data/visualizations';
+import { getAllVisualizations, getFeaturedVisualizations, CATEGORIES, DIFFICULTY } from '../../data/visualizations';
+
+const CATEGORY_INFO = [
+  { id: CATEGORIES.PROBABILITY, name: 'Probability', color: 'bg-blue-100 hover:bg-blue-200 border-blue-300', active: 'bg-blue-500 text-white' },
+  { id: CATEGORIES.STATISTICS, name: 'Statistics', color: 'bg-cyan-100 hover:bg-cyan-200 border-cyan-300', active: 'bg-cyan-500 text-white' },
+  { id: CATEGORIES.CALCULUS, name: 'Calculus', color: 'bg-green-100 hover:bg-green-200 border-green-300', active: 'bg-green-500 text-white' },
+  { id: CATEGORIES.LINEAR_ALGEBRA, name: 'Linear Algebra', color: 'bg-indigo-100 hover:bg-indigo-200 border-indigo-300', active: 'bg-indigo-500 text-white' },
+  { id: CATEGORIES.MATHEMATICS, name: 'Mathematics', color: 'bg-pink-100 hover:bg-pink-200 border-pink-300', active: 'bg-pink-500 text-white' },
+  { id: CATEGORIES.PHYSICS, name: 'Physics', color: 'bg-red-100 hover:bg-red-200 border-red-300', active: 'bg-red-500 text-white' },
+  { id: CATEGORIES.ENGINEERING, name: 'Engineering', color: 'bg-yellow-100 hover:bg-yellow-200 border-yellow-300', active: 'bg-yellow-500 text-white' },
+  { id: CATEGORIES.COMPUTER_SCIENCE, name: 'Computer Science', color: 'bg-purple-100 hover:bg-purple-200 border-purple-300', active: 'bg-purple-500 text-white' },
+  { id: CATEGORIES.CHEMISTRY, name: 'Chemistry', color: 'bg-orange-100 hover:bg-orange-200 border-orange-300', active: 'bg-orange-500 text-white' },
+  { id: CATEGORIES.BIOLOGY, name: 'Biology', color: 'bg-emerald-100 hover:bg-emerald-200 border-emerald-300', active: 'bg-emerald-500 text-white' },
+];
 
 const HomePage = () => {
   const [featuredVisualizations, setFeaturedVisualizations] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [activeCategory, setActiveCategory] = useState(null);
+  const [activeDifficulty, setActiveDifficulty] = useState(null);
   const location = useLocation();
-  
-  // Get featured visualizations when the component mounts or location changes
+
+  const allVisualizations = useMemo(() => getAllVisualizations(), []);
+
   useEffect(() => {
-    // Get random featured visualizations
     const randomVisualizations = getFeaturedVisualizations(3);
     setFeaturedVisualizations(randomVisualizations);
-    
-    // Scroll to top when visiting the home page
     window.scrollTo(0, 0);
-  }, [location.pathname]); // Re-run when the URL path changes
-  
+  }, [location.pathname]);
+
+  const isFiltering = searchTerm || activeCategory || activeDifficulty;
+
+  const filteredVisualizations = useMemo(() => {
+    let results = allVisualizations;
+
+    if (activeCategory) {
+      results = results.filter(v => v.category === activeCategory);
+    }
+
+    if (activeDifficulty) {
+      results = results.filter(v => v.difficulty === activeDifficulty);
+    }
+
+    if (searchTerm) {
+      const term = searchTerm.toLowerCase();
+      results = results.filter(v =>
+        v.title.toLowerCase().includes(term) ||
+        v.shortDescription.toLowerCase().includes(term) ||
+        v.tags.some(tag => tag.toLowerCase().includes(term))
+      );
+    }
+
+    return results;
+  }, [allVisualizations, searchTerm, activeCategory, activeDifficulty]);
+
+  const clearFilters = () => {
+    setSearchTerm('');
+    setActiveCategory(null);
+    setActiveDifficulty(null);
+  };
+
+  // Count visualizations per category (for badges)
+  const categoryCounts = useMemo(() => {
+    const counts = {};
+    allVisualizations.forEach(v => {
+      counts[v.category] = (counts[v.category] || 0) + 1;
+    });
+    return counts;
+  }, [allVisualizations]);
+
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="text-center mb-12">
+      {/* Hero */}
+      <div className="text-center mb-10">
         <h1 className="text-4xl font-bold mb-4">SciVizHub</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
           Interactive visualizations that make complex scientific concepts intuitive and accessible.
         </p>
-      </div>
-      
-      <div className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">Featured Visualizations</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featuredVisualizations.length > 0 ? (
-            featuredVisualizations.map((visualization) => (
-              <VisualizationCard 
-                key={visualization.id}
-                visualization={visualization}
-                detailed={true}
-              />
-            ))
-          ) : (
-            <p className="col-span-3 text-center text-gray-500 py-8">
-              No featured visualizations available yet. Check back soon!
-            </p>
+
+        {/* Search Bar */}
+        <div className="max-w-xl mx-auto relative">
+          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input
+            type="text"
+            placeholder="Search visualizations... (e.g. sorting, pendulum, probability)"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-primary-600 focus:border-primary-600 outline-none text-base"
+          />
+          {searchTerm && (
+            <button
+              onClick={() => setSearchTerm('')}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           )}
         </div>
       </div>
-      
-      <div className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">Categories</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <Link to={`/category/${CATEGORIES.PROBABILITY}`} className="p-6 bg-blue-100 rounded-lg text-center hover:bg-blue-200">
-            <h3 className="text-xl font-semibold">Probability & Statistics</h3>
-          </Link>
-          <Link to={`/category/${CATEGORIES.CALCULUS}`} className="p-6 bg-green-100 rounded-lg text-center hover:bg-green-200">
-            <h3 className="text-xl font-semibold">Calculus</h3>
-          </Link>
-          <Link to={`/category/${CATEGORIES.PHYSICS}`} className="p-6 bg-red-100 rounded-lg text-center hover:bg-red-200">
-            <h3 className="text-xl font-semibold">Physics</h3>
-          </Link>
-          <Link to={`/category/${CATEGORIES.ENGINEERING}`} className="p-6 bg-yellow-100 rounded-lg text-center hover:bg-yellow-200">
-            <h3 className="text-xl font-semibold">Engineering</h3>
-          </Link>
+
+      {/* Category Filter Pills */}
+      <div className="mb-6">
+        <div className="flex flex-wrap gap-2 justify-center">
+          {CATEGORY_INFO.filter(c => categoryCounts[c.id]).map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveCategory(activeCategory === cat.id ? null : cat.id)}
+              className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
+                activeCategory === cat.id
+                  ? cat.active
+                  : cat.color
+              }`}
+            >
+              {cat.name}
+              <span className="ml-1 opacity-70">({categoryCounts[cat.id]})</span>
+            </button>
+          ))}
         </div>
+
+        {/* Difficulty filter */}
+        <div className="flex gap-2 justify-center mt-3">
+          {[DIFFICULTY.BEGINNER, DIFFICULTY.INTERMEDIATE, DIFFICULTY.ADVANCED].map((diff) => (
+            <button
+              key={diff}
+              onClick={() => setActiveDifficulty(activeDifficulty === diff ? null : diff)}
+              className={`px-3 py-1 rounded-full text-xs font-medium border transition-colors ${
+                activeDifficulty === diff
+                  ? 'bg-gray-700 text-white border-gray-700'
+                  : 'bg-gray-100 hover:bg-gray-200 border-gray-300'
+              }`}
+            >
+              {diff.charAt(0).toUpperCase() + diff.slice(1)}
+            </button>
+          ))}
+        </div>
+
+        {/* Active filter indicator */}
+        {isFiltering && (
+          <div className="text-center mt-3">
+            <span className="text-sm text-gray-500">
+              {filteredVisualizations.length} result{filteredVisualizations.length !== 1 ? 's' : ''}
+            </span>
+            <button
+              onClick={clearFilters}
+              className="ml-3 text-sm text-primary-600 hover:text-primary-700 font-medium"
+            >
+              Clear all filters
+            </button>
+          </div>
+        )}
       </div>
-      
+
+      {/* Search / filter results */}
+      {isFiltering ? (
+        <div className="mb-12">
+          {filteredVisualizations.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredVisualizations.map((visualization) => (
+                <VisualizationCard
+                  key={visualization.id}
+                  visualization={visualization}
+                  detailed={true}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-gray-500 text-lg mb-2">No visualizations match your search.</p>
+              <p className="text-gray-400 text-sm">Try different keywords or clear the filters.</p>
+            </div>
+          )}
+        </div>
+      ) : (
+        <>
+          {/* Featured Visualizations */}
+          <div className="mb-12">
+            <h2 className="text-2xl font-bold mb-4">Featured Visualizations</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {featuredVisualizations.map((visualization) => (
+                <VisualizationCard
+                  key={visualization.id}
+                  visualization={visualization}
+                  detailed={true}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Browse All */}
+          <div className="mb-12">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-2xl font-bold">All Visualizations</h2>
+              <span className="text-sm text-gray-500">{allVisualizations.length} total</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {allVisualizations.map((visualization) => (
+                <VisualizationCard
+                  key={visualization.id}
+                  visualization={visualization}
+                  detailed={true}
+                />
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* Why SciVizHub */}
       <div className="bg-gray-50 p-6 rounded-lg border mb-12">
         <h2 className="text-2xl font-bold mb-4">Why SciVizHub?</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -78,7 +228,7 @@ const HomePage = () => {
               Interactive visuals make complex concepts easier to understand and remember.
             </p>
           </div>
-          
+
           <div className="text-center p-4">
             <div className="bg-primary-100 text-primary-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
@@ -90,7 +240,7 @@ const HomePage = () => {
               Adjust parameters and see results in real-time for deeper understanding.
             </p>
           </div>
-          
+
           <div className="text-center p-4">
             <div className="bg-primary-100 text-primary-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
@@ -108,4 +258,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage; 
+export default HomePage;
