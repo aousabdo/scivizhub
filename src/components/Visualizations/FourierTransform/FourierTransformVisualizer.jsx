@@ -556,10 +556,13 @@ const FourierTransformVisualizer = () => {
             <ResponsiveContainer width="100%" height="100%">
               <ComposedChart data={timeData}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis 
-                  dataKey="x" 
-                  label={{ value: 'Time', position: 'insideBottom', offset: -5 }} 
+                <XAxis
+                  dataKey="x"
+                  type="number"
+                  label={{ value: 'Time', position: 'insideBottom', offset: -5 }}
                   domain={[0, 1]}
+                  ticks={[0, 0.2, 0.4, 0.6, 0.8, 1]}
+                  tickFormatter={(value) => value.toFixed(1)}
                 />
                 <YAxis 
                   label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }}
