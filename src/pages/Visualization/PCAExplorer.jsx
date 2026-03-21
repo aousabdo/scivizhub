@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import PCAExplorerVisualizer from '../../components/Visualizations/PCAExplorer/PCAExplorerVisualizer';
 
 const PCAExplorerPage = () => {
@@ -60,14 +61,15 @@ const PCAExplorerPage = () => {
               Before computing principal components we first <em>centre</em> the data by subtracting
               the column means. Then we compute the <strong>covariance matrix</strong>:
             </p>
-            <div className="bg-white dark:bg-gray-800 rounded p-3 my-3 font-mono text-sm text-gray-700 dark:text-gray-300">
-              C = (1 / (n − 1)) · Xᵀ X
+            <div className="my-3 p-3 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600 text-center">
+              <BlockMath>{"C = \\frac{1}{n-1}\\, X^\\top X"}</BlockMath>
             </div>
             <p>
-              where <strong>X</strong> is the centred n × d data matrix. Each entry C[i,j] measures
-              how much features i and j vary together. Diagonal entries are the variances of individual
-              features; off-diagonal entries capture correlations. Because C is real and symmetric, its
-              eigenvectors are guaranteed to be orthogonal and its eigenvalues are real and non-negative.
+              where <InlineMath>{"X"}</InlineMath> is the centred <InlineMath>{"n \\times d"}</InlineMath> data
+              matrix. Each entry <InlineMath>{"C_{ij}"}</InlineMath> measures how much features <InlineMath>{"i"}</InlineMath> and <InlineMath>{"j"}</InlineMath> vary
+              together. Diagonal entries are the variances of individual features; off-diagonal entries
+              capture correlations. Because <InlineMath>{"C"}</InlineMath> is real and symmetric, its eigenvectors
+              are guaranteed to be orthogonal and its eigenvalues are real and non-negative.
             </p>
             <p className="mt-2">
               The <strong>Correlation</strong> slider in the visualizer controls the off-diagonal strength
@@ -86,8 +88,8 @@ const PCAExplorerPage = () => {
               and the variance explained by each component equals the corresponding{' '}
               <strong>eigenvalue</strong> divided by the sum of all eigenvalues:
             </p>
-            <div className="bg-white dark:bg-gray-800 rounded p-3 my-3 font-mono text-sm text-gray-700 dark:text-gray-300">
-              C · vₖ = λₖ · vₖ &nbsp;&nbsp; → &nbsp;&nbsp; var_k = λₖ / Σ λᵢ
+            <div className="my-3 p-3 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600 text-center">
+              <BlockMath>{"C\\,\\mathbf{v}_k = \\lambda_k\\,\\mathbf{v}_k \\qquad \\Rightarrow \\qquad \\text{var}_k = \\frac{\\lambda_k}{\\sum_i \\lambda_i}"}</BlockMath>
             </div>
             <p>
               This visualizer implements the <strong>Jacobi eigenvalue algorithm</strong> from scratch.
