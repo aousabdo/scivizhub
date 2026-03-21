@@ -135,8 +135,8 @@ const FractalExplorerPage = () => {
             </ul>
           </div>
 
-          <div className="bg-rose-50 p-6 rounded-lg border border-rose-200">
-            <h3 className="text-xl font-bold text-rose-800 mb-3">Historical Context</h3>
+          <div className="bg-rose-50 dark:bg-rose-900/30 p-6 rounded-lg border border-rose-200 dark:border-rose-700">
+            <h3 className="text-xl font-bold text-rose-800 dark:text-rose-300 mb-3">Historical Context</h3>
             <p>
               The story of fractal geometry spans more than a century of mathematical discovery:
             </p>

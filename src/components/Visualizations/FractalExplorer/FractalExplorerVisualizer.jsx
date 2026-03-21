@@ -257,7 +257,7 @@ const FractalExplorerVisualizer = () => {
     : `${zoom.toFixed(zoom < 10 ? 1 : 0)}x`;
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 max-w-5xl mx-auto">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 max-w-5xl mx-auto">
       <VisualizationToolbar canvasRef={canvasRef} filename="fractal-explorer" />
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-center mb-2">Fractal Explorer</h2>
@@ -461,15 +461,15 @@ const FractalExplorerVisualizer = () => {
 
       {/* Info */}
       <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
-        <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
+        <div className="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg border border-gray-200 dark:border-gray-600">
           <span className="font-semibold text-gray-700 dark:text-gray-300">Center:</span>{' '}
           <span className="font-mono text-xs">{centerX.toFixed(6)}, {centerY.toFixed(6)}</span>
         </div>
-        <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
+        <div className="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg border border-gray-200 dark:border-gray-600">
           <span className="font-semibold text-gray-700 dark:text-gray-300">Zoom Level:</span>{' '}
           <span className="font-mono text-xs">{zoomDisplay}</span>
         </div>
-        <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
+        <div className="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg border border-gray-200 dark:border-gray-600">
           <span className="font-semibold text-gray-700 dark:text-gray-300">Pixel Size:</span>{' '}
           <span className="font-mono text-xs">{(3.0 / (zoom * Math.min(CANVAS_WIDTH, CANVAS_HEIGHT))).toExponential(2)}</span>
         </div>

@@ -635,7 +635,7 @@ const HypothesisTestingVisualizer = () => {
       {/* Canvas */}
       <div
         ref={containerRef}
-        className="bg-white rounded-xl border border-gray-200 shadow-md overflow-hidden mb-6"
+        className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-md overflow-hidden mb-6"
       >
         <canvas
           ref={canvasRef}

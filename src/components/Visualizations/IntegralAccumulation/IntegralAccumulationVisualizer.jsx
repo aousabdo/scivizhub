@@ -204,14 +204,14 @@ const IntegralAccumulationVisualizer = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto space-y-6">
-      <div className="bg-white border border-gray-200 rounded-lg shadow-md p-6">
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold mb-2">Integral Accumulation Explorer</h2>
         <p className="text-gray-700 dark:text-gray-300">
           Approximate area under a curve using {getMethodLabel(method)} and compare it to the exact integral.
         </p>
       </div>
 
-      <div className="bg-white border border-gray-200 rounded-lg shadow-md p-6">
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Function</label>
@@ -305,7 +305,7 @@ const IntegralAccumulationVisualizer = () => {
         </div>
       </div>
 
-      <div className="bg-white border border-gray-200 rounded-lg shadow-md p-4 md:p-6 overflow-x-auto">
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md p-4 md:p-6 overflow-x-auto">
         <svg width={SVG_WIDTH} height={SVG_HEIGHT} viewBox={`0 0 ${SVG_WIDTH} ${SVG_HEIGHT}`} className="min-w-[720px]">
           <line x1={PADDING} y1={xAxisY} x2={SVG_WIDTH - PADDING} y2={xAxisY} stroke="#94a3b8" strokeWidth="1.5" />
           <line x1={yAxisX} y1={PADDING} x2={yAxisX} y2={SVG_HEIGHT - PADDING} stroke="#94a3b8" strokeWidth="1.5" />

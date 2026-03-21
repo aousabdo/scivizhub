@@ -602,7 +602,7 @@ const PredatorPreyVisualizer = () => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 max-w-7xl mx-auto">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 max-w-7xl mx-auto">
       {/* Preset Buttons */}
       <div className="mb-4 flex flex-wrap gap-2">
         <span className="text-sm font-semibold text-gray-600 self-center mr-2">Presets:</span>

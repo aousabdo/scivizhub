@@ -54,7 +54,7 @@ const DiffusionSimulationPage = () => {
               <strong>Fick's First Law</strong> states that the diffusive flux is proportional to the negative
               concentration gradient. In one dimension:
             </p>
-            <div className="bg-white rounded p-4 mt-3">
+            <div className="bg-white dark:bg-gray-800 rounded p-4 mt-3">
               <BlockMath>{"J = -D \\frac{dC}{dx}"}</BlockMath>
             </div>
             <p className="mt-3">
@@ -65,7 +65,7 @@ const DiffusionSimulationPage = () => {
             <p className="mt-3">
               <strong>Fick's Second Law</strong> describes how the concentration field evolves over time:
             </p>
-            <div className="bg-white rounded p-4 mt-3">
+            <div className="bg-white dark:bg-gray-800 rounded p-4 mt-3">
               <BlockMath>{"\\frac{\\partial C}{\\partial t} = D \\frac{\\partial^2 C}{\\partial x^2}"}</BlockMath>
             </div>
             <p className="mt-3">
@@ -81,7 +81,7 @@ const DiffusionSimulationPage = () => {
               Einstein's key insight was connecting the macroscopic diffusion coefficient <strong>D</strong> to
               microscopic properties of the particle and the surrounding fluid:
             </p>
-            <div className="bg-white rounded p-4 mt-3">
+            <div className="bg-white dark:bg-gray-800 rounded p-4 mt-3">
               <BlockMath>{"D = \\frac{k_B T}{6 \\pi \\eta r}"}</BlockMath>
             </div>
             <p className="mt-3">
@@ -98,7 +98,7 @@ const DiffusionSimulationPage = () => {
             <p className="mt-3">
               In two dimensions, the mean squared displacement is related to the diffusion coefficient by:
             </p>
-            <div className="bg-white rounded p-4 mt-3">
+            <div className="bg-white dark:bg-gray-800 rounded p-4 mt-3">
               <BlockMath>{"\\langle r^2 \\rangle = 4Dt"}</BlockMath>
             </div>
             <p className="mt-3">

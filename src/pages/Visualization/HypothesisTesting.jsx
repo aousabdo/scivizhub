@@ -56,30 +56,30 @@ const HypothesisTestingPage = () => {
               <table className="w-full text-sm border-collapse">
                 <thead>
                   <tr>
-                    <th className="border border-red-200 p-2 bg-red-100"></th>
-                    <th className="border border-red-200 p-2 bg-red-100">H&#8320; is True</th>
-                    <th className="border border-red-200 p-2 bg-red-100">H&#8320; is False</th>
+                    <th className="border border-red-200 dark:border-red-800 p-2 bg-red-100 dark:bg-red-900/30"></th>
+                    <th className="border border-red-200 dark:border-red-800 p-2 bg-red-100 dark:bg-red-900/30">H&#8320; is True</th>
+                    <th className="border border-red-200 dark:border-red-800 p-2 bg-red-100 dark:bg-red-900/30">H&#8320; is False</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td className="border border-red-200 p-2 font-medium bg-red-100">Reject H&#8320;</td>
-                    <td className="border border-red-200 p-2 bg-white">
+                    <td className="border border-red-200 dark:border-red-800 p-2 bg-white dark:bg-gray-800">
                       <strong className="text-red-600">Type I Error (&alpha;)</strong>
                       <br />False Positive
                     </td>
-                    <td className="border border-red-200 p-2 bg-white">
+                    <td className="border border-red-200 dark:border-red-800 p-2 bg-white dark:bg-gray-800">
                       <strong className="text-green-600">Correct Decision</strong>
                       <br />Power (1 &minus; &beta;)
                     </td>
                   </tr>
                   <tr>
                     <td className="border border-red-200 p-2 font-medium bg-red-100">Fail to Reject H&#8320;</td>
-                    <td className="border border-red-200 p-2 bg-white">
+                    <td className="border border-red-200 dark:border-red-800 p-2 bg-white dark:bg-gray-800">
                       <strong className="text-green-600">Correct Decision</strong>
                       <br />(1 &minus; &alpha;)
                     </td>
-                    <td className="border border-red-200 p-2 bg-white">
+                    <td className="border border-red-200 dark:border-red-800 p-2 bg-white dark:bg-gray-800">
                       <strong className="text-amber-600">Type II Error (&beta;)</strong>
                       <br />False Negative
                     </td>
