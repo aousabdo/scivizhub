@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
 import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
 import {
@@ -338,40 +338,63 @@ function buildNormalCurves(mu0, sigma0, observations) {
   const n = observations.length;
   let postMu = mu0;
   let postSigma = sigma0;
+  let obsMean = 0;
   if (n > 0) {
-    const obsMean = observations.reduce((s, v) => s + v, 0) / n;
+    obsMean = observations.reduce((s, v) => s + v, 0) / n;
     const sigmaLik = sigma0; // assume known noise = prior sigma
     const varPost = 1 / (1 / sigma0 ** 2 + n / sigmaLik ** 2);
     postSigma = Math.sqrt(varPost);
     postMu = varPost * (mu0 / sigma0 ** 2 + n * obsMean / sigmaLik ** 2);
   }
 
+  // Pre-compute sufficient statistics for likelihood (avoid O(n*m) inner loop)
+  // The log-likelihood geometric mean at x is:
+  //   (1/n) * sum_i [ -0.5*((o_i - x)/sigma0)^2 ] - log(sigma0*sqrt(2pi))
+  // = -0.5/(n*sigma0^2) * sum_i (o_i - x)^2 - log(sigma0*sqrt(2pi))
+  // sum_i (o_i - x)^2 = sum_i o_i^2 - 2x*sum_i o_i + n*x^2
+  let obsSum = 0, obsSumSq = 0;
+  if (n > 0) {
+    for (let i = 0; i < n; i++) {
+      obsSum += observations[i];
+      obsSumSq += observations[i] * observations[i];
+    }
+  }
+
   // X range spanning all relevant distributions
-  const xMin = Math.min(mu0 - 4 * sigma0, postMu - 4 * postSigma, ...observations) - 0.5;
-  const xMax = Math.max(mu0 + 4 * sigma0, postMu + 4 * postSigma, ...observations) + 0.5;
+  let obsMin = Infinity, obsMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (observations[i] < obsMin) obsMin = observations[i];
+    if (observations[i] > obsMax) obsMax = observations[i];
+  }
+  const xMin = Math.min(mu0 - 4 * sigma0, postMu - 4 * postSigma, n > 0 ? obsMin : Infinity) - 0.5;
+  const xMax = Math.max(mu0 + 4 * sigma0, postMu + 4 * postSigma, n > 0 ? obsMax : -Infinity) + 0.5;
   const range = xMax - xMin;
   const N = 300;
   const prior = [];
   const likelihood = [];
   const posterior = [];
+  const logNorm = Math.log(sigma0 * Math.sqrt(2 * Math.PI));
+  const invVar2n = 0.5 / (n * sigma0 * sigma0);
   for (let i = 0; i <= N; i++) {
     const x = xMin + (range * i) / N;
     prior.push({ x, y: normalPDF(x, mu0, sigma0) });
     posterior.push({ x, y: normalPDF(x, postMu, postSigma) });
-    // Likelihood: product of Normals (scaled for visualisation)
-    let lx = 1;
+    let lx = 0;
     if (n > 0) {
-      observations.forEach(o => { lx *= normalPDF(o, x, sigma0); });
-      lx = Math.pow(lx, 1 / n); // geometric mean for scale
-    } else {
-      lx = 0;
+      // Geometric mean of likelihoods using sufficient statistics (O(1) per x)
+      const ssq = obsSumSq - 2 * x * obsSum + n * x * x;
+      const logGeomMean = -invVar2n * ssq - logNorm;
+      lx = Math.exp(logGeomMean);
     }
     likelihood.push({ x, y: lx });
   }
   // Normalise likelihood
-  const likMax = Math.max(...likelihood.map(p => p.y), 1e-30);
-  const postMax = Math.max(...posterior.map(p => p.y), 1e-15);
-  const sc = postMax / likMax;
+  let likMax = 1e-30, postMaxV = 1e-15;
+  for (let i = 0; i <= N; i++) {
+    if (likelihood[i].y > likMax) likMax = likelihood[i].y;
+    if (posterior[i].y > postMaxV) postMaxV = posterior[i].y;
+  }
+  const sc = postMaxV / likMax;
 
   return {
     prior,
@@ -430,7 +453,7 @@ const BayesianUpdatingVisualizer = () => {
   const priorMeanCoin = betaMean(priorAlpha, priorBeta);
   const [ci95LoCoin, ci95HiCoin] = betaCredible(postAlpha, postBeta);
 
-  const normalResult = buildNormalCurves(mu0, sigma0, normalObs);
+  const normalResult = useMemo(() => buildNormalCurves(mu0, sigma0, normalObs), [mu0, sigma0, normalObs]);
   const posteriorMuNormal = normalResult.postMu;
   const posteriorSigmaNormal = normalResult.postSigma;
   const [ci95LoNormal, ci95HiNormal] = normalCredible(posteriorMuNormal, posteriorSigmaNormal);
@@ -439,14 +462,18 @@ const BayesianUpdatingVisualizer = () => {
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
+    let tid = null;
     const ro = new ResizeObserver(entries => {
-      for (const e of entries) {
-        const w = Math.floor(e.contentRect.width);
-        if (w > 0) setCanvasW(w);
-      }
+      clearTimeout(tid);
+      tid = setTimeout(() => {
+        for (const e of entries) {
+          const w = Math.floor(e.contentRect.width);
+          if (w > 0) setCanvasW(w);
+        }
+      }, 100);
     });
     ro.observe(el);
-    return () => ro.disconnect();
+    return () => { clearTimeout(tid); ro.disconnect(); };
   }, []);
 
   // ── Draw ───────────────────────────────────────────────────────────────────
@@ -486,24 +513,30 @@ const BayesianUpdatingVisualizer = () => {
       setTails(newTails);
       const pm = betaMean(newPostA, newPostB);
       const [lo, hi] = betaCredible(newPostA, newPostB);
-      setConvergenceData(prev => [...prev, {
-        n: newHeads + newTails,
-        posteriorMean: parseFloat(pm.toFixed(4)),
-        ciWidth: parseFloat((hi - lo).toFixed(4)),
-        true: trueBias,
-      }]);
+      setConvergenceData(prev => {
+        const next = [...prev, {
+          n: newHeads + newTails,
+          posteriorMean: parseFloat(pm.toFixed(4)),
+          ciWidth: parseFloat((hi - lo).toFixed(4)),
+          true: trueBias,
+        }];
+        return next.length > 500 ? next.slice(-500) : next;
+      });
     } else {
       const obs = sampleNormal(trueMu, sigma0);
-      const newObs = [...normalObs, obs];
+      const newObs = normalObs.length >= 500 ? [...normalObs.slice(-499), obs] : [...normalObs, obs];
       setNormalObs(newObs);
       const r = buildNormalCurves(mu0, sigma0, newObs);
       const [lo, hi] = normalCredible(r.postMu, r.postSigma);
-      setConvergenceData(prev => [...prev, {
-        n: newObs.length,
-        posteriorMean: parseFloat(r.postMu.toFixed(4)),
-        ciWidth: parseFloat((hi - lo).toFixed(4)),
-        true: trueMu,
-      }]);
+      setConvergenceData(prev => {
+        const next = [...prev, {
+          n: newObs.length,
+          posteriorMean: parseFloat(r.postMu.toFixed(4)),
+          ciWidth: parseFloat((hi - lo).toFixed(4)),
+          true: trueMu,
+        }];
+        return next.length > 500 ? next.slice(-500) : next;
+      });
     }
   }, [model, trueBias, trueMu, heads, tails, priorAlpha, priorBeta, normalObs, mu0, sigma0]);
 

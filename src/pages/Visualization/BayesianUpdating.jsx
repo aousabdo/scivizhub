@@ -1,4 +1,5 @@
 import React from 'react';
+import { InlineMath, BlockMath } from 'react-katex';
 import BayesianUpdatingVisualizer from '../../components/Visualizations/BayesianUpdating/BayesianUpdatingVisualizer';
 
 const BayesianUpdatingPage = () => {
@@ -37,14 +38,14 @@ const BayesianUpdatingPage = () => {
           <p className="text-blue-900 dark:text-blue-200 mb-3">
             The fundamental update rule for a continuous parameter θ given data&nbsp;<em>x</em>:
           </p>
-          <div className="bg-blue-100 dark:bg-blue-900/50 rounded-lg p-3 font-mono text-sm text-blue-900 dark:text-blue-100 mb-3">
-            p(θ | x) ∝ p(x | θ) · p(θ)
+          <div className="bg-blue-100 dark:bg-blue-900/50 rounded-lg p-3 mb-3 text-center">
+            <BlockMath>{"p(\\theta \\mid x) \\propto p(x \\mid \\theta) \\cdot p(\\theta)"}</BlockMath>
           </div>
           <ul className="list-disc pl-5 space-y-1 text-blue-900 dark:text-blue-200 text-sm">
-            <li><strong>p(θ)</strong> — prior: your belief before seeing data</li>
-            <li><strong>p(x | θ)</strong> — likelihood: how probable the data is under θ</li>
-            <li><strong>p(θ | x)</strong> — posterior: updated belief after data</li>
-            <li>The ∝ (proportional to) hides the normalising constant p(x)</li>
+            <li><InlineMath>{"p(\\theta)"}</InlineMath> — prior: your belief before seeing data</li>
+            <li><InlineMath>{"p(x \\mid \\theta)"}</InlineMath> — likelihood: how probable the data is under θ</li>
+            <li><InlineMath>{"p(\\theta \\mid x)"}</InlineMath> — posterior: updated belief after data</li>
+            <li>The <InlineMath>{"\\propto"}</InlineMath> (proportional to) hides the normalising constant <InlineMath>{"p(x)"}</InlineMath></li>
           </ul>
         </div>
 
@@ -79,15 +80,15 @@ const BayesianUpdatingPage = () => {
             Suppose a coin has an unknown bias <em>p</em>. We model uncertainty over <em>p</em> with
             a Beta distribution:
           </p>
-          <div className="bg-purple-100 dark:bg-purple-900/50 rounded-lg p-3 font-mono text-sm text-purple-900 dark:text-purple-100 mb-3">
-            p ~ Beta(α, β)<br />
-            f(p; α, β) = p^(α-1)(1-p)^(β-1) / B(α, β)
+          <div className="bg-purple-100 dark:bg-purple-900/50 rounded-lg p-3 mb-3 text-center">
+            <BlockMath>{"p \\sim \\text{Beta}(\\alpha, \\beta)"}</BlockMath>
+            <BlockMath>{"f(p;\\,\\alpha,\\beta) = \\frac{p^{\\alpha-1}(1-p)^{\\beta-1}}{B(\\alpha,\\beta)}"}</BlockMath>
           </div>
           <p className="text-purple-900 dark:text-purple-200 text-sm mb-2">
             After observing <em>h</em> heads and <em>t</em> tails the posterior is:
           </p>
-          <div className="bg-purple-100 dark:bg-purple-900/50 rounded-lg p-3 font-mono text-sm text-purple-900 dark:text-purple-100">
-            p | data ~ Beta(α + h, β + t)
+          <div className="bg-purple-100 dark:bg-purple-900/50 rounded-lg p-3 text-center">
+            <BlockMath>{"p \\mid \\text{data} \\sim \\text{Beta}(\\alpha + h,\\; \\beta + t)"}</BlockMath>
           </div>
           <p className="mt-3 text-purple-900 dark:text-purple-200 text-sm">
             The prior hyperparameters α and β act as <em>pseudo-counts</em>: a Beta(2, 2) prior
