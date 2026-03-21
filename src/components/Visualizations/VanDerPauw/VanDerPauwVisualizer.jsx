@@ -152,8 +152,8 @@ const VanDerPauwVisualizer = () => {
     const w = canvas.width;
     const h = canvas.height;
     const cx = w / 2;
-    const cy = h / 2;
-    const size = Math.min(w, h) * 0.35;
+    const cy = h / 2 + 10;
+    const size = Math.min(w, h) * 0.28;
 
     const isDark = document.documentElement.classList.contains('dark');
 
@@ -627,9 +627,9 @@ const VanDerPauwVisualizer = () => {
             <canvas
               ref={canvasRef}
               width={600}
-              height={400}
+              height={480}
               className="w-full rounded-lg"
-              style={{ maxHeight: '400px' }}
+              style={{ maxHeight: '480px' }}
             />
             <div className="mt-2 text-xs text-gray-500 dark:text-gray-400 text-center">
               {activeConfig === 'A'
