@@ -636,18 +636,18 @@ const NeuralNetworkTrainingVisualizer = () => {
             <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200">
               <h3 className="text-md font-medium mb-2">Training Metrics</h3>
               <div className="grid grid-cols-2 gap-4 text-sm">
-                <div className="p-2 bg-blue-50 rounded">
+                <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded">
                   <span className="font-semibold">Current Epoch:</span> {epoch} / {maxEpochs}
                 </div>
-                <div className="p-2 bg-blue-50 rounded">
+                <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded">
                   <span className="font-semibold">Test Accuracy:</span> {(accuracy * 100).toFixed(1)}%
                 </div>
                 {selectedPoint && predictionResult && (
                   <>
-                    <div className="p-2 bg-yellow-50 rounded">
+                    <div className="p-2 bg-yellow-50 dark:bg-yellow-900/20 rounded">
                       <span className="font-semibold">Network Output:</span> {formatNumber(predictionResult.rawOutput)}
                     </div>
-                    <div className="p-2 bg-yellow-50 rounded">
+                    <div className="p-2 bg-yellow-50 dark:bg-yellow-900/20 rounded">
                       <span className="font-semibold">Predicted Class:</span> {predictionResult.classLabel}
                     </div>
                   </>
@@ -674,7 +674,7 @@ const NeuralNetworkTrainingVisualizer = () => {
               onClick={handleCanvasClick}
             />
             
-            <div className="absolute bottom-2 right-2 bg-white bg-opacity-80 rounded-md p-1 text-xs">
+            <div className="absolute bottom-2 right-2 bg-white dark:bg-gray-800 bg-opacity-80 dark:bg-opacity-80 rounded-md p-1 text-xs">
               <div className="flex items-center space-x-2">
                 <div className="flex items-center">
                   <div className="w-3 h-3 rounded-full bg-blue-500 mr-1"></div>
@@ -740,7 +740,7 @@ const NeuralNetworkTrainingVisualizer = () => {
                 </LineChart>
               </ResponsiveContainer>
             ) : (
-              <div className="flex items-center justify-center h-full bg-gray-50 border rounded-lg">
+              <div className="flex items-center justify-center h-full bg-gray-50 dark:bg-gray-700 border dark:border-gray-600 rounded-lg">
                 <p className="text-gray-500">Start training to see metrics</p>
               </div>
             )}
@@ -756,7 +756,7 @@ const NeuralNetworkTrainingVisualizer = () => {
             interconnected nodes or "neurons" that process information and learn patterns from data.
           </p>
           
-          <div className="bg-blue-50 p-4 rounded-lg my-4 border border-blue-200">
+          <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg my-4 border border-blue-200 dark:border-blue-800">
             <h4 className="text-md font-semibold mb-2">Network Architecture</h4>
             <ul className="list-disc list-inside">
               <li><strong>Input Layer:</strong> Receives raw data (in this case, x and y coordinates)</li>

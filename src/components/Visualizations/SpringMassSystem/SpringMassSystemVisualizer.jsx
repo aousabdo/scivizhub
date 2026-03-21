@@ -654,7 +654,7 @@ const SpringMassSystemVisualizer = () => {
               <button
                 key={key}
                 onClick={() => applyPreset(key)}
-                className="px-3 py-1 text-sm bg-indigo-50 text-indigo-700 rounded-lg border border-indigo-200 hover:bg-indigo-100 transition-colors"
+                className="px-3 py-1 text-sm bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-lg border border-indigo-200 dark:border-indigo-700 hover:bg-indigo-100 transition-colors"
               >
                 {preset.label}
               </button>

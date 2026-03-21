@@ -72,7 +72,7 @@ const Header = ({ dark, setDark }) => {
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 py-2 animate-fadeIn">
                   <Link
                     to="/categories"
-                    className="flex items-center px-4 py-2.5 text-primary-600 hover:bg-primary-50 font-semibold border-b border-gray-100 mb-1"
+                    className="flex items-center px-4 py-2.5 text-primary-600 hover:bg-primary-50 dark:hover:bg-gray-700 font-semibold border-b border-gray-100 dark:border-gray-700 mb-1"
                   >
                     <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />

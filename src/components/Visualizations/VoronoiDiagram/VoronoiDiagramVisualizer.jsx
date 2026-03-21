@@ -469,7 +469,7 @@ const VoronoiDiagramVisualizer = () => {
             <button
               key={key}
               onClick={() => loadPreset(key)}
-              className="px-2.5 py-1 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded hover:bg-indigo-100 text-sm transition-colors"
+              className="px-2.5 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-700 rounded hover:bg-indigo-100 dark:hover:bg-indigo-800/40 text-sm transition-colors"
             >
               {label}
             </button>

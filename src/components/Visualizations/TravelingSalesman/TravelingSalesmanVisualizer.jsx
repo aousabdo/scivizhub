@@ -732,12 +732,12 @@ const TravelingSalesmanVisualizer = () => {
               {(algorithmInfo.strengths || algorithmInfo.weaknesses) && (
                 <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
                   {algorithmInfo.strengths && (
-                    <div className="p-1.5 bg-green-50 rounded border border-green-200">
+                    <div className="p-1.5 bg-green-50 dark:bg-green-900/20 rounded border border-green-200 dark:border-green-800">
                       <strong>Strengths:</strong> {algorithmInfo.strengths}
                     </div>
                   )}
                   {algorithmInfo.weaknesses && (
-                    <div className="p-1.5 bg-red-50 rounded border border-red-200">
+                    <div className="p-1.5 bg-red-50 dark:bg-red-900/20 rounded border border-red-200 dark:border-red-800">
                       <strong>Weaknesses:</strong> {algorithmInfo.weaknesses}
                     </div>
                   )}

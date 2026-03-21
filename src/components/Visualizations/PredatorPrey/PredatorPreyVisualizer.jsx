@@ -616,7 +616,7 @@ const PredatorPreyVisualizer = () => {
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Controls Panel */}
         <div className="lg:w-64 space-y-3 flex-shrink-0">
-          <h3 className="text-lg font-bold text-gray-800">Parameters</h3>
+          <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200">Parameters</h3>
 
           <SliderControl label="Initial Prey" min={20} max={200} step={10} value={initialPrey} onChange={setInitialPrey} disabled={isRunning} />
           <SliderControl label="Initial Predators" min={5} max={80} step={5} value={initialPredators} onChange={setInitialPredators} disabled={isRunning} />
@@ -648,11 +648,11 @@ const PredatorPreyVisualizer = () => {
         <div className="flex-1 space-y-4">
           {/* Real-time Stats */}
           <div className="flex flex-wrap gap-3">
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-green-50 rounded-lg border border-green-200">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
               <span className="w-3 h-3 rounded-full bg-green-600 inline-block"></span>
               <span className="text-sm font-medium">Prey (Rabbits): <strong>{stats.prey}</strong></span>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-red-50 rounded-lg border border-red-200">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800">
               <span className="w-3 h-3 rounded-full bg-red-600 inline-block"></span>
               <span className="text-sm font-medium">Predators (Wolves): <strong>{stats.predators}</strong></span>
             </div>

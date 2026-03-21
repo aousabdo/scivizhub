@@ -1067,7 +1067,7 @@ const MazeGenerationVisualizer = () => {
               </div>
             )}
             
-            <div className="p-3 bg-blue-50 rounded-lg border border-blue-100">
+            <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800">
               <h4 className="font-semibold text-sm">Progress</h4>
               <div className="mt-2">
                 <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
@@ -1082,10 +1082,10 @@ const MazeGenerationVisualizer = () => {
               </div>
               
               <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
-                <div className="p-1.5 bg-white rounded">
+                <div className="p-1.5 bg-white dark:bg-gray-700 rounded">
                   <span className="font-medium">Cells processed:</span> {visitedCells} / {totalCells}
                 </div>
-                <div className="p-1.5 bg-white rounded">
+                <div className="p-1.5 bg-white dark:bg-gray-700 rounded">
                   <span className="font-medium">Completion:</span> {Math.round((visitedCells / totalCells) * 100)}%
                 </div>
               </div>

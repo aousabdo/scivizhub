@@ -293,7 +293,7 @@ const CompressionAlgorithmVisualizer = () => {
       <div className="overflow-x-auto mt-4">
         <table className="min-w-full border-collapse">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-gray-100 dark:bg-gray-700">
               <th className="p-2 border">Character</th>
               <th className="p-2 border">Frequency</th>
               <th className="p-2 border">Code</th>
@@ -560,16 +560,16 @@ const CompressionAlgorithmVisualizer = () => {
             </div>
             
             <div className="grid grid-cols-2 gap-4 text-sm">
-              <div className="p-2 bg-blue-50 rounded">
+              <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded">
                 <span className="font-semibold">Original Size:</span> {originalSize} bytes
               </div>
-              <div className="p-2 bg-blue-50 rounded">
+              <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded">
                 <span className="font-semibold">Compressed Size:</span> {compressedSize} {compressionAlgorithm === 'huffman' ? 'bytes (from bits)' : 'bytes'}
               </div>
-              <div className="p-2 bg-blue-50 rounded">
+              <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded">
                 <span className="font-semibold">Compression Ratio:</span> {compressionRatio.toFixed(2)}%
               </div>
-              <div className="p-2 bg-blue-50 rounded">
+              <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded">
                 <span className="font-semibold">Current Step:</span> {currentStep + 1} / {steps.length}
               </div>
             </div>
@@ -601,7 +601,7 @@ const CompressionAlgorithmVisualizer = () => {
           
           {currentVisualizationStep ? (
             <div>
-              <div className="p-3 mb-4 bg-blue-50 rounded-lg border border-blue-200">
+              <div className="p-3 mb-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
                 <p className="font-medium">{currentVisualizationStep.message}</p>
               </div>
               
@@ -793,7 +793,7 @@ const CompressionAlgorithmVisualizer = () => {
           <li>Click "Decompress" to verify that the compression is lossless</li>
         </ul>
         
-        <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+        <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
           <h4 className="font-semibold mb-2">Pro Tips:</h4>
           <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
             <li>Run-Length Encoding works best with long sequences of repeated characters</li>

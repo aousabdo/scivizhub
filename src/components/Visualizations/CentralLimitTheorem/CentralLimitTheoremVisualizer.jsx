@@ -404,18 +404,18 @@ const CentralLimitTheoremVisualizer = () => {
         </div>
         
         <div className="grid grid-cols-2 gap-4 text-sm mt-4">
-          <div className="p-2 bg-blue-50 rounded">
+          <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded text-blue-900 dark:text-blue-200">
             <span className="font-semibold">Population Mean:</span> {populationMean.toFixed(2)}
           </div>
-          <div className="p-2 bg-blue-50 rounded">
+          <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded text-blue-900 dark:text-blue-200">
             <span className="font-semibold">Population Std Dev:</span> {populationStdDev.toFixed(2)}
           </div>
-          <div className="p-2 bg-green-50 rounded">
+          <div className="p-2 bg-green-50 dark:bg-green-900/20 rounded text-green-900 dark:text-green-200">
             <span className="font-semibold">Mean of Sample Means:</span> {sampleMeanOfMeans.toFixed(2)}
           </div>
-          <div className="p-2 bg-green-50 rounded">
-            <span className="font-semibold">Std Dev of Sample Means:</span> {sampleStdDevOfMeans.toFixed(2)} 
-            {" "}<span className="font-semibold text-gray-500">vs. Theoretical:</span>{" "}
+          <div className="p-2 bg-green-50 dark:bg-green-900/20 rounded text-green-900 dark:text-green-200">
+            <span className="font-semibold">Std Dev of Sample Means:</span> {sampleStdDevOfMeans.toFixed(2)}
+            {" "}<span className="font-semibold text-gray-500 dark:text-gray-400">vs. Theoretical:</span>{" "}
             {(populationStdDev / Math.sqrt(sampleSize)).toFixed(2)}
           </div>
         </div>

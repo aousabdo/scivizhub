@@ -37,7 +37,7 @@ const BayesTheoremVisualizer = () => {
       <h3 className="text-lg font-semibold mb-3">2×2 Contingency Table (Population of {populationSize})</h3>
       
       <div className="grid grid-cols-3 gap-1 text-center mb-6">
-        <div className="border p-2 bg-gray-100"></div>
+        <div className="border p-2 bg-gray-100 dark:bg-gray-700 dark:border-gray-600"></div>
         <div className="border p-2 bg-gray-100 dark:bg-gray-600 font-medium">Test Positive</div>
         <div className="border p-2 bg-gray-100 dark:bg-gray-600 font-medium">Test Negative</div>
         
@@ -50,11 +50,11 @@ const BayesTheoremVisualizer = () => {
         <div className="border p-2 bg-green-100">{trueNegatives} <span className="text-sm text-gray-500">(True Negatives)</span></div>
         
         <div className="border p-2 bg-gray-100 dark:bg-gray-600 font-medium">Total</div>
-        <div className="border p-2 bg-blue-50">{totalPositives}</div>
-        <div className="border p-2 bg-blue-50">{populationSize - totalPositives}</div>
+        <div className="border p-2 bg-blue-50 dark:bg-blue-900/20">{totalPositives}</div>
+        <div className="border p-2 bg-blue-50 dark:bg-blue-900/20">{populationSize - totalPositives}</div>
       </div>
       
-      <div className="p-4 bg-yellow-50 rounded-lg border border-yellow-200 mb-6">
+      <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-200 mb-6">
         <h4 className="font-semibold mb-2">Bayes' Theorem in Action:</h4>
         <p>If you test positive, what's the probability you actually have the disease?</p>
         <div className="mt-2 flex flex-col gap-2">
@@ -326,8 +326,8 @@ const BayesTheoremVisualizer = () => {
             </div>
             
             {/* Bayes' Theorem Box */}
-            <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg text-center">
-              <h4 className="text-xl font-bold mb-3 text-amber-800">Bayes' Theorem</h4>
+            <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 rounded-lg text-center">
+              <h4 className="text-xl font-bold mb-3 text-amber-800 dark:text-amber-300">Bayes' Theorem</h4>
               <div className="inline-block mx-auto text-center">
                 <div className="mb-2 font-mono text-lg">P(Disease|Positive) =</div>
                 <div className="flex flex-col items-center">
@@ -517,7 +517,7 @@ const BayesTheoremVisualizer = () => {
         </div>
       </div>
       
-      <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+      <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200">
         <h3 className="text-lg font-semibold mb-2">Medical Test Example</h3>
         <p className="mb-4">
           Adjust the sliders to see how different values affect the final probability:

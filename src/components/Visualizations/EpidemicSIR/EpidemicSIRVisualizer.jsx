@@ -339,7 +339,7 @@ const EpidemicSIRVisualizer = () => {
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Controls Panel */}
         <div className="lg:w-64 space-y-3 flex-shrink-0">
-          <h3 className="text-lg font-bold text-gray-800">Parameters</h3>
+          <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200">Parameters</h3>
 
           <SliderControl label="Population" min={100} max={500} step={10} value={populationSize} onChange={setPopulationSize} disabled={isRunning} />
           <SliderControl label="Initial Infected" min={1} max={20} step={1} value={initialInfected} onChange={setInitialInfected} disabled={isRunning} />
@@ -370,15 +370,15 @@ const EpidemicSIRVisualizer = () => {
         <div className="flex-1 space-y-4">
           {/* Real-time Stats */}
           <div className="flex flex-wrap gap-3">
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-green-50 rounded-lg border border-green-200">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
               <span className="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
               <span className="text-sm font-medium">Susceptible: <strong>{stats.S}</strong></span>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-red-50 rounded-lg border border-red-200">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800">
               <span className="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
               <span className="text-sm font-medium">Infected: <strong>{stats.I}</strong></span>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
               <span className="w-3 h-3 rounded-full bg-blue-500 inline-block"></span>
               <span className="text-sm font-medium">Recovered: <strong>{stats.R}</strong></span>
             </div>
@@ -386,7 +386,7 @@ const EpidemicSIRVisualizer = () => {
               <span className="w-3 h-3 rounded-full bg-gray-400 inline-block"></span>
               <span className="text-sm font-medium">Deceased: <strong>{stats.D}</strong></span>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-purple-50 rounded-lg border border-purple-200">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
               <span className="text-sm font-medium">R0 Estimate: <strong>{stats.R0}</strong></span>
             </div>
           </div>
