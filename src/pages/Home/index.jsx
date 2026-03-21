@@ -2,7 +2,40 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useLocation } from 'react-router-dom';
 import VisualizationCard from '../../components/UI/VisualizationCard';
+import GuidedTour from '../../components/UI/GuidedTour';
 import { getAllVisualizations, getFeaturedVisualizations, CATEGORIES, DIFFICULTY } from '../../data/visualizations';
+
+const TOUR_STEPS = [
+  {
+    title: 'Welcome to SciVizHub!',
+    content: 'Explore interactive visualizations that make complex scientific concepts intuitive. Let us show you around!',
+    placement: 'bottom',
+  },
+  {
+    target: '[data-tour="search"]',
+    title: 'Search Visualizations',
+    content: 'Type keywords to quickly find visualizations by name, description, or tags.',
+    placement: 'bottom',
+  },
+  {
+    target: '[data-tour="categories"]',
+    title: 'Filter by Category',
+    content: 'Click category pills to narrow down by subject — Probability, Physics, Computer Science, and more.',
+    placement: 'bottom',
+  },
+  {
+    target: '[data-tour="difficulty"]',
+    title: 'Choose Your Level',
+    content: 'Filter by difficulty to find visualizations appropriate for your background.',
+    placement: 'bottom',
+  },
+  {
+    target: '[data-tour="featured"]',
+    title: 'Featured Visualizations',
+    content: 'Each visit shows a fresh selection of featured visualizations. Click any card to dive in!',
+    placement: 'top',
+  },
+];
 
 const CATEGORY_INFO = [
   { id: CATEGORIES.PROBABILITY, name: 'Probability', color: 'bg-blue-100 hover:bg-blue-200 border-blue-300 dark:bg-blue-900/40 dark:hover:bg-blue-800/50 dark:border-blue-700 dark:text-blue-200', active: 'bg-blue-500 text-white' },
@@ -88,7 +121,7 @@ const HomePage = () => {
         </p>
 
         {/* Search Bar */}
-        <div className="max-w-xl mx-auto relative">
+        <div className="max-w-xl mx-auto relative" data-tour="search">
           <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
@@ -114,7 +147,7 @@ const HomePage = () => {
 
       {/* Category Filter Pills */}
       <div className="mb-6">
-        <div className="flex flex-wrap gap-2 justify-center">
+        <div className="flex flex-wrap gap-2 justify-center" data-tour="categories">
           {CATEGORY_INFO.filter(c => categoryCounts[c.id]).map((cat) => (
             <button
               key={cat.id}
@@ -132,7 +165,7 @@ const HomePage = () => {
         </div>
 
         {/* Difficulty filter */}
-        <div className="flex gap-2 justify-center mt-3">
+        <div className="flex gap-2 justify-center mt-3" data-tour="difficulty">
           {[DIFFICULTY.BEGINNER, DIFFICULTY.INTERMEDIATE, DIFFICULTY.ADVANCED].map((diff) => (
             <button
               key={diff}
@@ -187,7 +220,7 @@ const HomePage = () => {
       ) : (
         <>
           {/* Featured Visualizations */}
-          <div className="mb-12">
+          <div className="mb-12" data-tour="featured">
             <h2 className="text-2xl font-bold mb-4">Featured Visualizations</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {featuredVisualizations.map((visualization) => (
@@ -257,6 +290,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <GuidedTour steps={TOUR_STEPS} storageKey="scivizhub-home-tour" />
     </div>
   );
 };

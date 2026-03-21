@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import useVisualizationShortcuts from '../../../hooks/useVisualizationShortcuts';
 import KeyboardShortcutHint from '../../UI/KeyboardShortcutHint';
+import VisualizationToolbar from '../../UI/VisualizationToolbar';
 
 const PRESETS = {
   symmetric: {
@@ -445,6 +446,7 @@ const DoublePendulumVisualizer = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
+      <VisualizationToolbar canvasRef={canvasRef} filename="double-pendulum" />
       <div className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>

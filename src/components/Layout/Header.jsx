@@ -95,6 +95,10 @@ const Header = ({ dark, setDark }) => {
               )}
             </div>
 
+            <Link to="/compare" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 font-medium transition-colors">
+              Compare
+            </Link>
+
             <Link to="/about" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 font-medium transition-colors">
               About
             </Link>
@@ -154,6 +158,9 @@ const Header = ({ dark, setDark }) => {
                 </Link>
               ))}
             </div>
+            <Link to="/compare" className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded font-medium">
+              Compare
+            </Link>
             <Link to="/about" className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded font-medium">
               About
             </Link>
