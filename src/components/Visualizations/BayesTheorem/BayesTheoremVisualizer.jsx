@@ -33,7 +33,7 @@ const BayesTheoremVisualizer = () => {
   
   // Interactive 2x2 Table View
   const TableView = () => (
-    <div className="p-4 border rounded-lg bg-white shadow-sm">
+    <div className="p-4 border dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 shadow-sm">
       <h3 className="text-lg font-semibold mb-3">2×2 Contingency Table (Population of {populationSize})</h3>
       
       <div className="grid grid-cols-3 gap-1 text-center mb-6">
@@ -68,7 +68,7 @@ const BayesTheoremVisualizer = () => {
   
   // Tree Diagram View
   const TreeDiagram = () => (
-    <div className="p-4 border rounded-lg bg-white shadow-sm flex justify-center">
+    <div className="p-4 border dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 shadow-sm flex justify-center">
       <svg width="500" height="400" viewBox="0 0 500 400">
         {/* Tree Root */}
         <circle cx="250" cy="40" r="20" fill="#e0e0e0" />
@@ -162,7 +162,7 @@ const BayesTheoremVisualizer = () => {
     const positiveCenterX = width / 2 + separation;
     
     return (
-      <div className="p-4 border rounded-lg bg-white shadow-sm">
+      <div className="p-4 border dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 shadow-sm">
         <div className="text-center mb-4">
           <h3 className="text-2xl font-bold">Venn Diagram of Disease and Test Results</h3>
           <p className="text-md mt-1">Population: {populationSize.toLocaleString()} people</p>
@@ -458,7 +458,7 @@ const BayesTheoremVisualizer = () => {
 
   // Visual Proof tab
   const VisualProof = () => (
-    <div className="p-4 border rounded-lg bg-white shadow-sm">
+    <div className="p-4 border dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 shadow-sm">
       <div className="text-center my-6">
         <h3 className="text-2xl font-bold mb-4">Bayes' Theorem</h3>
         

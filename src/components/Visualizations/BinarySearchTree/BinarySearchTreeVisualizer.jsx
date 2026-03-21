@@ -713,7 +713,7 @@ const BinarySearchTreeVisualizer = () => {
   return (
     <div className="max-w-6xl mx-auto">
       {/* Control bar */}
-      <div className="bg-white rounded-xl shadow-lg p-4 mb-4 border border-gray-200">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 mb-4 border border-gray-200 dark:border-gray-700">
         <div className="flex flex-wrap gap-3 items-center">
           {/* Input + Operation buttons */}
           <div className="flex items-center gap-2">
@@ -860,7 +860,7 @@ const BinarySearchTreeVisualizer = () => {
       </div>
 
       {/* Status bar */}
-      <div className="bg-white rounded-lg shadow px-4 py-2 mb-2 border border-gray-200 flex flex-wrap items-center gap-4">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow px-4 py-2 mb-2 border border-gray-200 dark:border-gray-700 flex flex-wrap items-center gap-4">
         <p className="text-sm text-gray-700 dark:text-gray-300 flex-1">{statusMsg}</p>
         {tree && (
           <span className="text-xs text-gray-400">
@@ -878,7 +878,7 @@ const BinarySearchTreeVisualizer = () => {
 
       {/* Canvas and info panel */}
       <div className="flex gap-4 flex-col lg:flex-row" ref={containerRef}>
-        <div className="flex-1 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+        <div className="flex-1 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
           <canvas
             ref={canvasRef}
             style={{ width: '100%', height: canvasSize.h }}
@@ -889,7 +889,7 @@ const BinarySearchTreeVisualizer = () => {
 
         {/* Node info panel */}
         {info && (
-          <div className="w-full lg:w-56 bg-white rounded-xl shadow-lg border border-gray-200 p-4 self-start">
+          <div className="w-full lg:w-56 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-4 self-start">
             <h3 className="text-sm font-bold text-gray-800 dark:text-gray-200 mb-3">Node Info</h3>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">

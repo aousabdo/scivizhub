@@ -132,8 +132,8 @@ const GameOfLifePage = () => {
             </p>
           </div>
 
-          <div className="bg-rose-50 p-6 rounded-lg border border-rose-200">
-            <h3 className="text-xl font-bold text-rose-800 mb-3">History and Legacy</h3>
+          <div className="bg-rose-50 dark:bg-rose-900/30 p-6 rounded-lg border border-rose-200 dark:border-rose-700">
+            <h3 className="text-xl font-bold text-rose-800 dark:text-rose-300 mb-3">History and Legacy</h3>
             <p>
               John Conway first described the Game of Life in 1970, and it was popularized by Martin Gardner's
               "Mathematical Games" column in Scientific American. Conway spent years fine-tuning the rules,

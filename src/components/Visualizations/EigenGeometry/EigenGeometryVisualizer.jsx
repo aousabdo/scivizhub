@@ -138,7 +138,7 @@ const EigenGeometryVisualizer = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto space-y-6">
-      <div className="bg-white border border-gray-200 rounded-lg shadow-md p-6">
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold mb-2">Eigen Geometry Explorer (2x2)</h2>
         <p className="text-gray-700 dark:text-gray-300 mb-6">
           Explore how linear transformations stretch, flip, or rotate space, and identify invariant eigenvector directions.
@@ -228,7 +228,7 @@ const EigenGeometryVisualizer = () => {
         </div>
       </div>
 
-      <div className="bg-white border border-gray-200 rounded-lg shadow-md p-4 md:p-6 overflow-x-auto">
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md p-4 md:p-6 overflow-x-auto">
         <svg width={SVG_WIDTH} height={SVG_HEIGHT} viewBox={`0 0 ${SVG_WIDTH} ${SVG_HEIGHT}`} className="min-w-[760px]">
           <defs>
             <marker id="arrowInput" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">

@@ -210,7 +210,7 @@ const MontyHallVisualizer = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto space-y-6">
-      <div className="bg-white border border-gray-200 rounded-lg shadow-md p-6">
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold mb-2">Play A Round</h2>
         <p className="text-gray-700 dark:text-gray-300 mb-4">{phaseMessage}</p>
 
@@ -262,7 +262,7 @@ const MontyHallVisualizer = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 bg-white border border-gray-200 rounded-lg shadow-md p-6">
+        <div className="lg:col-span-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-bold mb-2">Run Strategy Simulation</h2>
           <p className="text-gray-700 dark:text-gray-300 mb-5">
             Run many random games and compare long-run outcomes for always staying versus always switching.
@@ -354,7 +354,7 @@ const MontyHallVisualizer = () => {
           )}
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-lg shadow-md p-6 space-y-4">
+        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md p-6 space-y-4">
           <h3 className="text-xl font-bold">Quick Insights</h3>
           <div className="p-4 rounded-lg bg-blue-50 border border-blue-200">
             <p className="text-sm text-blue-900">

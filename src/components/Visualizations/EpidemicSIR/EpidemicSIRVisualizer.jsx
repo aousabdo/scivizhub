@@ -325,7 +325,7 @@ const EpidemicSIRVisualizer = () => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 max-w-7xl mx-auto">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 max-w-7xl mx-auto">
       {/* Preset Buttons */}
       <div className="mb-4 flex flex-wrap gap-2">
         <span className="text-sm font-semibold text-gray-600 self-center mr-2">Presets:</span>
@@ -408,7 +408,7 @@ const EpidemicSIRVisualizer = () => {
             {/* SIR Curves Chart */}
             <div>
               <h4 className="text-sm font-semibold text-gray-600 mb-2">SIR Curves Over Time</h4>
-              <div className="border border-gray-300 rounded-lg p-2 bg-white" style={{ height: CANVAS_HEIGHT }}>
+              <div className="border border-gray-300 dark:border-gray-600 rounded-lg p-2 bg-white dark:bg-gray-800" style={{ height: CANVAS_HEIGHT }}>
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={chartData} margin={{ top: 10, right: 20, left: 0, bottom: 10 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />

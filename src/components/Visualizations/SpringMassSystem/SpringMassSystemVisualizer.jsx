@@ -645,7 +645,7 @@ const SpringMassSystemVisualizer = () => {
 
   return (
     <div className="max-w-5xl mx-auto">
-      <div className="bg-white rounded-xl shadow-lg p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
         {/* Presets */}
         <div className="mb-4">
           <span className="text-sm font-semibold text-gray-600 mr-2">Presets:</span>

@@ -403,7 +403,7 @@ const VoronoiDiagramVisualizer = () => {
   return (
     <div className="max-w-5xl mx-auto">
       {/* Controls */}
-      <div className="bg-white rounded-lg shadow-md p-4 mb-4">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 mb-4">
         <div className="flex flex-wrap gap-3 items-center justify-between">
           <div className="flex flex-wrap gap-2">
             <button
@@ -478,7 +478,7 @@ const VoronoiDiagramVisualizer = () => {
       </div>
 
       {/* Canvas */}
-      <div className="bg-white rounded-lg shadow-md p-2">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-2">
         <canvas
           ref={canvasRef}
           width={CANVAS_WIDTH}

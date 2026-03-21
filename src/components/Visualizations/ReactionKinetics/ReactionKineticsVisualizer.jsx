@@ -440,7 +440,7 @@ const ReactionKineticsVisualizer = () => {
   const currentRate = (arrheniusRate(effectiveEa, temperature) * 1e-8).toExponential(2);
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 max-w-7xl mx-auto">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 max-w-7xl mx-auto">
       {/* Preset Buttons */}
       <div className="flex flex-wrap gap-2 mb-6">
         {Object.entries(PRESETS).map(([key, preset]) => (

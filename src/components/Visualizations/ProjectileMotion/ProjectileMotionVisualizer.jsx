@@ -169,7 +169,7 @@ const ProjectileMotionVisualizer = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto space-y-6">
-      <div className="bg-white border border-gray-200 rounded-lg shadow-md p-6">
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold mb-2">Projectile Motion Lab</h2>
         <p className="text-gray-700 dark:text-gray-300 mb-5">
           Adjust launch conditions and environmental parameters to explore trajectory shape, range, and flight time.
@@ -264,7 +264,7 @@ const ProjectileMotionVisualizer = () => {
         </div>
       </div>
 
-      <div className="bg-white border border-gray-200 rounded-lg shadow-md p-4 md:p-6 overflow-x-auto">
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md p-4 md:p-6 overflow-x-auto">
         <svg width={SVG_WIDTH} height={SVG_HEIGHT} viewBox={`0 0 ${SVG_WIDTH} ${SVG_HEIGHT}`} className="min-w-[720px]">
           {gridLines.vertical.map((tick) => (
             <g key={`x-${tick.value}`}>

@@ -430,7 +430,7 @@ const DiffusionSimulationVisualizer = () => {
         {/* Controls */}
         <div className="lg:w-72 space-y-4">
           {/* Presets */}
-          <div className="bg-white rounded-lg shadow p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
             <h3 className="text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Presets</h3>
             <div className="flex flex-wrap gap-2">
               {Object.keys(PRESETS).map(name => (
@@ -446,7 +446,7 @@ const DiffusionSimulationVisualizer = () => {
           </div>
 
           {/* Mode */}
-          <div className="bg-white rounded-lg shadow p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
             <h3 className="text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Mode</h3>
             <div className="flex flex-col gap-2">
               {Object.values(MODES).map(m => (
@@ -475,7 +475,7 @@ const DiffusionSimulationVisualizer = () => {
           </div>
 
           {/* Parameters */}
-          <div className="bg-white rounded-lg shadow p-4 space-y-3">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4 space-y-3">
             <h3 className="text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Parameters</h3>
             <SliderControl
               label="Particles" min={100} max={2000} step={50}
@@ -488,7 +488,7 @@ const DiffusionSimulationVisualizer = () => {
           </div>
 
           {/* Playback */}
-          <div className="bg-white rounded-lg shadow p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
             <h3 className="text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Playback</h3>
             <div className="flex gap-2">
               <button
@@ -512,7 +512,7 @@ const DiffusionSimulationVisualizer = () => {
           </div>
 
           {/* Stats */}
-          <div className="bg-white rounded-lg shadow p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
             <h3 className="text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Info</h3>
             <div className="text-xs text-gray-600 space-y-1">
               <p>
