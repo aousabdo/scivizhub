@@ -113,8 +113,8 @@ const categoryInfo = [
     color: 'bg-pink-100 hover:bg-pink-200',
     textColor: 'text-pink-800',
     icon: (
-      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10 2a1 1 0 011 1v6h6a1 1 0 110 2h-6v6a1 1 0 11-2 0v-6H3a1 1 0 110-2h6V3a1 1 0 011-1z" />
+      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+        <text x="12" y="20" textAnchor="middle" fontSize="24" fontFamily="serif" fontStyle="italic">∫</text>
       </svg>
     ),
   },
