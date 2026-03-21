@@ -49,6 +49,7 @@ const GeneticAlgorithmPage = lazy(() => import('./pages/Visualization/GeneticAlg
 const OrbitalMechanicsPage = lazy(() => import('./pages/Visualization/OrbitalMechanics'));
 const DiffusionSimulationPage = lazy(() => import('./pages/Visualization/DiffusionSimulation'));
 const ChaosGamePage = lazy(() => import('./pages/Visualization/ChaosGame'));
+const VanDerPauwPage = lazy(() => import('./pages/Visualization/VanDerPauw'));
 
 const Loading = () => (
   <div className="container mx-auto px-4 py-8 animate-pulse">
@@ -112,6 +113,7 @@ function App() {
             <Route path="/visualization/orbital-mechanics" element={<WithChat id="orbital-mechanics" title="Orbital Mechanics"><OrbitalMechanicsPage /></WithChat>} />
             <Route path="/visualization/diffusion-simulation" element={<WithChat id="diffusion-simulation" title="Diffusion & Brownian Motion"><DiffusionSimulationPage /></WithChat>} />
             <Route path="/visualization/chaos-game" element={<WithChat id="chaos-game" title="Chaos Game"><ChaosGamePage /></WithChat>} />
+            <Route path="/visualization/van-der-pauw" element={<WithChat id="van-der-pauw" title="Van der Pauw Method"><VanDerPauwPage /></WithChat>} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contribute" element={<ContributePage />} />
             <Route path="/compare" element={<ComparePage />} />
