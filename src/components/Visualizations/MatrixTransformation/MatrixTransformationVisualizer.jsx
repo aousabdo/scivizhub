@@ -348,14 +348,15 @@ const drawGrid = (ctx, gridPoints, color) => {
       ctx.stroke();
     }
     
-    // Draw vector labels
+    // Draw vector labels (font size must be tiny because canvas is scaled up)
+    ctx.font = '0.15px sans-serif';
     ctx.fillStyle = 'red';
-    ctx.fillText('x', transformedX[0], transformedX[1]);
+    ctx.fillText('x', transformedX[0] + 0.05, transformedX[1] - 0.05);
     ctx.fillStyle = 'green';
-    ctx.fillText('y', transformedY[0], transformedY[1]);
+    ctx.fillText('y', transformedY[0] + 0.05, transformedY[1] - 0.05);
     if (mode === '3d') {
       ctx.fillStyle = 'blue';
-      ctx.fillText('z', transformedZ[0], transformedZ[1]);
+      ctx.fillText('z', transformedZ[0] + 0.05, transformedZ[1] - 0.05);
     }
   };
   
