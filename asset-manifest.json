@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/scivizhub/static/css/main.d8c9bf9d.css",
-    "main.js": "/scivizhub/static/js/main.98326724.js",
+    "main.js": "/scivizhub/static/js/main.55fb398b.js",
     "static/js/8859.c443fcc2.chunk.js": "/scivizhub/static/js/8859.c443fcc2.chunk.js",
     "static/js/6233.d6b852bf.chunk.js": "/scivizhub/static/js/6233.d6b852bf.chunk.js",
     "static/js/7052.8a4330a0.chunk.js": "/scivizhub/static/js/7052.8a4330a0.chunk.js",
@@ -44,7 +44,7 @@
     "static/js/7238.4d8472b6.chunk.js": "/scivizhub/static/js/7238.4d8472b6.chunk.js",
     "static/js/7032.b296cbbd.chunk.js": "/scivizhub/static/js/7032.b296cbbd.chunk.js",
     "static/js/2530.31f0a5cb.chunk.js": "/scivizhub/static/js/2530.31f0a5cb.chunk.js",
-    "static/js/3099.e481a18d.chunk.js": "/scivizhub/static/js/3099.e481a18d.chunk.js",
+    "static/js/3099.3a716ca5.chunk.js": "/scivizhub/static/js/3099.3a716ca5.chunk.js",
     "static/js/6453.c876a301.chunk.js": "/scivizhub/static/js/6453.c876a301.chunk.js",
     "static/js/5150.677388ca.chunk.js": "/scivizhub/static/js/5150.677388ca.chunk.js",
     "static/js/3148.28317b14.chunk.js": "/scivizhub/static/js/3148.28317b14.chunk.js",
@@ -150,7 +150,7 @@
     "static/media/KaTeX_Size3-Regular.woff2": "/scivizhub/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
     "index.html": "/scivizhub/index.html",
     "main.d8c9bf9d.css.map": "/scivizhub/static/css/main.d8c9bf9d.css.map",
-    "main.98326724.js.map": "/scivizhub/static/js/main.98326724.js.map",
+    "main.55fb398b.js.map": "/scivizhub/static/js/main.55fb398b.js.map",
     "8859.c443fcc2.chunk.js.map": "/scivizhub/static/js/8859.c443fcc2.chunk.js.map",
     "6233.d6b852bf.chunk.js.map": "/scivizhub/static/js/6233.d6b852bf.chunk.js.map",
     "7052.8a4330a0.chunk.js.map": "/scivizhub/static/js/7052.8a4330a0.chunk.js.map",
@@ -193,7 +193,7 @@
     "7238.4d8472b6.chunk.js.map": "/scivizhub/static/js/7238.4d8472b6.chunk.js.map",
     "7032.b296cbbd.chunk.js.map": "/scivizhub/static/js/7032.b296cbbd.chunk.js.map",
     "2530.31f0a5cb.chunk.js.map": "/scivizhub/static/js/2530.31f0a5cb.chunk.js.map",
-    "3099.e481a18d.chunk.js.map": "/scivizhub/static/js/3099.e481a18d.chunk.js.map",
+    "3099.3a716ca5.chunk.js.map": "/scivizhub/static/js/3099.3a716ca5.chunk.js.map",
     "6453.c876a301.chunk.js.map": "/scivizhub/static/js/6453.c876a301.chunk.js.map",
     "5150.677388ca.chunk.js.map": "/scivizhub/static/js/5150.677388ca.chunk.js.map",
     "3148.28317b14.chunk.js.map": "/scivizhub/static/js/3148.28317b14.chunk.js.map",
@@ -240,6 +240,6 @@
   },
   "entrypoints": [
     "static/css/main.d8c9bf9d.css",
-    "static/js/main.98326724.js"
+    "static/js/main.55fb398b.js"
   ]
 }
