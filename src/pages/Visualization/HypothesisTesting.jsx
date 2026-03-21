@@ -63,7 +63,7 @@ const HypothesisTestingPage = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border border-red-200 p-2 font-medium bg-red-100">Reject H&#8320;</td>
+                    <td className="border border-red-200 dark:border-red-800 p-2 font-medium bg-red-100 dark:bg-red-900/30">Reject H&#8320;</td>
                     <td className="border border-red-200 dark:border-red-800 p-2 bg-white dark:bg-gray-800">
                       <strong className="text-red-600">Type I Error (&alpha;)</strong>
                       <br />False Positive
@@ -74,7 +74,7 @@ const HypothesisTestingPage = () => {
                     </td>
                   </tr>
                   <tr>
-                    <td className="border border-red-200 p-2 font-medium bg-red-100">Fail to Reject H&#8320;</td>
+                    <td className="border border-red-200 dark:border-red-800 p-2 font-medium bg-red-100 dark:bg-red-900/30">Fail to Reject H&#8320;</td>
                     <td className="border border-red-200 dark:border-red-800 p-2 bg-white dark:bg-gray-800">
                       <strong className="text-green-600">Correct Decision</strong>
                       <br />(1 &minus; &alpha;)

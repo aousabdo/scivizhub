@@ -334,21 +334,21 @@ const IntegralAccumulationVisualizer = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-blue-50 border border-blue-200 dark:bg-blue-900/20 dark:border-blue-800 rounded-lg p-5">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">Approximation</h3>
-          <p className="text-sm text-blue-800">{getMethodLabel(method)}</p>
-          <p className="text-2xl font-bold text-blue-900 mt-2">{toDisplay(estimate)}</p>
+          <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-200 mb-2">Approximation</h3>
+          <p className="text-sm text-blue-800 dark:text-blue-300">{getMethodLabel(method)}</p>
+          <p className="text-2xl font-bold text-blue-900 dark:text-blue-200 mt-2">{toDisplay(estimate)}</p>
         </div>
 
         <div className="bg-emerald-50 border border-emerald-200 dark:bg-emerald-900/20 dark:border-emerald-800 rounded-lg p-5">
-          <h3 className="text-lg font-semibold text-emerald-900 mb-2">Exact Integral</h3>
-          <p className="text-sm text-emerald-800"><InlineMath>{'F(b) - F(a)'}</InlineMath></p>
-          <p className="text-2xl font-bold text-emerald-900 mt-2">{toDisplay(exactIntegral)}</p>
+          <h3 className="text-lg font-semibold text-emerald-900 dark:text-emerald-200 mb-2">Exact Integral</h3>
+          <p className="text-sm text-emerald-800 dark:text-emerald-300"><InlineMath>{'F(b) - F(a)'}</InlineMath></p>
+          <p className="text-2xl font-bold text-emerald-900 dark:text-emerald-200 mt-2">{toDisplay(exactIntegral)}</p>
         </div>
 
         <div className="bg-amber-50 border border-amber-200 dark:bg-amber-900/20 dark:border-amber-800 rounded-lg p-5">
-          <h3 className="text-lg font-semibold text-amber-900 mb-2">Absolute Error</h3>
-          <p className="text-sm text-amber-800"><InlineMath>{'|\\text{Approximation} - \\text{Exact}|'}</InlineMath></p>
-          <p className="text-2xl font-bold text-amber-900 mt-2">{toDisplay(absoluteError)}</p>
+          <h3 className="text-lg font-semibold text-amber-900 dark:text-amber-200 mb-2">Absolute Error</h3>
+          <p className="text-sm text-amber-800 dark:text-amber-300"><InlineMath>{'|\\text{Approximation} - \\text{Exact}|'}</InlineMath></p>
+          <p className="text-2xl font-bold text-amber-900 dark:text-amber-200 mt-2">{toDisplay(absoluteError)}</p>
         </div>
       </div>
     </div>

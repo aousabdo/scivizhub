@@ -720,19 +720,19 @@ const HypothesisTestingVisualizer = () => {
           <div className="flex gap-6 text-center shrink-0">
             <div>
               <div className="text-xs text-gray-500 uppercase tracking-wide">Test Statistic</div>
-              <div className="text-xl font-mono font-bold text-gray-800">
+              <div className="text-xl font-mono font-bold text-gray-800 dark:text-gray-200">
                 z = {testStat.toFixed(3)}
               </div>
             </div>
             <div>
               <div className="text-xs text-gray-500 uppercase tracking-wide">p-value</div>
-              <div className={`text-xl font-mono font-bold ${pValue < alpha ? 'text-red-600' : 'text-gray-800'}`}>
+              <div className={`text-xl font-mono font-bold ${pValue < alpha ? 'text-red-600' : 'text-gray-800 dark:text-gray-200'}`}>
                 {pValue < 0.001 ? pValue.toExponential(2) : pValue.toFixed(4)}
               </div>
             </div>
             <div>
               <div className="text-xs text-gray-500 uppercase tracking-wide">Critical Value</div>
-              <div className="text-xl font-mono font-bold text-gray-800">
+              <div className="text-xl font-mono font-bold text-gray-800 dark:text-gray-200">
                 z = {twoTailed ? '\u00B1' : ''}{criticalValueRight.toFixed(3)}
               </div>
             </div>

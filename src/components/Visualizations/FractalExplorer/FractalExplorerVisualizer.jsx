@@ -348,7 +348,7 @@ const FractalExplorerVisualizer = () => {
       {fractalType === 'julia' && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 p-4 bg-purple-50 rounded-lg border border-purple-200 dark:bg-purple-900/20 dark:border-purple-700">
           <div>
-            <label className="block text-sm font-semibold text-purple-800 mb-1">
+            <label className="block text-sm font-semibold text-purple-800 dark:text-purple-300 mb-1">
               Julia c (Real): {juliaReal.toFixed(4)}
             </label>
             <input
@@ -362,7 +362,7 @@ const FractalExplorerVisualizer = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-purple-800 mb-1">
+            <label className="block text-sm font-semibold text-purple-800 dark:text-purple-300 mb-1">
               Julia c (Imaginary): {juliaImag.toFixed(4)}
             </label>
             <input

@@ -339,7 +339,7 @@ const EpidemicSIRVisualizer = () => {
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Controls Panel */}
         <div className="lg:w-64 space-y-3 flex-shrink-0">
-          <h3 className="text-lg font-bold text-gray-800">Parameters</h3>
+          <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200">Parameters</h3>
 
           <SliderControl label="Population" min={100} max={500} step={10} value={populationSize} onChange={setPopulationSize} disabled={isRunning} />
           <SliderControl label="Initial Infected" min={1} max={20} step={1} value={initialInfected} onChange={setInitialInfected} disabled={isRunning} />

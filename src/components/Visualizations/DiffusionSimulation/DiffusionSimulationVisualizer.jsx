@@ -431,7 +431,7 @@ const DiffusionSimulationVisualizer = () => {
         <div className="lg:w-72 space-y-4">
           {/* Presets */}
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-            <h3 className="text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Presets</h3>
+            <h3 className="text-sm font-bold text-gray-800 dark:text-gray-200 mb-2 uppercase tracking-wide">Presets</h3>
             <div className="flex flex-wrap gap-2">
               {Object.keys(PRESETS).map(name => (
                 <button
@@ -447,7 +447,7 @@ const DiffusionSimulationVisualizer = () => {
 
           {/* Mode */}
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-            <h3 className="text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Mode</h3>
+            <h3 className="text-sm font-bold text-gray-800 dark:text-gray-200 mb-2 uppercase tracking-wide">Mode</h3>
             <div className="flex flex-col gap-2">
               {Object.values(MODES).map(m => (
                 <label key={m} className="flex items-center gap-2 text-sm cursor-pointer">
@@ -476,7 +476,7 @@ const DiffusionSimulationVisualizer = () => {
 
           {/* Parameters */}
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4 space-y-3">
-            <h3 className="text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Parameters</h3>
+            <h3 className="text-sm font-bold text-gray-800 dark:text-gray-200 mb-2 uppercase tracking-wide">Parameters</h3>
             <SliderControl
               label="Particles" min={100} max={2000} step={50}
               value={particleCount} onChange={setParticleCount}
@@ -489,7 +489,7 @@ const DiffusionSimulationVisualizer = () => {
 
           {/* Playback */}
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-            <h3 className="text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Playback</h3>
+            <h3 className="text-sm font-bold text-gray-800 dark:text-gray-200 mb-2 uppercase tracking-wide">Playback</h3>
             <div className="flex gap-2">
               <button
                 onClick={() => setIsRunning(r => !r)}
@@ -513,7 +513,7 @@ const DiffusionSimulationVisualizer = () => {
 
           {/* Stats */}
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-            <h3 className="text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Info</h3>
+            <h3 className="text-sm font-bold text-gray-800 dark:text-gray-200 mb-2 uppercase tracking-wide">Info</h3>
             <div className="text-xs text-gray-600 space-y-1">
               <p>
                 <span className="inline-block w-3 h-3 rounded-full bg-red-500 mr-1 align-middle" />

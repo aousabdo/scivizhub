@@ -365,8 +365,8 @@ const ProjectileMotionVisualizer = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-5">
-          <h3 className="text-xl font-semibold text-blue-900 mb-3">Simulated Results</h3>
-          <div className="space-y-2 text-blue-900">
+          <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-200 mb-3">Simulated Results</h3>
+          <div className="space-y-2 text-blue-900 dark:text-blue-200">
             <p>Time of flight: {formatStat(trajectory.metrics.timeOfFlight, ' s')}</p>
             <p>Range: {formatStat(trajectory.metrics.range, ' m')}</p>
             <p>Maximum height: {formatStat(trajectory.metrics.maxHeight, ' m')}</p>
@@ -375,16 +375,16 @@ const ProjectileMotionVisualizer = () => {
         </div>
 
         <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-5">
-          <h3 className="text-xl font-semibold text-emerald-900 mb-3">Vacuum Baseline (Analytic)</h3>
+          <h3 className="text-xl font-semibold text-emerald-900 dark:text-emerald-200 mb-3">Vacuum Baseline (Analytic)</h3>
           {noDragMetrics ? (
-            <div className="space-y-2 text-emerald-900">
+            <div className="space-y-2 text-emerald-900 dark:text-emerald-200">
               <p>Time of flight: {formatStat(noDragMetrics.timeOfFlight, ' s')}</p>
               <p>Range: {formatStat(noDragMetrics.range, ' m')}</p>
               <p>Maximum height: {formatStat(noDragMetrics.maxHeight, ' m')}</p>
               <p>Impact speed: {formatStat(noDragMetrics.impactSpeed, ' m/s')}</p>
             </div>
           ) : (
-            <p className="text-emerald-900">No closed-form solution available for current parameters.</p>
+            <p className="text-emerald-900 dark:text-emerald-200">No closed-form solution available for current parameters.</p>
           )}
         </div>
       </div>

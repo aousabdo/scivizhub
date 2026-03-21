@@ -236,7 +236,7 @@ const HomePage = () => {
           {/* Browse All Link */}
           <div className="text-center mb-12">
             <Link
-              to="/explore"
+              to="/categories"
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors"
             >
               Browse All {allVisualizations.length} Visualizations

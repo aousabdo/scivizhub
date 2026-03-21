@@ -457,7 +457,7 @@ const ReactionKineticsVisualizer = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Controls Panel */}
         <div className="space-y-4">
-          <h3 className="text-lg font-bold text-gray-800">Controls</h3>
+          <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200">Controls</h3>
 
           <SliderControl
             label="Temperature"

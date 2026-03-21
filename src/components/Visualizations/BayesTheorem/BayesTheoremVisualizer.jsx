@@ -327,7 +327,7 @@ const BayesTheoremVisualizer = () => {
             
             {/* Bayes' Theorem Box */}
             <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 rounded-lg text-center">
-              <h4 className="text-xl font-bold mb-3 text-amber-800">Bayes' Theorem</h4>
+              <h4 className="text-xl font-bold mb-3 text-amber-800 dark:text-amber-300">Bayes' Theorem</h4>
               <div className="inline-block mx-auto text-center">
                 <div className="mb-2 font-mono text-lg">P(Disease|Positive) =</div>
                 <div className="flex flex-col items-center">

@@ -616,7 +616,7 @@ const PredatorPreyVisualizer = () => {
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Controls Panel */}
         <div className="lg:w-64 space-y-3 flex-shrink-0">
-          <h3 className="text-lg font-bold text-gray-800">Parameters</h3>
+          <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200">Parameters</h3>
 
           <SliderControl label="Initial Prey" min={20} max={200} step={10} value={initialPrey} onChange={setInitialPrey} disabled={isRunning} />
           <SliderControl label="Initial Predators" min={5} max={80} step={5} value={initialPredators} onChange={setInitialPredators} disabled={isRunning} />
