@@ -38,23 +38,23 @@ const BayesTheoremVisualizer = () => {
       
       <div className="grid grid-cols-3 gap-1 text-center mb-6">
         <div className="border p-2 bg-gray-100 dark:bg-gray-700 dark:border-gray-600"></div>
-        <div className="border p-2 bg-gray-100 dark:bg-gray-600 font-medium">Test Positive</div>
-        <div className="border p-2 bg-gray-100 dark:bg-gray-600 font-medium">Test Negative</div>
+        <div className="border dark:border-gray-500 p-2 bg-gray-100 dark:bg-gray-600 font-medium">Test Positive</div>
+        <div className="border dark:border-gray-500 p-2 bg-gray-100 dark:bg-gray-600 font-medium">Test Negative</div>
+
+        <div className="border dark:border-gray-500 p-2 bg-gray-100 dark:bg-gray-600 font-medium">Has Disease</div>
+        <div className="border dark:border-gray-600 p-2 bg-green-100 dark:bg-green-900/30">{truePositives} <span className="text-sm text-gray-500 dark:text-gray-400">(True Positives)</span></div>
+        <div className="border dark:border-gray-600 p-2 bg-red-100 dark:bg-red-900/30">{falseNegatives} <span className="text-sm text-gray-500 dark:text-gray-400">(False Negatives)</span></div>
+
+        <div className="border dark:border-gray-500 p-2 bg-gray-100 dark:bg-gray-600 font-medium">No Disease</div>
+        <div className="border dark:border-gray-600 p-2 bg-red-100 dark:bg-red-900/30">{falsePositives} <span className="text-sm text-gray-500 dark:text-gray-400">(False Positives)</span></div>
+        <div className="border dark:border-gray-600 p-2 bg-green-100 dark:bg-green-900/30">{trueNegatives} <span className="text-sm text-gray-500 dark:text-gray-400">(True Negatives)</span></div>
         
-        <div className="border p-2 bg-gray-100 dark:bg-gray-600 font-medium">Has Disease</div>
-        <div className="border p-2 bg-green-100">{truePositives} <span className="text-sm text-gray-500">(True Positives)</span></div>
-        <div className="border p-2 bg-red-100">{falseNegatives} <span className="text-sm text-gray-500">(False Negatives)</span></div>
-        
-        <div className="border p-2 bg-gray-100 dark:bg-gray-600 font-medium">No Disease</div>
-        <div className="border p-2 bg-red-100">{falsePositives} <span className="text-sm text-gray-500">(False Positives)</span></div>
-        <div className="border p-2 bg-green-100">{trueNegatives} <span className="text-sm text-gray-500">(True Negatives)</span></div>
-        
-        <div className="border p-2 bg-gray-100 dark:bg-gray-600 font-medium">Total</div>
-        <div className="border p-2 bg-blue-50 dark:bg-blue-900/20">{totalPositives}</div>
-        <div className="border p-2 bg-blue-50 dark:bg-blue-900/20">{populationSize - totalPositives}</div>
+        <div className="border dark:border-gray-500 p-2 bg-gray-100 dark:bg-gray-600 font-medium">Total</div>
+        <div className="border dark:border-gray-600 p-2 bg-blue-50 dark:bg-blue-900/20">{totalPositives}</div>
+        <div className="border dark:border-gray-600 p-2 bg-blue-50 dark:bg-blue-900/20">{populationSize - totalPositives}</div>
       </div>
       
-      <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-200 mb-6">
+      <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-200 dark:border-yellow-800 mb-6">
         <h4 className="font-semibold mb-2">Bayes' Theorem in Action:</h4>
         <p>If you test positive, what's the probability you actually have the disease?</p>
         <div className="mt-2 flex flex-col gap-2">
@@ -71,64 +71,64 @@ const BayesTheoremVisualizer = () => {
     <div className="p-4 border dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 shadow-sm flex justify-center">
       <svg width="500" height="400" viewBox="0 0 500 400">
         {/* Tree Root */}
-        <circle cx="250" cy="40" r="20" fill="#e0e0e0" />
-        <text x="250" y="45" textAnchor="middle" fontSize="12">Population</text>
-        
+        <circle cx="250" cy="40" r="20" className="fill-[#e0e0e0] dark:fill-[#4a4a4a]" />
+        <text x="250" y="45" textAnchor="middle" fontSize="12" className="fill-gray-900 dark:fill-gray-100">Population</text>
+
         {/* Disease Branch */}
-        <line x1="250" y1="60" x2="150" y2="120" stroke="black" strokeWidth="2" />
-        <circle cx="150" cy="120" r="20" fill="#f0f0f0" />
-        <text x="150" y="125" textAnchor="middle" fontSize="12">Disease</text>
-        <text x="200" y="105" textAnchor="middle" fontSize="10" fill="#666">{(prevalence * 100).toFixed(1)}%</text>
-        
+        <line x1="250" y1="60" x2="150" y2="120" className="stroke-black dark:stroke-gray-300" strokeWidth="2" />
+        <circle cx="150" cy="120" r="20" className="fill-[#f0f0f0] dark:fill-[#3a3a3a]" />
+        <text x="150" y="125" textAnchor="middle" fontSize="12" className="fill-gray-900 dark:fill-gray-100">Disease</text>
+        <text x="200" y="105" textAnchor="middle" fontSize="10" className="fill-[#666] dark:fill-gray-400">{(prevalence * 100).toFixed(1)}%</text>
+
         {/* No Disease Branch */}
-        <line x1="250" y1="60" x2="350" y2="120" stroke="black" strokeWidth="2" />
-        <circle cx="350" cy="120" r="20" fill="#f0f0f0" />
-        <text x="350" y="125" textAnchor="middle" fontSize="12">No Disease</text>
-        <text x="300" y="105" textAnchor="middle" fontSize="10" fill="#666">{((1-prevalence) * 100).toFixed(1)}%</text>
-        
+        <line x1="250" y1="60" x2="350" y2="120" className="stroke-black dark:stroke-gray-300" strokeWidth="2" />
+        <circle cx="350" cy="120" r="20" className="fill-[#f0f0f0] dark:fill-[#3a3a3a]" />
+        <text x="350" y="125" textAnchor="middle" fontSize="12" className="fill-gray-900 dark:fill-gray-100">No Disease</text>
+        <text x="300" y="105" textAnchor="middle" fontSize="10" className="fill-[#666] dark:fill-gray-400">{((1-prevalence) * 100).toFixed(1)}%</text>
+
         {/* Disease+Test Branches */}
-        <line x1="150" y1="140" x2="100" y2="200" stroke="black" strokeWidth="2" />
-        <circle cx="100" cy="200" r="20" fill="#aaffaa" />
-        <text x="100" y="205" textAnchor="middle" fontSize="10">Test +</text>
-        <text x="125" y="185" textAnchor="middle" fontSize="10" fill="#666">{(sensitivity * 100).toFixed(0)}%</text>
-        
-        <line x1="150" y1="140" x2="200" y2="200" stroke="black" strokeWidth="2" />
-        <circle cx="200" cy="200" r="20" fill="#ffaaaa" />
-        <text x="200" y="205" textAnchor="middle" fontSize="10">Test -</text>
-        <text x="175" y="185" textAnchor="middle" fontSize="10" fill="#666">{((1-sensitivity) * 100).toFixed(0)}%</text>
-        
+        <line x1="150" y1="140" x2="100" y2="200" className="stroke-black dark:stroke-gray-300" strokeWidth="2" />
+        <circle cx="100" cy="200" r="20" className="fill-[#aaffaa] dark:fill-[#2a5a2a]" />
+        <text x="100" y="205" textAnchor="middle" fontSize="10" className="fill-gray-900 dark:fill-gray-100">Test +</text>
+        <text x="125" y="185" textAnchor="middle" fontSize="10" className="fill-[#666] dark:fill-gray-400">{(sensitivity * 100).toFixed(0)}%</text>
+
+        <line x1="150" y1="140" x2="200" y2="200" className="stroke-black dark:stroke-gray-300" strokeWidth="2" />
+        <circle cx="200" cy="200" r="20" className="fill-[#ffaaaa] dark:fill-[#5a2a2a]" />
+        <text x="200" y="205" textAnchor="middle" fontSize="10" className="fill-gray-900 dark:fill-gray-100">Test -</text>
+        <text x="175" y="185" textAnchor="middle" fontSize="10" className="fill-[#666] dark:fill-gray-400">{((1-sensitivity) * 100).toFixed(0)}%</text>
+
         {/* No Disease+Test Branches */}
-        <line x1="350" y1="140" x2="300" y2="200" stroke="black" strokeWidth="2" />
-        <circle cx="300" cy="200" r="20" fill="#ffaaaa" />
-        <text x="300" y="205" textAnchor="middle" fontSize="10">Test +</text>
-        <text x="325" y="185" textAnchor="middle" fontSize="10" fill="#666">{((1-specificity) * 100).toFixed(0)}%</text>
-        
-        <line x1="350" y1="140" x2="400" y2="200" stroke="black" strokeWidth="2" />
-        <circle cx="400" cy="200" r="20" fill="#aaffaa" />
-        <text x="400" y="205" textAnchor="middle" fontSize="10">Test -</text>
-        <text x="375" y="185" textAnchor="middle" fontSize="10" fill="#666">{(specificity * 100).toFixed(0)}%</text>
+        <line x1="350" y1="140" x2="300" y2="200" className="stroke-black dark:stroke-gray-300" strokeWidth="2" />
+        <circle cx="300" cy="200" r="20" className="fill-[#ffaaaa] dark:fill-[#5a2a2a]" />
+        <text x="300" y="205" textAnchor="middle" fontSize="10" className="fill-gray-900 dark:fill-gray-100">Test +</text>
+        <text x="325" y="185" textAnchor="middle" fontSize="10" className="fill-[#666] dark:fill-gray-400">{((1-specificity) * 100).toFixed(0)}%</text>
+
+        <line x1="350" y1="140" x2="400" y2="200" className="stroke-black dark:stroke-gray-300" strokeWidth="2" />
+        <circle cx="400" cy="200" r="20" className="fill-[#aaffaa] dark:fill-[#2a5a2a]" />
+        <text x="400" y="205" textAnchor="middle" fontSize="10" className="fill-gray-900 dark:fill-gray-100">Test -</text>
+        <text x="375" y="185" textAnchor="middle" fontSize="10" className="fill-[#666] dark:fill-gray-400">{(specificity * 100).toFixed(0)}%</text>
         
         {/* Results Boxes */}
-        <rect x="50" y="240" width="100" height="40" rx="5" fill="#e6ffe6" stroke="#aaa" />
-        <text x="100" y="260" textAnchor="middle" fontSize="12">True Positives</text>
-        <text x="100" y="275" textAnchor="middle" fontSize="12">{truePositives} / {populationSize}</text>
-        
-        <rect x="150" y="240" width="100" height="40" rx="5" fill="#ffe6e6" stroke="#aaa" />
-        <text x="200" y="260" textAnchor="middle" fontSize="12">False Negatives</text>
-        <text x="200" y="275" textAnchor="middle" fontSize="12">{falseNegatives} / {populationSize}</text>
-        
-        <rect x="250" y="240" width="100" height="40" rx="5" fill="#ffe6e6" stroke="#aaa" />
-        <text x="300" y="260" textAnchor="middle" fontSize="12">False Positives</text>
-        <text x="300" y="275" textAnchor="middle" fontSize="12">{falsePositives} / {populationSize}</text>
-        
-        <rect x="350" y="240" width="100" height="40" rx="5" fill="#e6ffe6" stroke="#aaa" />
-        <text x="400" y="260" textAnchor="middle" fontSize="12">True Negatives</text>
-        <text x="400" y="275" textAnchor="middle" fontSize="12">{trueNegatives} / {populationSize}</text>
-        
+        <rect x="50" y="240" width="100" height="40" rx="5" className="fill-[#e6ffe6] dark:fill-[#1a3a1a] stroke-gray-400 dark:stroke-gray-500" />
+        <text x="100" y="260" textAnchor="middle" fontSize="12" className="fill-gray-900 dark:fill-gray-100">True Positives</text>
+        <text x="100" y="275" textAnchor="middle" fontSize="12" className="fill-gray-900 dark:fill-gray-100">{truePositives} / {populationSize}</text>
+
+        <rect x="150" y="240" width="100" height="40" rx="5" className="fill-[#ffe6e6] dark:fill-[#3a1a1a] stroke-gray-400 dark:stroke-gray-500" />
+        <text x="200" y="260" textAnchor="middle" fontSize="12" className="fill-gray-900 dark:fill-gray-100">False Negatives</text>
+        <text x="200" y="275" textAnchor="middle" fontSize="12" className="fill-gray-900 dark:fill-gray-100">{falseNegatives} / {populationSize}</text>
+
+        <rect x="250" y="240" width="100" height="40" rx="5" className="fill-[#ffe6e6] dark:fill-[#3a1a1a] stroke-gray-400 dark:stroke-gray-500" />
+        <text x="300" y="260" textAnchor="middle" fontSize="12" className="fill-gray-900 dark:fill-gray-100">False Positives</text>
+        <text x="300" y="275" textAnchor="middle" fontSize="12" className="fill-gray-900 dark:fill-gray-100">{falsePositives} / {populationSize}</text>
+
+        <rect x="350" y="240" width="100" height="40" rx="5" className="fill-[#e6ffe6] dark:fill-[#1a3a1a] stroke-gray-400 dark:stroke-gray-500" />
+        <text x="400" y="260" textAnchor="middle" fontSize="12" className="fill-gray-900 dark:fill-gray-100">True Negatives</text>
+        <text x="400" y="275" textAnchor="middle" fontSize="12" className="fill-gray-900 dark:fill-gray-100">{trueNegatives} / {populationSize}</text>
+
         {/* Bayes Result Box */}
-        <rect x="125" y="320" width="250" height="60" rx="8" fill="#fff7e0" stroke="#e0c070" strokeWidth="2" />
-        <text x="250" y="340" textAnchor="middle" fontSize="14" fontWeight="bold">If test is positive:</text>
-        <text x="250" y="365" textAnchor="middle" fontSize="14">
+        <rect x="125" y="320" width="250" height="60" rx="8" className="fill-[#fff7e0] dark:fill-[#3a3520]" stroke="#c0a050" strokeWidth="2" />
+        <text x="250" y="340" textAnchor="middle" fontSize="14" fontWeight="bold" className="fill-gray-900 dark:fill-gray-100">If test is positive:</text>
+        <text x="250" y="365" textAnchor="middle" fontSize="14" className="fill-gray-900 dark:fill-gray-100">
           P(Disease|Positive) = {(posteriorProbability * 100).toFixed(1)}%
         </text>
       </svg>
@@ -180,11 +180,11 @@ const BayesTheoremVisualizer = () => {
                 style={{ maxWidth: '100%' }}
               >
                 {/* Background annotation for True Negatives */}
-                <text 
-                  x="100" 
-                  y="320" 
-                  fontSize="14" 
-                  fill="#666"
+                <text
+                  x="100"
+                  y="320"
+                  fontSize="14"
+                  className="fill-[#666] dark:fill-gray-400"
                   fontWeight="bold"
                 >
                   True Negatives: {trueNegatives} ({(trueNegatives/populationSize*100).toFixed(1)}%)
@@ -211,55 +211,55 @@ const BayesTheoremVisualizer = () => {
                 />
                 
                 {/* Disease Label */}
-                <text 
-                  x={diseaseCenterX - 50} 
-                  y={centerY - 30} 
-                  fontSize="16" 
+                <text
+                  x={diseaseCenterX - 50}
+                  y={centerY - 30}
+                  fontSize="16"
                   fontWeight="bold"
-                  fill="#333"
+                  className="fill-[#333] dark:fill-gray-200"
                 >
                   Disease
                 </text>
-                <text 
-                  x={diseaseCenterX - 50} 
-                  y={centerY - 10} 
+                <text
+                  x={diseaseCenterX - 50}
+                  y={centerY - 10}
                   fontSize="14"
-                  fill="#333"
+                  className="fill-[#333] dark:fill-gray-200"
                 >
                   {diseaseCount} people
                 </text>
-                <text 
-                  x={diseaseCenterX - 50} 
-                  y={centerY + 10} 
+                <text
+                  x={diseaseCenterX - 50}
+                  y={centerY + 10}
                   fontSize="14"
-                  fill="#333"
+                  className="fill-[#333] dark:fill-gray-200"
                 >
                   ({(diseaseCount/populationSize*100).toFixed(1)}%)
                 </text>
-                
+
                 {/* Positive Test Label */}
-                <text 
-                  x={positiveCenterX + 20} 
-                  y={centerY - 30} 
-                  fontSize="16" 
+                <text
+                  x={positiveCenterX + 20}
+                  y={centerY - 30}
+                  fontSize="16"
                   fontWeight="bold"
-                  fill="#333"
+                  className="fill-[#333] dark:fill-gray-200"
                 >
                   Positive Test
                 </text>
-                <text 
-                  x={positiveCenterX + 20} 
-                  y={centerY - 10} 
+                <text
+                  x={positiveCenterX + 20}
+                  y={centerY - 10}
                   fontSize="14"
-                  fill="#333"
+                  className="fill-[#333] dark:fill-gray-200"
                 >
                   {totalPositives} people
                 </text>
-                <text 
-                  x={positiveCenterX + 20} 
-                  y={centerY + 10} 
+                <text
+                  x={positiveCenterX + 20}
+                  y={centerY + 10}
                   fontSize="14"
-                  fill="#333"
+                  className="fill-[#333] dark:fill-gray-200"
                 >
                   ({(totalPositives/populationSize*100).toFixed(1)}%)
                 </text>
@@ -326,16 +326,16 @@ const BayesTheoremVisualizer = () => {
             </div>
             
             {/* Bayes' Theorem Box */}
-            <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 rounded-lg text-center">
+            <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg text-center">
               <h4 className="text-xl font-bold mb-3 text-amber-800 dark:text-amber-300">Bayes' Theorem</h4>
               <div className="inline-block mx-auto text-center">
-                <div className="mb-2 font-mono text-lg">P(Disease|Positive) =</div>
+                <div className="mb-2 font-mono text-lg dark:text-gray-200">P(Disease|Positive) =</div>
                 <div className="flex flex-col items-center">
-                  <div className="px-4 font-mono">{truePositives} (true positives)</div>
-                  <div className="border-t border-gray-500 w-full my-1"></div>
-                  <div className="px-4 font-mono">{totalPositives} (all positives)</div>
+                  <div className="px-4 font-mono dark:text-gray-200">{truePositives} (true positives)</div>
+                  <div className="border-t border-gray-500 dark:border-gray-400 w-full my-1"></div>
+                  <div className="px-4 font-mono dark:text-gray-200">{totalPositives} (all positives)</div>
                 </div>
-                <div className="text-2xl font-bold mt-3">
+                <div className="text-2xl font-bold mt-3 dark:text-gray-100">
                   = {(posteriorProbability * 100).toFixed(1)}%
                 </div>
               </div>
@@ -344,8 +344,8 @@ const BayesTheoremVisualizer = () => {
           
           {/* Legend and Information */}
           <div className="md:w-80 flex-shrink-0">
-            <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border mb-4">
-              <h4 className="text-lg font-bold border-b pb-2 mb-3">Diagram Legend</h4>
+            <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border dark:border-gray-600 mb-4">
+              <h4 className="text-lg font-bold border-b dark:border-gray-600 pb-2 mb-3">Diagram Legend</h4>
               <div className="space-y-3">
                 <div className="flex items-start">
                   <div className="w-5 h-5 bg-blue-200 border border-blue-600 mr-2 mt-1 rounded"></div>
@@ -401,8 +401,8 @@ const BayesTheoremVisualizer = () => {
               </div>
             </div>
             
-            <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border">
-              <h4 className="text-lg font-bold border-b pb-2 mb-3">Base Rate Fallacy</h4>
+            <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border dark:border-gray-600">
+              <h4 className="text-lg font-bold border-b dark:border-gray-600 pb-2 mb-3">Base Rate Fallacy</h4>
               <p className="text-sm mb-2">
                 Many people expect a positive test to indicate a high probability of disease 
                 (close to the test's sensitivity of <strong>{(sensitivity * 100).toFixed(0)}%</strong>).
@@ -416,40 +416,40 @@ const BayesTheoremVisualizer = () => {
         </div>
         
         {/* Probability Breakdown - Bottom Card */}
-        <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border">
-          <h3 className="text-lg font-bold border-b pb-2 mb-4">Probability Breakdown</h3>
+        <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border dark:border-gray-600">
+          <h3 className="text-lg font-bold border-b dark:border-gray-600 pb-2 mb-4">Probability Breakdown</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="p-2 bg-white dark:bg-gray-700 rounded border dark:border-gray-600">
               <div className="font-mono text-sm mb-1">P(Disease)</div>
               <div className="text-xl font-bold">{prevalence.toFixed(4)}</div>
-              <div className="text-xs text-gray-500">Prior probability</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">Prior probability</div>
             </div>
             
             <div className="p-2 bg-white dark:bg-gray-700 rounded border dark:border-gray-600">
               <div className="font-mono text-sm mb-1">P(Positive|Disease)</div>
               <div className="text-xl font-bold">{sensitivity.toFixed(2)}</div>
-              <div className="text-xs text-gray-500">Sensitivity</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">Sensitivity</div>
             </div>
             
             <div className="p-2 bg-white dark:bg-gray-700 rounded border dark:border-gray-600">
               <div className="font-mono text-sm mb-1">P(Negative|No Disease)</div>
               <div className="text-xl font-bold">{specificity.toFixed(2)}</div>
-              <div className="text-xs text-gray-500">Specificity</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">Specificity</div>
             </div>
             
             <div className="p-2 bg-white dark:bg-gray-700 rounded border dark:border-gray-600">
               <div className="font-mono text-sm mb-1">P(Positive)</div>
               <div className="text-xl font-bold">{(totalPositives/populationSize).toFixed(4)}</div>
-              <div className="text-xs text-gray-500">Total positive rate</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">Total positive rate</div>
             </div>
           </div>
           
-          <div className="mt-4 pt-4 border-t text-center">
+          <div className="mt-4 pt-4 border-t dark:border-gray-600 text-center">
             <div className="font-mono text-lg mb-2">P(Disease|Positive)</div>
-            <div className="inline-block px-8 py-2 bg-yellow-100 rounded-lg border border-yellow-300">
+            <div className="inline-block px-8 py-2 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg border border-yellow-300 dark:border-yellow-700">
               <span className="text-3xl font-bold">{(posteriorProbability * 100).toFixed(1)}%</span>
             </div>
-            <div className="text-sm text-gray-500 mt-1">Posterior probability</div>
+            <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">Posterior probability</div>
           </div>
         </div>
       </div>
@@ -517,7 +517,7 @@ const BayesTheoremVisualizer = () => {
         </div>
       </div>
       
-      <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200">
+      <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
         <h3 className="text-lg font-semibold mb-2">Medical Test Example</h3>
         <p className="mb-4">
           Adjust the sliders to see how different values affect the final probability:
@@ -537,7 +537,7 @@ const BayesTheoremVisualizer = () => {
               onChange={handleInputChange(setPrevalence)} 
               className="w-full"
             />
-            <div className="text-sm text-gray-500">Base rate in population</div>
+            <div className="text-sm text-gray-500 dark:text-gray-400">Base rate in population</div>
           </div>
           
           <div>
@@ -553,7 +553,7 @@ const BayesTheoremVisualizer = () => {
               onChange={handleInputChange(setSensitivity)} 
               className="w-full"
             />
-            <div className="text-sm text-gray-500">True positive rate</div>
+            <div className="text-sm text-gray-500 dark:text-gray-400">True positive rate</div>
           </div>
           
           <div>
@@ -569,34 +569,34 @@ const BayesTheoremVisualizer = () => {
               onChange={handleInputChange(setSpecificity)} 
               className="w-full"
             />
-            <div className="text-sm text-gray-500">True negative rate</div>
+            <div className="text-sm text-gray-500 dark:text-gray-400">True negative rate</div>
           </div>
         </div>
       </div>
       
       <div className="mb-2">
-        <div className="border-b border-gray-200">
+        <div className="border-b border-gray-200 dark:border-gray-700">
           <nav className="flex flex-wrap">
             <button
-              className={`px-4 py-2 font-medium ${activeTab === 'interactive' ? 'text-blue-600 border-b-2 border-blue-500' : 'text-gray-500 hover:text-gray-700'}`}
+              className={`px-4 py-2 font-medium ${activeTab === 'interactive' ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-500 dark:border-blue-400' : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'}`}
               onClick={() => setActiveTab('interactive')}
             >
               2×2 Table
             </button>
             <button
-              className={`px-4 py-2 font-medium ${activeTab === 'tree' ? 'text-blue-600 border-b-2 border-blue-500' : 'text-gray-500 hover:text-gray-700'}`}
+              className={`px-4 py-2 font-medium ${activeTab === 'tree' ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-500 dark:border-blue-400' : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'}`}
               onClick={() => setActiveTab('tree')}
             >
               Tree Diagram
             </button>
             <button
-              className={`px-4 py-2 font-medium ${activeTab === 'venn' ? 'text-blue-600 border-b-2 border-blue-500' : 'text-gray-500 hover:text-gray-700'}`}
+              className={`px-4 py-2 font-medium ${activeTab === 'venn' ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-500 dark:border-blue-400' : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'}`}
               onClick={() => setActiveTab('venn')}
             >
               Venn Diagram
             </button>
             <button
-              className={`px-4 py-2 font-medium ${activeTab === 'visual-proof' ? 'text-blue-600 border-b-2 border-blue-500' : 'text-gray-500 hover:text-gray-700'}`}
+              className={`px-4 py-2 font-medium ${activeTab === 'visual-proof' ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-500 dark:border-blue-400' : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'}`}
               onClick={() => setActiveTab('visual-proof')}
             >
               Visual Proof
@@ -612,7 +612,7 @@ const BayesTheoremVisualizer = () => {
         {activeTab === 'visual-proof' && <VisualProof />}
       </div>
       
-      <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border">
+      <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border dark:border-gray-600">
         <h3 className="text-lg font-semibold mb-2">Key Insights</h3>
         <ul className="space-y-2">
           <li>• When a disease is rare (low prevalence), even a highly accurate test can result in many false positives.</li>
