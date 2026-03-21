@@ -729,8 +729,8 @@ const OrbitalMechanicsVisualizer = () => {
                 onClick={() => handlePreset(key)}
                 className={`px-3 py-1.5 text-sm rounded-md border transition-colors ${
                   activePreset === key
-                    ? 'bg-indigo-100 border-indigo-400 text-indigo-800 font-medium'
-                    : 'bg-gray-50 hover:bg-gray-100 dark:bg-gray-600 border-gray-300 text-gray-700'
+                    ? 'bg-indigo-100 dark:bg-indigo-900 border-indigo-400 dark:border-indigo-500 text-indigo-800 dark:text-indigo-200 font-medium'
+                    : 'bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300'
                 }`}
               >
                 {p.label}
@@ -809,7 +809,7 @@ const OrbitalMechanicsVisualizer = () => {
                     key={i}
                     onClick={() => setSelectedBody(selectedBody === i ? null : i)}
                     className={`flex items-center text-xs px-2 py-1 rounded cursor-pointer transition-colors ${
-                      selectedBody === i ? 'bg-indigo-50 border border-indigo-300' : 'bg-gray-50 hover:bg-gray-100 dark:bg-gray-600 border border-transparent'
+                      selectedBody === i ? 'bg-indigo-50 dark:bg-indigo-900/50 border border-indigo-300 dark:border-indigo-500' : 'bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 border border-transparent'
                     }`}
                   >
                     <span className="inline-block w-3 h-3 rounded-full flex-shrink-0 mr-2" style={{ backgroundColor: b.color }} />
@@ -827,23 +827,23 @@ const OrbitalMechanicsVisualizer = () => {
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
-          <div className="p-2.5 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
+          <div className="p-2.5 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 text-center">
             <p className="text-[10px] text-gray-500 uppercase tracking-wide">Kinetic Energy</p>
             <p className="text-base font-mono font-bold text-red-500">{stats.KE}</p>
           </div>
-          <div className="p-2.5 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
+          <div className="p-2.5 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 text-center">
             <p className="text-[10px] text-gray-500 uppercase tracking-wide">Potential Energy</p>
             <p className="text-base font-mono font-bold text-blue-500">{stats.PE}</p>
           </div>
-          <div className="p-2.5 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
+          <div className="p-2.5 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 text-center">
             <p className="text-[10px] text-gray-500 uppercase tracking-wide">Total Energy</p>
             <p className="text-base font-mono font-bold text-green-600">{stats.total}</p>
           </div>
-          <div className="p-2.5 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
+          <div className="p-2.5 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 text-center">
             <p className="text-[10px] text-gray-500 uppercase tracking-wide">Angular Mom.</p>
             <p className="text-base font-mono font-bold text-purple-500">{stats.angularMom}</p>
           </div>
-          <div className="p-2.5 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 text-center">
+          <div className="p-2.5 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 text-center">
             <p className="text-[10px] text-gray-500 uppercase tracking-wide">Elapsed</p>
             <p className="text-base font-mono font-bold text-gray-700 dark:text-gray-300">{stats.time}s</p>
           </div>

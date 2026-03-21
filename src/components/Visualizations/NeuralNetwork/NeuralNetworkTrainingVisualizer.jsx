@@ -458,7 +458,7 @@ const NeuralNetworkTrainingVisualizer = () => {
               <select
                 value={datasetType}
                 onChange={(e) => setDatasetType(e.target.value)}
-                className="block w-full p-2 border border-gray-300 rounded-md"
+                className="block w-full p-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 rounded-md"
                 disabled={isTraining}
               >
                 <option value="circles">Concentric Circles</option>
@@ -500,7 +500,7 @@ const NeuralNetworkTrainingVisualizer = () => {
               />
             </div>
             
-            <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200">
+            <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600">
               <h3 className="text-md font-medium mb-2">Network Architecture</h3>
               
               <div className="mb-3">
@@ -516,7 +516,7 @@ const NeuralNetworkTrainingVisualizer = () => {
                         max="50"
                         value={neurons}
                         onChange={(e) => updateHiddenLayers(index, e.target.value)}
-                        className="w-20 p-1 border border-gray-300 rounded-md"
+                        className="w-20 p-1 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 rounded-md"
                         disabled={isTraining}
                       />
                       <span className="text-sm text-gray-600 dark:text-gray-400">neurons in layer {index + 1}</span>
@@ -531,7 +531,7 @@ const NeuralNetworkTrainingVisualizer = () => {
                   ))}
                   <button
                     onClick={addHiddenLayer}
-                    className="px-3 py-1 bg-gray-200 text-gray-700 dark:text-gray-300 rounded-md text-sm hover:bg-gray-300 transition-colors self-start"
+                    className="px-3 py-1 bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-md text-sm hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors self-start"
                     disabled={networkConfig.hiddenLayers.length >= 5 || isTraining}
                   >
                     + Add Layer
@@ -547,7 +547,7 @@ const NeuralNetworkTrainingVisualizer = () => {
                   <select
                     value={networkConfig.activation}
                     onChange={(e) => setNetworkConfig({...networkConfig, activation: e.target.value})}
-                    className="block w-full p-1 border border-gray-300 rounded-md text-sm"
+                    className="block w-full p-1 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 rounded-md text-sm"
                     disabled={isTraining}
                   >
                     <option value="sigmoid">Sigmoid</option>
@@ -626,14 +626,14 @@ const NeuralNetworkTrainingVisualizer = () => {
                 id="showBoundary"
                 checked={showBoundary}
                 onChange={() => setShowBoundary(!showBoundary)}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 dark:border-gray-600 rounded"
               />
               <label htmlFor="showBoundary" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
                 Show Decision Boundary
               </label>
             </div>
             
-            <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200">
+            <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600">
               <h3 className="text-md font-medium mb-2">Training Metrics</h3>
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded">
@@ -670,7 +670,7 @@ const NeuralNetworkTrainingVisualizer = () => {
               ref={canvasRef} 
               width={500} 
               height={500} 
-              className="border border-gray-300 rounded-lg w-full h-auto cursor-crosshair"
+              className="border border-gray-300 dark:border-gray-600 rounded-lg w-full h-auto cursor-crosshair"
               onClick={handleCanvasClick}
             />
             

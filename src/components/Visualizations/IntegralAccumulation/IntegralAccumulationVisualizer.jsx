@@ -216,7 +216,7 @@ const IntegralAccumulationVisualizer = () => {
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Function</label>
             <select
-              className="w-full p-2 border border-gray-300 rounded-md"
+              className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
               value={functionId}
               onChange={(event) => onFunctionChange(event.target.value)}
             >
@@ -226,13 +226,13 @@ const IntegralAccumulationVisualizer = () => {
                 </option>
               ))}
             </select>
-            <p className="text-xs text-gray-500 mt-2">{preset.description}</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">{preset.description}</p>
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Approximation Method</label>
             <select
-              className="w-full p-2 border border-gray-300 rounded-md"
+              className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
               value={method}
               onChange={(event) => setMethod(event.target.value)}
             >
@@ -241,7 +241,7 @@ const IntegralAccumulationVisualizer = () => {
               <option value={APPROXIMATION_METHODS.MIDPOINT}>Midpoint Riemann Sum</option>
               <option value={APPROXIMATION_METHODS.TRAPEZOID}>Trapezoidal Rule</option>
             </select>
-            <p className="text-xs text-gray-500 mt-2">{getMethodDescription(method)}</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">{getMethodDescription(method)}</p>
           </div>
 
           <div>
@@ -256,7 +256,7 @@ const IntegralAccumulationVisualizer = () => {
               onChange={(event) => setSubintervals(parseInt(event.target.value, 10))}
               className="w-full"
             />
-            <p className="text-xs text-gray-500 mt-2">
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
               More subintervals generally reduce approximation error.
             </p>
           </div>
@@ -265,7 +265,7 @@ const IntegralAccumulationVisualizer = () => {
             <button
               type="button"
               onClick={resetControls}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100"
             >
               Reset Controls
             </button>
@@ -306,27 +306,27 @@ const IntegralAccumulationVisualizer = () => {
       </div>
 
       <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md p-4 md:p-6 overflow-x-auto">
-        <svg width={SVG_WIDTH} height={SVG_HEIGHT} viewBox={`0 0 ${SVG_WIDTH} ${SVG_HEIGHT}`} className="min-w-[720px]">
-          <line x1={PADDING} y1={xAxisY} x2={SVG_WIDTH - PADDING} y2={xAxisY} stroke="#94a3b8" strokeWidth="1.5" />
-          <line x1={yAxisX} y1={PADDING} x2={yAxisX} y2={SVG_HEIGHT - PADDING} stroke="#94a3b8" strokeWidth="1.5" />
+        <svg width={SVG_WIDTH} height={SVG_HEIGHT} viewBox={`0 0 ${SVG_WIDTH} ${SVG_HEIGHT}`} className="min-w-[720px] text-slate-700 dark:text-slate-300">
+          <line x1={PADDING} y1={xAxisY} x2={SVG_WIDTH - PADDING} y2={xAxisY} stroke="currentColor" strokeOpacity="0.5" strokeWidth="1.5" />
+          <line x1={yAxisX} y1={PADDING} x2={yAxisX} y2={SVG_HEIGHT - PADDING} stroke="currentColor" strokeOpacity="0.5" strokeWidth="1.5" />
 
           {partitionShapes.map((shape) => renderApproximationShape(shape))}
 
-          <path d={curvePath} fill="none" stroke="#0f172a" strokeWidth="2.4" />
+          <path d={curvePath} fill="none" stroke="currentColor" strokeWidth="2.4" />
 
-          <line x1={xToPx(a)} y1={PADDING} x2={xToPx(a)} y2={SVG_HEIGHT - PADDING} stroke="#64748b" strokeDasharray="5 4" />
-          <line x1={xToPx(b)} y1={PADDING} x2={xToPx(b)} y2={SVG_HEIGHT - PADDING} stroke="#64748b" strokeDasharray="5 4" />
+          <line x1={xToPx(a)} y1={PADDING} x2={xToPx(a)} y2={SVG_HEIGHT - PADDING} stroke="currentColor" strokeOpacity="0.4" strokeDasharray="5 4" />
+          <line x1={xToPx(b)} y1={PADDING} x2={xToPx(b)} y2={SVG_HEIGHT - PADDING} stroke="currentColor" strokeOpacity="0.4" strokeDasharray="5 4" />
 
-          <text x={xToPx(a)} y={SVG_HEIGHT - PADDING + 20} textAnchor="middle" fontSize="12" fill="#334155">
+          <text x={xToPx(a)} y={SVG_HEIGHT - PADDING + 20} textAnchor="middle" fontSize="12" fill="currentColor">
             a = {toDisplay(a, 2)}
           </text>
-          <text x={xToPx(b)} y={SVG_HEIGHT - PADDING + 20} textAnchor="middle" fontSize="12" fill="#334155">
+          <text x={xToPx(b)} y={SVG_HEIGHT - PADDING + 20} textAnchor="middle" fontSize="12" fill="currentColor">
             b = {toDisplay(b, 2)}
           </text>
-          <text x={SVG_WIDTH - PADDING} y={xAxisY - 8} textAnchor="end" fontSize="12" fill="#334155">
+          <text x={SVG_WIDTH - PADDING} y={xAxisY - 8} textAnchor="end" fontSize="12" fill="currentColor">
             x
           </text>
-          <text x={yAxisX + 10} y={PADDING + 10} fontSize="12" fill="#334155">
+          <text x={yAxisX + 10} y={PADDING + 10} fontSize="12" fill="currentColor">
             y
           </text>
         </svg>
