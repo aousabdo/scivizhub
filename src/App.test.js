@@ -3,8 +3,17 @@ import App from './App';
 
 jest.mock('./pages/Visualization/DerivativeExplorer', () => () => <div>Derivative Explorer</div>);
 
-beforeAll(() => {
-  window.scrollTo = jest.fn();
+beforeEach(() => {
+  window.matchMedia = jest.fn().mockImplementation((query) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  }));
 });
 
 test('renders SciVizHub homepage title', () => {
