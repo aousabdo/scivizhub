@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import VisualizationToolbar from '../../UI/VisualizationToolbar';
+import useComputeWorker from '../../../hooks/useComputeWorker';
 
 const PRESETS = [
   { name: 'Full View', type: 'mandelbrot', centerX: -0.5, centerY: 0, zoom: 1, maxIter: 150, juliaR: -0.7, juliaI: 0.27015 },
@@ -87,103 +88,33 @@ const FractalExplorerVisualizer = () => {
 
   const canvasRef = useRef(null);
   const minimapCanvasRef = useRef(null);
-  const renderIdRef = useRef(0);
+  const minimapRenderedRef = useRef(false);
 
-  const computeFractal = useCallback((cx, cy, zoomLevel, type, maxIter, jR, jI) => {
-    const width = CANVAS_WIDTH;
-    const height = CANVAS_HEIGHT;
-    const imageData = new Uint8ClampedArray(width * height * 4);
-    const iterCounts = new Float64Array(width * height);
+  // Web Worker for fractal computation
+  const workerFactory = useCallback(
+    () => new Worker(new URL('../../../workers/fractal.worker.js', import.meta.url)),
+    []
+  );
+  const { postMessage: postWorker, result: workerResult, computing: workerComputing } = useComputeWorker(workerFactory);
 
-    const scale = 3.0 / (zoomLevel * Math.min(width, height));
-    const offsetX = cx;
-    const offsetY = cy;
-
-    for (let py = 0; py < height; py++) {
-      for (let px = 0; px < width; px++) {
-        const x0 = (px - width / 2) * scale + offsetX;
-        const y0 = (py - height / 2) * scale + offsetY;
-
-        let zx, zy, cr, ci;
-
-        if (type === 'julia') {
-          zx = x0;
-          zy = y0;
-          cr = jR;
-          ci = jI;
-        } else {
-          zx = 0;
-          zy = 0;
-          cr = x0;
-          ci = y0;
-        }
-
-        let iter = 0;
-        let zx2 = zx * zx;
-        let zy2 = zy * zy;
-
-        while (zx2 + zy2 <= 4 && iter < maxIter) {
-          if (type === 'burningship') {
-            zy = Math.abs(2 * zx * zy) + ci;
-            zx = zx2 - zy2 + cr;
-          } else {
-            zy = 2 * zx * zy + ci;
-            zx = zx2 - zy2 + cr;
-          }
-          zx2 = zx * zx;
-          zy2 = zy * zy;
-          iter++;
-        }
-
-        let smoothIter = iter;
-        if (iter < maxIter) {
-          // Smooth coloring: n + 1 - log(log(|z|))/log(2)
-          const logZn = Math.log(zx2 + zy2) / 2;
-          const nu = Math.log(logZn / Math.LN2) / Math.LN2;
-          smoothIter = iter + 1 - nu;
-          if (isNaN(smoothIter) || smoothIter < 0) smoothIter = 0;
-        }
-
-        iterCounts[py * width + px] = smoothIter;
-      }
-    }
-
-    return { iterCounts, width, height };
-  }, []);
-
-  const renderToCanvas = useCallback((iterCounts, width, height, maxIter, scheme, canvas) => {
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+  // Paint worker result to canvas when it arrives
+  useEffect(() => {
+    if (!workerResult || !canvasRef.current) return;
+    const { imageBuffer, histogram: hist, width, height } = workerResult;
+    const ctx = canvasRef.current.getContext('2d');
     const imgData = ctx.createImageData(width, height);
-    const data = imgData.data;
-
-    // Build histogram for display
-    const histBuckets = 32;
-    const hist = new Array(histBuckets).fill(0);
-
-    for (let i = 0; i < width * height; i++) {
-      const smoothIter = iterCounts[i];
-      const t = smoothIter >= maxIter ? 0 : (smoothIter % 40) / 40;
-      const [r, g, b] = getColor(scheme, t);
-
-      const idx = i * 4;
-      data[idx] = r;
-      data[idx + 1] = g;
-      data[idx + 2] = b;
-      data[idx + 3] = 255;
-
-      // histogram
-      if (smoothIter < maxIter) {
-        const bucket = Math.min(histBuckets - 1, Math.floor((smoothIter / maxIter) * histBuckets));
-        hist[bucket]++;
-      }
-    }
-
+    imgData.data.set(new Uint8ClampedArray(imageBuffer));
     ctx.putImageData(imgData, 0, 0);
-    return hist;
-  }, []);
+    setHistogram(hist);
+    setRendering(false);
+  }, [workerResult]);
 
-  // Render minimap (always full Mandelbrot view)
+  // Sync rendering with workerComputing state
+  useEffect(() => {
+    if (workerComputing) setRendering(true);
+  }, [workerComputing]);
+
+  // Render minimap (always full Mandelbrot view — lightweight, stays on main thread)
   const renderMinimap = useCallback(() => {
     const canvas = minimapCanvasRef.current;
     if (!canvas) return;
@@ -231,27 +162,26 @@ const FractalExplorerVisualizer = () => {
     ctx.strokeRect(left, top, rw, rh);
   }, [centerX, centerY, zoom]);
 
-  // Main render
+  // Main render — dispatch to worker
   useEffect(() => {
-    const currentRenderId = ++renderIdRef.current;
     setRendering(true);
-
-    // Use requestAnimationFrame to keep UI responsive
-    requestAnimationFrame(() => {
-      if (currentRenderId !== renderIdRef.current) return;
-
-      const result = computeFractal(centerX, centerY, zoom, fractalType, maxIterations, juliaReal, juliaImag);
-      if (currentRenderId !== renderIdRef.current) return;
-
-      const hist = renderToCanvas(result.iterCounts, result.width, result.height, maxIterations, colorScheme, canvasRef.current);
-      setHistogram(hist);
-      setRendering(false);
-
-      if (fractalType === 'mandelbrot') {
-        renderMinimap();
-      }
+    postWorker({
+      width: CANVAS_WIDTH,
+      height: CANVAS_HEIGHT,
+      centerX,
+      centerY,
+      zoom,
+      type: fractalType,
+      maxIter: maxIterations,
+      juliaR: juliaReal,
+      juliaI: juliaImag,
+      colorScheme,
     });
-  }, [fractalType, maxIterations, colorScheme, juliaReal, juliaImag, centerX, centerY, zoom, computeFractal, renderToCanvas, renderMinimap]);
+
+    if (fractalType === 'mandelbrot') {
+      renderMinimap();
+    }
+  }, [fractalType, maxIterations, colorScheme, juliaReal, juliaImag, centerX, centerY, zoom, postWorker, renderMinimap]);
 
   const handleCanvasClick = useCallback((e) => {
     const canvas = canvasRef.current;
