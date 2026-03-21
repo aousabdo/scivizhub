@@ -322,7 +322,7 @@ const EigenGeometryVisualizer = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
+        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-5">
           <h3 className="text-lg font-semibold text-blue-900 mb-3">Matrix + Invariants</h3>
           <div className="text-blue-900 space-y-1 text-sm">
             <p>
@@ -335,7 +335,7 @@ const EigenGeometryVisualizer = () => {
           </div>
         </div>
 
-        <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-5">
+        <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-5">
           <h3 className="text-lg font-semibold text-emerald-900 mb-3">Eigenvalues</h3>
           {eigenData.type === 'complex' ? (
             <div className="text-emerald-900 space-y-1 text-sm">
@@ -353,7 +353,7 @@ const EigenGeometryVisualizer = () => {
           )}
         </div>
 
-        <div className="bg-amber-50 border border-amber-200 rounded-lg p-5">
+        <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-5">
           <h3 className="text-lg font-semibold text-amber-900 mb-3">Eigenvectors</h3>
           {eigenData.type === 'real' ? (
             <div className="text-amber-900 text-sm space-y-1">

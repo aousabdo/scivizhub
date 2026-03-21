@@ -871,7 +871,7 @@ const BinarySearchTreeVisualizer = () => {
 
       {/* Traversal result */}
       {traversalResult && (
-        <div className="bg-violet-50 border border-violet-200 rounded-lg px-4 py-2 mb-2 text-sm text-violet-800">
+        <div className="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 rounded-lg px-4 py-2 mb-2 text-sm text-violet-800 dark:text-violet-300">
           <span className="font-semibold">Traversal:</span> [{traversalResult}]
         </div>
       )}

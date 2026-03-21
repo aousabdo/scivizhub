@@ -364,7 +364,7 @@ const ProjectileMotionVisualizer = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
+        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-5">
           <h3 className="text-xl font-semibold text-blue-900 mb-3">Simulated Results</h3>
           <div className="space-y-2 text-blue-900">
             <p>Time of flight: {formatStat(trajectory.metrics.timeOfFlight, ' s')}</p>
@@ -374,7 +374,7 @@ const ProjectileMotionVisualizer = () => {
           </div>
         </div>
 
-        <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-5">
+        <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-5">
           <h3 className="text-xl font-semibold text-emerald-900 mb-3">Vacuum Baseline (Analytic)</h3>
           {noDragMetrics ? (
             <div className="space-y-2 text-emerald-900">

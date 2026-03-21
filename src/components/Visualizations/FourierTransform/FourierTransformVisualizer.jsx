@@ -411,7 +411,7 @@ const FourierTransformVisualizer = () => {
                     onMouseMove={draw}
                     onMouseUp={endDrawing}
                     onMouseLeave={endDrawing}
-                    className="w-full bg-gray-50"
+                    className="w-full bg-gray-50 dark:bg-gray-700"
                   />
                 </div>
                 <p className="text-xs text-gray-500 mt-1">Click and drag to draw a custom signal</p>
@@ -683,7 +683,7 @@ const FourierTransformVisualizer = () => {
           <li>Observe how different signals have unique frequency spectra</li>
         </ul>
         
-        <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+        <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
           <h4 className="font-semibold mb-2">Key Observations:</h4>
           <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
             <li>A pure sine wave has a single frequency component</li>

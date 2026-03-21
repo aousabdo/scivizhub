@@ -651,7 +651,7 @@ const HypothesisTestingVisualizer = () => {
 
       {/* Metrics Panel */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-        <div className="bg-red-50 rounded-lg border border-red-200 p-4 text-center">
+        <div className="bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800 p-4 text-center">
           <div className="text-xs font-semibold text-red-600 uppercase tracking-wide mb-1">
             Type I Error (&alpha;)
           </div>
@@ -663,7 +663,7 @@ const HypothesisTestingVisualizer = () => {
           </div>
         </div>
 
-        <div className="bg-amber-50 rounded-lg border border-amber-200 p-4 text-center">
+        <div className="bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-800 p-4 text-center">
           <div className="text-xs font-semibold text-amber-600 uppercase tracking-wide mb-1">
             Type II Error (&beta;)
           </div>
@@ -675,7 +675,7 @@ const HypothesisTestingVisualizer = () => {
           </div>
         </div>
 
-        <div className="bg-green-50 rounded-lg border border-green-200 p-4 text-center">
+        <div className="bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800 p-4 text-center">
           <div className="text-xs font-semibold text-green-600 uppercase tracking-wide mb-1">
             Power (1 &minus; &beta;)
           </div>
@@ -687,7 +687,7 @@ const HypothesisTestingVisualizer = () => {
           </div>
         </div>
 
-        <div className="bg-blue-50 rounded-lg border border-blue-200 p-4 text-center">
+        <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800 p-4 text-center">
           <div className="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-1">
             Effect Size
           </div>

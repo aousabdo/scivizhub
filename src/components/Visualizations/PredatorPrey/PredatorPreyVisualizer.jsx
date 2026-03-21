@@ -648,11 +648,11 @@ const PredatorPreyVisualizer = () => {
         <div className="flex-1 space-y-4">
           {/* Real-time Stats */}
           <div className="flex flex-wrap gap-3">
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-green-50 rounded-lg border border-green-200">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
               <span className="w-3 h-3 rounded-full bg-green-600 inline-block"></span>
               <span className="text-sm font-medium">Prey (Rabbits): <strong>{stats.prey}</strong></span>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-red-50 rounded-lg border border-red-200">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800">
               <span className="w-3 h-3 rounded-full bg-red-600 inline-block"></span>
               <span className="text-sm font-medium">Predators (Wolves): <strong>{stats.predators}</strong></span>
             </div>

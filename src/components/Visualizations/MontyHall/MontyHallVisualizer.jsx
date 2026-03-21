@@ -346,7 +346,7 @@ const MontyHallVisualizer = () => {
           </div>
 
           {lastBatch && (
-            <div className="mt-5 p-4 rounded-lg bg-gray-50 border border-gray-200 text-sm">
+            <div className="mt-5 p-4 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-sm">
               Last batch ({lastBatch.trials.toLocaleString()} trials):
               {' '}
               stay won {lastBatch.stayWins.toLocaleString()} times, switch won {lastBatch.switchWins.toLocaleString()} times.
@@ -356,17 +356,17 @@ const MontyHallVisualizer = () => {
 
         <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md p-6 space-y-4">
           <h3 className="text-xl font-bold">Quick Insights</h3>
-          <div className="p-4 rounded-lg bg-blue-50 border border-blue-200">
+          <div className="p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
             <p className="text-sm text-blue-900">
               Manual rounds: {manualStats.wins} wins, {manualStats.losses} losses ({manualWinRate}% win rate).
             </p>
           </div>
-          <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200">
+          <div className="p-4 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800">
             <p className="text-sm text-emerald-900">
               Theory predicts about 33.3% wins for stay and 66.7% wins for switch.
             </p>
           </div>
-          <div className="p-4 rounded-lg bg-amber-50 border border-amber-200">
+          <div className="p-4 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800">
             <p className="text-sm text-amber-900">
               Current measured switch advantage: {switchAdvantage}% points.
             </p>

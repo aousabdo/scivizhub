@@ -654,7 +654,7 @@ const ReactionKineticsVisualizer = () => {
 
       {/* Le Chatelier Hint */}
       {reactionType === 'reversible' && running && (
-        <div className="mt-4 bg-amber-50 border border-amber-200 rounded-lg p-4 text-sm text-amber-800">
+        <div className="mt-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 text-sm text-amber-800">
           <strong>Le Chatelier&apos;s Principle:</strong> Try changing the temperature, volume, or adding a catalyst
           while the simulation is running. Watch how the system shifts to re-establish equilibrium.
         </div>

@@ -873,7 +873,7 @@ const WaveInterferenceVisualizer = () => {
             <li><strong>Diffraction:</strong> Waves bending around barriers and through slits (try the Double Slit preset).</li>
           </ul>
 
-          <div className="p-3 border border-gray-200 rounded-lg bg-blue-50 mt-4">
+          <div className="p-3 border border-gray-200 dark:border-gray-700 rounded-lg bg-blue-50 dark:bg-blue-900/20 mt-4">
             <h4 className="font-semibold mb-2">Try This:</h4>
             <ul className="list-disc list-inside space-y-1">
               <li>Place two sources and observe the characteristic hyperbolic nodal lines</li>

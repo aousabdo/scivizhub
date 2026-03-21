@@ -954,7 +954,7 @@ const drawGrid = (ctx, gridPoints, color) => {
           </div>
         </div>
         
-        <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+        <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
           <h4 className="font-semibold text-lg mb-2">Applications</h4>
           <p className="mb-2">
             Matrix transformations are fundamental in many fields:
